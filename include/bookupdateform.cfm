@@ -1,0 +1,156 @@
+<cfinclude template="/include/qry/audplatforms_sel.cfm" />
+<cfinclude template="/include/qry/incometypes_sel.cfm" />
+<cfinclude template="/include/qry/audpaycyles_sel.cfm" />
+
+<cfquery name="book_det" datasource="#dsn#">
+SELECT c.audcatname,c.audcatid,r.audroleid,r.incometypeid,r.payrate,r.netincome,r.buyout
+,pc.paycycleid
+,pc.paycyclename
+    FROM audroles r 
+    inner join audprojects p on p.audprojectid = r.audprojectid
+    inner join audsubcategories s on s.audsubcatid = p.audsubcatid
+    inner join audcategories c ON c.audcatid = s.audcatid
+    LEFT OUTER join audpaycycles pc on pc.paycycleid = r.paycycleid
+    WHERE r.audroleid = #audroleid#
+</cfquery>
+
+     <Cfif #book_det.incometypeid# is not "1">
+ <style>
+     
+
+    #hidden_divs {
+        display: none;
+    }
+
+</style>
+         
+                 </cfif>
+
+
+<cfset dbug = "N" />
+     <script src="/app/assets/js/jquery.chained.js"></script>
+
+
+<p>Enter the information below and press the update button to continue.</p>
+
+<form action="/include/bookupdateform2.cfm" method="post"  class="parsley-examples" name="event-form" id="form-event"  data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"
+  data-parsley-trigger="keyup" data-parsley-validate>
+<cfoutput> 
+      <input type="hidden" name="focusid" value="#focusid#" />
+         <input type="hidden" name="audprojectid" value="#audprojectid#" />
+        <input type="hidden" name="new_userid" value="#userid#" />
+       <input type="hidden" name="audid" value="#audid#" />
+       <input type="hidden" name="secid" value="#secid#" />     
+    <input type="hidden" name="new_audroleid" value="#audroleid#" />
+</cfoutput>
+    
+           <script>
+                                    function showDivs(divId, element) {
+                                        document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+                                    }
+                                </script>
+    
+    
+    <div class="row" >
+        
+        
+        <div class="form-group col-md-6 col-sm-12">
+    <label for="new_incometypeid">Income Type</label>
+
+    <select id="new_incometypeid" name="new_incometypeid" class="form-control"  onChange="showDivs('hidden_divs', this);" >
+  
+
+        <cfoutput query="incometypes_sel">
+            <option value="#incometypes_sel.id#" <cfif #incometypes_sel.id# is "#book_det.incometypeid#">selected</cfif> >#incometypes_sel.name# </option>
+        </cfoutput>
+
+    </select>
+
+
+</div>      
+
+
+    <div class="form-group col-md-6 col-sm-12">
+        
+         <div id="hidden_divs">
+             
+             
+        <cfoutput>
+<label for="new_netincome">Net Income ($)</label>
+        <input class="form-control"  id="new_netincome" name="new_netincome"  value="#book_det.netincome#" placeholder="netincome"  type="number" data-parsley-type="integer">
+
+        <div class="invalid-feedback">
+            Please enter a Net Income.
+        </div>
+</cfoutput>
+             
+        </div>
+</div>   
+
+
+        
+<cfoutput>
+        
+<div class="form-group col-md-6 col-sm-12">
+<label for="new_payrate">Payrate ($)</label>
+        <input class="form-control"  id="new_payrate" name="new_payrate"  value="#book_det.payrate#" placeholder="Payrate"   type="number" data-parsley-type="integer">
+
+        <div class="invalid-feedback">
+            Please enter a Payrate.
+        </div>
+    
+    </cfoutput>
+    
+    
+    </div>   
+
+
+<div class="form-group col-md-6 col-sm-12">
+<label for="new_payrate">Pay Cycle</label>
+    <select id="new_paycycleid" name="new_paycycleid" class="form-control"  >
+  
+
+        <cfoutput query="audpaycyles_sel">
+            <option value="#audpaycyles_sel.id#" <cfif #audpaycyles_sel.id# is "#book_det.paycycleid#">selected</cfif> >#audpaycyles_sel.name# </option>
+        </cfoutput>
+
+    </select>
+ 
+
+     
+</div>
+
+<cfoutput>
+    
+    
+    
+
+    
+    <cfif #book_det.audcatname# is "Commercial">
+    <div class="form-group col-md-6 col-sm-12">
+<label for="new_buyout">Buyout ($)</label>
+        <input class="form-control"  id="new_buyout" name="new_buyout"  value="#book_det.buyout#" placeholder="buyout"  type="number" data-parsley-type="integer">
+
+        <div class="invalid-feedback">
+            Please enter a Net Income.
+        </div>
+
+</div>   
+        <cfelse>
+            
+            <input type="hidden" name="new_buyout"  value="#book_det.buyout#" />
+    
+    </cfif>
+       <div class="form-group text-center  col-md-12">
+        <button class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="background-color: ##406e8e; border: ##406e8e;" type="submit">Update</button>
+    </div>
+    
+        
+        </cfoutput>
+        
+
+    </div>
+
+
+
+</form>

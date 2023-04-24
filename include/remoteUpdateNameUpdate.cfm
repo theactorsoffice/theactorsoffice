@@ -1,0 +1,75 @@
+<CFINCLUDE template="/include/remote_load.cfm" />
+
+<cfparam name="deleteitem" default="0" /> 
+ <cfparam name="valuetext" default="" /> 
+
+ <cfparam name="custompronoun" default="" /> 
+
+    
+
+<cfoutput>
+contactpronoun: #contactpronoun#<BR>
+    custom: #custom#<BR>
+
+</cfoutput>
+
+
+<cfquery name="update" datasource="#dsn#" >
+UPDATE contactdetails
+SET contactfirst = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactfirst)#" />
+           ,contactlast = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactlast)#" />  
+
+    ,contactSuffix = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactSuffix)#" />
+    
+    <cfif #contactPronoun# is "custom">
+    ,contactPronoun = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(custom)#" />
+ <cfelse>
+     ,contactPronoun = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactPronoun)#" />
+     </cfif>
+           <cfif #contactbirthday# is not "">
+    ,contactbirthday = <cfqueryparam cfsqltype="cf_sql_date" value="#contactbirthday#" /> 
+    </cfif>
+            
+ 
+    
+            <cfif #contactmeetingdate# is not "">
+    ,contactmeetingdate = <cfqueryparam cfsqltype="cf_sql_date" value="#contactmeetingdate#" /> 
+    </cfif>
+     ,contactmeetingloc = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactmeetingloc)#" />
+                
+    <cfif #deleteitem# is "1">
+    ,isdeleted = 1
+    </cfif>
+    
+
+WHERE contactid = #contactid#
+</cfquery>
+
+  <cfif #contactbirthday# is not "">
+      
+  <cfinclude template="/include/birthday_fix.cfm" >    
+</cfif>
+      
+      
+      
+<cfif  #custom# is not "" and #contactPronoun# is "custom">
+      <cfquery name="find" datasource="#dsn#" >
+      SELECT * from genderpronouns_users where userid = #session.userid# and genderPronoun = '#custom#'
+    </cfquery>
+    
+    <cfif #find.recordcount# is "0">
+    
+     <cfquery name="add" datasource="#dsn#" >
+      insert into genderpronouns_users_tbl
+         (userid,isDeleted,isCustom,genderpronoun,genderpronounPlural)
+         Values (#session.userid#,0,1,'#custom#','#custom#')
+        </cfquery>
+    </cfif>
+      
+      
+      </cfif>      
+
+
+<cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 
+
+<cflocation url="/app/contact/?contactid=#contactid#" /> 

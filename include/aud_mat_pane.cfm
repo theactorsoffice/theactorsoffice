@@ -17,6 +17,12 @@
 
 <cfinclude template="/include/modal.cfm" />
 
+<cfset modalid="remoteselectmaterial" />
+
+<cfset modaltitle="Select Material" />
+
+<cfinclude template="/include/modal.cfm" />
+
 
 
 <cfoutput>
@@ -29,6 +35,16 @@
             });
         });
     </script>
+
+<script>
+    $(document).ready(function() {
+        $("##remoteselectmaterial").on("show.bs.modal", function(event) {
+            // Place the returned HTML into the selected element
+            $(this).find(".modal-body").load("/include/remoteselectmaterial.cfm?selected_audid=#audid#&audid=#audid#&audprojectid=#audprojectid#&secid=177");
+        });
+    });
+</script>
+
     
     
     
@@ -131,6 +147,8 @@
                 
                   <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteselectheadshot" data-bs-placement="top" title="Select Headshots" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">My Headshots</a>
                 
+
+                  <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteselectmaterial" data-bs-placement="top" title="Select Materials" data-bs-original-title="Add material" class="btn btn-xs btn-primary waves-effect waves-light">My Materials</a>
                 
         </center>
 

@@ -104,15 +104,12 @@
             
                 <div class="p-3">
                     <center>
-                        <cfif #headshots_sel.isValidImage# is "true">
-                            <a href="https://#host#.theactorsoffice.com/media-#host#/users/#userid#/#headshots_sel.mediaFileName#?ver=#rand()#" 
+                      
+                            <a href="https://#host#.theactorsoffice.com/media-#host#/filetypes/#headshots_sel.mediaext#.png" 
                                data-toggle="lightbox" data-gallery="example-gallery">
-                        <cfelse>
-                            <a href="https://#host#.theactorsoffice.com/media-#host#/users/#userid#/#headshots_sel.mediaFileName#?ver=#rand()#" 
-                               data-toggle="lightbox" data-gallery="example-gallery">
-                        </cfif>
+             
                     
-                        <img src="https://#host#.theactorsoffice.com/media-#host#/users/#userid#/#headshots_sel.mediaFileName#?ver=#rand()#" 
+                        <img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/#headshots_sel.mediaext#.png" 
                              class="mr-2 rounded-square gambar  img-thumbnail img-fluid p-0 m-0" 
                              title="User ID: 30" style="max-width:120px; height:120px; height:100%" 
                              alt="profile-image" id="item-img-output">

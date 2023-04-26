@@ -15,7 +15,7 @@ m.userid,
 m.mediacreated,
 m.isdeleted,
 t.mediaType,
-
+t.isimage,
 e.isimage as isValidImage
  FROM audmedia m  
  INNER JOIN audmediatypes t ON t.mediaTypeID = m.mediatypeid

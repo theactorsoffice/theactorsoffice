@@ -363,7 +363,7 @@
 
 
 
-
+<div class="row">
                             <div class="form-group col-md-6">
 
                                 <cfif #audtypes_sel.recordcount# is "1">
@@ -492,7 +492,7 @@
 
 
                             <div id="hidden_divss">
-                                <div class="row">
+                          
 
 
 
@@ -604,7 +604,7 @@
 
 
 
-                                </div>
+                                
 
 
                             </div>

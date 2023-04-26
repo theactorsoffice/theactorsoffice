@@ -451,7 +451,7 @@
                     <legend>
                         Appointment details
                     </legend>
-                    
+                    <div class="row">
                     <div class="form-group col-md-6">
                     
                         <cfif #audtypes_sel.recordcount# is "1">
@@ -841,6 +841,7 @@
                             </div>
                         </fieldset>
                     </div>
+                </div>
                 </fieldset>
             </div>
             

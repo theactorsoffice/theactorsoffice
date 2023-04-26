@@ -1,13 +1,13 @@
+<cfoutput>
 <script>
     $(document).ready(function() {
     $("#remoteaddMaterial").on("show.bs.modal", function(event) {
     // Place the returned HTML into the selected element
-    $(this).find(".modal-body").load("
-    <cfoutput>/include/remoteaddMaterial.cfm?userid=#userid#&src=account</cfoutput>
-    ");
+    $(this).find(".modal-body").load("/include/remoteaddMaterial.cfm?userid=#userid#&src=account");
     });
     });
 </script>
+</cfoutput>
 
 <cfset modalid = "remoteaddMaterial"/>
 

@@ -120,7 +120,7 @@
                 
                     <p class="p-0" style="padding:10px;">
                     <center>
-                    
+                        #headshots_sel.mediatype#<Br/>
                         #headshots_sel.medianame#
                         <a class="pt-0" data-bs-remote="true" data-bs-toggle="modal" 
                            data-bs-target="##remoteDeleteaudmedia#headshots_sel.mediaid#" 

@@ -48,7 +48,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,
                     <center>
    
 <A href="/include/remoteselectedmaterial2.cfm?selected_audid=#selected_audid#&mediaid=#headshots_sel.mediaid#&audid=#audid#&audprojectid=#audprojectid#"> 
-<img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/#headshots_sel.mediaext#.png?ver=#rand()#" class="mr-2 rounded-square gambar  img-thumbnail img-fluid p-0 m-0" title="User ID: 30" alt="profile-image" id="item-img-output">
+<img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/#headshots_sel.mediaext#.png?ver=#rand()#" class="mr-2 rounded-square gambar  img-thumbnail img-fluid p-0 m-0" style="width:120px;" title="User ID: 30" alt="profile-image" id="item-img-output">
 </center>
     <center>
         #headshots_sel.mediatype#<Br/>

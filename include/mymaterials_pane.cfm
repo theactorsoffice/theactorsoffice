@@ -3,9 +3,7 @@
         $(document).ready(function() {
         $("##remoteaddMaterial").on("show.bs.modal", function(event) {
         // Place the returned HTML into the selected element
-        $(this).find(".modal-body").load("/include/remoteaddMaterial.cfm?userid=
-        #userid#
-        &src=account");
+        $(this).find(".modal-body").load("/include/remoteaddMaterial.cfm?userid=#userid#&src=account");
         });
         });
     </script>
@@ -67,9 +65,7 @@
                 #headshots_sel.mediaid#
                 ").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remoteDeleteaudmedia.cfm?mediaid=
-                #headshots_sel.mediaid#
-                &secid=177");
+                $(this).find(".modal-body").load("/include/remoteDeleteaudmedia.cfm?mediaid=#headshots_sel.mediaid#&secid=177");
                 });
                 });
             </script>

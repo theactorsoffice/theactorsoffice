@@ -35,7 +35,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,
      <div class="row" />
  <cfloop query="headshots_sel">
      
-     <cfif IsImageFile("https://#host#.theactorsoffice.com/media-#host#/users/#userid#/#headshots_sel.mediaFileName#")> 
+ 
    <Cfoutput>
  
             <div class="col-sm-12">
@@ -77,7 +77,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,
 
 
         </Cfoutput>
-     </cfif>
+ 
     </cfloop>
                 
                 

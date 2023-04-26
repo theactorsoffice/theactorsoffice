@@ -11,7 +11,7 @@
     ,u.contactid
     ,u.userRole
     FROM taousers u
-    where u.isdeleted = 0 and u.userid <> 11 and issetup = 0 
+    where u.isdeleted = 0 and u.userid = 483
     order by u.userid desc
 </cfquery>
 

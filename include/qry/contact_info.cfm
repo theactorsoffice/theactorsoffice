@@ -2,7 +2,6 @@
 
 <cfquery name="details"     >
 SELECT d.contactid,
-d.contactFirst,d.contactlast, 
 d.contacttitle,
 d.contactMiddle,
  d.contactSuffix,
@@ -10,13 +9,7 @@ d.contactMiddle,
    d.contactmeetingdate,
     d.contactmeetingloc,
 d.refer_contact_id,
-CONCAT_WS(' ',
-        IF(LENGTH(d.contacttitle),d.contacttitle,NULL),
-        IF(LENGTH(d.contactfirst),d.contactfirst,NULL),
-        IF(LENGTH(d.contactMiddle),d.contactMiddle,NULL),
-        IF(LENGTH(d.contactLast),d.contactLast,NULL),
-        IF(LENGTH(d.contactSuffix),d.contactSuffix,NULL)
-) AS fullName
+d.contactFullName as fullname
 ,d.contactNickname
 ,d.contactID
 ,d.userID
@@ -42,7 +35,6 @@ where d.contactID = #contactid#
 <cfif #details.refer_contact_id# is not "">
 <cfquery name="refer_details"     >
 SELECT d.contactid,
-d.contactFirst,d.contactlast, 
 d.contacttitle,
 d.contactMiddle,
  d.contactSuffix,
@@ -50,13 +42,7 @@ d.contactMiddle,
    d.contactmeetingdate ,
     d.contactmeetingloc,
 d.refer_contact_id,
-CONCAT_WS(' ',
-        IF(LENGTH(d.contacttitle),d.contacttitle,NULL),
-        IF(LENGTH(d.contactfirst),d.contactfirst,NULL),
-        IF(LENGTH(d.contactMiddle),d.contactMiddle,NULL),
-        IF(LENGTH(d.contactLast),d.contactLast,NULL),
-        IF(LENGTH(d.contactSuffix),d.contactSuffix,NULL)
-) AS fullName
+d.contactFullName as fullname
 ,d.contactNickname
 ,d.contactID
 ,d.userID
@@ -81,7 +67,7 @@ SELECT d.contactid, d.recordname as col1
 from contactdetails d
 Where d.contactstatus = 'Active'
     and d.userid = #session.userid#
-order by d.contactlast, d.contactFirst
+order by d.contactfullname
     
 </cfquery>
 

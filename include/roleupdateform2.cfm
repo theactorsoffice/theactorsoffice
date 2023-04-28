@@ -256,7 +256,7 @@
 
                         <CFINCLUDE template="/include/remote_load.cfm" />
                         <cfquery datasource="#dsn#" name="add" result="result">
-                            INSERT INTO contactdetails (userid,contactfirst,contactlast) VALUES (#session.userid#,'#firstname#','#lastname#');
+                            INSERT INTO contactdetails (userid,contactfullname) VALUES (#session.userid#,'#contactfullname#');
                         </cfquery>
 
                         <cfset new_contactid=result.generated_key />

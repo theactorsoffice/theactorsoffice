@@ -1,5 +1,5 @@
 	<CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="add"   result="result">
-        INSERT INTO contactdetails (userid,contactfirst,contactlast) VALUES (#session.userid#,'Unknown','');
+        INSERT INTO contactdetails (userid,contactfullname) VALUES (#session.userid#,'Unknown');
 </cfquery>
     <cfset currentid=result.generated_key />
        <cfset contactid=result.generated_key />

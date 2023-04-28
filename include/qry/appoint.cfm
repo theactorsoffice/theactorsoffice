@@ -7,7 +7,7 @@ WHERE d.contactStatus = 'Active' and d.userid = <Cfqueryparam value="#session.us
     
 
 
-ORDER BY d.contactfirst, d.contactlast
+order by d.contactfullname
 </cfquery>
 	 <cfquery name="types"   datasource="#dsn#"   >
 SELECT eventtypename FROM eventtypes_user where userid = #session.userid# ORDER BY eventtypename
@@ -45,7 +45,7 @@ WHERE d.contactStatus = 'Active' and d.userid = <Cfqueryparam value="#session.us
     
 
 
-ORDER BY d.contactfirst, d.contactlast
+order by d.contactfullname
 </cfquery>
 
  <cfquery name="attendees"  datasource="#dsn#"    >

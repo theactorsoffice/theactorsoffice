@@ -1,12 +1,6 @@
 <CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="birthdayx"    maxrows="10">	
 SELECT     
-CONCAT_WS(' ',
-        IF(LENGTH(d.contacttitle),d.contacttitle,NULL),
-        IF(LENGTH(d.contactfirst),d.contactfirst,NULL),
-        IF(LENGTH(d.contactMiddle),d.contactMiddle,NULL),
-        IF(LENGTH(d.contactLast),d.contactLast,NULL),
-        IF(LENGTH(d.contactSuffix),d.contactSuffix,NULL)
-) AS col1,
+d.contactfullname AS col1,
     
 date_format(d.contactbirthday, '%m-%d') as col2, 
     'Name' as 'head1',

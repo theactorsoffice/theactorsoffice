@@ -43,22 +43,15 @@ SELECT  * from tags_user where userid = #session.userid#
 
     
                 <div class="form-group col-md-6">
-          <label for="contactFirst">First Name:</label>
+          <label for="contactfullname">Name:</label>
  
-          <input class="form-control" type="text" id="contactFirst" name="contactFirst"   required placeholder="Enter First Name">
+          <input class="form-control" type="text" id="contactfullname" name="contactfullname"   required placeholder="Enter Name">
  
            
                 </div>
     
                  
 
-                        <div class="form-group required  col-md-6">
-          <label for="contactFirst">Last Name:</label>
- 
-          <input class="form-control" type="text" id="contactLast" name="contactLast"    placeholder="Enter Last  Name">
- 
-            
-                </div>
     
     
                 <div class="form-group col-md-6">

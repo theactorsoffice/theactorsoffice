@@ -28,44 +28,23 @@
 
 
 
-        <div class="form-group col-md-6">
-            <label for="contactFirst">First Name<span class="text-danger">*</span></label>
+        <div class="form-group col-md-12">
+            <label for="contactfullname">Name<span class="text-danger">*</span></label>
             
-            <cfif #details.Contactfirst# is "Unknown">
-                
-                        <input class="form-control" type="text" id="contactFirst" name="contactFirst" value="" data-parsley-maxlength="50" data-parsley-maxlength-message="Max length 50 characters" data-parsley-required data-parsley-error-message="Valid First Name is required" placeholder="Enter First Name">
+      
 
-            
-            </cfif>
-            
-            <cfif #details.Contactfirst# is not "Unknown">
+            <input class="form-control" type="text" id="contactfullname" name="contactfullname" value="#details.contactfullname#" data-parsley-maxlength="500" data-parsley-maxlength-message="Max length 500 characters" data-parsley-required data-parsley-error-message="Valid Name is required" placeholder="Enter Name">
 
-            <input class="form-control" type="text" id="contactFirst" name="contactFirst" value="#details.contactFirst#" data-parsley-maxlength="50" data-parsley-maxlength-message="Max length 50 characters" data-parsley-required data-parsley-error-message="Valid First Name is required" placeholder="Enter First Name">
-
-            </cfif>
 
         </div>
 
 
 
 
-        <div class="form-group col-md-6">
-            <label for="contactFirst">Last Name<span class="text-danger">*</span></label>
-
-            <input class="form-control" type="text" id="contactLast" name="contactLast" value="#details.contactLast#" data-parsley-maxlength="50" data-parsley-maxlength-message="Max length 50 characters" data-parsley-required data-parsley-error-message="Valid Last Name is required" placeholder="Enter Last  Name">
-
-
-        </div>
 
 
 
-        <div class="form-group col-md-6">
-            <label for="contactFirst">Suffix (Jr, II, etc.)</label>
 
-            <input class="form-control" type="text" id="contactSuffix" name="contactSuffix" value="#details.contactSuffix#" placeholder="Enter Suffix">
-
-
-        </div>
 
 
 

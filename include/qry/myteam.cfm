@@ -18,7 +18,7 @@ and d.contactid in (select contactid from contactitems where valuetext = 'My Tea
 
 and valuecategory = 'Tag')
     
- ORDER BY d.contactlast,d.contactfirst
+ ORDER BY d.contactfullname
 </cfquery>		
 <cfquery name="audsources_sel" datasource="#dsn#"  >	
 SELECT audsourceid AS id, audsource AS NAME 

@@ -117,8 +117,8 @@ update taousers
  
 <cfif #FindUser.contactid# is "">
  <cfquery datasource="#dsn#" name="InsertContact"   result="result">  
-INSERT INTO contactdetails (ContactFirst,ContactLast,userid,user_yn)
-     values ('#finduser.userfirstname#','#finduser.userlastname#',#session.userid#,'Y')
+INSERT INTO contactdetails (ContactFullName,userid,user_yn)
+     values ('#finduser.userfirstname# #finduser.userlastname#',#session.userid#,'Y')
     </cfquery>
     
 

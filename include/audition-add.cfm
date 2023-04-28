@@ -298,28 +298,19 @@
 
                                     <div class="form-group col-md-6">
 
-                                        <label for="cdfirstname">Casting Director - First Name<span class="text-danger">*</span></label>
+                                        <label for="cdfirstname">Casting Director (or Company)<span class="text-danger">*</span></label>
 
-                                        <input class="form-control" type="text" id="cdfirstname" name="cdfirstname" placeholder="Casting Director - First Name" required data-parsley-required data-parsley-error-message=">Casting Director - First Name is required">
+                                        <input class="form-control" type="text" id="cdfullname" name="cdfullname" 
+                                        
+                                        placeholder="Casting Director (or Company)" required data-parsley-required data-parsley-error-message=">Casting is required">
 
                                         <div class="invalid-feedback">
-                                            Please enter a >Casting Director - First Name.
+                                            Please enter a Casting Director (or Company).
                                         </div>
 
                                     </div>
 
 
-                                    <div class="form-group col-md-6">
-
-                                        <label for="cdlastname">Casting Director - Last Name<span class="text-danger">*</span></label>
-
-                                        <input class="form-control" type="text" id="cdlastname" name="cdlastname" placeholder="Casting Director - Last Name" required data-parsley-required data-parsley-error-message=">Casting Director - Last Name is required">
-
-                                        <div class="invalid-feedback">
-                                            Please enter a Casting Director - First Name.
-                                        </div>
-
-                                    </div>
 
                                     <div class="form-group col-md-6">
 

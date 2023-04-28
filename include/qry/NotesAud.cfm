@@ -37,13 +37,7 @@ n.noteID
 ,n.noteTimestamp
 ,n.contactID
 ,n.isPublic
-,CONCAT_WS(' ',
-        IF(LENGTH(d.contacttitle),d.contacttitle,NULL),
-        IF(LENGTH(d.contactfirst),d.contactfirst,NULL),
-        IF(LENGTH(d.contactMiddle),d.contactMiddle,NULL),
-        IF(LENGTH(d.contactLast),d.contactLast,NULL),
-        IF(LENGTH(d.contactSuffix),d.contactSuffix,NULL)
-) AS fullName
+,d.contactFullName as fullname
 FROM noteslog n
     INNER JOIN contactDetails d on d.contactid = n.contactid
 

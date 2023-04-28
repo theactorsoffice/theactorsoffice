@@ -11,8 +11,8 @@
 <cfif #loginQuery.contactid# is "">
 
             <cfquery name="InsertContact"  datasource="abod"  result="result">  
-                INSERT INTO contactdetails (ContactFirst,ContactLast,userid,user_yn)
-                values ('#loginQuery.userfirstname#','#loginQuery.userlastname#',#loginQuery.userid#,'Y')
+                INSERT INTO contactdetails (contactfullname,userid,user_yn)
+                values ('#loginQuery.userfirstname# #loginQuery.userlastname#',#loginQuery.userid#,'Y')
             </cfquery>
     
             <cfset new_contactid = result.generatedkey />

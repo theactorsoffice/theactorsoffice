@@ -208,8 +208,8 @@
 
 
     <cfquery datasource="#dsn#" name="InsertContact" result="result">
-        INSERT INTO contactdetails (ContactFirst,ContactLast,userid,user_yn)
-        values ('#finduser.userfirstname#','#finduser.userlastname#',#userid#,'Y')
+        INSERT INTO contactdetails (Contactfullname,userid,user_yn)
+        values ('#finduser.userfirstname# #finduser.userlastname#',#userid#,'Y')
     </cfquery>
 
 

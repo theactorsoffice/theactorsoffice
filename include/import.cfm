@@ -185,13 +185,7 @@ SELECT d.contactid,
 'Company' as 'head5',
 'Status' as 'head6',
         c.status,
-CONCAT_WS(' ',
-        IF(LENGTH(d.contacttitle),d.contacttitle,NULL),
-        IF(LENGTH(d.contactfirst),d.contactfirst,NULL),
-        IF(LENGTH(d.contactMiddle),d.contactMiddle,NULL),
-        IF(LENGTH(d.contactLast),d.contactLast,NULL),
-        IF(LENGTH(d.contactSuffix),d.contactSuffix,NULL)
-) AS col1
+d.contactfullname AS col1
 ,(SELECT GROUP_CONCAT(CONCAT("<span class='badge badge-blue'>",valueText,"</span>") separator ' ')
 			FROM contactitems 
 			WHERE valueCategory = 'Tag' 
@@ -222,7 +216,7 @@ WHERE c.uploadid = <Cfqueryparam value="#uploadid#" cfsqltype="CF_SQL_INTEGER" /
      
   
 	
-ORDER BY d.contactlast,d.contactfirst
+ORDER BY d.contactfullname
 </cfquery>
 
 

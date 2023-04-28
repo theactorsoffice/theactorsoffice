@@ -9,7 +9,7 @@ WHERE d.contactStatus = 'Active' and d.userid = <Cfqueryparam value="#session.us
     
 
 
-ORDER BY d.contactfirst, d.contactlast
+order by d.contactfullname
 </cfquery>
 
 	 <cfquery name="types"    datasource="#dsn#"  >
@@ -65,6 +65,6 @@ WHERE d.contactStatus = 'Active' and d.userid = <Cfqueryparam value="#session.us
     
 
 
-ORDER BY d.contactfirst, d.contactlast
+order by d.contactfullname
 </cfquery>
 

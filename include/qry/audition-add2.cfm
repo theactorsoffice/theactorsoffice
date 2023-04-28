@@ -8,16 +8,16 @@
 
 
 
-<cfif #new_contactid# is "0" and #cdfirstname# is not "">
+<cfif #new_contactid# is "0" and #cdfullname# is not "">
     
     <cfquery datasource="#dsn#" name="add" result="result">
-    INSERT INTO contactdetails (userid,contactfirst,contactlast,contactFullName) 
-    VALUES (#userid#,'#cdfirstname#','#cdlastname#','#cdfirstname# #cdlastname#');
+    INSERT INTO contactdetails (userid,contactfullname) 
+    VALUES (#userid#,'#cdfullname#');
     </cfquery>
 
     <cfset new_contactid = result.generatedkey />
     
-    
+    c
     <cfquery datasource="#dsn#" name="insert"  >
         INSERT INTO CONTACTITEMS (CONTACTID,VALUETYPE,VALUECATEGORY,VALUETEXT,ITEMSTATUS)
         VALUES (#new_contactid#,'Tags','Tag','#cdtype#','Active')

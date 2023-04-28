@@ -1,13 +1,7 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 <cfquery name="birthdays"  datasource="#dsn#"  maxrows="10">	
 SELECT  datediff(d.contactbirthday,curdate()) as daysuntil,   
-CONCAT_WS(' ',
-        IF(LENGTH(d.contacttitle),d.contacttitle,NULL),
-        IF(LENGTH(d.contactfirst),d.contactfirst,NULL),
-        IF(LENGTH(d.contactMiddle),d.contactMiddle,NULL),
-        IF(LENGTH(d.contactLast),d.contactLast,NULL),
-        IF(LENGTH(d.contactSuffix),d.contactSuffix,NULL)
-) AS col1,
+d.contactfullname AS col1,
     d.contactid,
 DATE_FORMAT(d.contactbirthday,'%m-%d') as col2
  

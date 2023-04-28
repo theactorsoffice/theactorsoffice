@@ -24,8 +24,8 @@
 <cfif #new_contactid# is "0" and #cdfirstname# is not "">
     
     <cfquery datasource="#dsn#" name="add" result="result">
-    INSERT INTO contactdetails (userid,contactfirst,contactlast,contactFullName) 
-    VALUES (#userid#,'#cdfirstname#','#cdlastname#','#cdfirstname# #cdlastname#');
+    INSERT INTO contactdetails (userid,contactFullName) 
+    VALUES (#userid#,'#cdfullname#');
     </cfquery>
 
     <cfset new_contactid = result.generatedkey />

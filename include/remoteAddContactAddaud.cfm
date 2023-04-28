@@ -14,7 +14,7 @@
  <cfparam name="company_new" default="" />
 
 	<cfquery name="add" datasource="#dsn#" result="result">
-        INSERT INTO contactdetails_tbl (userid,contactfirst,contactlast) VALUES (#session.userid#,'#TRIM(contactfirst)#','#trim(contactlast)#')
+        INSERT INTO contactdetails_tbl (userid,contactfullname) VALUES (#session.userid#,'#TRIM(contactfullname)#')
 </cfquery>
     <cfset currentid=result.generated_key />
        <cfset contactid=result.generated_key />

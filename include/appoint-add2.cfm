@@ -129,13 +129,11 @@
     
     <cfelse>
     
-        <cfset new_contactfirst = "#trim(listfirst(relationship, ' '))#"/>
-    
-        <cfset new_contactlast = "#trim(listlast(relationship, ' '))#"/>
+
     
         <cfquery datasource="#dsn#" name="add" result="result">
-            INSERT INTO contactdetails (userid,contactfirst,contactlast,contactFullName) VALUES (#userid#
-            ,'#new_contactfirst#','#new_contactlast#','#relationship#');
+            INSERT INTO contactdetails (userid,contactFullName) VALUES (#userid#
+           ,'#relationship#');
         </cfquery>
     
         <cfset currentid = result.generated_key/>

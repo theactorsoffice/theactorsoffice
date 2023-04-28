@@ -16,8 +16,8 @@ contactpronoun: #contactpronoun#<BR>
 
 <cfquery name="update" datasource="#dsn#" >
 UPDATE contactdetails
-SET contactfirst = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactfirst)#" />
-           ,contactlast = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactlast)#" />  
+SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactfullname)#" />
+             
 
     ,contactSuffix = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactSuffix)#" />
     

@@ -225,7 +225,7 @@
 
                             <cfif #notsActive.actionLinkID# is "6">
 
-                                <cfset newendlink="#details.contactfirst#+#details.contactlast#" />
+                                <cfset newendlink="#details.contactfullname#" />
 
                                 <cfset newactionlinkURL="#notsactive.ActionLinkURL##newendlink#+acting" />
 

@@ -64,18 +64,17 @@
         <cfelse>
 
             <cfquery datasource="#dsn#" name="findcd">
-                select * from contactdetails where contactfirst = '#cdfirstname#' and contactlast = '#cdlastname#'
+                select * from contactdetails where contactfullname = '#cdfullname#'
                 and userid = #userid#
             </cfquery>
             
-            <cfoutput>  select * from contactdetails where contactfirst = '#cdfirstname#' and contactlast = '#cdlastname#'
-                and userid = #userid#<BR></cfoutput>
+       
 
             <cfif #findcd.recordcount# is "0" and #cdfirstname# is not "">
 <cfoutput>contact not found, adding...<BR></cfoutput>
                 <cfquery datasource="#dsn#" name="add" result="result">
-                    INSERT INTO contactdetails (userid,contactfirst,contactlast,contactFullName)
-                    VALUES (#userid#,'#cdfirstname#','#cdlastname#','#cdfirstname# #cdlastname#');
+                    INSERT INTO contactdetails (userid,contactFullName)
+                    VALUES (#userid#,'#cdfullname#');
                 </cfquery>
 
                 <cfset new_contactid=result.generatedkey />

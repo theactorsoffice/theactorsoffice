@@ -20,7 +20,6 @@ Select * from noteslog where noteid = #noteid#
 
 <cfquery name="details"  datasource="#dsn#"    >
 SELECT d.contactid,
-d.contactFirst,d.contactlast, 
 d.contacttitle,
 d.contactMiddle,
  d.contactSuffix,
@@ -28,13 +27,7 @@ d.contactMiddle,
    d.contactmeetingdate,
     d.contactmeetingloc,
 d.refer_contact_id,
-CONCAT_WS(' ',
-        IF(LENGTH(d.contacttitle),d.contacttitle,NULL),
-        IF(LENGTH(d.contactfirst),d.contactfirst,NULL),
-        IF(LENGTH(d.contactMiddle),d.contactMiddle,NULL),
-        IF(LENGTH(d.contactLast),d.contactLast,NULL),
-        IF(LENGTH(d.contactSuffix),d.contactSuffix,NULL)
-) AS fullName
+d.contactFullName as fullname
 ,d.contactNickname
 ,d.contactID
 ,d.userID

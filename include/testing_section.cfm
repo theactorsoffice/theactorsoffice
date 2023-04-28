@@ -182,7 +182,7 @@
             
             
             <div class="form-group col-md-6">
-            <label for="contactFirst">Notes (optional)</label>
+            <label for="rejectNotestester">Notes (optional)</label>
 
             <input class="form-control" type="text" id="rejectNotestester" name="new_rejectnotes" value="" data-parsley-maxlength="500" data-parsley-maxlength-message="Max length 500 characters"  placeholder="Testing notes">
 

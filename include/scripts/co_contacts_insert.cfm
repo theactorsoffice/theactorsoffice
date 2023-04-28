@@ -1,7 +1,7 @@
 <cfset dbug = "N" /> 
 <cfset userid = "11" /> 
 <CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="a"    >
-SELECT id,image_url AS contactphoto, suffix as contactSuffix,
+SELECT id,image_url AS contactphoto
 From co_contacts WHERE fullname <> ''	
 and contactid IS null
 </cfquery>

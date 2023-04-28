@@ -2,7 +2,6 @@
 
 <cfparam name="deleteitem" default="0" /> 
  <cfparam name="valuetext" default="" /> 
- <cfparam name="contactsuffix" default="" /> 
  <cfparam name="src" default="" /> 
  <cfparam name="birthday_DD" default="" /> 
  <cfparam name="birthday_MM" default="" /> 

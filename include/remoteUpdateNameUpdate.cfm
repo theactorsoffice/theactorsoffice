@@ -19,7 +19,7 @@ UPDATE contactdetails
 SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactfullname)#" />
              
 
-    ,contactSuffix = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactSuffix)#" />
+
     
     <cfif #contactPronoun# is "custom">
     ,contactPronoun = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(custom)#" />

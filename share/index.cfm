@@ -14,9 +14,6 @@
 <cfset u=default.default_u />
 <cfinclude template="pgload.cfm" />
 <cfset new_userid=default.userid />
-<cfif #refresh_yn# is "Y">
-    <CFINCLUDE TEMPLATE="REFRESH.CFM" />
-</cfif>
 <cfquery name="shares" datasource="#dsn#">
 SELECT `contactid`,`Name`,`Company`,`Title`,`Audition`,`WhereMet`,`WhenMet`,`NotesLog`,`userid`,`u`
 FROM sharez where userid = #new_userid#

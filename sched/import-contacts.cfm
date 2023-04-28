@@ -17,14 +17,16 @@ Select * from taousers where useremail = '#trim(x.userEmail)#'
     <cfset new_userid = finduser.userid />
     
      <CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="findcontact"      >
-    Select * from contactdetails where contactfirst = '#trim(x.fname)#' and contactlast = '#trim(x.lname)#' and contactStatus = 'Active' and userid = #new_userid#
+    Select * from contactdetails where contactfullname = '#trim(x.fname)# #trim(x.lname)#' and contactStatus = 'Active' 
+    and userid = #new_userid#
     </cfquery>
     
     <cfif #findcontact.recordcount# is "0">
     
     
          <CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="add"   result="result">
-        INSERT INTO contactdetails_tbl (userid,contactfirst,contactlast,contactmiddle,contactstatus) VALUES (#new_userid#,'#TRIM(x.fname)#','#trim(x.lname)#','#trim(x.mname)#','Pending')
+        INSERT INTO contactdetails_tbl (userid,contactfullname,contactstatus) 
+        VALUES (#new_userid#,'#TRIM(x.fname)# #trim(x.lname)#','Pending')
         </cfquery>
        
         <cfset new_contactid=result.generated_key />

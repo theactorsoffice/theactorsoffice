@@ -21,7 +21,7 @@
 <CFQUERY name="x" datasource="#dsn#">
 
        
-        SELECT concat(contactfullname) as search_word,contactfirst,contactlast, contactid 
+        SELECT concat(contactfullname) as search_word,contactfullname, contactid 
        
        
        FROM contactdetails WHERE imdbid IS NULL AND contactfullname IS NOT null

@@ -209,7 +209,7 @@
         
 <cfloop query="x"  >
     	<CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="find"   maxrows="1">
-    select * from contactdetails where contactfirst = '#x.fname#' and contactlast = '#x.lname#'
+    select * from contactdetails where contactfullname = '#x.fname# #x.lname#'
     </cfquery> 
     
        <cfoutput>find: #find.recordcount#<BR></cfoutput>
@@ -222,8 +222,8 @@
     <cfelse>
     
  	<CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="add"   result="result">
-        INSERT INTO contactdetails_tbl (contactFirst,contactMiddle,contactLast,userid) 
-        VALUES ('#x.fname#','#x.mname#','#x.lname#',#userid#);
+        INSERT INTO contactdetails_tbl (contactFullname,userid) 
+        VALUES ('#x.fname# #x.lname#',#userid#);
 </cfquery>   
     
      <cfset new_status = "Added" />

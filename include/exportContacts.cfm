@@ -56,8 +56,8 @@
     <cfquery name="x" datasource="#dsn#">
         SELECT
         contactid as new_contactid,
-        contactfirst as new_FirstName,
-        contactlast as new_LastName,
+        SUBSTRING_INDEX(contactfullname, ' ', 1) AS new_FirstName,
+    SUBSTRING(contactfullname, LENGTH(SUBSTRING_INDEX(contactfullname, ' ', 1))+2) AS new_LastName,
         contactmeetingdate as new_contactmeetingdate,
         ContactMeetingLoc as new_ContactMeetingLoc,
         contactbirthday as new_contactbirthday

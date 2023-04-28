@@ -8,6 +8,7 @@ d.contacttitle,
     d.contactmeetingloc,
 d.refer_contact_id,
 d.contactFullName as fullname
+,d.contactfullname
 ,d.contactNickname
 ,d.contactID
 ,d.userID

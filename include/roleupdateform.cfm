@@ -84,7 +84,7 @@
 
             <div class="form-group col-md-6">
                 <label for="new_auddialectid">Dialect</label>
-                <select class="form-control" name="new_auddialectid" id="new_auddialectid"  onchange="if (this.value=='CustomDialect'){this.form['CustomDialect'].style.visibility='visible',this.form['CustomDialect'].required=true} else {this.form['CustomDialect'].style.visibility='hidden',this.form['CustomDialect'].required=true};">
+                <select class="form-control" name="new_auddialectid" id="new_auddialectid"  onchange="if (this.value=='CustomDialect'){this.form['CustomDialect'].style.visibility='visible',this.form['CustomDialect'].required=true} else {this.form['CustomDialect'].style.visibility='hidden',this.form['CustomDialect'].required=false};">
 
                     <option value="">--</option>
   <option value="CustomDialect">***ADD CUSTOM</option>
@@ -108,17 +108,10 @@
                     Please select a Dialect.
                 </div>
                     
-                                <cfoutput>
-              
-
-              
-            </cfoutput>
-
-                    
-                    
-                    
-
-            </div>  <div class="form-group col-md-6" id="CustomDialects" style="visibility:hidden;">  <label for="CustomDialect">Custom Dialect</label>
+        
+            </div>  
+            
+            <div class="form-group col-md-6" id="CustomDialects" style="visibility:hidden;">  <label for="CustomDialect">Custom Dialect</label>
                     <input class="form-control" type="text" id="CustomDialect" name="CustomDialect"  value="" placeholder="Enter a Custom Dialect">
                 </div>
 

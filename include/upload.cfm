@@ -169,7 +169,9 @@
 
     <cfloop query="x">
          <cfquery datasource="#dsn#" name="find"   maxrows="1">
-            select * from contactdetails where contactfirst = '#x.fname#' and contactlast = '#x.lname#' and userid = #session.userid#
+            select * from contactdetails 
+            where contactfullname = '#x.fname# #x.lname#' 
+            and userid = #session.userid#
         </cfquery>
 
         <cfoutput>find: #find.recordcount#<BR></cfoutput>
@@ -190,12 +192,12 @@
             <cfelse>
 
                  <cfquery datasource="#dsn#" name="add"   result="result">
-                    INSERT INTO contactdetails_tbl (contactFirst,contactLast,userid
+                    INSERT INTO contactdetails_tbl (contactfullname,userid
                     <cfif #x.contactmeetingDate# is not "">,contactMeetingDate</cfif>
                     <cfif #x.contactMeetingLoc# is not "">,contactMeetingLoc</cfif>
                     <cfif #x.birthday# is not "">,contactBirthday</cfif>
                     )
-                    VALUES ('#x.fname#','#x.lname#',#session.userid#
+                    VALUES ('#x.fname# #x.lname#',#session.userid#
                     <cfif #x.contactmeetingDate# is not "">,<cfqueryparam cfsqltype="cf_sql_date" value="#x.contactmeetingDate#">
                     </cfif>
                     <cfif #x.contactMeetingLoc# is not "">,'#x.contactMeetingLoc#'</cfif>

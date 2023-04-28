@@ -15,6 +15,7 @@
 <cfset new_userid = #cookie.userid# />
 </cfoutput>
 <cfparam name="isdirect" default="0" />
+<cfparam name="isbooked" default="0" />
      <CFINCLUDE template="/include/remote_load.cfm" />
 
 

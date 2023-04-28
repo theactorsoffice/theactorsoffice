@@ -4,8 +4,6 @@
 <cfquery name="details"  datasource="#dsn#"    >
 SELECT d.contactid,
 d.contacttitle,
-d.contactMiddle,
- d.contactSuffix,
     d.recordname,
    d.contactmeetingdate,
     d.contactmeetingloc,

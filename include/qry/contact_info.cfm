@@ -3,8 +3,6 @@
 <cfquery name="details"     >
 SELECT d.contactid,
 d.contacttitle,
-d.contactMiddle,
- d.contactSuffix,
     d.recordname,
    d.contactmeetingdate,
     d.contactmeetingloc,

@@ -464,9 +464,11 @@
                                         <option value="23:30" <cfif #timeformat('#userCalStarttime#','hh:mm TT')# is "11:30 PM">Selected</cfif>>11:30 PM</option>
                                         <option value="23:45" <cfif #timeformat('#userCalStarttime#','hh:mm TT')# is "11:45 PM">Selected</cfif>>11:45 PM</option>
 
+                                    </cfoutput>
+
                                 </select>
 
-                                </cfoutput>
+                                
 
                             </div>
 

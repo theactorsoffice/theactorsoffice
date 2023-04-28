@@ -21,7 +21,7 @@
 
 
 
-<cfif #new_contactid# is "0" and #cdfirstname# is not "">
+<cfif #new_contactid# is "0" and #cdfullname# is not "">
     
     <cfquery datasource="#dsn#" name="add" result="result">
     INSERT INTO contactdetails (userid,contactFullName) 

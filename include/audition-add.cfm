@@ -846,64 +846,56 @@
 
 
     <script>
-        $(document).ready(function() {
-            function setupAutocomplete(inputId, resultsId, cfcPath, cfcMethod) {
-                $(inputId).on('input', function() {
-                    const searchTerm = $(this).val();
-                    if (searchTerm.length >= 2) {
-                        $.ajax({
-                            url: cfcPath,
-                            data: {
-                                method: cfcMethod,
-                                searchTerm: searchTerm
-                            },
-                            dataType: 'json',
-                            success: function(data) {
-                                const results = data.DATA;
-                                const resultsDiv = $(resultsId);
-                                resultsDiv.empty();
-                               
+      $(document).ready(function() {
+    function setupAutocomplete(inputSelector, resultContainerSelector, cfcFile, remoteMethod) {
+        $(inputSelector).on('input', function() {
+            const searchTerm = $(this).val();
+            if (searchTerm.length >= 2) {
+                $.ajax({
+                    url: cfcFile,
+                    data: {
+                        method: remoteMethod,
+                        searchTerm: searchTerm
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        const results = data.DATA;
+                        const resultsDiv = $(resultContainerSelector);
+                        resultsDiv.empty();
+                        resultsDiv.css('display', 'block');
         
-                                if (results.length > 0) {
-                                    for (let i = 0; i < results.length; i++) {
-                                        const value = results[i][0];
-                                        const resultDiv = $('<div>').text(value);
-                                        resultsDiv.append(resultDiv);
-                                    }
-                                } else {
-                                    const addNewDiv = $('<div>').addClass('add-new').text(`Add new: ${searchTerm}`);
-                                    resultsDiv.append(addNewDiv);
-                                }
-                            }
-                        });
-                    } else {
-                        $(resultsId).css('display', 'none');
+                        for (let i = 0; i < results.length; i++) {
+                            const resultValue = results[i][0];
+                            const resultDiv = $('<div class="autocomplete-suggestion">').text(resultValue);
+                            resultsDiv.append(resultDiv);
+                        }
                     }
                 });
-        
-                $(resultsId).on('click', 'div', function() {
-                    const selectedValue = $(this).text();
-                    if ($(this).hasClass('add-new')) {
-                        // Remove the "Add new: " prefix
-                        const newValue = selectedValue.replace(/^Add new: /, '');
-                        $(inputId).val(newValue);
-                        // Handle the new value addition logic here
-                    } else {
-                        $(inputId).val(selectedValue);
-                    }
-                    $(resultsId).css('display', 'none');
-                });
+            } else {
+                $(resultContainerSelector).css('display', 'none');
             }
-        
-            setupAutocomplete('#companySearch', '#results', '/include/CompanyLookup.cfc', 'getCompanies');
-    setupAutocomplete('#contactFullName', '#nameResults', '/include/FullNameLookup.cfc', 'getFullNames');
-    setupAutocomplete('#new_audrolename', '#audRoleResults', '/include/AudRoleNames.cfc', 'getAudRoleNames');
+        });
 
-    // Prevent form submission when the Enter key is pressed in the contactFullName input field
-    // ... (The code for preventing form submission remains the same)
+        $(resultContainerSelector).on('click', 'div', function() {
+            const selectedValue = $(this).text();
+            $(inputSelector).val(selectedValue);
+            $(resultContainerSelector).css('display', 'none');
+        });
+    }
 
-    // Add another event listener for the new_audrolename input field if needed
+    setupAutocomplete('#companySearch', '#results', 'CompanyLookup.cfc', 'getCompanies');
+    setupAutocomplete('#contactFullName', '#nameResults', 'FullNameLookup.cfc', 'getFullNames');
+    setupAutocomplete('#new_audrolename', '#audRoleResults', 'AudRoleNames.cfc', 'getAudRoleNames');
+
+    $('#contactFullName, #new_audrolename').on('keydown', function(e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            $(this).blur();
+            return false;
+        }
+    });
 });
+
 
         </script>
 

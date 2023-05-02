@@ -1,6 +1,6 @@
 <cfcomponent>
-    <cffunction name="getAudRoleNames" access="remote" returnType="any">
-        <cfargument name="searchTerm" type="string" required="true">
+   returnFormat="json"
+        <cfargument name="searchTerm" type="string" required="true" returnFormat="json">
         <cfquery name="getAudRoleNames" datasource="abo">
             SELECT audrolename
             FROM audrolenames

@@ -21,8 +21,12 @@
     </style>
 </head>
 <body>
+
+    <form>
     <input type="text" id="companySearch" autocomplete="off">
     <div id="results"></div>
+
+</form>
 
     <script>
         $(document).ready(function() {

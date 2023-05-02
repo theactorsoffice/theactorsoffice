@@ -18,6 +18,11 @@
         #results div:hover {
             background-color: #f0f0f0;
         }
+        .add-new {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    font-style: italic;
+}
     </style>
 </head>
 <body>

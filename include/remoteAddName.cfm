@@ -148,9 +148,19 @@ $(document).ready(function() {
     }
 
     setupAutocomplete('#companySearch', '#results', 'CompanyLookup.cfc', 'getCompanies');
-    setupAutocomplete('#contactFullName', '#nameResults', '/include/FullNameLookup.cfc', 'getFullNames');
-});
+    setupAutocomplete('#contactFullName', '#nameResults', 'FullNameLookup.cfc', 'getFullNames');
 
+    // Prevent form submission when the Enter key is pressed in the contactFullName input field
+    $('#contactFullName').on('keydown', function(event) {
+        if (event.key === 'Enter' || event.keyCode === 13) {
+            event.preventDefault();
+            // Accept the typed value and close the results dropdown
+            const selectedValue = $(this).val();
+            $(this).val(selectedValue);
+            $('#nameResults').css('display', 'none');
+        }
+    });
+});
 </script>
 
 

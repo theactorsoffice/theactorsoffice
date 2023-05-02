@@ -862,7 +862,7 @@
                                 const results = data.DATA;
                                 const resultsDiv = $(resultsId);
                                 resultsDiv.empty();
-                                resultsDiv.css('display', 'block');
+                               
         
                                 if (results.length > 0) {
                                     for (let i = 0; i < results.length; i++) {

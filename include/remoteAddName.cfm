@@ -147,8 +147,8 @@ $(document).ready(function() {
         });
     }
 
-    setupAutocomplete('#companySearch', '#results', 'CompanyLookup.cfc', 'getCompanies');
-    setupAutocomplete('#contactFullName', '#nameResults', 'FullNameLookup.cfc', 'getFullNames');
+    setupAutocomplete('#companySearch', '#results', '/include/CompanyLookup.cfc', 'getCompanies');
+    setupAutocomplete('#contactFullName', '#nameResults', 'include/FullNameLookup.cfc', 'getFullNames');
 
     // Prevent form submission when the Enter key is pressed in the contactFullName input field
     $('#contactFullName').on('keydown', function(event) {

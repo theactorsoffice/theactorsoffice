@@ -30,40 +30,40 @@
 
     <script>
         $(document).ready(function() {
-            $('#companySearch').on('input', function() {
-                const searchTerm = $(this).val();
-                if (searchTerm.length >= 2) {
-                    $.ajax({
-                        url: 'CompanyLookup.cfc',
-                        data: {
-                            method: 'getCompanies',
-                            searchTerm: searchTerm
-                        },
-                        dataType: 'json',
-                        success: function(data) {
-                            const results = data.QUERY;
-                            const resultsDiv = $('#results');
-                            resultsDiv.empty();
-                            resultsDiv.css('display', 'block');
+    $('#companySearch').on('input', function() {
+        const searchTerm = $(this).val();
+        if (searchTerm.length >= 2) {
+            $.ajax({
+                url: 'CompanyLookup.cfc',
+                data: {
+                    method: 'getCompanies',
+                    searchTerm: searchTerm
+                },
+                dataType: 'json',
+                success: function(data) {
+                    const results = data.DATA;
+                    const resultsDiv = $('#results');
+                    resultsDiv.empty();
+                    resultsDiv.css('display', 'block');
 
-                            for (let i = 0; i < results.CO_NAME.length; i++) {
-                                const coName = results.CO_NAME[i];
-                                const resultDiv = $('<div>').text(coName);
-                                resultsDiv.append(resultDiv);
-                            }
-                        }
-                    });
-                } else {
-                    $('#results').css('display', 'none');
+                    for (let i = 0; i < results.length; i++) {
+                        const coName = results[i][0];
+                        const resultDiv = $('<div>').text(coName);
+                        resultsDiv.append(resultDiv);
+                    }
                 }
             });
+        } else {
+            $('#results').css('display', 'none');
+        }
+    });
 
-            $('#results').on('click', 'div', function() {
-                const selectedCompany = $(this).text();
-                $('#companySearch').val(selectedCompany);
-                $('#results').css('display', 'none');
-            });
-        });
+    $('#results').on('click', 'div', function() {
+        const selectedCompany = $(this).text();
+        $('#companySearch').val(selectedCompany);
+        $('#results').css('display', 'none');
+    });
+});
     </script>
 </body>
 </html>

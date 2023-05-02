@@ -18,7 +18,7 @@
 
         <input class="form-control" type="text" id="contactFullName" name="contactFullName" value="" data-parsley-maxlength="500" 
         data-parsley-maxlength-message="Max length 500 characters" 
-        data-parsley-required data-parsley-error-message="Valid Name is required" placeholder="Enter Name">
+        data-parsley-required data-parsley-error-message="Valid Name is required" placeholder="Enter Name"><div id="nameResults"></div>
 
     </div>
 
@@ -93,6 +93,63 @@
     $(document).ready(function() {
         $(".parsley-examples").parsley()
     });
+
+</script>
+
+
+<script>
+function setupAutocomplete(inputId, resultsId, cfcPath, cfcMethod) {
+    $(inputId).on('input', function() {
+        const searchTerm = $(this).val();
+        if (searchTerm.length >= 2) {
+            $.ajax({
+                url: cfcPath,
+                data: {
+                    method: cfcMethod,
+                    searchTerm: searchTerm
+                },
+                dataType: 'json',
+                success: function(data) {
+                    const results = data.DATA;
+                    const resultsDiv = $(resultsId);
+                    resultsDiv.empty();
+                    resultsDiv.css('display', 'block');
+
+                    if (results.length > 0) {
+                        for (let i = 0; i < results.length; i++) {
+                            const value = results[i][0];
+                            const resultDiv = $('<div>').text(value);
+                            resultsDiv.append(resultDiv);
+                        }
+                    } else {
+                        const addNewDiv = $('<div>').addClass('add-new').text(`Add new: ${searchTerm}`);
+                        resultsDiv.append(addNewDiv);
+                    }
+                }
+            });
+        } else {
+            $(resultsId).css('display', 'none');
+        }
+    });
+
+    $(resultsId).on('click', 'div', function() {
+        const selectedValue = $(this).text();
+        if ($(this).hasClass('add-new')) {
+            // Remove the "Add new: " prefix
+            const newValue = selectedValue.replace(/^Add new: /, '');
+            $(inputId).val(newValue);
+            // Handle the new value addition logic here
+        } else {
+            $(inputId).val(selectedValue);
+        }
+        $(resultsId).css('display', 'none');
+    });
+}
+
+$(document).ready(function() {
+    setupAutocomplete('#companySearch', '#results', 'CompanyLookup.cfc', 'getCompanies');
+    setupAutocomplete('#ContactFullName', '#nameResults', 'FullNameLookup.cfc', 'getFullNames');
+});
 
 </script>
 

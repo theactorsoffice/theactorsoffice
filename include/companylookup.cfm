@@ -29,7 +29,7 @@
 </form>
 
     <script>
-        $(document).ready(function() {
+      $(document).ready(function() {
     $('#companySearch').on('input', function() {
         const searchTerm = $(this).val();
         if (searchTerm.length >= 2) {
@@ -46,10 +46,15 @@
                     resultsDiv.empty();
                     resultsDiv.css('display', 'block');
 
-                    for (let i = 0; i < results.length; i++) {
-                        const coName = results[i][0];
-                        const resultDiv = $('<div>').text(coName);
-                        resultsDiv.append(resultDiv);
+                    if (results.length > 0) {
+                        for (let i = 0; i < results.length; i++) {
+                            const coName = results[i][0];
+                            const resultDiv = $('<div>').text(coName);
+                            resultsDiv.append(resultDiv);
+                        }
+                    } else {
+                        const addNewDiv = $('<div>').addClass('add-new').text(`Add new: ${searchTerm}`);
+                        resultsDiv.append(addNewDiv);
                     }
                 }
             });
@@ -59,11 +64,19 @@
     });
 
     $('#results').on('click', 'div', function() {
-        const selectedCompany = $(this).text();
-        $('#companySearch').val(selectedCompany);
+        const selectedValue = $(this).text();
+        if ($(this).hasClass('add-new')) {
+            // Remove the "Add new: " prefix
+            const newCompanyName = selectedValue.replace(/^Add new: /, '');
+            $('#companySearch').val(newCompanyName);
+            // Handle the new company addition logic here
+        } else {
+            $('#companySearch').val(selectedValue);
+        }
         $('#results').css('display', 'none');
     });
 });
+
     </script>
 </body>
 </html>

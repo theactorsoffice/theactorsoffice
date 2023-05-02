@@ -24325,20 +24325,42 @@ button.close {
     border-radius: 0
 }
 
-#results {
-	border: 1px solid #ccc;
+#results, #nameResults {
+	border: 1px solid var(--ct-dropdown-border-color, #ccc);
+	background-color: var(--ct-dropdown-bg, #fff);
+	cursor: default;
+	overflow: auto;
+	max-height: 200px !important;
+	box-shadow: var(--ct-box-shadow, 0 4px 6px rgba(0, 0, 0, 0.1));
 	display: none;
 	position: absolute;
 }
-#results div {
-	padding: 5px;
+
+.autocomplete-suggestion {
+	padding: 5px 10px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.autocomplete-selected {
+	background: #f7f7f7;
 	cursor: pointer;
 }
-#results div:hover {
-	background-color: #f0f0f0;
+
+.autocomplete-suggestions strong {
+	font-weight: 700;
+	color: #323a46;
 }
+
 .add-new {
-background-color: #d1ecf1;
-color: #0c5460;
-font-style: italic;
+	font-weight: 500;
+	font-family: 'Lato', sans-serif;
+	padding: 5px;
+}
+
+.add-new strong {
+	font-weight: 700;
+	font-size: 16px;
+	color: #323a46;
+	display: block;
 }

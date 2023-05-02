@@ -148,7 +148,7 @@ $(document).ready(function() {
     }
 
     setupAutocomplete('#companySearch', '#results', 'CompanyLookup.cfc', 'getCompanies');
-    setupAutocomplete('#contactFullName', '#nameResults', 'FullNameLookup.cfc', 'getFullNames');
+    setupAutocomplete('#contactFullName', '#nameResults', '/include/FullNameLookup.cfc', 'getFullNames');
 });
 
 </script>

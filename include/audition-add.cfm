@@ -126,17 +126,7 @@
 
     </style>
  
-    <style>
-        /* ... (other styles) */
-    
-        .autocomplete-suggestion {
-            padding: 5px 0.9rem;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    
-        /* ... (other styles) */
-    </style>
+
 
     <div class="row">
 

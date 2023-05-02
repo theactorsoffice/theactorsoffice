@@ -24324,3 +24324,21 @@ button.close {
     -moz-border-radius: 0;
     border-radius: 0
 }
+
+#results {
+	border: 1px solid #ccc;
+	display: none;
+	position: absolute;
+}
+#results div {
+	padding: 5px;
+	cursor: pointer;
+}
+#results div:hover {
+	background-color: #f0f0f0;
+}
+.add-new {
+background-color: #d1ecf1;
+color: #0c5460;
+font-style: italic;
+}

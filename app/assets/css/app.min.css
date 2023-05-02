@@ -24356,7 +24356,18 @@ button.close {
 	display: block;
 }
 
-#results, #nameResults, #audRoleResults {
+#results, #nameResults {
+	border: 1px solid var(--ct-dropdown-border-color, #ccc);
+	background-color: var(--ct-dropdown-bg, #fff);
+	cursor: default;
+	overflow: auto;
+	max-height: 200px !important;
+	box-shadow: var(--ct-box-shadow, 0 4px 6px rgba(0, 0, 0, 0.1));
+	display: none;
+	position: absolute;
+}
+
+#audroleresults {
 	border: 1px solid var(--ct-dropdown-border-color, #ccc);
 	background-color: var(--ct-dropdown-bg, #fff);
 	cursor: default;

@@ -846,7 +846,7 @@
 
 
     <script>
-      $(document).ready(function() {
+$(document).ready(function() {
     function setupAutocomplete(inputSelector, resultContainerSelector, cfcFile, remoteMethod) {
         $(inputSelector).on('input', function() {
             const searchTerm = $(this).val();
@@ -876,16 +876,16 @@
             }
         });
 
-        $(resultContainerSelector).on('click', 'div', function() {
+        $(resultContainerSelector).on('click', 'div.autocomplete-suggestion', function() {
             const selectedValue = $(this).text();
             $(inputSelector).val(selectedValue);
             $(resultContainerSelector).css('display', 'none');
         });
     }
 
-    setupAutocomplete('#companySearch', '#results', '/include/CompanyLookup.cfc', 'getCompanies');
-    setupAutocomplete('#contactFullName', '#nameResults', '/include/FullNameLookup.cfc', 'getFullNames');
-    setupAutocomplete('#new_audrolename', '#audRoleResults', '/include/AudRoleNames.cfc', 'getAudRoleNames');
+    setupAutocomplete('#companySearch', '#results', 'CompanyLookup.cfc', 'getCompanies');
+    setupAutocomplete('#contactFullName', '#nameResults', 'FullNameLookup.cfc', 'getFullNames');
+    setupAutocomplete('#new_audrolename', '#audRoleResults', 'AudRoleNames.cfc', 'getAudRoleNames');
 
     $('#contactFullName, #new_audrolename').on('keydown', function(e) {
         if (e.keyCode == 13) {
@@ -895,7 +895,6 @@
         }
     });
 });
-
 
         </script>
 

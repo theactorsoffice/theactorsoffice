@@ -60,7 +60,7 @@
 <cfinclude template="/include/pgload.cfm" />
 <cfinclude template="/include/qry/menuitems.cfm">
     
-    <cfset rev = "1.9.5" />
+    <cfset rev = "1.9.6" />
     
     
     <html lang="en">

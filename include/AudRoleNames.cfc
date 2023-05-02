@@ -1,6 +1,6 @@
 <cfcomponent>
-   returnFormat="json"
-        <cfargument name="searchTerm" type="string" required="true" returnFormat="json">
+    <cffunction name="getAudRoleNames" access="remote" returnType="query" returnFormat="json">
+        <cfargument name="searchTerm" type="string" required="true">
         <cfquery name="getAudRoleNames" datasource="abo">
             SELECT audrolename
             FROM audrolenames
@@ -10,3 +10,4 @@
         <cfreturn getAudRoleNames>
     </cffunction>
 </cfcomponent>
+

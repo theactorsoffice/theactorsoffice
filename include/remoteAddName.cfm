@@ -98,8 +98,9 @@
 
 
 <script>
-function setupAutocomplete(inputId, resultsId, cfcPath, cfcMethod) {
-    $(inputId).on('input', function() {
+$(document).ready(function() {
+    function setupAutocomplete(inputId, resultsId, cfcPath, cfcMethod) {
+        $(inputId).on('input', function() {
         const searchTerm = $(this).val();
         if (searchTerm.length >= 2) {
             $.ajax({

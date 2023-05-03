@@ -3,10 +3,10 @@
         <cfargument name="searchTerm" type="string" required="true">
 
         <cfquery name="queryFullNames" datasource="abo">
-            SELECT DISTINCT contactfullname
+         <cfif #isdefined('sdfdfdsf')#>   SELECT DISTINCT contactfullname
             FROM contactdetails
             WHERE contactfullname <> '' AND contactfullname IS NOT NULL AND contactfullname <> 'NULL' AND contactfullname <> ' ' AND contactfullname LIKE <cfqueryparam value="#arguments.searchTerm#%" cfsqltype="cf_sql_varchar">
-            UNION
+            UNION</cfif>
             SELECT DISTINCT recordname AS contactfullname
             FROM imdb
             WHERE recordname <> '' AND recordname IS NOT NULL AND recordname <> 'NULL' AND recordname <> ' ' AND recordname LIKE <cfqueryparam value="#arguments.searchTerm#%" cfsqltype="cf_sql_varchar">

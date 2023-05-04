@@ -301,17 +301,28 @@
 
                                     <div class="form-group col-md-6">
 
-                                        <label for="cdfirstname">Casting Director (or Company)<span class="text-danger">*</span></label>
+                                        <label for="cdfirstname">Casting Director<span class="text-danger">*</span></label>
 
                                         <input class="form-control" type="text" id="cdfullname" name="cdfullname" 
                                         
-                                        placeholder="Casting Director (or Company)" required data-parsley-required data-parsley-error-message=">Casting is required">
+                                        placeholder="Casting Director" >
 
                                         <div class="invalid-feedback">
-                                            Please enter a Casting Director (or Company).
+                                            Please enter a Casting Director.
                                         </div>
 
                                     </div>
+
+                                     <div class="form-group col-md-6">
+     <label for="cdco">Casting Company<span class="text-danger">*</span></label>
+     <input class="form-control" type="text" id="cdco" name="cdco" 
+     
+     placeholder="Casting Company"  
+ >
+     <div class="invalid-feedback">
+         Please enter a Casting Company.
+     </div>
+ </div>
 
 
 

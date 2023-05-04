@@ -294,7 +294,6 @@
                         <div id="hidden_divssss">
 
                             <div class="row">
-
                                 <fieldset>
 
                                     <legend>Add New Casting Director</legend>

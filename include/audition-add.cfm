@@ -306,6 +306,8 @@
                                         
                                         placeholder="Casting Director" >
 
+                                        <div id="nameResults"></div>
+
                                         <div class="invalid-feedback">
                                             Please enter a Casting Director.
                                         </div>

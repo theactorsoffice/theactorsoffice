@@ -871,33 +871,37 @@
         </script>
     </cfif>
 
-
-   
 <script>
-  // get references to the radio buttons and the CD div
+  // get references to the radio buttons and the relevant form inputs
   const castingDirectorKnown = document.getElementById('casting_director_known');
   const onlyCompanyKnown = document.getElementById('only_company_known');
-  const cdDiv = document.getElementById('CD');
+  const cdFullNameInput = document.getElementById('cdfullname');
+  const cdTypeInput = document.getElementById('cdtype');
+  const companySearchInput = document.getElementById('companySearch');
   
-  // function to toggle the visibility of the CD div
-  function toggleCDVisibility() {
+  // function to update the required status and default value of the form inputs
+  function updateFormInputs() {
     if (onlyCompanyKnown.checked) {
-      cdDiv.style.display = 'none';
+      cdFullNameInput.required = false;
+      cdTypeInput.required = false;
+      companySearchInput.required = true;
+      cdTypeInput.value = "Casting Director";
+      cdFullNameInput.parentElement.style.display = "none";
     } else {
-      cdDiv.style.display = 'block';
+      cdFullNameInput.required = true;
+      cdTypeInput.required = true;
+      companySearchInput.required = false;
+      cdTypeInput.value = "";
+      cdFullNameInput.parentElement.style.display = "block";
     }
   }
   
   // add event listeners to the radio buttons
-  castingDirectorKnown.addEventListener('change', toggleCDVisibility);
-  onlyCompanyKnown.addEventListener('change', toggleCDVisibility);
+  castingDirectorKnown.addEventListener('change', updateFormInputs);
+  onlyCompanyKnown.addEventListener('change', updateFormInputs);
   
-  // set the initial visibility of the CD div based on the default checked radio button
-  if (onlyCompanyKnown.checked) {
-    cdDiv.style.display = 'none';
-  } else {
-    cdDiv.style.display = 'block';
-  }
+  // set the initial required status and default value of the form inputs based on the default checked radio button
+  updateFormInputs();
 </script>
 
-
+   

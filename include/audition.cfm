@@ -1564,6 +1564,19 @@
 
 
 
+       <div class="tab-pane <cfoutput>#head_showactive#</cfoutput>" id="head" role="tabpanel">
+
+                <div class="p-3">
+
+                    <cfinclude template="/include/aud_head_pane.cfm" />
+
+                </div>
+
+            </div>
+
+
+
+
 
             <div class="tab-pane <cfoutput>#mat_showactive#</cfoutput>" id="mat" role="tabpanel">
 
@@ -1643,13 +1656,3 @@
 
 </cfif>
 
-
-
-<script>
-    var confettiSettings = {
-        target: 'my-canvas'
-    };
-    var confetti = new ConfettiGenerator(confettiSettings);
-    confetti.render();
-
-</script>

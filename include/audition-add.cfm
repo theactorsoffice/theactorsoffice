@@ -300,9 +300,9 @@
 
                                     <div class="form-group col-md-6">
 
-                                        <label for="cdfirstname">Casting Director<span class="text-danger">*</span></label>
+                                        <label for="cdfirstname">Casting Director</label>
 
-                                        <input class="form-control" type="text" id="contactFullName" name="cdfullname" autocomplete="off" 
+                                        <input class="form-control" type="text" id="cdfullname" name="cdfullname" autocomplete="off" 
                                         
                                         placeholder="Casting Director" >
 
@@ -315,11 +315,11 @@
                                     </div>
 
                                      <div class="form-group col-md-6">
-     <label for="cdco">Casting Company<span class="text-danger">*</span></label>
-     <input class="form-control" type="text" id="cdco" name="cdco" 
+     <label for="cdco">Casting Company</label>
+     <input class="form-control" type="text" id="companySearch" name="cdco" autocomplete="off"  
      
      placeholder="Casting Company"  
- >
+ ><div id="results"></div>
      <div class="invalid-feedback">
          Please enter a Casting Company.
      </div>

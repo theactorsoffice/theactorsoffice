@@ -262,7 +262,7 @@
 
                                 <CFELSE>
                                     <div class="form-group col-md-6 col-sm-12">
-                                        <label for="new_audroletypeid">Role Type <span class="text-danger">*</span></label>
+                                        <label for="new_audroletypeid">Role Type</label>
 
 
                                         <select id="new_audroletypeid" name="new_audroletypeid" class="form-control" data-parsley-required data-parsley-error-message="Role Type is required">

@@ -302,7 +302,7 @@
 
                                         <label for="cdfirstname">Casting Director<span class="text-danger">*</span></label>
 
-                                        <input class="form-control" type="text" id="contactFullName" name="cdfullname" autocomplete="false" 
+                                        <input class="form-control" type="text" id="contactFullName" name="cdfullname" autocomplete="off" 
                                         
                                         placeholder="Casting Director" >
 

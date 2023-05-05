@@ -96,7 +96,7 @@
 
     <cfquery datasource="#dsn#" name="add" result="result">
     INSERT INTO contactdetails (userid,cdco) 
-    VALUES (#userid#,'#cdfullname#');
+    VALUES (#userid#,'#cdco#');
     </cfquery>
 
     

@@ -95,7 +95,7 @@
 <cfif #new_contactid# is "0" and #cdco# is not "">
 
     <cfquery datasource="#dsn#" name="add" result="result">
-    INSERT INTO contactdetails (userid,cdco) 
+    INSERT INTO contactdetails (userid,contactfullname) 
     VALUES (#userid#,'#cdco#');
     </cfquery>
 

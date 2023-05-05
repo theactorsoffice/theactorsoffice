@@ -62,6 +62,63 @@
     
 </cfif>    
 
+
+
+
+<cfif #new_contactid# is "0" and #cdfullname# is not "">
+    
+    <cfquery datasource="#dsn#" name="add" result="result">
+    INSERT INTO contactdetails (userid,contactfullname) 
+    VALUES (#userid#,'#cdfullname#');
+    </cfquery>
+
+    <cfset new_contactid = result.generatedkey />
+    
+   
+    <cfquery datasource="#dsn#" name="insert"  >
+        INSERT INTO CONTACTITEMS (CONTACTID,VALUETYPE,VALUECATEGORY,VALUETEXT,ITEMSTATUS)
+        VALUES (#new_contactid#,'Tags','Tag','#cdtype#','Active')
+    </cfquery>
+
+    <cfif #cdco# is not "">
+       <cfquery datasource="#dsn#" name="insert"  >
+        INSERT INTO CONTACTITEMS (CONTACTID,VALUETYPE,VALUECATEGORY,ValueCompany,ITEMSTATUS)
+        VALUES (#new_contactid#,'Company','Company','#cdco#','Active')
+    </cfquery>
+
+
+    </cfif>
+
+</cfif>
+
+
+<cfif #new_contactid# is "0" and #cdco# is not "">
+
+    <cfquery datasource="#dsn#" name="add" result="result">
+    INSERT INTO contactdetails (userid,cdco) 
+    VALUES (#userid#,'#cdfullname#');
+    </cfquery>
+
+    
+    <cfset new_contactid = result.generatedkey />
+    
+   
+    <cfquery datasource="#dsn#" name="insert"  >
+        INSERT INTO CONTACTITEMS (CONTACTID,VALUETYPE,VALUECATEGORY,VALUETEXT,ITEMSTATUS)
+        VALUES (#new_contactid#,'Tags','Tag','#cdtype#','Active')
+    </cfquery>
+
+        <cfquery datasource="#dsn#" name="insert"  >
+        INSERT INTO CONTACTITEMS (CONTACTID,VALUETYPE,VALUECATEGORY,ValueCompany,ITEMSTATUS)
+        VALUES (#new_contactid#,'Company','Company','#cdco#','Active')
+    </cfquery>
+
+</cfif>
+
+
+
+
+
 <cfinclude template="/include/qry/audprojects_ins.cfm" />
 <cfinclude template="/include/qry/audroles_ins.cfm" />
 
@@ -70,8 +127,15 @@
 <cfinclude template="/include/qry/auditions_ins.cfm" />
 
 </cfif>
+<cfif #new_contactid# is not "0">
 
+                 <cfquery name="add_cd" datasource="#dsn#">
+    INSERT IGNORE INTO `audcontacts_auditions_xref`
+SET `audprojectid` = #audprojectid#,
+        xrefNotes = 'audition-add2.cfm',
+`contactid` = #new_contactid#;
+    </cfquery>
+</cfif>
 
-        
      
 <cflocation url="/app/audition/?audprojectid=#new_audprojectid#" />

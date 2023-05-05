@@ -300,7 +300,18 @@
 
                                       <div class="form-group col-md-10">
 
-**Radio**
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="casting_info" id="casting_director_known" value="casting_director_known" checked>
+  <label class="form-check-label" for="casting_director_known">
+    Casting Director known
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="casting_info" id="only_company_known" value="only_company_known">
+  <label class="form-check-label" for="only_company_known">
+    Only company known
+  </label>
+</div>
                                       </div>
 
                                       <div id="CD">

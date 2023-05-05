@@ -873,5 +873,31 @@
 
 
    
+<script>
+  // get references to the radio buttons and the CD div
+  const castingDirectorKnown = document.getElementById('casting_director_known');
+  const onlyCompanyKnown = document.getElementById('only_company_known');
+  const cdDiv = document.getElementById('CD');
+  
+  // function to toggle the visibility of the CD div
+  function toggleCDVisibility() {
+    if (onlyCompanyKnown.checked) {
+      cdDiv.style.display = 'none';
+    } else {
+      cdDiv.style.display = 'block';
+    }
+  }
+  
+  // add event listeners to the radio buttons
+  castingDirectorKnown.addEventListener('change', toggleCDVisibility);
+  onlyCompanyKnown.addEventListener('change', toggleCDVisibility);
+  
+  // set the initial visibility of the CD div based on the default checked radio button
+  if (onlyCompanyKnown.checked) {
+    cdDiv.style.display = 'none';
+  } else {
+    cdDiv.style.display = 'block';
+  }
+</script>
 
 

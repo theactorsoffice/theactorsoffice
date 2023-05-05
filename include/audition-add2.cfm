@@ -1,6 +1,6 @@
 <cfparam name="modalAnswer" default="No" />
 
-
+<cfparam name="cdco" default="" />
 
 <cfif isdefined('form.modalAnswer')>
 

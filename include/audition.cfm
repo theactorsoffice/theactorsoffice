@@ -1376,6 +1376,10 @@
                 <cfinclude template="/include/aud_rel_pane.cfm" />
             </cfif>
 
+                  <cfif #secid# is "196">
+                <cfinclude template="/include/aud_head_pane.cfm" />
+            </cfif>
+
             <cfif #secid# is "177">
                 <cfinclude template="/include/aud_mat_pane.cfm" />
             </cfif>
@@ -1417,6 +1421,15 @@
             <cfelse>
                 <cfset rel_active="">
     </cfif>
+
+      <cfif #secid# is "196">
+        <cfset head_active="active">
+            <cfelse>
+                <cfset head_active="">
+    </cfif>
+
+
+
     <cfif #secid# is "177">
         <cfset mat_active="active">
             <cfelse>
@@ -1453,6 +1466,15 @@
             <cfelse>
                 <cfset rel_showactive="">
     </cfif>
+
+      <cfif #secid# is "196">
+        <cfset head_showactive="show active">
+            <cfelse>
+                <cfset head_showactive="">
+    </cfif>
+
+
+
     <cfif #secid# is "177">
         <cfset mat_showactive="show active">
             <cfelse>

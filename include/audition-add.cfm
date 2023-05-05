@@ -296,7 +296,14 @@
                             <div class="row">
                                 <fieldset>
 
-                                    <legend>Add New Casting Director</legend>
+                                    <legend>Add New Casting </legend>
+
+                                      <div class="form-group col-md-10">
+
+**Radio**
+                                      </div>
+
+                                      <div id="CD">
 
                                     <div class="form-group col-md-6">
 
@@ -314,20 +321,8 @@
 
                                     </div>
 
-                                     <div class="form-group col-md-6">
-     <label for="cdco">Casting Company</label>
-     <input class="form-control" type="text" id="companySearch" name="cdco" autocomplete="off"  
-     
-     placeholder="Casting Company"  
- ><div id="results"></div>
-     <div class="invalid-feedback">
-         Please enter a Casting Company.
-     </div>
- </div>
 
-
-
-                                    <div class="form-group col-md-6">
+                                                   <div class="form-group col-md-6">
 
                                         <label for="cdtype">Casting Director Role<span class="text-danger">*</span></label>
 
@@ -345,6 +340,25 @@
 
 
                                     </div>
+
+</div>
+
+
+<div id="co_only">
+                                     <div class="form-group col-md-6">
+     <label for="cdco">Casting Company</label>
+     <input class="form-control" type="text" id="companySearch" name="cdco" autocomplete="off"  
+     
+     placeholder="Casting Company"  
+ ><div id="results"></div>
+     <div class="invalid-feedback">
+         Please enter a Casting Company.
+     </div>
+ </div>
+
+</div>
+
+                     
 
                                 </fieldset>
 

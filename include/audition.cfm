@@ -1523,6 +1523,12 @@
             </li>
 
 
+            <li class="nav-item" role="presentation">
+                <a href="#head" data-bs-toggle="tab" aria-expanded="false" class="nav-link <Cfoutput>#head_active#</Cfoutput>" tabindex="-1" role="tab">
+                    Headshots
+                </a>
+            </li>
+
 
             <li class="nav-item" role="presentation">
                 <a href="#mat" data-bs-toggle="tab" aria-expanded="false" class="nav-link <Cfoutput>#mat_active#</Cfoutput>" tabindex="-1" role="tab">

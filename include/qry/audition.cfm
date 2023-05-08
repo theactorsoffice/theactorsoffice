@@ -74,7 +74,6 @@ b.submitsiteid,
 b.submitsitename,
 o.opencallname
 
-
 FROM audroles r 
     LEFT OUTER JOIN audsubmitsites_user b on (r.submitsiteid = b.submitsiteid)
 	LEFT OUTER JOIN audroletypes rt ON ( r.`audRoleTypeID` = rt.audroletypeid  )  

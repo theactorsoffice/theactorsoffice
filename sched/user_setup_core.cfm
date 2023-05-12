@@ -1057,10 +1057,11 @@
         </cfquery>
 
         <cfif #find2.recordcount# is "0">
-
+<Cfoutput>     INSERT INTO `sitelinks_user_tbl` (`siteName`,`siteURL`,`siteicon`,`siteTypeid`,`userid`)
+                VALUES ('#x.sitename#','#x.siteurl#','#x.siteicon#', #new_sitetypeid#, #select_userid#)<BR></cfoutput>
             <cfquery datasource="#dsn#" name="insert">
                 INSERT INTO `sitelinks_user_tbl` (`siteName`,`siteURL`,`siteicon`,`siteTypeid`,`userid`)
-                VALUES ('#x.sitename#','#x.siteurl#','#x.siteicon#', #new_sitetypeid#, #select_userid#);
+                VALUES ('#x.sitename#','#x.siteurl#','#x.siteicon#', #new_sitetypeid#, #select_userid#)
             </cfquery>
 
             <cfif #dbug# is "Y">

@@ -75,8 +75,15 @@
     charDescription,
     holdStartDate,
     holdEndDate,
+
+    <cfif #new_audDialectID# is not "">
     audDialectID,
+    </cfif>
+
+        <cfif #audSourceID# is not "">
     audSourceID,
+    </cfif>
+
     userid,
     isDeleted,
     
@@ -97,13 +104,22 @@
               null="#NOT len(trim(new_holdStartDate))#"/>
     ,<cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_holdEndDate#" 
               null="#NOT len(trim(new_holdEndDate))#"/>
-    ,<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audDialectID#" 
-              null="#NOT len(trim(new_audDialectID))#"/>
-    ,<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audSourceID#" 
-              null="#NOT len(trim(new_audSourceID))#"/>
-    ,<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#" 
-              null="#NOT len(trim(new_userid))#"/>
-    ,<cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_isDeleted#" 
+    ,
+    
+        <cfif #new_audDialectID# is not "">
+    <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audDialectID#" 
+              null="#NOT len(trim(new_audDialectID))#"/>,
+              </cfif>
+    
+         <cfif #new_audSourceID# is not "">
+    <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audSourceID#" 
+              null="#NOT len(trim(new_audSourceID))#"/>,
+      </cfif>
+    <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#" 
+              null="#NOT len(trim(new_userid))#"/>,
+    
+    
+    <cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_isDeleted#" 
               null="#NOT len(trim(new_isDeleted))#"/>
     ,<cfqueryparam cfsqltype="CF_SQL_BIT" value="#isbooked#" null="#NOT len(trim(isbooked))#"/>
     ,<cfqueryparam cfsqltype="CF_SQL_BIT" value="#isCallback#" null="#NOT len(trim(isCallback))#"/>

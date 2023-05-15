@@ -65,13 +65,13 @@ VALUES
 <Cfoutput>  
 
     
-    <cflocation  url="#loginQuery.status_url#" addtoken="true" /></Cfoutput>
+    <cflocation  url="#loginQuery.status_url#" addtoken="false" /></Cfoutput>
      
     <cfelse>
         
          no<BR> 
             
-        <cflocation  url="/loginform.cfm"> 
+        <cflocation  url="/loginform.cfm" addtoken="false"> 
         
     </cfif>
         </cfif>

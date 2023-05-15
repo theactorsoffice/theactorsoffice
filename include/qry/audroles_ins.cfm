@@ -42,7 +42,7 @@
     audDialectID,
     </cfif>
 
-        <cfif #audSourceID# is not "">
+        <cfif #new_audSourceID# is not "">
     audSourceID,
     </cfif>
 

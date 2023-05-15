@@ -26,6 +26,46 @@
 
 <cfparam name="isredirect" default="0"/>
 
+<cfset debugSQL = "
+    INSERT INTO audroles (
+        audRoleName,
+        audprojectID,
+        audRoleTypeID,
+        charDescription,
+        holdStartDate,
+        holdEndDate,
+        audDialectID,
+        audSourceID,
+        userid,
+        isDeleted,
+        isBooked,
+        isCallback,
+        ispin,
+        isredirect
+    )
+    VALUES (
+        '#new_audRoleName#',
+        #new_audprojectID#,
+        #new_audRoleTypeID#,
+        '#new_charDescription#',
+        '#new_holdStartDate#',
+        '#new_holdEndDate#',
+        #new_audDialectID#,
+        #new_audSourceID#,
+        #new_userid#,
+        #new_isDeleted#,
+        #isbooked#,
+        #isCallback#,
+        #ispin#,
+        #isredirect#
+    )
+">
+
+<!--- Output the debug SQL --->
+<cfoutput>#debugSQL#</cfoutput>
+
+<cfaborT>
+
 <cfquery name="audroles_ins" datasource="#dsn#" result="result">
 
     INSERT INTO audroles (

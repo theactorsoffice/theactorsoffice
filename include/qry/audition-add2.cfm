@@ -60,7 +60,7 @@
 
 <cfinclude template="/include/qry/audprojects_ins.cfm" />
 <cfinclude template="/include/qry/audroles_ins.cfm" />
- 
+ <cfabort>
 <cfif #isdirect# is "0">
 <cfinclude template="/include/qry/auditions_ins.cfm" />
 

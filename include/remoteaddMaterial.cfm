@@ -55,7 +55,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE ismaterial = 1
      <cfset minlength="3" />
      
 
-  <cfif not #isdefined('gfdgf')#>
+ 
     <div class="form-group col-md-6 col-sm-12">
     <label for="new_mediatypeid">Media Type<span class="text-danger">*</span></label>
 
@@ -70,7 +70,34 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE ismaterial = 1
 
 
 </div>
-     </cfif> 
+
+            <div class="form-group col-md-12">
+
+         <label for="new_medianame">Name</label>
+
+         <input class="form-control" type="text" id="new_medianame" name="new_medianame" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"    placeholder="Add a name/brief description">
+
+
+     </div>
+
+
+            <div class="form-group col-md-12">
+
+         <label for="new_medialoc">Location</label>
+
+         <input class="form-control" type="text" id="new_medialoc" name="new_medialoc" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"    placeholder="Add a physical location">
+
+
+     </div>
+
+               <div class="form-group col-md-12">
+
+         <label for="new_medialoc">URL</label>
+
+         <input class="form-control" type="text" id="new_mediaurl" name="new_mediaurl" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"    placeholder="Add a URL">
+
+
+     </div>
    
 
      <div class="form-group col-md-12">
@@ -90,14 +117,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE ismaterial = 1
          </div>
      
      
-            <div class="form-group col-md-12">
 
-         <label for="attachname">Name (Optional)</label>
-
-         <input class="form-control" type="text" id="new_medianame" name="new_medianame" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"    placeholder="Add a name/brief description">
-
-
-     </div>
      
 
 

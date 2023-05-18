@@ -40,8 +40,8 @@ function unlock(){
 </cfquery>
 
    <cfquery datasource="#dsn#" name="Type"  >             
-SELECT mediatypeid,mediatype from audmediatypes WHERE ismaterial = 1
-                </cfquery> 
+SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' and isdeleted = 0
+                </cfquery>  
 
  
  <form action="/include/remoteaddMaterial2.cfm" method="post" class="parsley-examples" enctype="multipart/form-data" id="upload" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"

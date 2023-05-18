@@ -20,6 +20,8 @@
     WHERE u.userid = #session.userid#
 </cfquery>
 
+<cfset new_userid = session.userid/>
+
 <cfif structKeyExists(form, "file") AND len(trim(form.file)) NEQ 0>
 
 
@@ -38,7 +40,7 @@
 <cffile action="upload" filefield="form.file" destination="#cUploadFolder#\" 
         nameconflict="MAKEUNIQUE"/>
 
-<cfset new_userid = session.userid/>
+
 
 <cfset new_filename = CFFILE.serverfile/>
 

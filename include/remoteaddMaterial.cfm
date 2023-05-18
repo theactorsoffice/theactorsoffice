@@ -113,7 +113,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE ismaterial = 1
 
 
          <div class="form-group text-center col-md-12">
-             <button class="btn btn-primary editable-submit btn-sm waves-effect waves-light" type="submit"  id="buttonSubmit" disabled style="background-color: #406e8e; border: #406e8e;" >Upload  </button>
+             <button class="btn btn-primary editable-submit btn-sm waves-effect waves-light" type="submit"  id="buttonSubmit"  style="background-color: #406e8e; border: #406e8e;" >Add  </button>
          </div>
      
      

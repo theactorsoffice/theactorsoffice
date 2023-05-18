@@ -55,6 +55,47 @@
 </cfoutput>
 <div class="row pt-3 pb-3">
 
+
+
+
+
+
+
+
+
+
+    <table id="basic-datatable" class="table dt-responsive nowrap w-100 table-striped" role="grid">
+                    <thead>
+                    
+
+
+
+
+                     
+
+
+                                <tr class="#rowtype#">
+                                    <th width="50">Action </th>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Filename</th>
+                                    <th>Location</th>
+                                    <th>URL</th>
+                                    <th>Created</th>
+                                </tr>
+                      
+                
+                    <tbody>
+  
+                    
+
+
+
+
+
+
+
+
     <cfloop query="headshots_sel">
     
         <cfoutput>
@@ -95,60 +136,101 @@
                     </div>
                 </div>
             </div>
-            
-        </cfoutput>
-    
-        <cfoutput>
-        
-            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
-            
-                <div class="p-3">
-                    <center>
-                      
-                            <a href="https://#host#.theactorsoffice.com/media-#host#/filetypes/#headshots_sel.mediaext#.png" 
-                               data-toggle="lightbox" data-gallery="example-gallery">
-             
-                    
-                        <img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/#headshots_sel.mediaext#.png" 
-                             class="mr-2 rounded-square gambar  img-thumbnail img-fluid p-0 m-0" 
-                             title="User ID: 30" style="max-width:120px; height:120px; height:100%" 
-                             alt="profile-image" id="item-img-output">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               <tr role="row">
+
+                        <td>
+
+                            <a title="Edit" href="">
+
+                                <i class="mdi mdi-square-edit-outline"></i>
+
                             </a>
-                    </center>
-                </div>
-                <a href="javascript:;">
-                
-                    <p class="p-0" style="padding:10px;">
-                    <center>
-                        #headshots_sel.mediatype#<Br/>
-                        #headshots_sel.medianame#
-                        <a class="pt-0" data-bs-remote="true" data-bs-toggle="modal" 
-                           data-bs-target="##remoteDeleteaudmedia#headshots_sel.mediaid#" 
-                           data-bs-placement="top" title="Delete media" 
-                           data-bs-original-title="Delete media">
-                        <i class="mdi mdi-trash-can-outline">
-                        </i>
-                    </center>
-                </a>
-                
-                <br>
-                <center>
-                    <a class="btn-lg" 
-                       href="/include/download_media.cfm?mediaid=#headshots_sel.mediaid#">
-                        <i class="mdi mdi-cloud-download-outline">
-                        </i>
-                    </a>
-                </center>
-                    </p>
-                <span class="p-3">
-                    &nbsp;
-                </span>
-                <span class="p-3">
-                    &nbsp;
-                </span>
-            </div>
+
+                        </td>
+
+
+
+
+
+
+                        <td class="text-nowrap">
+
+                        #headshots_sel.mediaType#
+                           
+                        </td>
+
+
+
+                        <td class="text-nowrap">
+
+                        #headshots_sel.mediaName#
+                           
+                        </td>
+
+
+
+      <td class="text-nowrap">
+
+                        #headshots_sel.mediaFilename#
+                           
+                        </td>
+
+
+   <td class="text-nowrap">
+
+                        #headshots_sel.mediaLoc#
+                           
+                        </td>
+
+
+   <td class="text-nowrap">
+
+                        #headshots_sel.mediaurl#
+                           
+                        </td>
+
+
+
+
+
+
+
+
+                        <td class="text-nowrap">#dateformat('#headshots_sel.mediacreated#','m-d-YYYY')#<BR />#timeformat('#headshots_sel.mediacreated#','medium')#</td>
+
+
+
+                    </tr>
+
+
+
+
+
+
             
-        </cfoutput>
-    
+   
+        
+            
     </cfloop>
+
+    
+                    </tbody>
+
+                </table>
+
+
 </div>

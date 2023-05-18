@@ -20,6 +20,10 @@
     WHERE u.userid = #session.userid#
 </cfquery>
 
+<cfif structKeyExists(form, "file") AND len(trim(form.file)) NEQ 0>
+
+
+
 <cfoutput>
 
     <cfset cUploadFolder = "C:\home\theactorsoffice.com\media-#host#\users\#finduser.userid#"/>
@@ -50,6 +54,15 @@
 </cfoutput>
 
 <cfset new_mediaext = listLast(new_mediaFilename, ".")>
+
+<cfelse>
+
+<cfset new_mediaext = "" />
+<cfset new_filename = "" />
+
+</cfif>
+
+
 
 <cfinclude template="/include/qry/audmedia_ins.cfm"/>
 

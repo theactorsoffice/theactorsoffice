@@ -61,7 +61,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
     <select id="new_mediatypeid" name="new_mediatypeid" class="form-control" data-parsley-required data-parsley-error-message="Media Type is required">
      
-
+  <option value=""   >SELECT A TYPE</option>
         <cfoutput query="type">
             <option value="#type.mediatypeid#"   >#type.mediatype#</option>
         </cfoutput>

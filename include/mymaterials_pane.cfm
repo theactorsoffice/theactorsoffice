@@ -19,6 +19,10 @@
 
 <cfset modaltitle = "Delete Material"/>
 
+<cfset modalid = "remoteUpdateaudmedia"/>
+
+<cfset modaltitle = "Update Material"/>
+
 <cfinclude template="/include/modal.cfm"/>
 
 <cfinclude template="/include/qry/materials_sel.cfm"/>
@@ -142,7 +146,41 @@
 
 
 
-
+     <script>
+                $(document).ready(function() {
+                $("##remoteUpdateaudmedia#headshots_sel.mediaid#
+                ").on("show.bs.modal", function(event) {
+                // Place the returned HTML into the selected element
+                $(this).find(".modal-body").load("/include/remoteUpdateaudmedia.cfm?mediaid=#headshots_sel.mediaid#");
+                });
+                });
+            </script>
+            
+            <div id="remoteUpdateaudmedia#headshots_sel.mediaid#" class="modal fade" tabindex="-1" 
+                 role="dialog" aria-hidden="true">
+            
+                <div class="modal-dialog">
+                
+                    <div class="modal-content">
+                    
+                        <div class="modal-header" style="background-color: red;">
+                        
+                            <h4 class="modal-title">
+                                Update Material
+                            </h4>
+                            
+                            <button type="button" class="close" data-bs-dismiss="modal" 
+                                    aria-hidden="true">
+                                <i class="mdi mdi-close-thick">
+                                </i>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -154,7 +192,7 @@
 
                         <td>
 
-                            <a title="Edit" href="">
+                            <a title="Edit"  data-bs-toggle="modal" data-bs-target="##remoteUpdateaudmedia#headshots_sel.mediaid#">
 
                                 <i class="mdi mdi-square-edit-outline"></i>
 

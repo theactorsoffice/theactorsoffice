@@ -102,7 +102,8 @@ T4: #t4#<BR>
 <cfset tab1_expand="false" />
 </cfif>
     
-    <cfif t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 eq 0><cfset t1 = 1 /><cfset tab1_expand = "true" /><cfelse><cfset  tab1_expand = "false" /></cfif>
+    <cfif t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 eq 0><cfset t1 = 1 /><cfset tab1_expand = "true" /><cfelse>
+    <cfset  tab1_expand = "false" /></cfif>
     
     <cfsavecontent variable = "varif"><Cfoutput>
 IF: if #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" and #t6# is "0"<BR>
@@ -112,7 +113,7 @@ IF: if #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "
     <cfoutput>
 
 
-    <cfif #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" and #t6# is "0"  and #t7# is "0" and #t8# is "0" ><cfset tab1_expand = "true" /></cfif>
+    <cfif #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" and #t6# is "0"  and #t7# is "0" and #t8# is "0" and #t9# is "0" ><cfset tab1_expand = "true" /></cfif>
     </cfoutput>
         
         <cfsavecontent variable = "varafter"><Cfoutput>
@@ -125,7 +126,7 @@ T4: #t4#<BR>
   <Cfif #isdefined('dbug')#>  <cfoutput>#varcheck#<BR>#varif#<BR>var after: #varafter# #tab1_expand#</cfoutput><cfabort></Cfif>
       
 
-    <cfoutput>    t1: #t1#<BR>t9:#t9#<BR>tab1_expand:#tab1_expand#<BR>tab9_expand:#tab9_expand#<Cfabort></cfoutput>
+
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 
 

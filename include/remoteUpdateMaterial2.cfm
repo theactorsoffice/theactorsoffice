@@ -24,4 +24,4 @@
 
 <cfinclude template="/include/qry/audmedia_upd.cfm"/>
 
-<cflocation url="/app/myaccount/?t9=1&tab9_expand=true"/>
+<cflocation url="/app/myaccount/?t9=1"/>

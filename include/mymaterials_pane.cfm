@@ -192,7 +192,7 @@
 
                         <td>
 
-                            <a title="Edit"  data-bs-toggle="modal" data-bs-target="##remoteUpdateaudmedia#headshots_sel.mediaid#">
+                            <a title="Edit"  data-bs-toggle="modal" data-bs-target="##remoteupdatematerial#headshots_sel.mediaid#">
 
                                 <i class="mdi mdi-square-edit-outline"></i>
 

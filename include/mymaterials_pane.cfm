@@ -19,7 +19,7 @@
 
 <cfset modaltitle = "Delete Material"/>
 
-<cfset modalid = "remoteUpdateaudmedia"/>
+<cfset modalid = "remoteupdatematerial"/>
 
 <cfset modaltitle = "Update Material"/>
 
@@ -148,15 +148,15 @@
 
      <script>
                 $(document).ready(function() {
-                $("##remoteUpdateaudmedia#headshots_sel.mediaid#
+                $("##remoteupdatematerial#headshots_sel.mediaid#
                 ").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remoteUpdateaudmedia.cfm?mediaid=#headshots_sel.mediaid#");
+                $(this).find(".modal-body").load("/include/remoteupdatematerial.cfm?mediaid=#headshots_sel.mediaid#");
                 });
                 });
             </script>
             
-            <div id="remoteUpdateaudmedia#headshots_sel.mediaid#" class="modal fade" tabindex="-1" 
+            <div id="remoteupdatematerial#headshots_sel.mediaid#" class="modal fade" tabindex="-1" 
                  role="dialog" aria-hidden="true">
             
                 <div class="modal-dialog">

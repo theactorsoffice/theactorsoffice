@@ -102,7 +102,7 @@ T4: #t4#<BR>
 
 </cfif>
     
-    <cfif t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 eq 0><cfset t1 = 1 /><cfset tab1_expand = "true" /></cfif>
+    <cfif t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 eq 0><cfset t1 = 1 /><cfset tab1_expand = "true" /><cfelse><cfset  tab1_expand = "false" /></cfif>
     
     <cfsavecontent variable = "varif"><Cfoutput>
 IF: if #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" and #t6# is "0"<BR>

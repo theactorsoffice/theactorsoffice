@@ -96,6 +96,8 @@ T4: #t4#<BR>
     <cfset tab8_expand = "true" />
 
     <cfelseif t9 eq 1> 
+
+    <cfset tab1_expand = "false" />
     
     <cfset tab9_expand = "true" />
 

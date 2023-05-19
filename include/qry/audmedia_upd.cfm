@@ -20,7 +20,7 @@
 <cfparam name="new_isDeleted" default="0" />
 
 
-<cfquery name="audmedia_upd" datasource="#dsn#" result="result" >
+<cfquery name="audmedia_upd" datasource="#dsn#" >
   
 UPDATE audmedia  SET 
 

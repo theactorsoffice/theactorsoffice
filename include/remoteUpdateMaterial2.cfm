@@ -24,6 +24,4 @@
 
 <cfinclude template="/include/qry/audmedia_upd.cfm"/>
 
-<cfset new_uploadid = result.generatedkey>
-
 <cflocation url="/app/myaccount/?t8=1&tab8_expand=true"/>

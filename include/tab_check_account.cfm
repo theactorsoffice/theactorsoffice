@@ -99,7 +99,7 @@ T4: #t4#<BR>
 
     
     <cfset tab9_expand = "true" />
-
+<cfset tab1_expand="false" />
 </cfif>
     
     <cfif t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 eq 0><cfset t1 = 1 /><cfset tab1_expand = "true" /><cfelse><cfset  tab1_expand = "false" /></cfif>

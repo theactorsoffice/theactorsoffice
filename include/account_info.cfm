@@ -1162,7 +1162,7 @@
 
     <cfinclude template="/include/tab_check_account.cfm" />
 
-    <cfparam name="tab1_expand" default="true" />
+    <cfparam name="tab1_expand" default="false" />
     
     <cfparam name="tab2_expand" default="false" />
     
@@ -1179,6 +1179,8 @@
     <cfparam name="tab8_expand" default="false" />
     
      <cfparam name="tab9_expand" default="false" />
+
+     
 
     <cfif #tab1_expand# is "false" and #tab2_expand# is "false" and #tab3_expand# is "false" and #tab4_expand# is "false" and #tab7_expand# is "false" and #tab8_expand# is "false" and #tab9_expand# is "false"  >
 

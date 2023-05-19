@@ -97,7 +97,6 @@ T4: #t4#<BR>
 
     <cfelseif t9 eq 1> 
 
-    <cfset tab1_expand = "false" />
     
     <cfset tab9_expand = "true" />
 
@@ -111,6 +110,8 @@ IF: if #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "
         
     
     <cfoutput>
+
+    t1: #t1#<BR>t9:#t9#<Cfabort>
     <cfif #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" and #t6# is "0"  and #t7# is "0" and #t8# is "0" ><cfset tab1_expand = "true" /></cfif>
     </cfoutput>
         

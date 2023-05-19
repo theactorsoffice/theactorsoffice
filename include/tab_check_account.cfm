@@ -111,7 +111,7 @@ IF: if #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "
     
     <cfoutput>
 
-    t1: #t1#<BR>t9:#t9#<BR>t1_expand:#t1_expand#<BR>t9_expand:#t9_expand#<Cfabort>
+    t1: #t1#<BR>t9:#t9#<BR>tab1_expand:#tab1_expand#<BR>tab9_expand:#tab9_expand#<Cfabort>
     <cfif #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" and #t6# is "0"  and #t7# is "0" and #t8# is "0" ><cfset tab1_expand = "true" /></cfif>
     </cfoutput>
         

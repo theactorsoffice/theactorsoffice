@@ -39,6 +39,8 @@ function unlock(){
     WHERE u.userid = '#session.userid#'
 </cfquery>
 
+<cfinclude template="/include/qry/materials_details.cfm" />
+
    <cfquery datasource="#dsn#" name="Type"  >             
 SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' and isdeleted = 0
                 </cfquery>  
@@ -54,10 +56,14 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
      <cfset minlength="3" />
      
-
+<cfoutput query="materials_details" >
  
     <div class="form-group col-md-6 col-sm-12">
     <label for="new_mediatypeid">Media Type<span class="text-danger">*</span></label>
+
+
+</cfoutput>
+
 
     <select id="new_mediatypeid" name="new_mediatypeid" class="form-control" data-parsley-required data-parsley-error-message="Media Type is required">
      
@@ -70,6 +76,10 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
 
 </div>
+
+
+<cfoutput query="materials_details" >
+
 
             <div class="form-group col-md-12">
 
@@ -98,22 +108,15 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
 
      </div>
+
+     </cfoutput>
    
 
-     <div class="form-group col-md-12">
-
-         <label for="attachmenturl">Upload File <span class="text-danger">*</span></label>
-<p>
-            <input name="file" onchange="unlock();"  type="file"  />
- 
-</p>
-
-     </div>
 
 
 
          <div class="form-group text-center col-md-12">
-             <button class="btn btn-primary editable-submit btn-sm waves-effect waves-light" type="submit"  id="buttonSubmit"  style="background-color: #406e8e; border: #406e8e;" >Add  </button>
+             <button class="btn btn-primary editable-submit btn-sm waves-effect waves-light" type="submit"  id="buttonSubmit"  style="background-color: #406e8e; border: #406e8e;" >Update  </button>
          </div>
      
      

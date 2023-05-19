@@ -160,7 +160,7 @@
                 
                     <div class="modal-content">
                     
-                        <div class="modal-header" style="background-color: red;">
+                        <div class="modal-header" >
                         
                             <h4 class="modal-title">
                                 Update Material

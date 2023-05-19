@@ -17,8 +17,6 @@
 
 <cfparam name="new_userid" default="" />
 
-<cfparam name="new_mediaCreated" default="CURRENT_TIMESTAMP" />
-
 <cfparam name="new_isDeleted" default="0" />
 
 
@@ -39,8 +37,6 @@ mediaFilename = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaFilena
 mediaExt = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaExt#" maxlength="3" null="#NOT len(trim(new_mediaExt))#" /> ,
 
 userid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#"  null="#NOT len(trim(new_userid))#" /> ,
-
-mediaCreated = <cfqueryparam cfsqltype="CF_SQL_TIMESTAMP" value="#new_mediaCreated#"  null="#NOT len(trim(new_mediaCreated))#" /> ,
 
 isDeleted = <cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_isDeleted#"  null="#NOT len(trim(new_isDeleted))#" /> ,
 

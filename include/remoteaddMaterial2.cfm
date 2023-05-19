@@ -70,4 +70,4 @@
 
 <cfset new_uploadid = result.generatedkey>
 
-<cflocation url="/app/myaccount/?t8=1&tab8_expand=true&new_uploadid=<cfoutput>#new_uploadid#</cfoutput>"/>
+<cflocation url="/app/myaccount/?t9=1&tab9_expand=true&new_uploadid=<cfoutput>#new_uploadid#</cfoutput>"/>

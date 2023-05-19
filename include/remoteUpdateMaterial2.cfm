@@ -1,0 +1,29 @@
+<cfset userid = session.userid/>
+
+<cfinclude template="/include/remote_load.cfm"/>
+
+
+<cfquery datasource="#dsn#" name="FindUser">
+    SELECT
+    u.userid
+    ,u.userFirstName
+    ,u.recordname
+    ,u.userLastName
+    ,u.userEmail
+    ,u.contactid
+    ,u.userRole
+    ,u.contactid AS userContactID
+    FROM taousers u
+    WHERE u.userid = #session.userid#
+</cfquery>
+
+<cfset new_userid = session.userid/>
+
+
+
+
+<cfinclude template="/include/qry/audmedia_upd.cfm"/>
+
+<cfset new_uploadid = result.generatedkey>
+
+<cflocation url="/app/myaccount/?t8=1&tab8_expand=true"/>

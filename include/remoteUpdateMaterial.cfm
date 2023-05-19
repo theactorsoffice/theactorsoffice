@@ -67,9 +67,9 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
     <select id="new_mediatypeid" name="new_mediatypeid" class="form-control" data-parsley-required data-parsley-error-message="Media Type is required">
      
-  <option value=""   >SELECT A TYPE</option>
+ 
         <cfoutput query="type">
-            <option value="#type.mediatypeid#"   >#type.mediatype#</option>
+            <option value="#type.mediatypeid#" <cfif  "#type.mediatypeid#" is "#materials_details.mediatypeid#">selected</cfif>  >#type.mediatype#</option>
         </cfoutput>
 
     </select>
@@ -79,6 +79,9 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
 
 <cfoutput query="materials_details" >
+<input type="hidden" name="new_mediaid" value="#materials_details.mediaid#" />
+
+
 
 
             <div class="form-group col-md-12">
@@ -95,7 +98,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
          <label for="new_medialoc">Location</label>
 
-         <input class="form-control" type="text" id="new_medialoc" name="new_medialoc" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"    placeholder="Add a physical location">
+         <input class="form-control" type="text" id="new_medialoc" name="new_medialoc" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"  value="#materials_details.medialoc#"    placeholder="Add a physical location">
 
 
      </div>
@@ -104,10 +107,31 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
          <label for="new_medialoc">URL</label>
 
-         <input class="form-control" type="text" id="new_mediaurl" name="new_mediaurl" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"    placeholder="Add a URL">
+         <input class="form-control" type="text" id="new_mediaurl" name="new_mediaurl" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"  value="#materials_details.mediaurl#"    placeholder="Add a URL">
 
 
      </div>
+
+
+     
+    <div class="form-group col-md-6 col-sm-12">
+    <label for="new_mediatypeid">Share?<span class="text-danger">*</span></label>
+
+ 
+
+    <select id="new_isShare" name="new_isShare" class="form-control" data-parsley-required data-parsley-error-message="Shareable is required">
+     
+  
+<option value="1" <cfif #materials_details.isshare# is "1">selected</cfif>  >Yes</option>
+   
+<option value="0" <cfif #materials_details.isshare# is "0">selected</cfif>  >No</option>
+
+
+    </select>
+
+
+</div>
+
 
      </cfoutput>
    

@@ -17,7 +17,8 @@ m.mediacreated,
 m.isdeleted,
 t.mediaType,
 t.isimage,
-e.isimage as isValidImage
+e.isimage as isValidImage,
+m.isshare
  FROM audmedia m  
  INNER JOIN audmediatypes t ON t.mediaTypeID = m.mediatypeid
  LEFT JOIN exttypes e on e.mediaext = m.mediaext

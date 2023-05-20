@@ -134,21 +134,9 @@
     <div class="col-md-12 col-lg-12 col-xl-12 p-1 d-flex">
         <center>
 
-            <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteadd" data-bs-placement="top" title="Add media" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">Add File</a>
+            <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteadd" data-bs-placement="top" title="Add media" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">Add Material</a>
 
-            &nbsp;
-            <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##matupdate" data-bs-placement="top" title="Update Materials" data-bs-original-title="Update Materials">
-                <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##matupdate" data-bs-placement="top" title="Update Materials" data-bs-original-title="Update Materials" class="btn btn-xs btn-primary waves-effect waves-light">Add Link
-
-
-
-                </a>
-                
-                
-                  <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteselectheadshot" data-bs-placement="top" title="Select Headshots" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">My Headshots</a>
-                
-
-                  <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteselectmaterial" data-bs-placement="top" title="Select Materials" data-bs-original-title="Add material" class="btn btn-xs btn-primary waves-effect waves-light">My Materials</a>
+         
                 
         </center>
 
@@ -158,228 +146,216 @@
 
 
 </cfoutput>
+
 <div class="row pt-3 pb-3">
 
+
+
+
+
+
+
+
+
+
+    <table id="basic-datatable" class="table dt-responsive nowrap w-100 table-striped" role="grid">
+                    <thead>
+                    
+
+
+
+
+                     
+
+
+                                <tr class="#rowtype#">
+                                    <th width="50">Action </th>
+                                    <th>Type</th>
+                                    <th>Name</th>
+                                    <th>Filename</th>
+                                    <th>Location</th>
+                                    <th>URL</th>
+                                    <th>Created</th>
+                                </tr>
+                      
+                
+                    <tbody>
+  
+                    
+
+
+
+
+
+
+
+
     <cfloop query="audmedia">
-
-
-
-
-
-
-
-
-
-
+    
         <cfoutput>
-
+        
             <script>
                 $(document).ready(function() {
-                    $("##remoteDelete#audmedia.mediaid#").on("show.bs.modal", function(event) {
-                        // Place the returned HTML into the selected element
-                        $(this).find(".modal-body").load("/include/remoteDeleteaudmedia_auditions_xref.cfm?mediaid=#audmedia.mediaid#&secid=177&audprojectid=#audprojectid#");
-                    });
+                $("##remoteDeleteaudmedia#audmedia.mediaid#").on("show.bs.modal", function(event) {
+                // Place the returned HTML into the selected element
+                $(this).find(".modal-body").load("/include/remoteDeleteaudmedia.cfm?mediaid=#audmedia.mediaid#&secid=177");
+                });
                 });
             </script>
-
-            <div id="remoteDelete#audmedia.mediaid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-
+            
+            <div id="remoteDeleteaudmedia#audmedia.mediaid#" class="modal fade" tabindex="-1" 
+                 role="dialog" aria-hidden="true">
+            
                 <div class="modal-dialog">
-
+                
                     <div class="modal-content">
-
+                    
                         <div class="modal-header" style="background-color: red;">
-
-                            <h4 class="modal-title">Delete Media</h4>
-
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i></button>
-
+                        
+                            <h4 class="modal-title">
+                                Delete Material
+                            </h4>
+                            
+                            <button type="button" class="close" data-bs-dismiss="modal" 
+                                    aria-hidden="true">
+                                <i class="mdi mdi-close-thick">
+                                </i>
+                            </button>
                         </div>
-
-                        <div class="modal-body"></div>
-
+                        
+                        <div class="modal-body">
+                        </div>
                     </div>
-
                 </div>
-
-            </div>
-
-        </cfoutput>
-
-
-
-
-
-
-        <Cfoutput>
-
-            <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12">
-
-
-
-
-
-
-                <div class="p-3">
-                    <center>
-             
-                  <cfif #audmedia.isimage# is "1">
-                   <a href="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#audmedia.mediafilename#?ver=#rand()#" data-toggle="lightbox" data-gallery="example-gallery">
-                       
-                       
-                       
-                        <img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/#audmedia.mediaext#.png" class="img-fluid p-0 m-0" style="max-width:64px;" />
-
-
-
-
-
-                        </a>
-                      
-                      <cfelse>
-                          
-                          
-                                      <a href="https://#host#.theactorsoffice.com/media-#host#/filetypes/#audmedia.mediaext#.png" data-toggle="lightbox" data-gallery="example-gallery">
-                       
-                       
-                       
-                        <img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/#audmedia.mediaext#.png" class="img-fluid p-0 m-0" style="max-width:64px;" />
-
-
-
-
-
-                        </a>
-                          
-                          
-                      
-                      </cfif>
-                        
-                        
-                        
-                    </center>
-                </div>
-               <A class="pt-0" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteDelete#audmedia.mediaid#" data-bs-placement="top" title="Delete media" data-bs-original-title="Delete media">
-
-                    <p class="p-0" style="padding:10px;">
-                        <center>
-
-                            #audmedia.medianame# <i class="mdi mdi-trash-can-outline"></i>
-                        </center>
-                </A>
-
-                <BR>
-                <center> <a class="btn-lg" href="/include/download_media.cfm?mediaid=#audmedia.mediaid#"> <i class="mdi mdi-cloud-download-outline"></i></a></center>
-                </p>
-
-
-                <span class="p-3">&nbsp;</span> <span class="p-3">&nbsp;</span>
             </div>
 
 
-        </Cfoutput>
-
-    </cfloop>
 
 
 
 
-
-
-
-
-
-
-    <cfloop query="audlinks">
-
-
-
-
-
-
-
-
-
-
-        <cfoutput>
-
-            <script>
+     <script>
                 $(document).ready(function() {
-                    $("##remoteDeleteLink#audlinks.linkid#").on("show.bs.modal", function(event) {
-                        // Place the returned HTML into the selected element
-                        $(this).find(".modal-body").load("/include/remoteDeleteLink.cfm?linkid=#audlinks.linkid#&secid=177&audid=#audid#&audprojectid=#audprojectid#");
-                    });
+                $("##remoteupdatematerial#audmedia.mediaid#").on("show.bs.modal", function(event) {
+                // Place the returned HTML into the selected element
+                $(this).find(".modal-body").load("/include/remoteupdatematerial.cfm?mediaid=#audmedia.mediaid#");
+                });
                 });
             </script>
-
-            <div id="remoteDeleteLink#audlinks.linkid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-
+            
+            <div id="remoteupdatematerial#audmedia.mediaid#" class="modal fade" tabindex="-1" 
+                 role="dialog" aria-hidden="true">
+            
                 <div class="modal-dialog">
-
+                
                     <div class="modal-content">
-
-                        <div class="modal-header" style="background-color: red;">
-
-                            <h4 class="modal-title">Delete Link</h4>
-
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i></button>
-
+                    
+                        <div class="modal-header" >
+                        
+                            <h4 class="modal-title">
+                                Update Material
+                            </h4>
+                            
+                            <button type="button" class="close" data-bs-dismiss="modal" 
+                                    aria-hidden="true">
+                                <i class="mdi mdi-close-thick">
+                                </i>
+                            </button>
                         </div>
-
-                        <div class="modal-body"></div>
-
+                        
+                        <div class="modal-body">
+                        </div>
                     </div>
-
                 </div>
-
             </div>
 
+
+
+
+
+
+
+               <tr role="row">
+
+                        <td>
+
+                            <a title="Edit"  data-bs-toggle="modal" data-bs-target="##remoteupdatematerial#audmedia.mediaid#">
+
+                                <i class="mdi mdi-square-edit-outline"></i>
+
+                            </a>
+
+                        </td>
+
+
+
+
+
+
+                        <td class="text-nowrap">
+
+                        #audmedia.mediaType#
+                           
+                        </td>
+
+
+
+                        <td class="text-nowrap">
+
+                        #audmedia.mediaName#
+                           
+                        </td>
+
+
+
+      <td class="text-nowrap">
+
+                        #audmedia.mediaFilename#
+                           
+                        </td>
+
+
+   <td class="text-nowrap">
+
+                        #audmedia.mediaLoc#
+                           
+                        </td>
+
+
+   <td class="text-nowrap">
+
+                        #audmedia.mediaurl#
+                           
+                        </td>
+
+
+
+
+
+
+
+
+                        <td class="text-nowrap">#dateformat('#audmedia.mediacreated#','m-d-YYYY')#<BR />#timeformat('#audmedia.mediacreated#','medium')#</td>
+
+
+
+                    </tr>
+
+
+
+
+
+
+            
+   
         </cfoutput>
-
-
-
-
-
-
-        <Cfoutput>
- 
-            <div class="col-lg-2 pt-3">
-
-
-
-
-
-                <div>
-
-                    <a href="#audlinks.linkurl#" target="newscreen">
-
-
-                        <img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/link.png" class="img-fluid" style="max-width:64px;" />
-
-
-
-
-
-                    </a>
-
-                </div>
-                <a href="javascript:;">
-
-                    <p class="" style="padding:10px;">
-
-                        #audlinks.linkname# <A class="pt-3" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteDeleteLink#audlinks.linkid#" data-bs-placement="top" title="Delete link" data-bs-original-title="Delete media"><i class="mdi mdi-trash-can-outline"></i>
-                    </p>
-                </A>
-                <p style="font-size:18px;" class="pt-0"> <a class="btn-lg" href="#audlinks.linkurl#"> <i class="mdi mdi-link-variant"></i></a> </p>
-
-
-  <span class="p-3">&nbsp;</span> <span class="p-3">&nbsp;</span>
-            </div>
- 
-
-        </Cfoutput>
-
+            
     </cfloop>
+
+    
+                    </tbody>
+
+                </table>
 
 
 </div>

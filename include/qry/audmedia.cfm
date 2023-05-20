@@ -8,6 +8,7 @@ m.mediaid,
 m.mediatypeid,
 m.mediaName,
 m.mediaLoc,
+m.mediaurl,
 m.mediaFilename,
 m.mediaExt,
 m.userid,
@@ -17,6 +18,7 @@ x.audprojectid,
 t.mediaType,
 t.isimage,
 m.isImage,
+m.isshare,
 e.isimage as isValidImage
  FROM audmedia m  
  inner join audmedia_auditions_xref x on x.mediaid = m.mediaid

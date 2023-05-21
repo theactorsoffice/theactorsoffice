@@ -8,7 +8,7 @@ values (#new_mediaid#,#audprojectid#)
 
 
      <cfoutput>
-     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&secid=1779" />
+     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&secid=177" />
      </cfoutput>
 	 
 	 <cflocation url="#returnurl#" >

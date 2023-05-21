@@ -2,7 +2,7 @@
 
 insert into audmedia_auditions_xref (mediaid,audprojectid)
 values (#new_mediaid#,#audprojectid#)
-<cfquery name="linkmedia" datasource="#dsn#">
+</cfquery>
 
 
      <cfoutput>

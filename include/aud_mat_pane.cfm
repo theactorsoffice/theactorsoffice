@@ -63,7 +63,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header" style="background-color: ##f3f7f9;">
-                    <h4 class="modal-title" id="standard-modalLabel">Upload Media</h4>
+                    <h4 class="modal-title" id="standard-modalLabel">Add Media</h4>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i></button>
                 </div>
                 <div class="modal-body">

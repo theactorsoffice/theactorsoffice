@@ -141,7 +141,6 @@
     <div class="col-md-2 d-flex">
        
 
-        <div>
     <select id="new_mediaid" name="new_mediaid" class="form-control" onchange="this.form.submit()">
 
                                         <option value="">Link Material</option>

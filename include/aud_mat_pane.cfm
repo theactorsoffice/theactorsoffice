@@ -138,6 +138,27 @@
 
 <cfset i=0 />
 
+<cfoutput>
+    <script>
+        $(document).ready(function() {
+        $("##remoteaddMaterial").on("show.bs.modal", function(event) {
+        // Place the returned HTML into the selected element
+        $(this).find(".modal-body").load("/include/remoteaddMaterial.cfm?userid=#userid#&src=aud&audprojectid=#audprojectid#");
+        });
+        });
+    </script>
+</cfoutput>
+
+<cfset modalid = "remoteaddMaterial"/>
+
+<cfset modaltitle = "Add Material"/>
+
+<cfinclude template="/include/modal.cfm"/>
+
+
+
+
+
 
  <form action="/include/linkmedia.cfm" />
        
@@ -161,8 +182,12 @@
 <cfoutput>
 <div style="padding:10px;">
 
-            <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteadd" data-bs-placement="top" title="Add media" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">Add Material</a>
-
+          
+      <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteaddMaterial" 
+               data-bs-placement="top" title="Add media" data-bs-original-title="Add material" 
+               class="btn btn-xs btn-primary waves-effect waves-light">
+                Add Material
+            </a>
          
  </div>
 

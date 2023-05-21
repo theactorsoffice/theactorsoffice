@@ -10,7 +10,7 @@ m.mediaName,
 m.mediaLoc,
 m.mediaurl,
 0 as audid,
-m.mediaFilename,q
+m.mediaFilename,
 m.mediaExt,
 m.userid,
 m.mediacreated,

@@ -2,6 +2,8 @@
 
 <cfinclude template="/include/qry/audmedia.cfm" />
 
+<cfinclude template="/include/qry/audmedia_picklist.cfm" />
+
 <cfquery name="types" datasource="#dsn#">
     SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,7,8)
 </cfquery>
@@ -115,6 +117,11 @@
 
     <h4 class="p-1 d-flex">Materials Submitted
 
+
+
+
+
+
         <span class="ms-auto text-muted"> <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##matupdate" data-bs-placement="top" title="Update Materials" data-bs-original-title="Update Materials">
 
 
@@ -129,10 +136,29 @@
 
 <cfset i=0 />
 
-<cfoutput>
+
 
     <div class="col-md-12 col-lg-12 col-xl-12 p-1 d-flex">
         <center>
+
+        <div>
+    <select id="new_mediaid" name="new_mediaid" class="form-control" onchange="this.form.submit()">
+
+                                        <option value="">Link Material</option>
+
+                             <cfoutput query="audmedia_picklist">
+  <option value="#audmedia_picklist.mediaid#">#audmedia_picklist.medianame#</option>
+
+                             </cfoutput>
+
+                                    </select>
+
+
+</div>
+
+
+<cfoutput>
+
 
             <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteadd" data-bs-placement="top" title="Add media" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">Add Material</a>
 

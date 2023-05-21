@@ -14,6 +14,7 @@ function unlock(){
 </script>
 
 <cfparam name="dir" default="account" />
+<cfparam name="audprojectid" default="0" />
 
 <CFINCLUDE template="/include/remote_load.cfm" />
 <cfparam name="placeholder" default="" />

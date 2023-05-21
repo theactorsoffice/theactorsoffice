@@ -13,6 +13,7 @@ function unlock(){
 }
 </script>
 
+<cfparam name="dir" default="account" />
 
 <CFINCLUDE template="/include/remote_load.cfm" />
 <cfparam name="placeholder" default="" />
@@ -61,7 +62,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
     <div class="form-group col-md-6 col-sm-12">
     <label for="new_mediatypeid">Media Type<span class="text-danger">*</span></label>
 
-
+<input type="hidden" name="dir" value="#dir#" />
 </cfoutput>
 
 

@@ -155,12 +155,12 @@
  
 
 <cfoutput>
-
+<div style="padding:10px;">
 
             <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteadd" data-bs-placement="top" title="Add media" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">Add Material</a>
 
          
- 
+ </div>
 
  
 

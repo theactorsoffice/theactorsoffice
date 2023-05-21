@@ -43,7 +43,7 @@
 
 
 
-  <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&secid=177" />
+  <cflocation url = "/app/audition/?audprojectid=#audprojectid#&secid=177" />
 
 
 </cfif>

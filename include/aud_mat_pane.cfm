@@ -1,6 +1,6 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
-<cfinclude template="/include/qry/audmedia.cfm" />
+<cfinclude template="/include/qry/audmedia_materials.cfm" />
 
 <cfinclude template="/include/qry/audmedia_picklist.cfm" />
 

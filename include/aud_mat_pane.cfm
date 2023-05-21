@@ -137,10 +137,12 @@
 <cfset i=0 />
 
 
- 
+ <form action="/include/linkmedia.cfm" />
        
-
-    <select id="new_mediaid" name="new_mediaid" class="form-control" onchange="this.form.submit()">
+<cfoutput>
+<input type="hidden" name="audprojectid" value="#audprojectid#" />
+</cfoutput>
+    <select id="new_mediaid" name="new_mediaid"  onchange="this.form.submit()">
 
                                         <option value="">Link Material</option>
 
@@ -151,7 +153,7 @@
 
                                     </select>
 
-
+</form>
  
 
 <cfoutput>

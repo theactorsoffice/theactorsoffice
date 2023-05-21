@@ -1,5 +1,7 @@
 <cfset userid = session.userid/>
 
+<cfparam name="dir" default="account" />
+
 <cfinclude template="/include/remote_load.cfm"/>
 
 
@@ -24,4 +26,24 @@
 
 <cfinclude template="/include/qry/audmedia_upd.cfm"/>
 
-<cflocation url="/app/myaccount/?t9=1&tab9_expand=true&t1=0"/>
+
+
+<cfif #dir# is "account">
+
+
+
+<cflocation url="/app/myaccount/?t9=1&tab9_expand=true&t1=0" addtoken="false" />
+
+
+</cfif>
+
+
+
+<cfif #dir# is "aud">
+
+
+
+  <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&secid=177" />
+
+
+</cfif>

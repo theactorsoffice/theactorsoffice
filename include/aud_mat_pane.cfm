@@ -137,8 +137,7 @@
 <cfset i=0 />
 
 
-
-    <div class="col-md-2 d-flex">
+ 
        
 
     <select id="new_mediaid" name="new_mediaid" class="form-control" onchange="this.form.submit()">
@@ -153,8 +152,7 @@
                                     </select>
 
 
-</div>
-  <div class="col-md-4 d-flex">
+ 
 
 <cfoutput>
 
@@ -164,7 +162,7 @@
          
  
 
-    </div>
+ 
 
 
 

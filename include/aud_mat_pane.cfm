@@ -138,8 +138,8 @@
 
 
 
-    <div class="col-md-12 col-lg-12 col-xl-12 p-1 d-flex">
-        <center>
+    <div class="col-md-2 d-flex">
+       
 
         <div>
     <select id="new_mediaid" name="new_mediaid" class="form-control" onchange="this.form.submit()">
@@ -155,7 +155,7 @@
 
 
 </div>
-
+  <div class="col-md-4 d-flex">
 
 <cfoutput>
 
@@ -163,8 +163,7 @@
             <a data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteadd" data-bs-placement="top" title="Add media" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">Add Material</a>
 
          
-                
-        </center>
+ 
 
     </div>
 

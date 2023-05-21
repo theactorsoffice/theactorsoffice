@@ -3,7 +3,7 @@
 <cfparam name="dir" default="account" />
 <cfparam name="audprojectid" default="0" />
 <cfinclude template="/include/remote_load.cfm"/>
-
+<cfoutput>#dir#</cfoutput>
 
 <cfquery datasource="#dsn#" name="FindUser">
     SELECT
@@ -32,7 +32,7 @@
 
 
 
-<cflocation url="/app/myaccount/?t9=1&tab9_expand=true&t1=0" addtoken="false" />
+<cflocation url="/app/myaccount/?t9=1&tab9_expand=true&t1=0"   />
 
 
 </cfif>

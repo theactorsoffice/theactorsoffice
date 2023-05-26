@@ -289,7 +289,7 @@ AND x.mediaid = #mediaid#
         const userid = '#userid#';
         const mediafilename = '#headshots_sel.mediafilename#';
 
-        window.location.href = 'download.cfm?host=' + host + '&userid=' + userid + '&mediafilename=' + mediafilename;
+        window.location.href = '/include/mediadownload.cfm?host=' + host + '&userid=' + userid + '&mediafilename=' + mediafilename;
     });
 </script>
 

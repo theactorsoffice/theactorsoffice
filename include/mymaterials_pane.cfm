@@ -211,6 +211,17 @@ AND x.mediaid = #mediaid#
 
                             </a>
 
+<cfif #auditions.recordcount# is "0"> 
+
+<a class="pt-0" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteDeleteaudmedia#headshots_sel.mediaid#" data-bs-placement="top" title="Delete media" data-bs-original-title="Delete media"><i class="mdi mdi-trash-can-outline"></i>
+                        </a>
+</cfif>
+
+
+ 
+
+
+
                         </td>
 
 

@@ -9,7 +9,7 @@
 
 <cfparam name="new_mediaName" default="" />
 
-<cfparam name="new_mediaLoc" default="" />
+ 
 
 <cfparam name="new_mediaFilename" default="" />
 
@@ -29,8 +29,6 @@ mediaTypeID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_mediaTypeID#"
 mediaURL = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaURL#"  null="#NOT len(trim(new_mediaURL))#" /> ,
 
 mediaName = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaName#"  null="#NOT len(trim(new_mediaName))#" /> ,
-
-mediaLoc = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaLoc#"  null="#NOT len(trim(new_mediaLoc))#" /> ,
 
 mediaFilename = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_mediaFilename#" maxlength="200" null="#NOT len(trim(new_mediaFilename))#" /> ,
 

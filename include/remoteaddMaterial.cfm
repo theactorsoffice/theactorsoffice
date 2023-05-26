@@ -81,14 +81,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
      </div>
 
 
-            <div class="form-group col-md-12">
-
-         <label for="new_medialoc">Location</label>
-
-         <input class="form-control" type="text" id="new_medialoc" name="new_medialoc" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"    placeholder="Add a physical location">
-
-
-     </div>
+ 
 
                <div class="form-group col-md-12">
 

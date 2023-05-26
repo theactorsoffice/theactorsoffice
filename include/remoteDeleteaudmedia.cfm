@@ -1,11 +1,24 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
 <cfquery name="audmedia_details"  datasource="#dsn#"  >
-    select * from audmedia where mediaid = #mediaid#
+    select m.mediaid,
+m.mediatypeid,
+m.mediaName,
+m.mediaLoc,
+m.mediaurl,
+m.mediaFilename,
+m.mediaExt,
+m.userid,
+m.mediacreated,
+m.isdeleted,
+t.mediaType from audmedia m
+     INNER JOIN audmediatypes t ON t.mediaTypeID = m.mediatypeid
+    
+    where m.mediaid = #mediaid#
 </cfquery>
  
  <cfoutput>
-<center>Are you sure you want<BR>to delete <strong>#audmedia_details.mediatype#: #audmedia_details.medianame#</strong>?</center></cfoutput>
+<center>Are you sure you want<BR>to delete <strong>#audmedia_details.mediaType#: #audmedia_details.medianame#</strong>?</center></cfoutput>
 <p></p>
 
 <cfsavecontent variable="dqry" >

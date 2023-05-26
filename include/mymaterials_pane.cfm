@@ -103,14 +103,7 @@
 
     <cfloop query="headshots_sel">
 
-    <cfquery name="auditions" datasource="#dsn#" >
-    SELECT distinct p.audprojectid FROM audprojects p 
-INNER JOIN audmedia_auditions_xref x ON p.audprojectID = x.audprojectid
-WHERE p.isdeleted = 0
-AND x.mediaid = #mediaid#
-</cfquery>
 
-<cfabort>
 
 
 <CFINCLUDE template="/include/remote_load.cfm" />
@@ -260,7 +253,7 @@ AND x.mediaid = #mediaid#
 
       <td class="text-nowrap">
 
-                        #numberformat(headshots.recordcount)#
+            
                            
                         </td>
 

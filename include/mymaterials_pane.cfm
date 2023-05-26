@@ -83,7 +83,7 @@
                                     <th>Type</th>
                                     <th>Name</th>
                                     <th>Filename</th>
-                                    <th>Location</th>
+                     
                                     <th>URL</th>
                                     <th>Created</th>
                                 </tr>
@@ -224,12 +224,7 @@
                            
                         </td>
 
-
-   <td class="text-nowrap">
-
-                        #headshots_sel.mediaLoc#
-                           
-                        </td>
+ 
 
 
    <td class="text-nowrap">

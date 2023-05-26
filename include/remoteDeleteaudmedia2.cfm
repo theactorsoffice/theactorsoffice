@@ -4,5 +4,10 @@
 #dqry#
 </cfquery>
  
+<cfif #secid# is "196">
+<cflocation url="/app/myaccount/?t9=1&tab9_expand=true" /> 
+<cfelse>
+<cflocation url="/app/myaccount/?t8=1&tab8_expand=true" /> 
 
-    <cflocation url="/app/myaccount/?t8=1&tab8_expand=true" /> 
+</cfif>
+    

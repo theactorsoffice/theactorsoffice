@@ -103,7 +103,14 @@
 
     <cfloop query="headshots_sel">
 
+    <cfquery name="auditions" datasource="#dsn#" >
+    SELECT distinct p.audprojectid FROM audprojects p 
+INNER JOIN audmedia_auditions_xref x ON p.audprojectID = x.audprojectid
+WHERE p.isdeleted = 0
+AND x.mediaid = #mediaid#
+</cfquery>
 
+ 
 
 
 <CFINCLUDE template="/include/remote_load.cfm" />
@@ -239,6 +246,8 @@
    <td class="text-nowrap">
 <cfif #headshots_sel.mediaurl# is not "">
                         <A href="#headshots_sel.mediaurl#" target="new" >#headshots_sel.mediaurl#</a>
+
+                        </cfif>
                         </td>
 
 
@@ -253,7 +262,7 @@
 
       <td class="text-nowrap">
 
-            
+                        #numberformat(headshots.recordcount)#
                            
                         </td>
 

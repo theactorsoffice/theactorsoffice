@@ -73,9 +73,9 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
             <div class="form-group col-md-12">
 
-         <label for="new_medianame">Name</label>
+         <label for="new_medianame">Name<span class="text-danger">*</span></label>
 
-         <input class="form-control" type="text" id="new_medianame" name="new_medianame" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"    placeholder="Add a name/brief description">
+         <input class="form-control" type="text" id="new_medianame" name="new_medianame" data-parsley-maxlength="800" data-parsley-maxlength-message="Max length 800 characters"  data-parsley-required data-parsley-error-message="Media Name is required"  placeholder="Add a name/brief description">
 
 
      </div>
@@ -95,7 +95,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
      <div class="form-group col-md-12">
 
-         <label for="attachmenturl">Upload File <span class="text-danger">*</span></label>
+         <label for="attachmenturl">Upload File (optional)</label>
 <p>
             <input name="file"  type="file"  />
  

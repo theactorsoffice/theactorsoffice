@@ -236,7 +236,16 @@ AND x.mediaid = #mediaid#
 
       <td class="text-nowrap">
 
-                        #headshots_sel.mediaFilename#
+                        <a href="##" id="downloadLink_#headshots_sel.mediaid#">#headshots_sel.mediaFilename#</a>
+
+
+                
+
+
+
+
+
+
                            
                         </td>
 
@@ -271,7 +280,18 @@ AND x.mediaid = #mediaid#
 
 
 
+<script type="text/javascript">
+    document.getElementById('downloadLink_#headshots_sel.mediaid#').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Variables that you want to pass
+        const host = '#host#';
+        const userid = '#userid#';
+        const mediafilename = '#headshots_sel.mediafilename#';
 
+        window.location.href = 'download.cfm?host=' + host + '&userid=' + userid + '&mediafilename=' + mediafilename;
+    });
+</script>
 
             
    

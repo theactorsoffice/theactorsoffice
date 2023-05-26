@@ -5,7 +5,7 @@
 </cfquery>
  
  <cfoutput>
-<center>Are you sure you want<BR>to delete <strong>#audmedia_details.mediafilename#</strong>?</center></cfoutput>
+<center>Are you sure you want<BR>to delete <strong>#audmedia_details.medianame#</strong>?</center></cfoutput>
 <p></p>
 
 <cfsavecontent variable="dqry" >

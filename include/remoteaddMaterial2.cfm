@@ -34,7 +34,7 @@
 
     <cfdirectory directory="#cUploadFolder#" action="create">
 </cfif>
- 
+<cfif structKeyExists(form, "file") >
 
 
 <cffile action="upload" filefield="form.file" destination="#cUploadFolder#\" 
@@ -57,7 +57,12 @@
 
 <cfset new_mediaext = listLast(new_mediaFilename, ".")>
 
- 
+<cfelse>
+
+<cfset new_mediaext = "" />
+<cfset new_filename = "" />
+
+</cfif>
 
 
 

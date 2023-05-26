@@ -34,7 +34,7 @@
 
     <cfdirectory directory="#cUploadFolder#" action="create">
 </cfif>
-<cfif structKeyExists(form, "file") >
+<cfif structKeyExists(form, "file") AND len(trim(form.file)) NEQ 0>
 
 
 <cffile action="upload" filefield="form.file" destination="#cUploadFolder#\" 

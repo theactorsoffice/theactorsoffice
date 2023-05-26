@@ -24,7 +24,7 @@
 
 <cfif structKeyExists(form, "file") AND len(trim(form.file)) NEQ 0>
 
-
+<Cfabort>
 
 <cfoutput>
 

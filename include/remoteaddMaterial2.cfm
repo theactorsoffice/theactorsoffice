@@ -22,9 +22,7 @@
 
 <cfset new_userid = session.userid/>
 
-<cfif structKeyExists(form, "file") AND len(trim(form.file)) NEQ 0>
 
-<Cfabort>
 
 <cfoutput>
 
@@ -36,6 +34,8 @@
 
     <cfdirectory directory="#cUploadFolder#" action="create">
 </cfif>
+ 
+
 
 <cffile action="upload" filefield="form.file" destination="#cUploadFolder#\" 
         nameconflict="MAKEUNIQUE"/>
@@ -57,12 +57,7 @@
 
 <cfset new_mediaext = listLast(new_mediaFilename, ".")>
 
-<cfelse>
-
-<cfset new_mediaext = "" />
-<cfset new_filename = "" />
-
-</cfif>
+ 
 
 
 

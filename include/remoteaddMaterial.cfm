@@ -97,7 +97,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
          <label for="attachmenturl">Upload File <span class="text-danger">*</span></label>
 <p>
-            <input name="file" onchange="unlock();"  type="file"  />
+            <input name="file"  type="file"  />
  
 </p>
 

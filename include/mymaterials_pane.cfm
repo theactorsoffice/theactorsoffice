@@ -262,7 +262,7 @@ AND x.mediaid = #mediaid#
 
       <td class="text-nowrap">
 
-                        #numberformat(headshots.recordcount)#
+                        #numberformat(auditions.recordcount)#
                            
                         </td>
 

@@ -86,6 +86,7 @@
                      
                                     <th>URL</th>
                                     <th>Created</th>
+                                          <th>Auditions</th>
                                 </tr>
                       
                 
@@ -101,6 +102,16 @@
 
 
     <cfloop query="headshots_sel">
+
+<CFINCLUDE template="/include/remote_load.cfm" />
+
+<cfquery name="auditions" datasource="#dsn#" >
+    SELECT distinct p.audprojectid FROM audprojects p 
+INNER JOIN audmedia_auditions_xref x ON p.audprojectID = x.audprojectid
+WHERE p.isdeleted = 0
+AND x.mediaid = #mediaid#
+</cfquery>
+
     
         <cfoutput>
         
@@ -228,9 +239,8 @@
 
 
    <td class="text-nowrap">
-
-                        #headshots_sel.mediaurl#
-                           
+<cfif #headshots_sel.mediaurl# is not "">
+                        <A href="#headshots_sel.mediaurl#" target="new" >#headshots_sel.mediaurl#</a>
                         </td>
 
 
@@ -243,6 +253,11 @@
                         <td class="text-nowrap">#dateformat('#headshots_sel.mediacreated#','m-d-YYYY')#<BR />#timeformat('#headshots_sel.mediacreated#','medium')#</td>
 
 
+      <td class="text-nowrap">
+
+                        #numberformat(headshots.recordcount)#
+                           
+                        </td>
 
                     </tr>
 

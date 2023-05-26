@@ -103,14 +103,19 @@
 
     <cfloop query="headshots_sel">
 
-<CFINCLUDE template="/include/remote_load.cfm" />
-
-<cfquery name="auditions" datasource="#dsn#" >
+    <cfquery name="auditions" datasource="#dsn#" >
     SELECT distinct p.audprojectid FROM audprojects p 
 INNER JOIN audmedia_auditions_xref x ON p.audprojectID = x.audprojectid
 WHERE p.isdeleted = 0
 AND x.mediaid = #mediaid#
 </cfquery>
+
+<cfabort>
+
+
+<CFINCLUDE template="/include/remote_load.cfm" />
+
+
 
     
         <cfoutput>
@@ -200,7 +205,7 @@ AND x.mediaid = #mediaid#
 
                         <td>
 
-                            <a title="Edit"  data-bs-toggle="modal" data-bs-target="##remoteupdatematerial#headshots_sel.mediaid#">
+<a title="Edit"  data-bs-toggle="modal" data-bs-target="##remoteupdatematerial#headshots_sel.mediaid#">
 
                                 <i class="mdi mdi-square-edit-outline"></i>
 

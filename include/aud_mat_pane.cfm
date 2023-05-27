@@ -170,7 +170,7 @@
                                         <option value="">Link Material</option>
 
                              <cfoutput query="audmedia_picklist">
-  <option value="#audmedia_picklist.mediaid#">audmedia_picklist.mediatype#: #audmedia_picklist.medianame#</option>
+  <option value="#audmedia_picklist.mediaid#">#audmedia_picklist.mediatype#: #audmedia_picklist.medianame#</option>
 
                              </cfoutput>
 

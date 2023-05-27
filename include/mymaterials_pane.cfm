@@ -1,3 +1,4 @@
+<cfparam name="materials" default="" />
 <cfoutput>
     <script>
         $(document).ready(function() {
@@ -110,7 +111,7 @@ WHERE p.isdeleted = 0
 AND x.mediaid = #mediaid#
 </cfquery>
 
- 
+ <cfset materials = ValueList(auditions.audprojectid)>
 
 
 <CFINCLUDE template="/include/remote_load.cfm" />
@@ -281,7 +282,14 @@ AND x.mediaid = #mediaid#
 
 
       <td class="text-nowrap">
+<cfif #numberformat(auditions.recordcount)# is not "0">
+<a href="/app/auditions/?materials=#materials#">#numberformat(auditions.recordcount)#</a>
 
+<cfelse>
+
+0
+
+</cfif>
                         #numberformat(auditions.recordcount)#
                            
                         </td>

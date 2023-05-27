@@ -9,7 +9,7 @@
 <cfparam name="sel_audstepid" default="x" />
 
 <cfparam name="sel_audtype" default="x" />
-
+<cfparam name="materials" default="x" />
 <cfparam name="auddate" default="x" />
 <cfoutput>
 <cfset cur_date = "#dateformat('#now()#','YYYY-MM-dd')#" />
@@ -136,9 +136,9 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
     </cfif>
         
         
-
-        
-        
+<cfif #materials# is not "x">
+        and p.audprojectid in (#materials#)
+  </cfif>      
         
 GROUP BY r.audroleid, p.projname,s.audsource,rt.audroletype,r.iscallback,r.isredirect,r.ispin,r.isbooked            
     <cfif #audsearch# is not "">

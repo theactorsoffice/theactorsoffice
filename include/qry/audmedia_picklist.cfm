@@ -37,6 +37,8 @@ m.mediaid
  INNER JOIN audmediatypes t ON t.mediaTypeID = m.mediatypeid
  LEFT JOIN exttypes e on e.mediaext = m.mediaext
  WHERE x.audprojectid = #audprojectid# AND m.isdeleted IS false and x.audprojectid <> 0)
+
+ order by t.mediaType, m.mediaName,
 </cfquery>
 
  

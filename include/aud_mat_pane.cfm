@@ -224,7 +224,7 @@
                                     <th>Type</th>
                                     <th>Name</th>
                                     <th>Filename</th>
-                                    <th>Location</th>
+                              
                                     <th>URL</th>
                                     <th>Created</th>
                                 </tr>
@@ -285,6 +285,53 @@
 
 
 
+
+
+ <script>
+                $(document).ready(function() {
+                $("##remoteRemoveaudmedia#audmedia.mediaid#").on("show.bs.modal", function(event) {
+                // Place the returned HTML into the selected element
+                $(this).find(".modal-body").load("/include/remoteRemoveaudmedia.cfm?mediaid=#audmedia.mediaid#&audprojectid=#audprojectid#&secid=196");
+                });
+                });
+            </script>
+            
+            <div id="remoteRemoveaudmedia#audmedia.mediaid#" class="modal fade" tabindex="-1" 
+                 role="dialog" aria-hidden="true">
+            
+                <div class="modal-dialog">
+                
+                    <div class="modal-content">
+                    
+                        <div class="modal-header" style="background-color: red;">
+                        
+                            <h4 class="modal-title">
+                                Remove Material
+                            </h4>
+                            
+                            <button type="button" class="close" data-bs-dismiss="modal" 
+                                    aria-hidden="true">
+                                <i class="mdi mdi-close-thick">
+                                </i>
+                            </button>
+                        </div>
+                        
+                        <div class="modal-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
      <script>
                 $(document).ready(function() {
                 $("##remoteupdatematerial#audmedia.mediaid#").on("show.bs.modal", function(event) {
@@ -336,6 +383,15 @@
 
                             </a>
 
+
+
+                            <a class="pt-0" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteRemoveaudmedia#audmedia.mediaid#" data-bs-placement="top" title="Remove media" data-bs-original-title="Remove media"><i class="mdi mdi-trash-can-outline"></i>
+                        </a>
+
+
+
+
+
                         </td>
 
 
@@ -361,22 +417,20 @@
 
       <td class="text-nowrap">
 
-                        #audmedia.mediaFilename#
-                           
+                 
+                             <a href="##" id="downloadLink_#audmedia.mediaid#">#audmedia.mediaFilename#</a>
                         </td>
 
 
-   <td class="text-nowrap">
-
-                        #audmedia.mediaLoc#
-                           
-                        </td>
-
+ 
 
    <td class="text-nowrap">
 
-                        #audmedia.mediaurl#
-                           
+                   
+                           <cfif #audmedia.mediaurl# is not "">
+                        <A href="#audmedia.mediaurl#" target="new" >#audmedia.mediaurl#</a>
+
+                        </cfif>
                         </td>
 
 
@@ -394,7 +448,18 @@
 
 
 
+<script type="text/javascript">
+    document.getElementById('downloadLink_#audmedia.mediaid#').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Variables that you want to pass
+        const host = '#host#';
+        const userid = '#userid#';
+        const mediafilename = '#audmedia.mediafilename#';
 
+        window.location.href = '/include/mediadownload.cfm?host=' + host + '&userid=' + userid + '&mediafilename=' + mediafilename;
+    });
+</script>
 
 
             

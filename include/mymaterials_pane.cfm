@@ -248,7 +248,7 @@ AND x.mediaid = #mediaid#
 
       <td class="text-nowrap">
 
-                        <a href="##" id="downloadLink_#headshots_sel.mediaid#">#headshots_sel.mediaFilename#</a>
+                        <a href="##" id="downloadLink_#headshots_sel.mediaid#" style="text-decoration: underline; color: blue;">#headshots_sel.mediaFilename#</a>
 
 
                 
@@ -266,7 +266,7 @@ AND x.mediaid = #mediaid#
 
    <td class="text-nowrap">
 <cfif #headshots_sel.mediaurl# is not "">
-                        <i class="fe-search"></i> <A href="#headshots_sel.mediaurl#" target="new" >#headshots_sel.mediaurl#</a>
+                        <A href="#headshots_sel.mediaurl#" target="new" style="text-decoration: underline; color: blue;" >#headshots_sel.mediaurl#</a>
 
                         </cfif>
                         </td>
@@ -283,7 +283,7 @@ AND x.mediaid = #mediaid#
 
       <td class="text-nowrap">
 <cfif #numberformat(auditions.recordcount)# is not "0">
-<i class="fe-search"></i> <a href="/app/auditions/?materials=#materials#">#numberformat(auditions.recordcount)#</a>
+<i class="fe-search"></i> <a style="text-decoration: underline; color: blue;" href="/app/auditions/?materials=#materials#">#numberformat(auditions.recordcount)#</a>
 
 <cfelse>
 

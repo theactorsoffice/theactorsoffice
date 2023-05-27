@@ -208,14 +208,14 @@
 
                                         </Cfif>
 
-                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=tbl" class="btn btn-xs #table_button# waves-effect waves-light</cfoutput>"><i class="mdi mdi-menu fa-2x"></i></a>
+                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=tbl&materials=#materials#" class="btn btn-xs #table_button# waves-effect waves-light</cfoutput>"><i class="mdi mdi-menu fa-2x"></i></a>
                                         &nbsp;
 
-                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=glry" class="btn btn-xs #gallery_button# waves-effect waves-light</cfoutput>"> <i class="mdi mdi-drag  fa-2x"></i></a>
+                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=glry&materials=#materials#" class="btn btn-xs #gallery_button# waves-effect waves-light</cfoutput>"> <i class="mdi mdi-drag  fa-2x"></i></a>
 
                                      &nbsp;&nbsp;
 
-                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=#view#&isexport=y" class="btn btn-xs btn-outline-secondary waves-effect waves-light</cfoutput>" title="Export Auditions"> <i class="mdi mdi-export  fa-2x"></i></a>
+                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=#view#&isexport=y&materials=#materials#" class="btn btn-xs btn-outline-secondary waves-effect waves-light</cfoutput>" title="Export Auditions"> <i class="mdi mdi-export  fa-2x"></i></a>
                                     
                                     
                                     

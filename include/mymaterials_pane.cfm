@@ -290,7 +290,7 @@ AND x.mediaid = #mediaid#
 0
 
 </cfif>
-                        #numberformat(auditions.recordcount)#
+                     
                            
                         </td>
 

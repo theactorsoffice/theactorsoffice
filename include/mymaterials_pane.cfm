@@ -283,7 +283,7 @@ AND x.mediaid = #mediaid#
 
       <td class="text-nowrap">
 <cfif #numberformat(auditions.recordcount)# is not "0">
-<i class="fe-search"></i> <a style="text-decoration: underline; color: blue;" href="/app/auditions/?materials=#materials#">#numberformat(auditions.recordcount)#</a>
+ <a style="text-decoration: underline; color: blue;" href="/app/auditions/?materials=#materials#">#numberformat(auditions.recordcount)#</a>
 
 <cfelse>
 

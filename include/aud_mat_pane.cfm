@@ -418,7 +418,7 @@
       <td class="text-nowrap">
 
                  
-                             <a href="##" id="downloadLink_#audmedia.mediaid#">#audmedia.mediaFilename#</a>
+                             <a href="##"  style="text-decoration: underline; color: blue;"  id="downloadLink_#audmedia.mediaid#">#audmedia.mediaFilename#</a>
                         </td>
 
 
@@ -428,7 +428,7 @@
 
                    
                            <cfif #audmedia.mediaurl# is not "">
-                        <A href="#audmedia.mediaurl#" target="new" >#audmedia.mediaurl#</a>
+                        <A href="#audmedia.mediaurl#" target="new"  style="text-decoration: underline; color: blue;" >#audmedia.mediaurl#</a>
 
                         </cfif>
                         </td>

@@ -107,6 +107,8 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
      </div>
 
+     <cfoutput>#src#</cfoutput><cfabort>
+
 <cfif #src# is "account">
 <input type="hidden" name="new_isshare" value="1" />
 

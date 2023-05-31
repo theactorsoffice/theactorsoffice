@@ -4,7 +4,7 @@
         $(document).ready(function() {
         $("##remoteaddMaterial").on("show.bs.modal", function(event) {
         // Place the returned HTML into the selected element
-        $(this).find(".modal-body").load("/include/remoteaddMaterial.cfm?userid=#userid#&src=account");
+        $(this).find(".modal-body").load("/include/remoteaddMaterial.cfm?userid=#userid#&src=account&new_isshare=1");
         });
         });
     </script>

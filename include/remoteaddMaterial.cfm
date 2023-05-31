@@ -40,7 +40,14 @@ function unlock(){
 </cfquery>
 
    <cfquery datasource="#dsn#" name="Type"  >             
-SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' and isdeleted = 0
+SELECT mediatypeid,mediatype from audmediatypes 
+
+WHERE mediatype <> 'Headshot' 
+and isdeleted = 0
+
+<cfif #src# is "account">
+and ismymaterial = 1
+</cfif>
                 </cfquery>  
 
  

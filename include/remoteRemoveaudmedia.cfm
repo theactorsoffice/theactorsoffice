@@ -39,7 +39,7 @@ DELETE FROM  audmedia_auditions_xref WHERE mediaid = #mediaid# and audprojectid 
 
 <p>&nbsp;</p>
      <div class="form-group text-center  col-md-12">
-            <button class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="background-color: red; border: red"  type="submit">Delete</button>
+            <button class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="background-color: red; border: red"  type="submit">Remove</button>
         </div>
 </form>
 

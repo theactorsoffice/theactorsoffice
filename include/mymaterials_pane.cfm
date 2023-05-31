@@ -165,7 +165,7 @@ AND x.mediaid = #mediaid#
                 $(document).ready(function() {
                 $("##remoteupdatematerial#headshots_sel.mediaid#").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remoteupdatematerial.cfm?src=aud&mediaid=#headshots_sel.mediaid#");
+                $(this).find(".modal-body").load("/include/remoteupdatematerial.cfm?src=account&mediaid=#headshots_sel.mediaid#");
                 });
                 });
             </script>

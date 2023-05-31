@@ -116,7 +116,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
 <cfelse>
     <div class="form-group col-md-6 col-sm-12">
-    <label for="new_mediatypeid">Share?<span class="text-danger">*</span></label>
+    <label for="new_mediatypeid">Save to My Materials?<span class="text-danger">*</span></label>
 
  
 

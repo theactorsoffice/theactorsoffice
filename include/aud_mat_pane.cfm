@@ -336,7 +336,7 @@
                 $(document).ready(function() {
                 $("##remoteupdatematerial#audmedia.mediaid#").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remoteupdatematerial.cfm?mediaid=#audmedia.mediaid#&dir=aud&audprojectid=#audprojectid#");
+                $(this).find(".modal-body").load("/include/remoteupdatematerial.cfm?mediaid=#audmedia.mediaid#&src=aud&dir=aud&audprojectid=#audprojectid#");
                 });
                 });
             </script>

@@ -107,8 +107,10 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
      </div>
 
+<cfif #src# is "account">
+<input type="hidden" name="new_isshare" value="1" />
 
-     
+<cfelse>
     <div class="form-group col-md-6 col-sm-12">
     <label for="new_mediatypeid">Share?<span class="text-danger">*</span></label>
 
@@ -126,6 +128,11 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
 
 </div>
+
+
+</cfif>
+     
+
 
 
      </cfoutput>

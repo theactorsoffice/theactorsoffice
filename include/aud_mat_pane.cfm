@@ -54,7 +54,7 @@
         $(document).ready(function() {
             $("##remoteadd").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remotaudmatadd.cfm?audid=#audid#&audprojectid=#audprojectid#&secid=177");
+                $(this).find(".modal-body").load("/include/remotaudmatadd.cfm?audid=#audid#&audprojectid=#audprojectid#&secid=177&new_isshare=0");
             });
         });
     </script>

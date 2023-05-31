@@ -38,7 +38,8 @@
 
     userid,
 
-    isDeleted)
+    isDeleted,
+    isshare)
 
 
     VALUES (
@@ -57,7 +58,9 @@
 
     <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#" null="#NOT len(trim(new_userid))#" />,
 
-    <cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_isDeleted#" null="#NOT len(trim(new_isDeleted))#" />
+    <cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_isDeleted#" null="#NOT len(trim(new_isDeleted))#" />,
+
+    <cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_isshare#" null="#NOT len(trim(new_isshare))#" />
 
     );
 </cfquery>

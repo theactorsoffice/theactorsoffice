@@ -54,7 +54,10 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
      <cfset minlength="3" />
      
+<cfoutput>
+<input type="hidden" name="new_isshare" value="#new_isshare#" />
 
+</cfoutput>
  
     <div class="form-group col-md-6 col-sm-12">
     <label for="new_mediatypeid">Media Type<span class="text-danger">*</span></label>

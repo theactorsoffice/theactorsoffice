@@ -1,3 +1,5 @@
+    <cfoutput>#src#</cfoutput><cfabort>
+
 <script>
 $(document).keypress(function (e) {
     if (e.which == 13 && e.target.nodeName != "TEXTAREA") {
@@ -107,7 +109,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatype <> 'Headshot' an
 
      </div>
 
-     <cfoutput>#src#</cfoutput><cfabort>
+ 
 
 <cfif #src# is "account">
 <input type="hidden" name="new_isshare" value="1" />

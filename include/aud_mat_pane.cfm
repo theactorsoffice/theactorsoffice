@@ -143,7 +143,7 @@
         $(document).ready(function() {
         $("##remoteaddMaterial").on("show.bs.modal", function(event) {
         // Place the returned HTML into the selected element
-        $(this).find(".modal-body").load("/include/remoteaddMaterial.cfm?userid=#userid#&src=aud&audprojectid=#audprojectid#");
+        $(this).find(".modal-body").load("/include/remoteaddMaterial.cfm?userid=#userid#&src=aud&audprojectid=#audprojectid#&isshare=0");
         });
         });
     </script>

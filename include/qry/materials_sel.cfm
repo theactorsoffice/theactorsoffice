@@ -21,7 +21,7 @@ e.isimage as isValidImage
  FROM audmedia m  
  INNER JOIN audmediatypes t ON t.mediaTypeID = m.mediatypeid
  LEFT JOIN exttypes e on e.mediaext = m.mediaext
- WHERE m.userid = #userid# AND m.isdeleted IS false and t.ismaterial = 1 
+ WHERE m.userid = #userid# AND m.isdeleted IS false and t.ismaterial = 1 and m.isshare = 1
 </cfquery>
 
  

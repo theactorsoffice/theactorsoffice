@@ -53,7 +53,9 @@ and ismymaterial = 1
  
  <form action="/include/remoteaddMaterial2.cfm" method="post" class="parsley-examples" enctype="multipart/form-data" id="upload" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"
   data-parsley-trigger="keyup" data-parsley-validate>
-
+<cfoutput>
+<input type="hidden" name="src" value="#src#" />
+</cfoutput>
 
      <div class="row" />
 

@@ -70,4 +70,11 @@
 
 <cfset new_uploadid = result.generatedkey>
 
+<cfif #src# is "account">
+
 <cflocation url="/app/myaccount/?t9=1&tab9_expand=true&new_uploadid=<cfoutput>#new_uploadid#</cfoutput>"/>
+
+<cfelse>
+  <cflocation url = "/app/audition/?audprojectid=#audprojectid#&secid=177" />
+
+</cfif>

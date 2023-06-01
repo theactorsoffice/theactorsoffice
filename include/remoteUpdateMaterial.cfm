@@ -141,9 +141,17 @@ and ismymaterial = 1
 
 
 </cfif>
+
+<Cfif #materials_details.mediafilename# is not "">
      
+               <div class="form-group col-md-12">
 
+         <label for="new_media">Filename</label>
 
+         
+#materials_details.mediafilename#
+     </div>
+</cfif>
 
      </cfoutput>
    

@@ -61,32 +61,7 @@ and ismymaterial = 1
 
      <cfset minlength="3" />
 
-     <cfif #src# is "account">
-<cfoutput>
-<input type="hidden" name="new_isshare" value="#new_isshare#" />
 
-</cfoutput>
-
-     <cfelse>
-  <div class="form-group col-md-6 col-sm-12">
-    <label for="new_mediatypeid">Save to My Materials?<span class="text-danger">*</span></label>
-
- 
-
-    <select id="new_isShare" name="new_isShare" class="form-control" data-parsley-required data-parsley-error-message="Shareable is required">
-     
-  
-<option value="1" >Yes</option>
-   
-<option value="0" selected >No</option>
-
-
-    </select>
-
-
-</div>
-
-     </cfif>
      
 
  
@@ -125,6 +100,33 @@ and ismymaterial = 1
 
 
      </div>
+
+          <cfif #src# is "account">
+<cfoutput>
+<input type="hidden" name="new_isshare" value="#new_isshare#" />
+
+</cfoutput>
+
+     <cfelse>
+  <div class="form-group col-md-6 col-sm-12">
+    <label for="new_mediatypeid">Save to My Materials?<span class="text-danger">*</span></label>
+
+ 
+
+    <select id="new_isShare" name="new_isShare" class="form-control" data-parsley-required data-parsley-error-message="Shareable is required">
+     
+  
+<option value="1" >Yes</option>
+   
+<option value="0" selected >No</option>
+
+
+    </select>
+
+
+</div>
+
+     </cfif>
    
 
      <div class="form-group col-md-12">

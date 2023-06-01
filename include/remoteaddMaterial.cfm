@@ -1,3 +1,5 @@
+<cfparam name="audprojectid" default="0" />
+
 <script>
 $(document).keypress(function (e) {
     if (e.which == 13 && e.target.nodeName != "TEXTAREA") {
@@ -55,6 +57,8 @@ and ismymaterial = 1
   data-parsley-trigger="keyup" data-parsley-validate>
 <cfoutput>
 <input type="hidden" name="src" value="#src#" />
+<input type="hidden" name="audprojectid" value="#audprojectid#" />
+
 </cfoutput>
 
      <div class="row" />

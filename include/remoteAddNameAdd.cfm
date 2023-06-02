@@ -1,6 +1,47 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 <cfquery datasource="#dsn#" name="add"   result="result">
-        INSERT INTO contactdetails (userid,contactfullname) VALUES (#session.userid#,'#contactFullName#');
+        INSERT INTO contactdetails (userid
+        
+        
+        ,contactfullname
+
+        <cfif #contactbirthday# is not "">
+,contactbirthday
+
+        </cfif>
+        
+        
+              <cfif #contactmeetingdate# is not "">
+,contactmeetingdate
+
+        </cfif>
+        
+        ,contactmeetingloc
+        ,contactPronoun
+        ) 
+        
+        
+        
+        VALUES (#session.userid#,'#contactFullName#'
+        
+        
+           <cfif #contactbirthday# is not "">
+
+           ,<cfqueryparam cfsqltype="CF_SQL_DATE"  value="#contactbirthday#" />
+
+
+        </cfif>
+             <cfif #contactmeetingdate# is not "">
+
+           ,<cfqueryparam cfsqltype="CF_SQL_DATE"  value="#contactmeetingdate#" />
+
+
+        </cfif> 
+
+          ,<cfqueryparam cfsqltype="CF_SQL_VARCHAR"  value="#contactmeetingloc#" />
+              ,<cfqueryparam cfsqltype="CF_SQL_VARCHAR"  value="#contactPronoun#" />
+        
+        );
 </cfquery>
 
 <cfset currentid=result.generated_key />

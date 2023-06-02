@@ -281,7 +281,7 @@
 
                             <label for="new_contactid">Casting Director </label>
 
-                            <select id="new_contactid" class="form-control" name="new_contactid" onChange="showDivssss('hidden_divssss', this)">
+                            <select id="new_contactid" class="form-control" name="new_contactid" onChange="showDivssss('hidden_divssss', this)"  data-parsley-required data-parsley-error-message="CD is required">
                                 <option value="">--</option>
                                 <option value="0">***ADD NEW***</option>
                                 <cfoutput query="castingdirectors_sel">

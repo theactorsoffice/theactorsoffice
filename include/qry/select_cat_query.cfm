@@ -13,7 +13,7 @@
     <cfif #new_audcatid# is not "0">
         and a.audcatid = <cfqueryparam value="#new_audcatid#" cfsqltype="cf_sql_integer" />
     </cfif>
-    ORDER BY ac.audcatname, a.#orderby#
+    ORDER BY a.#fname#, ac.audcatname, a.#orderby#
 </cfquery>
 
 <cfif #dbug# is "n">

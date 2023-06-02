@@ -30,6 +30,8 @@ FROM audsources
     WHERE audsource <> 'My Team' 
     
     </cfif>
+
+    order  by audsource
 </cfquery>
     
     

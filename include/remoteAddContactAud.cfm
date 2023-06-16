@@ -90,7 +90,7 @@ SELECT  * from tags_user where userid = #session.userid#
    
     
     
-                    <div class="form-group col-sm-12 md-12">
+                    <div class="form-group col-sm-6 md-6">
                      
                      
                     
@@ -114,6 +114,12 @@ SELECT  * from tags_user where userid = #session.userid#
     
     
     </div>
+
+
+       <div class="form-group col-sm-6 md-6">
+
+
+       </div>
 
     
  

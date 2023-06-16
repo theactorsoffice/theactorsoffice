@@ -90,20 +90,7 @@ SELECT  * from tags_user where userid = #session.userid#
     
                     <div class="form-group col-sm-6 mb-6">
                      
-                     
-                               <label for="tag">Type</label>
-                     
-    
-                  <select id="new_tag" name="new_tag" required class="form-control">
-                                                        <option value="">Select a type</option>
-                                               <cfloop query="tags">
-                                                
-                                                   <cfoutput>
-                                                       <option value="#tags.tagname#"  >#tags.tagname#</option>
-                                                 
-                                                 </cfoutput>
-                                                 </cfloop>
-                                                    </select>
+       
     
     
     

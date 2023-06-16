@@ -10,7 +10,7 @@ SELECT
 	`d`.`recordname` AS `Name`
 	,`ci_company`.`valueCompany` AS `Company`
 	,`ci_tag`.`valueText` AS `Title`
-	,`mx`.`audstep` AS `Audition`
+	,`mx`.`audstep` AS `Audition Status`
 	,`d`.`contactMeetingLoc` AS `WhereMet`
 	,`d`.`contactMeetingDate` AS `WhenMet`
 
@@ -29,7 +29,7 @@ FROM (
 						`actorsbusinessoffice`.`contactdetails` `d` 
 			LEFT JOIN audcontacts_auditions_xref x ON d.contactid = x.contactid
 			LEFT JOIN audprojects p ON p.audprojectID = x.audprojectid
-inner JOIN audroles r ON r.audprojectID = r.audprojectid
+inner JOIN audroles r ON r.audprojectID = p.audprojectid
 			LEFT JOIN audsubcategories sc ON  sc.audsubcatid = p.audsubcatid
 LEFT JOIN audcategories c ON  c.audcatid = sc.audcatid
 LEFT JOIN audroletypes rt ON rt.audroletypeid = r.audroletypeid						

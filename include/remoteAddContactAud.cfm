@@ -55,21 +55,23 @@ SELECT  * from tags_user where userid = #session.userid#
     
     
                 <div class="form-group col-md-6">
-                    <label for="company">Company<span class="text-danger">*</span></label>
+
+
+                           <label for="tag">Tag</label>
+                     
+    
+                  <select id="new_tag" name="new_tag" required class="form-control">
+                                                        <option value="">Select a tag</option>
+                                               <cfloop query="tags">
+                                                
+                                                   <cfoutput>
+                                                       <option value="#tags.tagname#"  >#tags.tagname#</option>
+                                                 
+                                                 </cfoutput>
+                                                 </cfloop>
+                                                    </select>
     
 
-            <select id="company" name="company" class="form-control"  onchange="showDiv('hidden_div', this)">
-
-
-                <option value=""></option>
-                <cfoutput query="companies">
-                    <option value="#companies.new_valuecompany#">#companies.new_valuecompany# </option>
-
-
-        </cfoutput>
-        <option value="Custom">***ADD NEW***</option>
-
-        </select>
 
         </div>
                         
@@ -88,9 +90,27 @@ SELECT  * from tags_user where userid = #session.userid#
    
     
     
-                    <div class="form-group col-sm-6 mb-6">
+                    <div class="form-group col-sm-12 md-12">
                      
-       
+                     
+                    
+
+    
+                    <label for="company">Company<span class="text-danger">*</span></label>
+    
+
+            <select id="company" name="company" class="form-control"  onchange="showDiv('hidden_div', this)">
+
+
+                <option value=""></option>
+                <cfoutput query="companies">
+                    <option value="#companies.new_valuecompany#">#companies.new_valuecompany# </option>
+
+
+        </cfoutput>
+        <option value="Custom">***ADD NEW***</option>
+
+        </select>
     
     
     </div>

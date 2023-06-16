@@ -75,14 +75,7 @@ SELECT  * from tags_user where userid = #session.userid#
 
         </div>
                         
-       <div id="hidden_div" class="form-group col-md-6">
-       
-                    <label for="company_new">Custom Company<span class="text-danger">*</span></label>
-
-                <input class="form-control" type="text" id="company_new" name="company_new" value="" placeholder="Enter Company">
-
-
-        </div>            
+      
                         
         
        
@@ -117,7 +110,14 @@ SELECT  * from tags_user where userid = #session.userid#
 
 
        <div class="form-group col-sm-6 md-6">
+       <div id="hidden_div"  >
+       
+                    <label for="company_new">Custom Company<span class="text-danger">*</span></label>
 
+                <input class="form-control" type="text" id="company_new" name="company_new" value="" placeholder="Enter Company">
+
+
+        </div>      
 
        </div>
 

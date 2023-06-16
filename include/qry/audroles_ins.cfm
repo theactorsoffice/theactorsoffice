@@ -26,7 +26,10 @@
 
 <cfparam name="isredirect" default="0"/>
 
+<cfif #isdirect# is "1">
+<cfset isbooked = 1 />
 
+</cfif>
 
 <cfquery name="audroles_ins" datasource="#dsn#" result="result">
 

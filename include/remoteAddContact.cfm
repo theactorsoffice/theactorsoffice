@@ -50,7 +50,7 @@ SELECT  * from tags_user where userid = #session.userid# <cfif #tagtypes# is "te
                     <div class="form-group col-sm-6 mb-6">
                      
                      
-                               <label for="tag">Type</label>
+                               <label for="tag">Tag</label>
                      
     
                   <select id="new_tag" name="new_tag" required class="form-control">

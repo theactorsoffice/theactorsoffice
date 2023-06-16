@@ -93,7 +93,6 @@ SELECT  * from tags_user where userid = #session.userid#
        
     
     
-    
     </div>
 
     

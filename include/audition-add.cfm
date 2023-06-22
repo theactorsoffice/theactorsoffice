@@ -334,6 +334,7 @@
 
 
                                                    <div class="form-group col-md-6">
+                                                   <div id="cdrole">
 
                                         <label for="cdtype">Casting Director Role<span class="text-danger">*</span></label>
 
@@ -348,7 +349,7 @@
                                             </cfoutput>
 
                                         </select>
-
+</div>
 
                                     </div>
 
@@ -878,7 +879,8 @@
   const cdFullNameInput = document.getElementById('cdfullname');
   const cdTypeInput = document.getElementById('cdtype');
   const companySearchInput = document.getElementById('companySearch');
-  
+  const cdroleInput = document.getElementById('cdrole');
+
   // function to update the required status and default value of the form inputs
   function updateFormInputs() {
     if (onlyCompanyKnown.checked) {
@@ -886,6 +888,7 @@
       cdTypeInput.required = false;
       companySearchInput.required = true;
       cdTypeInput.value = "Casting Director";
+      cdroleInput.parentElement.style.display = "none";
       cdFullNameInput.parentElement.style.display = "none";
     } else {
       cdFullNameInput.required = true;
@@ -893,6 +896,7 @@
       companySearchInput.required = false;
       cdTypeInput.value = "";
       cdFullNameInput.parentElement.style.display = "block";
+      cdroleInput.parentElement.style.display = "block";
     }
   }
   

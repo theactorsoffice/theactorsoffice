@@ -33,7 +33,7 @@
 <cfquery name="auditions_ins" datasource="#dsn#" result="result">
 
 
-    INSERT INTO events (
+    INSERT INTO events_tbl (
 
     userid,
 

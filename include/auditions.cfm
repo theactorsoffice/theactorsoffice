@@ -85,7 +85,7 @@
     WHERE audstepid IN
 
     (SELECT audstepid
-    FROM auditions
+    from events
     WHERE userid = #userid# AND isdeleted IS FALSE)
 
     ORDER BY audstep

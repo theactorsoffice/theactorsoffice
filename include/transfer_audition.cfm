@@ -27,7 +27,7 @@
 
 <cfquery datasource="#dsn#" name="x">
     Select *
-    from auditionsimport
+    from eventsimport
     where uploadid = #new_uploadid#
 </cfquery>
 

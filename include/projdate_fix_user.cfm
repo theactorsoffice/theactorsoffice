@@ -102,7 +102,7 @@
 </cfloop>
 
 <cfquery datasource="#dsn#" name="delete">
-    update auditions
+    update events
     set isdeleted = 1
     WHERE isdeleted = 0
     AND eventStart IS NULL

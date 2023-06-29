@@ -221,11 +221,11 @@
 
         <cfparam name="new_audMtgUrl" default="" />
 
-        <cfparam name="new_audStartDate" default="" />
+        <cfparam name="new_eventStart" default="" />
 
-        <cfparam name="new_audStartTime" default="" />
+        <cfparam name="new_eventStartTime" default="" />
 
-        <cfparam name="new_audEndTime" default="" />
+        <cfparam name="new_eventStopTime" default="" />
 
         <cfparam name="new_audplatformid" default="4" />
 
@@ -255,11 +255,11 @@
 
             audMtgUrl,
 
-            audStartDate,
+            eventStart,
 
-            audStartTime,
+            eventStartTime,
 
-            audEndTime,
+            eventStopTime,
 
             audplatformID,
 
@@ -288,11 +288,11 @@
 
             <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audMtgUrl#" maxlength="500" null="#NOT len(trim(new_audMtgUrl))#" />,
 
-            <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_audStartDate#" null="#NOT len(trim(new_audStartDate))#" />,
+            <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_eventStart#" null="#NOT len(trim(new_eventStart))#" />,
 
-            <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audStartTime#" null="#NOT len(trim(new_audStartTime))#" />,
+            <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStartTime#" null="#NOT len(trim(new_eventStartTime))#" />,
 
-            <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audEndTime#" null="#NOT len(trim(new_audEndTime))#" />,
+            <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStopTime#" null="#NOT len(trim(new_eventStopTime))#" />,
 
             <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audplatformid#" null="#NOT len(trim(new_audplatformid))#" />,
 
@@ -315,7 +315,7 @@
 
 
 
-        <cfset audid=rez.GENERATEDKEY />
+        <cfset eventid=rez.GENERATEDKEY />
 
 
     </cfif>
@@ -325,17 +325,17 @@
 
 
     <cfquery name="aud_det" datasource="#dsn#">
-        SELECT ad.audid,a4.`audroleid`, a.`projName`, a.`projDescription`, ad.`audstarttime`, ad.`audendtime`, ad.`audstartdate`, a1.`network`, a2.`audSubCatName`, a2.`audSubCatName`,
+        SELECT ad.eventid,a4.`audroleid`, a.`projName`, a.`projDescription`, ad.`eventStartTime`, ad.`eventStopTime`, ad.`eventStart`, a1.`network`, a2.`audSubCatName`, a2.`audSubCatName`,
         a3.`unionName`,a2.audsubcatid,ad.audlocid,
 
         a4.`audRoleName`, a4.`charDescription`, a4.`holdStartDate`, a4.`holdEndDate`,
         a5.`audroletype`, a6.`auddialect`, c.`audcatid`, t.`audtypeid`, ad.`workwithcoach`,
         ad.`audstepid`, ad.`audlocation`, ad.`parkingdetails`, ad.`audroleid`,
         ad.`audplatformid`, ad.`trackmileage`, t.`audtype`,step.audstep,t.islocation,ad.audbooktypeid,
-        ad.audlocname,ad.audlocadd1,ad.audzip,ad.audlocadd2,ad.audcity,ad.regionid,r.countryid,
-        truncate(hour(TIMEDIFF(ad.audendtime, ad.audstarttime)),2) +
+        ad.eventLocation,ad.audlocadd1,ad.audzip,ad.audlocadd2,ad.audcity,ad.regionid,r.countryid,
+        truncate(hour(TIMEDIFF(ad.eventStopTime, ad.eventStartTime)),2) +
 
-        truncate(minute(TIMEDIFF(ad.audendtime, ad.audstarttime)),2)/60 AS new_durhours
+        truncate(minute(TIMEDIFF(ad.eventStopTime, ad.eventStartTime)),2)/60 AS new_durhours
         FROM audprojects a
 
         LEFT OUTER JOIN audnetworks a1 ON ( a.`networkID` = a1.networkid )
@@ -353,7 +353,7 @@
         LEFT OUTER JOIN regions r on r.regionid = ad.regionid
 
 
-        WHERE ad.audid = #audid#
+        WHERE ad.eventid = #eventid#
     </cfquery>
 
     <cfif #aud_det.new_durhours# is "">
@@ -458,8 +458,8 @@
 
             <cfoutput>
                 <input type="hidden" name="audprojectid" value="#audprojectid#">
-                <input type="hidden" name="new_audid" value="#audid#">
-                <input type="hidden" name="audid" value="#audid#">
+                <input type="hidden" name="new_eventid" value="#eventid#">
+                <input type="hidden" name="eventid" value="#eventid#">
                 <input type="hidden" name="new_audStepID" value="#aud_det.audstepid#">
                 <input type="hidden" name="new_audcatid" value="#aud_det.audcatid#">
                 <input type="hidden" name="new_audsubcatid" value="#aud_det.audsubcatid#">
@@ -482,8 +482,8 @@
             <Cfoutput>
 
                 <div class="form-group col-md-6">
-                    <label for="new_audstartdate">Start Date / Due Date<span class="text-danger">*</span></label>
-                    <input id="new_audstartdate" class="form-control" autocomplete="off" name="new_audstartdate" type="date" data-parsley-required data-parsley-error-message="Start Date is required" value="#aud_det.audstartdate#">
+                    <label for="new_eventStart">Start Date / Due Date<span class="text-danger">*</span></label>
+                    <input id="new_eventStart" class="form-control" autocomplete="off" name="new_eventStart" type="date" data-parsley-required data-parsley-error-message="Start Date is required" value="#aud_det.eventStart#">
                 </div>
 
 
@@ -493,112 +493,112 @@
 
 
             <div class="form-group col-md-6">
-                <label for="new_audstartTime">Start Time / Due Time<span class="text-danger">*</span></label>
+                <label for="new_eventStartTime">Start Time / Due Time<span class="text-danger">*</span></label>
 
 
 
 
-                <select class="form-control" name="new_audstartTime" autocomplete="off" id="new_audstartTime" data-parsley-required data-parsley-error-message="Start Time is required">
+                <select class="form-control" name="new_eventStartTime" autocomplete="off" id="new_eventStartTime" data-parsley-required data-parsley-error-message="Start Time is required">
 
-                    <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is not "">
+                    <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is not "">
                         <option value="">Select a Start/Due Time</option>
 
-                        <option value="00:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "00:00"> selected</cfif> >12:00 AM</option>
-                    <option value="00:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "00:15"> selected </cfif> >12:15 AM</option>
-                    <option value="00:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "00:30"> selected </cfif> >12:30 AM</option>
-                    <option value="00:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "00:45"> selected </cfif> >12:45 AM</option>
-                    <option value="01:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "01:00"> selected </cfif> >01:00 AM</option>
-                    <option value="01:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "01:15"> selected </cfif> >01:15 AM</option>
-                    <option value="01:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "01:30"> selected </cfif> >01:30 AM</option>
-                    <option value="01:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "01:45"> selected </cfif> >01:45 AM</option>
-                    <option value="02:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "02:00"> selected </cfif> >02:00 AM</option>
-                    <option value="02:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "02:15"> selected </cfif> >02:15 AM</option>
-                    <option value="02:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "02:30"> selected </cfif> >02:30 AM</option>
-                    <option value="02:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "02:45"> selected </cfif> >02:45 AM</option>
-                    <option value="03:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "03:00"> selected </cfif> >03:00 AM</option>
-                    <option value="03:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "03:15"> selected </cfif> >03:15 AM</option>
-                    <option value="03:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "03:30"> selected </cfif> >03:30 AM</option>
-                    <option value="03:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "03:45"> selected </cfif> >03:45 AM</option>
-                    <option value="04:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "04:00"> selected </cfif> >04:00 AM</option>
-                    <option value="04:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "04:15"> selected </cfif> >04:15 AM</option>
-                    <option value="04:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "04:30"> selected </cfif> >04:30 AM</option>
-                    <option value="04:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "04:45"> selected </cfif> >04:45 AM</option>
-                    <option value="05:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "05:00"> selected </cfif> >05:00 AM</option>
-                    <option value="05:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "05:15"> selected </cfif> >05:15 AM</option>
-                    <option value="05:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "05:30"> selected </cfif> >05:30 AM</option>
-                    <option value="05:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "05:45"> selected </cfif> >05:45 AM</option>
-                    <option value="06:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "06:00"> selected </cfif> >06:00 AM</option>
-                    <option value="06:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "06:15"> selected </cfif> >06:15 AM</option>
-                    <option value="06:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "06:30"> selected </cfif> >06:30 AM</option>
-                    <option value="06:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "06:45"> selected </cfif> >06:45 AM</option>
-                    <option value="07:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "07:00"> selected </cfif> >07:00 AM</option>
-                    <option value="07:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "07:15"> selected </cfif> >07:15 AM</option>
-                    <option value="07:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "07:30"> selected </cfif> >07:30 AM</option>
-                    <option value="07:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "07:45"> selected </cfif> >07:45 AM</option>
-                    <option value="08:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "08:00"> selected </cfif> >08:00 AM</option>
-                    <option value="08:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "08:15"> selected </cfif> >08:15 AM</option>
-                    <option value="08:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "08:30"> selected </cfif> >08:30 AM</option>
-                    <option value="08:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "08:45"> selected </cfif> >08:45 AM</option>
-                    <option value="09:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "09:00"> selected </cfif> >09:00 AM</option>
-                    <option value="09:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "09:15"> selected </cfif> >09:15 AM</option>
-                    <option value="09:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "09:30"> selected </cfif> >09:30 AM</option>
-                    <option value="09:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "09:45"> selected </cfif> >09:45 AM</option>
-                    <option value="10:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "10:00"> selected </cfif> >10:00 AM</option>
-                    <option value="10:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "10:15"> selected </cfif> >10:15 AM</option>
-                    <option value="10:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "10:30"> selected </cfif> >10:30 AM</option>
-                    <option value="10:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "10:45"> selected </cfif> >10:45 AM</option>
-                    <option value="11:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "11:00"> selected </cfif> >11:00 AM</option>
-                    <option value="11:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "11:15"> selected </cfif> >11:15 AM</option>
-                    <option value="11:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "11:30"> selected </cfif> >11:30 AM</option>
-                    <option value="11:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "11:45"> selected </cfif> >11:45 AM</option>
-                    <option value="12:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "12:00"> selected </cfif> >12:00 PM</option>
-                    <option value="12:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "12:15"> selected </cfif> >12:15 PM</option>
-                    <option value="12:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "12:30"> selected </cfif> >12:30 PM</option>
-                    <option value="12:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "12:45"> selected </cfif> >12:45 PM</option>
-                    <option value="13:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "13:00"> selected </cfif> >01:00 PM</option>
-                    <option value="13:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "13:15"> selected </cfif> >01:15 PM</option>
-                    <option value="13:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "13:30"> selected </cfif> >01:30 PM</option>
-                    <option value="13:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "13:45"> selected </cfif> >01:45 PM</option>
-                    <option value="14:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "14:00"> selected </cfif> >02:00 PM</option>
-                    <option value="14:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "14:15"> selected </cfif> >02:15 PM</option>
-                    <option value="14:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "14:30"> selected </cfif> >02:30 PM</option>
-                    <option value="14:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "14:45"> selected </cfif> >02:45 PM</option>
-                    <option value="15:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "15:00"> selected </cfif> >03:00 PM</option>
-                    <option value="15:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "15:15"> selected </cfif> >03:15 PM</option>
-                    <option value="15:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "15:30"> selected </cfif> >03:30 PM</option>
-                    <option value="15:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "15:45"> selected </cfif> >03:45 PM</option>
-                    <option value="16:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "16:00"> selected </cfif> >04:00 PM</option>
-                    <option value="16:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "16:15"> selected </cfif> >04:15 PM</option>
-                    <option value="16:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "16:30"> selected </cfif> >04:30 PM</option>
-                    <option value="16:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "16:45"> selected </cfif> >04:45 PM</option>
-                    <option value="17:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "17:00"> selected </cfif> >05:00 PM</option>
-                    <option value="17:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "17:15"> selected </cfif> >05:15 PM</option>
-                    <option value="17:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "17:30"> selected </cfif> >05:30 PM</option>
-                    <option value="17:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "17:45"> selected </cfif> >05:45 PM</option>
-                    <option value="18:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "18:00"> selected </cfif> >06:00 PM</option>
-                    <option value="18:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "18:15"> selected </cfif> >06:15 PM</option>
-                    <option value="18:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "18:30"> selected </cfif> >06:30 PM</option>
-                    <option value="18:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "18:45"> selected </cfif> >06:45 PM</option>
-                    <option value="19:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "19:00"> selected </cfif> >07:00 PM</option>
-                    <option value="19:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "19:15"> selected </cfif> >07:15 PM</option>
-                    <option value="19:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "19:30"> selected </cfif> >07:30 PM</option>
-                    <option value="19:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "19:45"> selected </cfif> >07:45 PM</option>
-                    <option value="20:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "20:00"> selected </cfif> >08:00 PM</option>
-                    <option value="20:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "20:15"> selected </cfif> >08:15 PM</option>
-                    <option value="20:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "20:30"> selected </cfif> >08:30 PM</option>
-                    <option value="20:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "20:45"> selected </cfif> >08:45 PM</option>
-                    <option value="21:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "21:00"> selected </cfif> >09:00 PM</option>
-                    <option value="21:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "21:15"> selected </cfif> >09:15 PM</option>
-                    <option value="21:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "21:30"> selected </cfif> >09:30 PM</option>
-                    <option value="21:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "21:45"> selected </cfif> >09:45 PM</option>
-                    <option value="22:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "22:00"> selected </cfif> >10:00 PM</option>
-                    <option value="22:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "22:15"> selected </cfif> >10:15 PM</option>
-                    <option value="22:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "22:30"> selected </cfif> >10:30 PM</option>
-                    <option value="22:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "22:45"> selected </cfif> >10:45 PM</option>
-                    <option value="23:00" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "23:00"> selected </cfif> >11:00 PM</option>
-                    <option value="23:15" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "23:15"> selected </cfif> >11:15 PM</option>
-                    <option value="23:30" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "23:30"> selected </cfif> >11:30 PM</option>
-                    <option value="23:45" <cfif #timeformat(aud_det.audstarttime,'HH:MM')# is "23:45"> selected </cfif> >11:45 PM</option>
+                        <option value="00:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "00:00"> selected</cfif> >12:00 AM</option>
+                    <option value="00:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "00:15"> selected </cfif> >12:15 AM</option>
+                    <option value="00:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "00:30"> selected </cfif> >12:30 AM</option>
+                    <option value="00:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "00:45"> selected </cfif> >12:45 AM</option>
+                    <option value="01:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "01:00"> selected </cfif> >01:00 AM</option>
+                    <option value="01:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "01:15"> selected </cfif> >01:15 AM</option>
+                    <option value="01:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "01:30"> selected </cfif> >01:30 AM</option>
+                    <option value="01:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "01:45"> selected </cfif> >01:45 AM</option>
+                    <option value="02:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "02:00"> selected </cfif> >02:00 AM</option>
+                    <option value="02:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "02:15"> selected </cfif> >02:15 AM</option>
+                    <option value="02:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "02:30"> selected </cfif> >02:30 AM</option>
+                    <option value="02:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "02:45"> selected </cfif> >02:45 AM</option>
+                    <option value="03:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "03:00"> selected </cfif> >03:00 AM</option>
+                    <option value="03:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "03:15"> selected </cfif> >03:15 AM</option>
+                    <option value="03:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "03:30"> selected </cfif> >03:30 AM</option>
+                    <option value="03:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "03:45"> selected </cfif> >03:45 AM</option>
+                    <option value="04:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "04:00"> selected </cfif> >04:00 AM</option>
+                    <option value="04:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "04:15"> selected </cfif> >04:15 AM</option>
+                    <option value="04:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "04:30"> selected </cfif> >04:30 AM</option>
+                    <option value="04:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "04:45"> selected </cfif> >04:45 AM</option>
+                    <option value="05:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "05:00"> selected </cfif> >05:00 AM</option>
+                    <option value="05:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "05:15"> selected </cfif> >05:15 AM</option>
+                    <option value="05:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "05:30"> selected </cfif> >05:30 AM</option>
+                    <option value="05:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "05:45"> selected </cfif> >05:45 AM</option>
+                    <option value="06:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "06:00"> selected </cfif> >06:00 AM</option>
+                    <option value="06:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "06:15"> selected </cfif> >06:15 AM</option>
+                    <option value="06:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "06:30"> selected </cfif> >06:30 AM</option>
+                    <option value="06:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "06:45"> selected </cfif> >06:45 AM</option>
+                    <option value="07:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "07:00"> selected </cfif> >07:00 AM</option>
+                    <option value="07:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "07:15"> selected </cfif> >07:15 AM</option>
+                    <option value="07:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "07:30"> selected </cfif> >07:30 AM</option>
+                    <option value="07:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "07:45"> selected </cfif> >07:45 AM</option>
+                    <option value="08:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "08:00"> selected </cfif> >08:00 AM</option>
+                    <option value="08:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "08:15"> selected </cfif> >08:15 AM</option>
+                    <option value="08:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "08:30"> selected </cfif> >08:30 AM</option>
+                    <option value="08:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "08:45"> selected </cfif> >08:45 AM</option>
+                    <option value="09:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "09:00"> selected </cfif> >09:00 AM</option>
+                    <option value="09:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "09:15"> selected </cfif> >09:15 AM</option>
+                    <option value="09:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "09:30"> selected </cfif> >09:30 AM</option>
+                    <option value="09:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "09:45"> selected </cfif> >09:45 AM</option>
+                    <option value="10:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "10:00"> selected </cfif> >10:00 AM</option>
+                    <option value="10:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "10:15"> selected </cfif> >10:15 AM</option>
+                    <option value="10:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "10:30"> selected </cfif> >10:30 AM</option>
+                    <option value="10:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "10:45"> selected </cfif> >10:45 AM</option>
+                    <option value="11:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "11:00"> selected </cfif> >11:00 AM</option>
+                    <option value="11:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "11:15"> selected </cfif> >11:15 AM</option>
+                    <option value="11:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "11:30"> selected </cfif> >11:30 AM</option>
+                    <option value="11:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "11:45"> selected </cfif> >11:45 AM</option>
+                    <option value="12:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "12:00"> selected </cfif> >12:00 PM</option>
+                    <option value="12:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "12:15"> selected </cfif> >12:15 PM</option>
+                    <option value="12:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "12:30"> selected </cfif> >12:30 PM</option>
+                    <option value="12:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "12:45"> selected </cfif> >12:45 PM</option>
+                    <option value="13:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "13:00"> selected </cfif> >01:00 PM</option>
+                    <option value="13:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "13:15"> selected </cfif> >01:15 PM</option>
+                    <option value="13:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "13:30"> selected </cfif> >01:30 PM</option>
+                    <option value="13:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "13:45"> selected </cfif> >01:45 PM</option>
+                    <option value="14:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "14:00"> selected </cfif> >02:00 PM</option>
+                    <option value="14:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "14:15"> selected </cfif> >02:15 PM</option>
+                    <option value="14:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "14:30"> selected </cfif> >02:30 PM</option>
+                    <option value="14:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "14:45"> selected </cfif> >02:45 PM</option>
+                    <option value="15:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "15:00"> selected </cfif> >03:00 PM</option>
+                    <option value="15:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "15:15"> selected </cfif> >03:15 PM</option>
+                    <option value="15:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "15:30"> selected </cfif> >03:30 PM</option>
+                    <option value="15:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "15:45"> selected </cfif> >03:45 PM</option>
+                    <option value="16:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "16:00"> selected </cfif> >04:00 PM</option>
+                    <option value="16:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "16:15"> selected </cfif> >04:15 PM</option>
+                    <option value="16:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "16:30"> selected </cfif> >04:30 PM</option>
+                    <option value="16:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "16:45"> selected </cfif> >04:45 PM</option>
+                    <option value="17:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "17:00"> selected </cfif> >05:00 PM</option>
+                    <option value="17:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "17:15"> selected </cfif> >05:15 PM</option>
+                    <option value="17:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "17:30"> selected </cfif> >05:30 PM</option>
+                    <option value="17:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "17:45"> selected </cfif> >05:45 PM</option>
+                    <option value="18:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "18:00"> selected </cfif> >06:00 PM</option>
+                    <option value="18:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "18:15"> selected </cfif> >06:15 PM</option>
+                    <option value="18:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "18:30"> selected </cfif> >06:30 PM</option>
+                    <option value="18:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "18:45"> selected </cfif> >06:45 PM</option>
+                    <option value="19:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "19:00"> selected </cfif> >07:00 PM</option>
+                    <option value="19:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "19:15"> selected </cfif> >07:15 PM</option>
+                    <option value="19:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "19:30"> selected </cfif> >07:30 PM</option>
+                    <option value="19:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "19:45"> selected </cfif> >07:45 PM</option>
+                    <option value="20:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "20:00"> selected </cfif> >08:00 PM</option>
+                    <option value="20:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "20:15"> selected </cfif> >08:15 PM</option>
+                    <option value="20:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "20:30"> selected </cfif> >08:30 PM</option>
+                    <option value="20:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "20:45"> selected </cfif> >08:45 PM</option>
+                    <option value="21:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "21:00"> selected </cfif> >09:00 PM</option>
+                    <option value="21:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "21:15"> selected </cfif> >09:15 PM</option>
+                    <option value="21:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "21:30"> selected </cfif> >09:30 PM</option>
+                    <option value="21:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "21:45"> selected </cfif> >09:45 PM</option>
+                    <option value="22:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "22:00"> selected </cfif> >10:00 PM</option>
+                    <option value="22:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "22:15"> selected </cfif> >10:15 PM</option>
+                    <option value="22:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "22:30"> selected </cfif> >10:30 PM</option>
+                    <option value="22:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "22:45"> selected </cfif> >10:45 PM</option>
+                    <option value="23:00" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "23:00"> selected </cfif> >11:00 PM</option>
+                    <option value="23:15" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "23:15"> selected </cfif> >11:15 PM</option>
+                    <option value="23:30" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "23:30"> selected </cfif> >11:30 PM</option>
+                    <option value="23:45" <cfif #timeformat(aud_det.eventStartTime,'HH:MM')# is "23:45"> selected </cfif> >11:45 PM</option>
 
 
 
@@ -711,7 +711,7 @@
 
 
             <div class="form-group col-md-6">
-                <label for="new_audendtime">Duration</label>
+                <label for="new_eventStopTime">Duration</label>
                 <select class="form-control" name="new_durid" autocomplete="off" id="new_durid">
                     <cfoutput query="durations">
                         <option value="#durations.durid#" <cfif #durations.durid# is "#new_durid#"> selected </cfif> >#durations.durname#</option>
@@ -830,7 +830,7 @@
 
             <Cfoutput>
                 <div class="form-group col-md-12">
-                    <label for="new_audstartdate">Platform URL (optional)</label>
+                    <label for="new_eventStart">Platform URL (optional)</label>
 
                     <input class="form-control" type="text" id="new_audLocation" autocomplete="off" name="new_audLocation" placeholder="Zoom link">
 
@@ -935,7 +935,7 @@
 
                         <div class="form-group col-md-12">
                             <label for="projName">Location Name<span class="text-danger">*</span></label>
-                            <input class="form-control" type="text" id="audlocname" name="new_audlocname" value="#aud_det.audlocname#" placeholder="Location Name" required data-parsley-required data-parsley-error-message="Location Name is required">
+                            <input class="form-control" type="text" id="eventLocation" name="new_eventLocation" value="#aud_det.eventLocation#" placeholder="Location Name" required data-parsley-required data-parsley-error-message="Location Name is required">
 
                             <div class="invalid-feedback">
                                 Please enter a Location Name.
@@ -1118,9 +1118,9 @@
 
 
     <script>
-        $('select[name=new_audstartTime]').on("change", function() {
+        $('select[name=new_eventStartTime]').on("change", function() {
             var theSelectedIndex = $(this)[0].selectedIndex;
-            $.each($('select[name=new_audendtime] option'), function() {
+            $.each($('select[name=new_eventStopTime] option'), function() {
                 var endOptionIndex = $(this).index();
                 if (endOptionIndex < theSelectedIndex) {
                     $(this).attr('disabled', 'disabled');

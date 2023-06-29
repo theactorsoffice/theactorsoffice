@@ -11,7 +11,7 @@ VALUES (<cfqueryparam cfsqltype="cf_sql_varchar" value="#linkname#" />,<cfqueryp
 
  
      <cfoutput>
-     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&audid=#audid#&secid=177" />
+     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&eventid=#eventid#&secid=177" />
      </cfoutput>
 	 
 	 <cflocation url="#returnurl#" >

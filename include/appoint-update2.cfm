@@ -23,7 +23,7 @@
     eventStartTIme: #timeformat(eventStartTime,'HH:MM:SS')#<BR>
     new_durseconds: #new_durseconds#<BR>
 
-  statement:     SELECT ADDTIME("#timeformat('#eventStartTIme#','HH:MM:SS')#", "#new_durseconds#") as new_audEndTime <BR>  
+  statement:     SELECT ADDTIME("#timeformat('#eventStartTIme#','HH:MM:SS')#", "#new_durseconds#") as new_eventStopTime <BR>  
     
     
  

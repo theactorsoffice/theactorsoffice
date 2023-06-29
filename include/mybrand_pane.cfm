@@ -8,7 +8,7 @@
 
                    <div class="modal-body">
                        
-                                        <p>Branding is the identification and articulation of your unique, 3-dimensional essence. It is the key to getting your foot in the door and being remembered. </p><p>Being able to track your auditions through the lens of your brand essences will give you vital data on how you're perceived, what you do best, and your niche. I recommend using 3-5 brand essences here. </p>
+                                        <p>Branding is the identification and articulation of your unique, 3-dimensional essence. It is the key to getting your foot in the door and being remembered. </p><p>Being able to track your events through the lens of your brand essences will give you vital data on how you're perceived, what you do best, and your niche. I recommend using 3-5 brand essences here. </p>
 
 <p>Examples:<bR>
                        

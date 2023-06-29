@@ -308,18 +308,18 @@
     
     
     
-<cfloop query="auditions">
+<cfloop query="events">
 
     <cfquery name="auditionDetails" datasource="#dsn#">
         SELECT
         pr.audprojectid as recid,
-        ad.audid,
+        ad.eventid,
         pr.audprojectid,
         ad.audLocation,
         ad.audMtgUrl,
-        ad.audStartDate,
-        ad.audStartTime,
-        ad.audEndTime,
+        ad.eventStart,
+        ad.eventStartTime,
+        ad.eventStopTime,
         ad.parkingDetails,
         ad.workwithcoach,
         t.audtype,
@@ -327,7 +327,7 @@
         s.audstepid,
         ad.audroleid,
         ad.trackmileage,
-        ad.audlocname,
+        ad.eventLocation,
         pl.audplatform,
         r.audprojectID,
         pr.audSubCatID,
@@ -352,7 +352,7 @@
 
         INNER JOIN audroles r ON pr.audprojectID = r.audprojectID
 
-        LEFT OUTER JOIN auditions ad ON r.audroleid = ad.audroleid
+        LEFT OUTER JOIN events ad ON r.audroleid = ad.audroleid
 
         LEFT OUTER JOIN audsubcategories sub on sub.audsubcatid = pr.audsubcatid
 
@@ -370,13 +370,13 @@
 
         LEFT OUTER JOIN countries c on rg.countryid = c.countryid
 
-        WHERE ad.audid = #auditions.audid#
+        WHERE ad.eventid = #events.eventid#
     </cfquery>
 
     <cfoutput>
 
 
-        <div id="auditionDetails_#auditions.audid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div id="auditionDetails_#events.eventid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: ##f3f7f9;">
@@ -394,8 +394,8 @@
  
 
 
-                            <Cfif #auditiondetails.audstartDate# is not "">
-                                <h4 class="px-1 d-flex text-nowrap"> <img src="/media-#host#/dates/#DateFormat('#auditiondetails.audstartDate#','yyyy-mm-dd')#.png" style="max-width:75px;" alt="...">
+                            <Cfif #auditiondetails.eventStart# is not "">
+                                <h4 class="px-1 d-flex text-nowrap"> <img src="/media-#host#/dates/#DateFormat('#auditiondetails.eventStart#','yyyy-mm-dd')#.png" style="max-width:75px;" alt="...">
 
  
                                 </h4>
@@ -405,7 +405,7 @@
 
 
 
-                            <div class="col-md-12 p-1"><strong>Time: </strong>#timeformat(auditiondetails.audStartTime)# <cfif #auditiondetails.audEndTime# is not "">- #timeformat(auditiondetails.audEndTime)#</cfif>
+                            <div class="col-md-12 p-1"><strong>Time: </strong>#timeformat(auditiondetails.eventStartTime)# <cfif #auditiondetails.eventStopTime# is not "">- #timeformat(auditiondetails.eventStopTime)#</cfif>
                             </div>
 
                             <div class="col-md-12 p-1"><strong> Stage: </strong>#auditiondetails.audstep#</div>
@@ -462,7 +462,7 @@
 
 
                             <cfif #auditiondetails.islocation# is "true">
-                                <div class="col-md-12 p-1"><strong>Location: </strong>#auditionDetails.audlocname#<cfif #auditionDetails.audlocname# is not "" and #auditionDetails.audlocadd1# is not "">, #auditionDetails.audlocadd1#</cfif>
+                                <div class="col-md-12 p-1"><strong>Location: </strong>#auditionDetails.eventLocation#<cfif #auditionDetails.eventLocation# is not "" and #auditionDetails.audlocadd1# is not "">, #auditionDetails.audlocadd1#</cfif>
                                     <cfif #auditionDetails.audlocadd2# is not "">, #auditionDetails.audlocadd2#</cfif>
                                     <cfif #auditionDetails.audcity# is not "">, #auditionDetails.audcity#</cfif>
                                     <cfif #auditionDetails.regionname# is not ""> , #auditionDetails.regionname#</cfif>
@@ -492,13 +492,13 @@
 
             <script>
                 $(document).ready(function() {
-                    $("##auditionupdate_#auditions.audid#").on("show.bs.modal", function(event) {
+                    $("##auditionupdate_#events.eventid#").on("show.bs.modal", function(event) {
                         // Place the returned HTML into the selected element
-                        $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?secid=#secid#&audid=#auditions.audid#&audcatid=#audcatid#&audprojectid=#audprojectid#&rpgid=175&details_pgid=176&pgdir=audition&userid=#userid#");
+                        $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?secid=#secid#&eventid=#events.eventid#&audcatid=#audcatid#&audprojectid=#audprojectid#&rpgid=175&details_pgid=176&pgdir=audition&userid=#userid#");
                     });
                 });
             </script>
-            <div id="auditionupdate_#auditions.audid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+            <div id="auditionupdate_#events.eventid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header" style="background-color: ##f3f7f9;">
@@ -760,7 +760,7 @@
                             <cfif #projectdetails.isdirect# is "0">
 
                             <cfquery name="callback_check" datasource="#dsn#" maxrows="1">
-                                SELECT * FROM auditions WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 2
+                                SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 2
                             </cfquery>
 
                             <cfif #rolecheck.iscallback# is "1">
@@ -806,7 +806,7 @@
 <div class="form-switch col-md-3 col-sm-6 col-xs-6">
 <cfif #projectdetails.isdirect# is "0">
 <cfquery name="Redirect_check" datasource="#dsn#" maxrows="1">
-    SELECT * FROM auditions WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 3
+    SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 3
 </cfquery>
 
                             <cfif #rolecheck.isRedirect# is "1">
@@ -852,7 +852,7 @@
                         <div class="form-switch col-md-3 col-sm-6 col-xs-6">
 <cfif #projectdetails.isdirect# is "0">
                             <cfquery name="Pin_check" datasource="#dsn#">
-                                SELECT * FROM auditions WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 4
+                                SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 4
                             </cfquery>
 
                             <cfif #rolecheck.isPin# is "1">
@@ -885,7 +885,7 @@
                         <div class="form-switch col-md-3 col-sm-6 col-xs-6">
 
                             <cfquery name="Booked_check" datasource="#dsn#">
-                                SELECT * FROM auditions WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
+                                SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
                             </cfquery>
 
                             <cfif #rolecheck.isBooked# is "1">
@@ -978,7 +978,7 @@
 
     
                     
-                    <cfif #auditions.recordcount# is "0">
+                    <cfif #events.recordcount# is "0">
                         
                         <cfoutput>
                                 <script>
@@ -1031,13 +1031,13 @@
 
                         <thead>
 
-                            <cfif (auditions.CurrentRow MOD 2)>
+                            <cfif (events.CurrentRow MOD 2)>
 
                                 <Cfset rowtype="Odd" />
 
                             </cfif>
 
-                            <cfif NOT (auditions.CurrentRow MOD 2)>
+                            <cfif NOT (events.CurrentRow MOD 2)>
 
                                 <Cfset rowtype="Even" />
 
@@ -1057,7 +1057,7 @@
 
                         <tbody>
 
-                            <cfloop query="auditions">
+                            <cfloop query="events">
 
                                 <cfoutput>
 
@@ -1072,15 +1072,15 @@
 
                                     <script>
                                         $(document).ready(function() {
-                                            $("##remoteDeleteAud#auditions.audid#").on("show.bs.modal", function(event) {
+                                            $("##remoteDeleteAud#events.eventid#").on("show.bs.modal", function(event) {
                                                 // Place the returned HTML into the selected element
-                                                $(this).find(".modal-body").load("/include/remoteDeleteFormAud.cfm?audid=#auditions.audid#&audprojectid=#audprojectid#&audroleid=#audroleid#&rpgid=175&pgaction=update");
+                                                $(this).find(".modal-body").load("/include/remoteDeleteFormAud.cfm?eventid=#events.eventid#&audprojectid=#audprojectid#&audroleid=#audroleid#&rpgid=175&pgaction=update");
                                             });
                                         });
 
                                     </script>
 
-                                    <div id="remoteDeleteAud#auditions.audid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div id="remoteDeleteAud#events.eventid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
                                         <div class="modal-dialog">
 
@@ -1120,20 +1120,20 @@
 
 
 
-                                            <a title="Edit" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionupdate_#auditions.audid#">
+                                            <a title="Edit" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionupdate_#events.eventid#">
 
                                                 <i class="mdi mdi-square-edit-outline mr-1"></i>
                                             </a>
 
                                   
 
-                                            <a title="Delete Audition" href="DeleteModal.cfm?rpgid=175" data-bs-toggle="modal" data-bs-target="##remoteDeleteAud#auditions.audid#">
+                                            <a title="Delete Audition" href="DeleteModal.cfm?rpgid=175" data-bs-toggle="modal" data-bs-target="##remoteDeleteAud#events.eventid#">
 
                                                 <i class="fe-trash-2"></i>
 
                                             </a>
-<cfif #auditions.eventid# is not "">
-       <a title="Edit" href="/app/appoint/?eventid=#auditions.eventid#&returnurl=calendar-appoint">
+<cfif #events.eventid# is not "">
+       <a title="Edit" href="/app/appoint/?eventid=#events.eventid#&returnurl=calendar-appoint">
 
                                                 <i class="mdi mdi-calendar mr-1"></i>
                                             </a>
@@ -1145,15 +1145,15 @@
 
 
                                         <td class="dt-nowrap">
-                                            <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#auditions.audid#"> #DateFormat('#auditions.audstartDate#','mm-dd-yy')#</a>
+                                            <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#events.eventid#"> #DateFormat('#events.eventStart#','mm-dd-yy')#</a>
                                         </td>
                                                <td class="dt-nowrap">
-                                                   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#auditions.audid#">  #timeformat(auditions.audstarttime,'short')#</a>
+                                                   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#events.eventid#">  #timeformat(events.eventStartTime,'short')#</a>
                                         </td>
 
-                                        <td class="dt-nowrap">   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#auditions.audid#">#auditions.audstep#</a></td>
+                                        <td class="dt-nowrap">   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#events.eventid#">#events.audstep#</a></td>
 
-                                        <td >   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#auditions.audid#">#auditions.audtype#</a> <cfif #auditions.workwithcoach# is "1"><BR>(coached)</cfif>    </td>
+                                        <td >   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#events.eventid#">#events.audtype#</a> <cfif #events.workwithcoach# is "1"><BR>(coached)</cfif>    </td>
                                         
  
 

@@ -102,7 +102,7 @@
                             </a>
                             
                             
-                            <cfif #eventresults.audid# is not "">
+                            <cfif #eventresults.eventid# is not "">
                                 
                         
                                 

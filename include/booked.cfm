@@ -8,7 +8,7 @@ WHERE r.audroleid = #audroleid#
 </cfquery>
  
      <cfoutput>
-     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&audid=#audid#&secid=#secid#" />
+     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&eventid=#eventid#&secid=#secid#" />
      </cfoutput>
  
  

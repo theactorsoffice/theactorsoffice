@@ -21,7 +21,7 @@
 
         <cfquery datasource="abod" name="a">
 
-            INSERT INTO `audlocations` ( `audlocname`, `audlocadd1`, `audlocadd2`, `audcity`, `stateid`, `audzip`, `userid` ) VALUES
+            INSERT INTO `audlocations` ( `eventLocation`, `audlocadd1`, `audlocadd2`, `audcity`, `stateid`, `audzip`, `userid` ) VALUES
             ( '#z.valuestreetAddress#', '#z.valuestreetAddress#', '#z.valueextendedaddress#', '#z.valuecity#', 5, '90046', #u.userid# );
         </cfquery>
 

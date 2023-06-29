@@ -3,11 +3,11 @@
     
 
             <cfquery datasource="#dsn#" name="x">
-SELECT DISTINCT a.userid,a.audid, x.contactid,p.audprojectid,e.eventid FROM audcontacts_auditions_xref X
+SELECT DISTINCT a.userid,a.eventid, x.contactid,p.audprojectid,e.eventid FROM audcontacts_auditions_xref X
 INNER JOIN audprojects p ON p.audprojectID = x.audprojectid
 INNER JOIN audroles r ON r.audprojectID = p.audprojectID
-INNER JOIN auditions a ON a.audRoleID = r.audroleid
-INNER JOIN events e ON e.audid = a.audid
+INNER JOIN events a ON a.audRoleID = r.audroleid
+INNER JOIN events e ON e.eventid = a.eventid
  where x.contactid <> 0
             </cfquery>
 
@@ -35,7 +35,7 @@ INNER JOIN events e ON e.audid = a.audid
         </cfquery>
         
         <cfoutput>
-        Audition NO. #x.audid# - #f.recordname# added<BR>
+        Audition NO. #x.eventid# - #f.recordname# added<BR>
         </cfoutput>
     <cfquery datasource="#dsn#" name="inserts">
         Insert into  eventcontactsxref (eventid,contactid) values (
@@ -71,10 +71,10 @@ INNER JOIN events e ON e.audid = a.audid
     
     
             <cfquery datasource="#dsn#" name="y">
-    SELECT DISTINCT x.contactid,e.eventid, e.audid,p.audprojectid FROM eventcontactsxref_tbl X
+    SELECT DISTINCT x.contactid,e.eventid, e.eventid,p.audprojectid FROM eventcontactsxref_tbl X
 
 INNER JOIN events e ON e.eventid = x.eventid
-INNER JOIN auditions a ON a.audid = e.audid
+INNER JOIN events a ON a.eventid = e.eventid
 INNER JOIN audroles r ON r.audRoleID = a.audroleid
 INNER JOIN audprojects p ON r.audprojectid = p.audprojectid
     </cfquery>

@@ -1,5 +1,5 @@
 <cfif #isauditionmodule# is "0">
-Reports are only available to users who have access to the Auditions module.<cfabort>
+Reports are only available to users who have access to the events module.<cfabort>
 </cfif>
     
 

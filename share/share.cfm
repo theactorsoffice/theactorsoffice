@@ -45,7 +45,7 @@
                     <tr>
                         <th></th>
                         <th>Name</th>
-                    <cfif #isdefined('auditions')#>  <th>Auditions</th></cfif>  
+                    <cfif #isdefined('auditions')#>  <th>Auditionz</th></cfif>  
                         <th>Company</th>
                         <th>Title</th>
                          <th>Audition Status</th>
@@ -56,7 +56,7 @@
                 </thead>
                 <cfloop query="shares">
                     
-                    <cfquery name="auditions" datasource="#dsn#">
+                    <cfquery name="events" datasource="#dsn#">
 
 SELECT 
 eventid
@@ -95,11 +95,11 @@ ORDER BY eventCreation
                                     </td>
                             <td style="white-space: nowrap;">#name#
                                      
-                                                  <cfif auditions.recordcount neq 0>
+                                                  <cfif events.recordcount neq 0>
 
                         <span class="badge  badge-primary badge-pill">
 
-                            <cfoutput>#numberformat(auditions.recordcount)#</cfoutput>
+                            <cfoutput>#numberformat(events.recordcount)#</cfoutput>
 
                         </span>
 
@@ -110,7 +110,7 @@ ORDER BY eventCreation
                                     
                                            <cfif #isdefined('auditionsgggg')#>    
                                                
-                                               <td style="white-space: nowrap;">#auditions.recordcount#</td>
+                                               <td style="white-space: nowrap;">#events.recordcount#</td>
                                             
                     </cfif>
                                             

@@ -22,10 +22,10 @@ e.eventID
  ,e.dow
         ,e.endRecur
         ,t.id
-    ,e.audid
+    ,e.eventid
     ,r.audprojectid
  FROM events e  INNER JOIN eventtypes_user t on t.eventtypename = e.eventtypename
-     LEFT JOIN auditions a on e.audid = a.audid
+     LEFT JOIN events a on e.eventid = a.eventid
     LEFT JOIN audroles r on r.audroleid = a.audroleid
 WHERE e.userid = #session.userid# and t.userid = #session.userid#
     

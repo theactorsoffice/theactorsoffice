@@ -1,6 +1,6 @@
 <cfset userid = session.userid />
  
-<cfparam name="audid" default="0"/>
+<cfparam name="eventid" default="0"/>
 <CFINCLUDE template="/include/remote_load.cfm" />
 
        
@@ -14,7 +14,7 @@ UPDATE audmedia SET isdeleted = 1 WHERE mediaid = #mediaid#
  
          
      <cfoutput>
-     <cfset returnurl = "/app/audition/?audid=#audid#&secid=177" />
+     <cfset returnurl = "/app/audition/?eventid=#eventid#&secid=177" />
      </cfoutput>
  
  

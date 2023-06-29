@@ -124,8 +124,8 @@ ORDER BY audstep
   
  
          <div class="form-group col-md-6">
-                 <label for="new_audstartdate">Start Date<span class="text-danger">*</span></label>
-                 <input id="new_audstartdate"  class="form-control" autocomplete="off" name="new_audstartdate"   type="date" data-parsley-required data-parsley-error-message="Start Date is required">
+                 <label for="new_eventStart">Start Date<span class="text-danger">*</span></label>
+                 <input id="new_eventStart"  class="form-control" autocomplete="off" name="new_eventStart"   type="date" data-parsley-required data-parsley-error-message="Start Date is required">
                  
 
                     
@@ -138,12 +138,12 @@ ORDER BY audstep
               
  
              <div class="form-group col-md-6">
-                 <label for="new_audstartTime">Start Time<span class="text-danger">*</span></label>
+                 <label for="new_eventStartTime">Start Time<span class="text-danger">*</span></label>
              
 
  
 
-     <select class="form-control" name="new_audstartTime"  autocomplete="off" id="new_audstartTime"  data-parsley-required data-parsley-error-message="Start Time is required">
+     <select class="form-control" name="new_eventStartTime"  autocomplete="off" id="new_eventStartTime"  data-parsley-required data-parsley-error-message="Start Time is required">
          <option value="">Select a Start Time</option>
 
 option value="07:00">07:00 AM</option>
@@ -224,8 +224,8 @@ option value="07:00">07:00 AM</option>
 
 
              <div class="form-group col-md-6">
-                 <label for="new_audendtime">End Time</label>
-     <select class="form-control" name="new_audendtime"  autocomplete="off" id="new_audendtime"  >
+                 <label for="new_eventStopTime">End Time</label>
+     <select class="form-control" name="new_eventStopTime"  autocomplete="off" id="new_eventStopTime"  >
          <option value="">Select a Stop Time</option>
 option value="07:00">07:00 AM</option>
 <option value="07:15">07:15 AM</option>
@@ -336,7 +336,7 @@ option value="07:00">07:00 AM</option>
                                         
                             
                             
-                          <label for="new_audstartdate">Zoom Link<span class="text-danger">*</span></label>
+                          <label for="new_eventStart">Zoom Link<span class="text-danger">*</span></label>
                             
                  <input class="form-control" type="text" id="new_audLocation"  autocomplete="off"   data-parsley-error-message=" Zoom linkis required"  name="new_audLocation" placeholder="Location">
                             

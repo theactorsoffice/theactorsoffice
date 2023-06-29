@@ -1,7 +1,7 @@
 <cfinclude template="/include/qry/notesaud.cfm" />
 
 <cfparam name="secid" default="175" />
-<cfset new_audid =  aud_det.new_audid />
+<cfset new_eventid =  aud_det.new_eventid />
 <div class="row">
 
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -25,9 +25,9 @@
 <div class="row">
  <cfoutput>
 <center>
-   <h3><i class="mdi mdi-24px mdi-calendar-account-outline text-primary"></i> #dateformat('#aud_det.audstartdate#','long')#</h3> 
+   <h3><i class="mdi mdi-24px mdi-calendar-account-outline text-primary"></i> #dateformat('#aud_det.eventStart#','long')#</h3> 
     <p>&nbsp;</p>
-        <h4><i class="mdi mdi-18px mdi-account-clock text-primary"></i> #timeformat(aud_det.audStartTime)# <cfif #aud_det.audEndTime# is not "">- #timeformat(aud_det.audEndTime)#</cfif></h4> <p>&nbsp;</p> <p>&nbsp;</p>
+        <h4><i class="mdi mdi-18px mdi-account-clock text-primary"></i> #timeformat(aud_det.eventStartTime)# <cfif #aud_det.eventStopTime# is not "">- #timeformat(aud_det.eventStopTime)#</cfif></h4> <p>&nbsp;</p> <p>&nbsp;</p>
     <h5><i class="mdi mdi-14px mdi-google-maps text-primary"></i> #aud_det.audLocation#</h5>
      
  

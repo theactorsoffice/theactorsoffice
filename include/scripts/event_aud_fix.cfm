@@ -1,17 +1,17 @@
  <CFINCLUDE template="/include/remote_load.cfm" />
 
          <cfquery datasource="#dsn#" name="x"  >
-SELECT e.eventid,e.eventtitle,a.audid
+SELECT e.eventid,e.eventtitle,a.eventid
 
 FROM events e 
 
-INNER JOIN auditions a ON a.audStartDate = e.eventstart
+INNER JOIN events a ON a.eventStart = e.eventstart
 
-WHERE a.audStartTime = e.eventStartTime AND e.eventtypename = 'Audition'
+WHERE a.eventStartTime = e.eventStartTime AND e.eventtypename = 'Audition'
 
 AND a.userid = e.userid
 
-AND e.audid IS NULL
+AND e.eventid IS NULL
 AND a.isDeleted = 0
         </cfquery>
 
@@ -21,7 +21,7 @@ AND a.isDeleted = 0
               
                  <cfquery datasource="#dsn#" name="insert"  >
                     update events
-                     set audid = #x.audid#
+                     set eventid = #x.eventid#
                      where eventid = #x.eventid#
                      
                 </cfquery>

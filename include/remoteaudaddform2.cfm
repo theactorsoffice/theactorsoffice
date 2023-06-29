@@ -3,7 +3,7 @@
 <cfif #new_audlocid# is "custom">
 
 <cfquery name="audlocations_ins" datasource="#dsn#" result="result" >
-        INSERT INTO audlocations (userid,audlocname)
+        INSERT INTO audlocations (userid,eventLocation)
         VALUES (#userid#,'#custom#')
     </cfquery>
 <cfset new_audlocid=result.generatedkey />
@@ -26,7 +26,7 @@ select projname,projdescription,contactid from audprojects where audprojectid = 
 
  
      <cfoutput>
-     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&audid=#new_audID#&secid=#secid#&focusid=#focusid#" />
+     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&eventid=#new_eventid#&secid=#secid#&focusid=#focusid#" />
      </cfoutput>
  
  

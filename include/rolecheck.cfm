@@ -24,4 +24,4 @@ WHERE audroleid = #audroleid#
     </cfquery>
 
  
-<cflocation url="/app/audition/?audroleid=#audroleid#&audid=#audid#&pgaction=view" />
+<cflocation url="/app/audition/?audroleid=#audroleid#&eventid=#eventid#&pgaction=view" />

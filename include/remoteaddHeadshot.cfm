@@ -16,7 +16,7 @@ function unlock(){
 
 <CFINCLUDE template="/include/remote_load.cfm" />
 <cfparam name="placeholder" default="" />
-<cfparam name="audid" default="" />
+<cfparam name="eventid" default="" />
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT
     u.userid

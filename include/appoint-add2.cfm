@@ -181,9 +181,9 @@
     <cfset new_audrolename = "Unknown"/>
     <cfset new_audroletypeid = 1/>
     <cfset new_contactid = 0/>
-    <cfset new_audstartdate = eventStart/>
-    <cfset new_audstartTime = eventStartTime/>
-    <cfset new_new_audendtime = new_eventStopTime/>
+    <cfset new_eventStart = eventStart/>
+    <cfset new_eventStartTime = eventStartTime/>
+    <cfset new_new_eventStopTime = new_eventStopTime/>
 
     <cfinclude template="/include/qry/audprojects_ins.cfm"/>
     <cfinclude template="/include/qry/audroles_ins.cfm"/>

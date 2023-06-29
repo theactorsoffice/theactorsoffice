@@ -147,7 +147,7 @@
                 count(r.audroleid) as totals
                 from
                 audtypes t
-                left join auditions a on a.audtypeid = t.audtypeid
+                left join events a on a.audtypeid = t.audtypeid
                 left join audroles r on a.audroleid = r.audroleid
                 left join audprojects p on p.audprojectid = r.audprojectid
                 LEFT JOIN audsteps st ON st.audstepid = a.audstepid

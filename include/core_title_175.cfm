@@ -47,7 +47,7 @@ WHERE r.audroleid = #audroleid#
       
             <input type="hidden" name="audroleid" value="#audroleid#" />
                         
-            <input type="hidden" name="audid" value="#audid#" />
+            <input type="hidden" name="eventid" value="#eventid#" />
                               
             <input type="hidden" name="pgaction" value="switchit" />   
          

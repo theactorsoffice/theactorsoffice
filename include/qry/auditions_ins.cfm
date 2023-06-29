@@ -12,11 +12,11 @@
 
 <cfparam name="new_audMtgUrl" default="" />
 
-<cfparam name="new_audStartDate" default="" />
+<cfparam name="new_eventStart" default="" />
 
-<cfparam name="new_audStartTime" default="" />
+<cfparam name="new_eventStartTime" default="" />
 
-<cfparam name="new_audEndTime" default="" />
+<cfparam name="new_eventStopTime" default="" />
 
 <cfparam name="new_audplatformid" default="4" />
 
@@ -30,26 +30,26 @@
 
 <cfparam name="new_trackmileage" default="0" />
 
-<cfif #new_audstartTime# is not "">
+<cfif #new_eventStartTime# is not "">
 
     <cfinclude template="/include/qry/duration.cfm" />
 
  <cfset new_durseconds = duration.durseconds />
     
     
-<cfset new_audendtime = "#DateAdd("s","#new_audstartTime#","#new_durseconds#")#" />
+<cfset new_eventStopTime = "#DateAdd("s","#new_eventStartTime#","#new_durseconds#")#" />
 
 <cfoutput>
     
-    new_audstarttime: #timeformat(new_audstartTime,'HH:MM:SS')#<BR>
+    new_eventStartTime: #timeformat(new_eventStartTime,'HH:MM:SS')#<BR>
     new_durseconds: #new_durseconds#<BR>
 
-  statement:     SELECT ADDTIME("#timeformat('#new_audstartTime#','HH:MM:SS')#", "#new_durseconds#") as new_audEndTime <BR>  
+  statement:     SELECT ADDTIME("#timeformat('#new_eventStartTime#','HH:MM:SS')#", "#new_durseconds#") as new_eventStopTime <BR>  
     
-        <cfset new_audendtime="#timeformat(DateAdd("s","#new_durseconds#","#new_audstarttime#"),'HH:MM:SS')#" />
+        <cfset new_eventStopTime="#timeformat(DateAdd("s","#new_durseconds#","#new_eventStartTime#"),'HH:MM:SS')#" />
    
     
-    new_audendtime: #new_audendtime#<BR>
+    new_eventStopTime: #new_eventStopTime#<BR>
     
     </cfoutput>
 
@@ -58,7 +58,7 @@
 <cfquery name="auditions_ins" datasource="#dsn#" result="result">
 
 
-    INSERT INTO auditions (
+    INSERT INTO events (
 
     userid,
 
@@ -70,11 +70,11 @@
 
     audMtgUrl,
 
-    audStartDate,
+    eventStart,
 
-    audStartTime,
+    eventStartTime,
 
-    audEndTime,
+    eventStopTime,
 
     audplatformID,
 
@@ -99,11 +99,11 @@
 
     <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audMtgUrl#" maxlength="500" null="#NOT len(trim(new_audMtgUrl))#" />,
 
-    <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_audStartDate#" null="#NOT len(trim(new_audStartDate))#" />,
+    <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_eventStart#" null="#NOT len(trim(new_eventStart))#" />,
 
-    <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audStartTime#" null="#NOT len(trim(new_audStartTime))#" />,
+    <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStartTime#" null="#NOT len(trim(new_eventStartTime))#" />,
 
-    <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audEndTime#" null="#NOT len(trim(new_audEndTime))#" />,
+    <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStopTime#" null="#NOT len(trim(new_eventStopTime))#" />,
 
     <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audplatformid#" null="#NOT len(trim(new_audplatformid))#" />,
 
@@ -118,19 +118,19 @@
     );
 </cfquery>
 
-<cfset new_audid = result.generatedkey>
+<cfset new_eventid = result.generatedkey>
     
     
     <cfquery datasource="#dsn#" name="update"  >
-Update auditions set 
-audlocname = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocname#" maxlength="500" null="#NOT len(trim(new_audlocname))#" /> ,
+Update events set 
+eventLocation = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventLocation#" maxlength="500" null="#NOT len(trim(new_eventLocation))#" /> ,
 audlocadd1 = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocadd1#" maxlength="500" null="#NOT len(trim(new_audlocadd1))#" /> ,
 audlocadd2 = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocadd2#" maxlength="500" null="#NOT len(trim(new_audlocadd2))#" /> ,
-audcity = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audcity#" maxlength="500" null="#NOT len(trim(new_audlocname))#" /> , 
+audcity = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audcity#" maxlength="500" null="#NOT len(trim(new_eventLocation))#" /> , 
 regionid = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_regionid#" maxlength="2" null="#NOT len(trim(new_regionid))#" /> ,
 audzip = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audzip#" maxlength="10" null="#NOT len(trim(new_audzip))#" />    
-where audid = #new_audid#
+where eventid = #new_eventid#
 </cfquery>
 
-<cfinclude template="/include/AUDintoEVENTS.cfm" />
+ 
 

@@ -14,18 +14,18 @@
 </cfquery>
 
 <cfquery datasource="#dsn#" name="x">
-    SELECT p.audprojectID,min(a.audstartdate) AS new_projDate
-    FROM auditions a
+    SELECT p.audprojectID,min(a.eventStart) AS new_projDate
+    FROM events a
     INNER JOIN audroles r ON r.audroleid = a.audroleid
     
     INNER JOIN audprojects p on p.audprojectid = r.audprojectid
     WHERE r.isDeleted <> 1
     
     AND a.isdeleted <> 1
-    AND a.audstartdate IS NOT NULL
+    AND a.eventStart IS NOT NULL
     and r.isdeleted <> 1
     and p.isdeleted <> 1
-    AND a.audstartdate >= CURDATE()
+    AND a.eventStart >= CURDATE()
     AND p.projdate IS null and p.userid = #userid# GROUP BY p.audprojectID 
 </cfquery>
 <cfif #dbug# is "Y">
@@ -46,15 +46,15 @@
 </cfloop>
 
 <cfquery datasource="#dsn#" name="y">
-    SELECT p.audprojectID,max(a.audstartdate) AS new_projDate
-    FROM auditions a
+    SELECT p.audprojectID,max(a.eventStart) AS new_projDate
+    FROM events a
     INNER JOIN audroles r ON r.audroleid = a.audroleid
     
     INNER JOIN audprojects p on p.audprojectid = r.audprojectid
     WHERE r.isDeleted <> 1
     
     AND a.isdeleted <> 1
-    AND a.audstartdate IS NOT NULL
+    AND a.eventStart IS NOT NULL
     and r.isdeleted <> 1
     and p.isdeleted <> 1
     AND p.projdate IS null and p.userid = #userid# GROUP BY p.audprojectID 
@@ -105,7 +105,7 @@
     update auditions
     set isdeleted = 1
     WHERE isdeleted = 0
-    AND audstartdate IS NULL
+    AND eventStart IS NULL
     AND userid = #userid#
 </cfquery>
 

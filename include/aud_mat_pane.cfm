@@ -33,7 +33,7 @@
         $(document).ready(function() {
             $("##remoteselectheadshot").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remoteselectheadshot.cfm?selected_audid=#audid#&audid=#audid#&audprojectid=#audprojectid#&secid=177");
+                $(this).find(".modal-body").load("/include/remoteselectheadshot.cfm?selected_eventid=#eventid#&eventid=#eventid#&audprojectid=#audprojectid#&secid=177");
             });
         });
     </script>
@@ -42,7 +42,7 @@
     $(document).ready(function() {
         $("##remoteselectmaterial").on("show.bs.modal", function(event) {
             // Place the returned HTML into the selected element
-            $(this).find(".modal-body").load("/include/remoteselectmaterial.cfm?selected_audid=#audid#&audid=#audid#&audprojectid=#audprojectid#&secid=177");
+            $(this).find(".modal-body").load("/include/remoteselectmaterial.cfm?selected_eventid=#eventid#&eventid=#eventid#&audprojectid=#audprojectid#&secid=177");
         });
     });
 </script>
@@ -54,7 +54,7 @@
         $(document).ready(function() {
             $("##remoteadd").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remotaudmatadd.cfm?audid=#audid#&audprojectid=#audprojectid#&secid=177&new_isshare=0");
+                $(this).find(".modal-body").load("/include/remotaudmatadd.cfm?eventid=#eventid#&audprojectid=#audprojectid#&secid=177&new_isshare=0");
             });
         });
     </script>
@@ -92,7 +92,7 @@
         $(document).ready(function() {
             $("##matupdate").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/audlinkadd.cfm?audroleid=<Cfoutput>#audroleid#</cfoutput>&audid=<Cfoutput>#audid#&audprojectid=#audprojectid#</cfoutput>&pgdir=audition");
+                $(this).find(".modal-body").load("/include/audlinkadd.cfm?audroleid=<Cfoutput>#audroleid#</cfoutput>&eventid=<Cfoutput>#eventid#&audprojectid=#audprojectid#</cfoutput>&pgdir=audition");
             });
         });
     </script>

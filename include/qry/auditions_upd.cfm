@@ -13,11 +13,11 @@
 
 <cfparam name="new_audlocid" default="" />
 
-<cfparam name="new_audStartDate" default="" />
+<cfparam name="new_eventStart" default="" />
 
-<cfparam name="new_audStartTime" default="" />
+<cfparam name="new_eventStartTime" default="" />
 
-<cfparam name="new_audEndTime" default="" />
+<cfparam name="new_eventStopTime" default="" />
 
 <cfparam name="new_audplatformid" default="" />
 
@@ -35,7 +35,7 @@
 
 <cfparam name="new_callbacktypid" default="" />
 
-<cfparam name="new_audlocname" default="" />
+<cfparam name="new_eventLocation" default="" />
 
 <cfparam name="new_audlocadd1" default="" />
 
@@ -47,28 +47,28 @@
 
 <cfparam name="new_audzip" default="" />
 
-<cfif #new_audstartTime# is not "">
+<cfif #new_eventStartTime# is not "">
 
     <cfinclude template="/include/qry/duration.cfm" />
 
  <cfset new_durseconds = duration.durseconds />
     
     
-<cfset new_audendtime = "#DateAdd("s","#new_audstartTime#","#new_durseconds#")#" />
+<cfset new_eventStopTime = "#DateAdd("s","#new_eventStartTime#","#new_durseconds#")#" />
 
 <cfoutput>
     
-    new_audstarttime: #timeformat(new_audstartTime,'HH:MM:SS')#<BR>
+    new_eventStartTime: #timeformat(new_eventStartTime,'HH:MM:SS')#<BR>
     new_durseconds: #new_durseconds#<BR>
 
-  statement:     SELECT ADDTIME("#timeformat('#new_audstartTime#','HH:MM:SS')#", "#new_durseconds#") as new_audEndTime <BR>  
+  statement:     SELECT ADDTIME("#timeformat('#new_eventStartTime#','HH:MM:SS')#", "#new_durseconds#") as new_eventStopTime <BR>  
     
     
  
     
-<cfset new_audendtime="#timeformat(DateAdd("s","#new_durseconds#","#new_audstartTime#"),'HH:MM:SS')#" />
+<cfset new_eventStopTime="#timeformat(DateAdd("s","#new_durseconds#","#new_eventStartTime#"),'HH:MM:SS')#" />
     
-    new_audendtime: #new_audendtime#<BR>
+    new_eventStopTime: #new_eventStopTime#<BR>
     
 </cfoutput>
 
@@ -91,7 +91,7 @@ audBookTypeID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audBookType
     
 audLocation = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audLocation#" maxlength="500" null="#NOT len(trim(new_audLocation))#" /> ,
     
-audlocname = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocname#" maxlength="500" null="#NOT len(trim(new_audlocname))#" /> ,
+eventLocation = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventLocation#" maxlength="500" null="#NOT len(trim(new_eventLocation))#" /> ,
     
 audlocadd1 = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocadd1#" maxlength="500" null="#NOT len(trim(new_audlocadd1))#" /> ,
 
@@ -105,11 +105,11 @@ audzip = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audzip#" maxlength
 
 audMtgUrl = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audMtgUrl#" maxlength="500" null="#NOT len(trim(new_audMtgUrl))#" /> ,
 
-audStartDate = <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_audStartDate#"  null="#NOT len(trim(new_audStartDate))#" /> ,
+eventStart = <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_eventStart#"  null="#NOT len(trim(new_eventStart))#" /> ,
 
-audStartTime = <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audStartTime#"  null="#NOT len(trim(new_audStartTime))#" /> ,
+eventStartTime = <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStartTime#"  null="#NOT len(trim(new_eventStartTime))#" /> ,
 
-audEndTime = <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audEndTime#"  null="#NOT len(trim(new_audEndTime))#" /> ,
+eventStopTime = <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStopTime#"  null="#NOT len(trim(new_eventStopTime))#" /> ,
 
 audplatformID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audplatformid#"  null="#NOT len(trim(new_audplatformid))#" /> ,
 
@@ -130,18 +130,18 @@ trackmileage = <cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_trackmileage#"  
 isDeleted = <cfqueryparam cfsqltype="CF_SQL_BIT" value="#new_isDeleted#"  null="#NOT len(trim(new_isDeleted))#" /> 
 
     
-WHERE audID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audID#" /> 
+WHERE eventid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_eventid#" /> 
 
 </cfquery>
     
         
         <cfoutput>
 
-        <cfset eventstart="#new_audStartDate#" />
+        <cfset eventstart="#new_eventStart#" />
 
-        <cfset eventStartTime="#new_audStartTime#" />
+        <cfset eventStartTime="#new_eventStartTime#" />
 
-        <cfset eventStopTime="#new_audEndTime#" />
+        <cfset eventStopTime="#new_eventStopTime#" />
 
     </cfoutput>
     
@@ -149,7 +149,7 @@ WHERE audID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audID#" />
     
  <cfquery datasource="#dsn#" name="FInd"  >
 update events
-     set audid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audID#" />  
+     set eventid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_eventid#" />  
      
      
      <cfif #eventStart# is not "">,eventstart =<cfqueryparam cfsqltype="cf_sql_date" value="#eventStart#" /></cfif>
@@ -158,7 +158,7 @@ update events
      
      
      
-    WHERE audID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audID#" /> 
+    WHERE eventid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_eventid#" /> 
     
 </cfquery>  
     

@@ -60,7 +60,7 @@
     WHERE audtype IN
 
     (SELECT t.audtype
-    FROM auditions a inner join audtypes t on t.audtypeid = a.audtypeid
+    FROM events a inner join audtypes t on t.audtypeid = a.audtypeid
     WHERE a.userid = #userid# AND a.isdeleted IS FALSE)
 
     ORDER BY audtype
@@ -205,7 +205,7 @@
 
                                     <div class="card-header text-white bg-secondary  d-flex" style="font-size:16px;">
                                         <center> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;#results.col2#</center>
-                                        <span class="ms-auto text-light"> <a href="/app/audition/?audprojectid=#audprojectid#&audid=#results.recid#" class="btn btn-xs btn-primary waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a></span>
+                                        <span class="ms-auto text-light"> <a href="/app/audition/?audprojectid=#audprojectid#&eventid=#results.recid#" class="btn btn-xs btn-primary waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a></span>
                                     </div>
 
 
@@ -223,7 +223,7 @@
                                         </div>
                 </cfif>
 
-                <a href="" title="#DateFormat('#results.col1#','long')# at #timeformat('#results.audstarttime#')#">
+                <a href="" title="#DateFormat('#results.col1#','long')# at #timeformat('#results.eventStartTime#')#">
                     <img src="/media-dev/dates/#DateFormat('#results.col1#','yyyy-mm-dd')#.png" style="max-width:75px;" alt="...">
                 </a>
             </div>
@@ -347,7 +347,7 @@
 
                         <td>
 
-<a href="/app/audition/?audid=#results.recid#" class="btn btn-xs btn-primary waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
+<a href="/app/audition/?eventid=#results.recid#" class="btn btn-xs btn-primary waves-effect waves-light"><i class="mdi mdi-eye-outline"></i></a>
  
                         </td>
 

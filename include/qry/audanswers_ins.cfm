@@ -1,9 +1,9 @@
 <cfinclude template="/include/remote_load.cfm" />
 
 
-<cfparam name="naudidefault="0" />
+<cfparam name="neventidefault="0" />
 
-<cfparam name="new_audID" default="0" />
+<cfparam name="new_eventid" default="0" />
 
 <cfparam name="new_aText" default="" />
 
@@ -18,9 +18,9 @@
   
 INSERT INTO audanswers  (
 
-qID,audidaudid
+qID,eventideventid
 
-audID,
+eventid,
 
 aText,
 
@@ -35,7 +35,7 @@ VALUES (
 
 <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_qID#"  null="#NOT len(trim(new_qID))#" />,
 
-<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audID#"  null="#NOT len(trim(new_audID))#" />,
+<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_eventid#"  null="#NOT len(trim(new_eventid))#" />,
 
 <cfqueryparam cfsqltype="CF_SQL_LONGVARCHAR" value="#new_aText#"  null="#NOT len(trim(new_aText))#" />,
 

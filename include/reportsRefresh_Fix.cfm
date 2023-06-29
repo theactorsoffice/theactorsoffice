@@ -13,7 +13,7 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
          <cfquery datasource="#dsn#" name="x">
-SELECT DISTINCT userid FROM auditions WHERE userid NOT IN (
+SELECT DISTINCT userid FROM events WHERE userid NOT IN (
 SELECT distinct i.userid
 FROM reportitems i 
 INNER JOIN reports_user ru 
@@ -149,7 +149,7 @@ WHERE i.userid = ru.userid)
                 count(r.audroleid) as totals
                 from
                 audtypes t
-                left join auditions a on a.audtypeid = t.audtypeid
+                left join events a on a.audtypeid = t.audtypeid
                 left join audroles r on a.audroleid = r.audroleid
                 left join audprojects p on p.audprojectid = r.audprojectid
                 LEFT JOIN audsteps st ON st.audstepid = a.audstepid

@@ -21,7 +21,7 @@
             $(document).ready(function() {
                 $("##remoteadd#types.mediatypeid#").on("show.bs.modal", function(event) {
                     // Place the returned HTML into the selected element
-                    $(this).find(".modal-body").load("/include/remotaudmatadd.cfm?audid=#audid#&audprojectid=#audprojectid#&mediatypeid=#types.mediatypeid#&secid=177");
+                    $(this).find(".modal-body").load("/include/remotaudmatadd.cfm?eventid=#eventid#&audprojectid=#audprojectid#&mediatypeid=#types.mediatypeid#&secid=177");
                 });
             });
 
@@ -55,7 +55,7 @@
 
      <div class="col-md-12 col-lg-12 col-xl-12 p-1 text-nowrap">
          <Cfoutput>
-             <a href="/include/booked.cfm?audprojectid=#audprojectid#&audid=#audid#&secid=181&audroleid=#audroleid#" class="btn btn-success waves-effect waves-light">I Booked It!</a>
+             <a href="/include/booked.cfm?audprojectid=#audprojectid#&eventid=#eventid#&secid=181&audroleid=#audroleid#" class="btn btn-success waves-effect waves-light">I Booked It!</a>
          </Cfoutput>
      </div>
 
@@ -75,7 +75,7 @@
       $(document).ready(function() {
           $("##bookupdate").on("show.bs.modal", function(event) {
               // Place the returned HTML into the selected element
-              $(this).find(".modal-body").load("/include/bookupdateform.cfm?secid=<cfoutput>#secid#</cfoutput>&audprojectid=<cfoutput>#audprojectid#</cfoutput>&focusid=<cfoutput>#focusid#</cfoutput>&audid=<Cfoutput>#audid#&audroleid=#audroleid#</cfoutput>&pgdir=audition");
+              $(this).find(".modal-body").load("/include/bookupdateform.cfm?secid=<cfoutput>#secid#</cfoutput>&audprojectid=<cfoutput>#audprojectid#</cfoutput>&focusid=<cfoutput>#focusid#</cfoutput>&eventid=<Cfoutput>#eventid#&audroleid=#audroleid#</cfoutput>&pgdir=audition");
           });
       });
   </script>

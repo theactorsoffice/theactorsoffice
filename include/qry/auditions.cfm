@@ -54,7 +54,7 @@ p.audprojectid AS recid
     INNER join audroles r on p.audprojectID = r.audprojectID
 
   
- LEFT JOIN auditions a ON r.audroleid = a.audroleid 
+ LEFT JOIN events a ON r.audroleid = a.audroleid 
  
  LEFT JOIN audsources s ON s.audSourceID = r.audSourceID
  LEFT JOIN contactdetails c ON c.contactID = p.contactid

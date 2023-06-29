@@ -16,7 +16,7 @@ update audmedia set IsDeleted = 1 WHERE mediaid = #mediaid#
 
     <form action="/include/remoteDelete2.cfm" method="post" class="needs-validation" novalidate>
         <cfoutput><input type="hidden" name="mediaid" value="#mediaid#" />
-                   <input type="hidden" name="audid" value="#audid#" />
+                   <input type="hidden" name="eventid" value="#eventid#" />
                 <input type="hidden" name="audprojectid" value="#audprojectid#" />
                 <input type="hidden" name="secid" value="#secid#" />
         <input type="hidden" name="dqry" value="#dqry#" />

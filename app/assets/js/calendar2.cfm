@@ -38,7 +38,7 @@
                     <cfif #events.audprojectid# is "">
                     url: '/app/appoint/?eventid=#events.eventid#&returnurl=calendar-appoint&rcontactid=0',
                     <cfelse>
-                        url: '/app/audition/?focusid=#events.audid#&audprojectid=#events.audprojectid#',
+                        url: '/app/audition/?focusid=#events.eventid#&audprojectid=#events.audprojectid#',
                         
                     </cfif>
                     

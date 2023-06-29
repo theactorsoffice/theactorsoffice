@@ -4,12 +4,12 @@
 
 <cfset new_audprojectid = audprojectid />
 
-<cfinclude template="/include/audintoevents_fix_audition.cfm">
+ 
     
     
 <cfparam name="ctaction" default="" /> 
 <cfparam name="new_contactid" default="" />
- <cfparam name="audid" default="0" />
+ <cfparam name="eventid" default="0" />
 <cfparam name="secid" default="176" />
 
 <cfquery name="projectDetails" datasource="#dsn#" maxrows="1">
@@ -92,10 +92,10 @@ where `audprojectid` = #audprojectid#
     </cfquery>
 
 
-<cfquery name="auditions" datasource="#dsn#">
+<cfquery name="events" datasource="#dsn#">
     SELECT
     e.eventid,
-    a.audid AS audid
+    a.eventid AS eventid
     ,'Date' AS head1
 
     ,'Project' AS head2
@@ -103,8 +103,8 @@ where `audprojectid` = #audprojectid#
     ,'Type' as head4
     ,'Role' AS head5
     ,a.audstepid
-    ,a.audstarttime
-    ,a.audstartDate
+    ,a.eventStartTime
+    ,a.eventStart
     ,p.projname AS col2
     ,s.audsource AS col3
     ,t.audtype
@@ -112,7 +112,7 @@ where `audprojectid` = #audprojectid#
     ,rt.audroletype AS col5
     ,st.audstep
     ,a.workwithcoach
-    FROM auditions a
+    FROM events a
 
     LEFT JOIN audroles r ON r.audroleid = a.audroleid
 
@@ -121,16 +121,16 @@ where `audprojectid` = #audprojectid#
     LEFT JOIN audtypes t ON t.audtypeid = a.audtypeid
     LEFT JOIN audsteps st ON st.audstepid = a.audstepid
     LEFT JOIN audroletypes rt ON rt.audroletypeid = r.audroletypeid
-    LEFT join events e on e.audid = a.audid
+    LEFT join events e on e.eventid = a.eventid
     WHERE a.isdeleted = 0 and p.isdeleted = 0 and r.isdeleted = 0 and a.isdeleted = 0
     AND r.audroleid = #audroleid#
 
-    ORDER BY a.audstartDate
+    ORDER BY a.eventStart
 </cfquery>
 
 <cfquery name="finda" datasource="#dsn#" maxrows="1">
     SELECT
-    a.audid AS audid
+    a.eventid AS eventid
     ,'Date' AS head1
 
     ,'Project' AS head2
@@ -138,8 +138,8 @@ where `audprojectid` = #audprojectid#
     ,'Type' as head4
     ,'Role' AS head5
     ,a.audstepid
-    ,a.audstarttime
-    ,a.audstartDate
+    ,a.eventStartTime
+    ,a.eventStart
     ,p.projname AS col2
     ,s.audsource AS col3
     ,t.audtype
@@ -147,7 +147,7 @@ where `audprojectid` = #audprojectid#
     ,rt.audroletype AS col5
     ,st.audstep
     ,a.workwithcoach
-    FROM auditions a
+    FROM events a
 
     LEFT JOIN audroles r ON r.audroleid = a.audroleid
 
@@ -159,7 +159,7 @@ where `audprojectid` = #audprojectid#
     WHERE a.isdeleted = 0 and p.isdeleted = 0
     AND r.audroleid = #audroleid#
 
-    ORDER BY a.audstartDate
+    ORDER BY a.eventStart
 </cfquery>
  
 
@@ -250,9 +250,9 @@ SET `audprojectid` = #audprojectid#,
         SELECT distinct e.eventid 
          from       audprojects p
               INNER JOIN audroles r ON r.audprojectID = p.audprojectID  
-              inner join auditions a on a.audroleid = r.audroleid
+              inner join events a on a.audroleid = r.audroleid
  
-inner join events e on e.audid = a.audid
+inner join events e on e.eventid = a.eventid
         where p.audprojectid = #audprojectid# AND a.isDeleted = 0 AND r.isdeleted = 0 AND p.isdeleted = 0
         </cfquery>
         

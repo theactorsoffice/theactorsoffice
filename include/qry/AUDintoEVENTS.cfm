@@ -4,11 +4,11 @@
 
 <cfparam name="new_audlocid" default="" />
 
-<cfparam name="new_audStartDate" default="" />
+<cfparam name="new_eventStart" default="" />
 
-<cfparam name="new_audStartTime" default="" />
+<cfparam name="new_eventStartTime" default="" />
 
-<cfparam name="new_audEndTime" default="" />
+<cfparam name="new_eventStopTime" default="" />
 
 <cfparam name="new_contactid" default="" />
 
@@ -46,7 +46,7 @@
 
             <cfquery datasource="#dsn#" name="findloc">
                 SELECT 
-                ad.audlocname
+                ad.eventLocation
                 ,ad.audlocadd1
                 ,ad.audlocadd2
                 ,ad.audcity
@@ -54,15 +54,15 @@
                 ,ad.audzip
                 ,rg.regionname
                 ,c.countryname 
-                FROM auditions  ad
+                FROM events  ad
                 LEFT OUTER JOIN regions rg on rg.regionid = ad.regionid  
                 LEFT OUTER JOIN countries c on rg.countryid = c.countryid
-                where ad.audid = #new_audid#
+                where ad.eventid = #new_eventid#
             </cfquery>
 
             <cfoutput>
 
-                <cfset eventlocation="#findloc.audlocname#, #findloc.audlocadd1#, #findloc.audlocadd2#, #findloc.audcity#,#findloc.regionname# #findloc.audzip#, #findloc.countryname#" />
+                <cfset eventlocation="#findloc.eventLocation#, #findloc.audlocadd1#, #findloc.audlocadd2#, #findloc.audcity#,#findloc.regionname# #findloc.audzip#, #findloc.countryname#" />
 
             </cfoutput>
 
@@ -78,11 +78,11 @@
 
     <cfoutput>
 
-        <cfset eventstart="#new_audStartDate#" />
+        <cfset eventstart="#new_eventStart#" />
 
-        <cfset eventStartTime="#new_audStartTime#" />
+        <cfset eventStartTime="#new_eventStartTime#" />
 
-        <cfset eventStopTime="#new_audEndTime#" />
+        <cfset eventStopTime="#new_eventStopTime#" />
 
     </cfoutput>
 
@@ -98,7 +98,7 @@
         <cfif #eventStartTime# is not "">,eventStartTime</cfif>
         <cfif #eventStopTime# is not "">,eventStopTime</cfif>
         ,userid
-        ,audid)
+        ,eventid)
 
         VALUES (
         <cfqueryparam cfsqltype="cf_sql_varchar" value="#new_projname#" />
@@ -118,7 +118,7 @@
         ,
         <cfqueryparam cfsqltype="cf_sql_integer" value="#cookie.userid#" />
         ,
-        <cfqueryparam cfsqltype="cf_sql_integer" value="#new_audid#" />
+        <cfqueryparam cfsqltype="cf_sql_integer" value="#new_eventid#" />
         )
     </cfquery>
 

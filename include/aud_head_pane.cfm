@@ -31,7 +31,7 @@
         $(document).ready(function() {
             $("##remoteselectheadshot").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remoteselectheadshot.cfm?selected_audid=#audid#&audid=#audid#&audprojectid=#audprojectid#&secid=196");
+                $(this).find(".modal-body").load("/include/remoteselectheadshot.cfm?selected_eventid=#eventid#&eventid=#eventid#&audprojectid=#audprojectid#&secid=196");
             });
         });
     </script>
@@ -45,7 +45,7 @@
         $(document).ready(function() {
             $("##remoteadd").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/remotaudmatadd.cfm?audid=#audid#&audprojectid=#audprojectid#&secid=196");
+                $(this).find(".modal-body").load("/include/remotaudmatadd.cfm?eventid=#eventid#&audprojectid=#audprojectid#&secid=196");
             });
         });
     </script>

@@ -10,8 +10,8 @@
 <cfloop query="x">
 
     <cfquery datasource="#dsn#" name="insert">
-        INSERT INTO `audanswers` (`qid`, `audid`)
-        VALUES (<cfqueryparam cfsqltype="cf_sql_integer" value="#x.qid#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#audid#">);
+        INSERT INTO `audanswers` (`qid`, `eventid`)
+        VALUES (<cfqueryparam cfsqltype="cf_sql_integer" value="#x.qid#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#eventid#">);
     </cfquery>
 
 </cfloop>
@@ -24,7 +24,7 @@
 
 <form action="/include/remoteassformUpdate.cfm" method="post" class="parsley-examples" id="remoteass" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate>
     <cfoutput>
-        <input type="hidden" name="audid" value="#audid#">
+        <input type="hidden" name="eventid" value="#eventid#">
  <input type="hidden" name="audprojectid" value="#audprojectid#">
 
     </cfoutput>

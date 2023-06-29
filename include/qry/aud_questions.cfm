@@ -6,7 +6,7 @@
 	 q.qtypeid,
 	 q.qorder,
 	 a.answerID,
-	 a.audID,
+	 a.eventid,
 	 a.aText,
 	 a.aRating,
 	 a.amemo,
@@ -18,7 +18,7 @@
 	 
 	 INNER JOIN audqtypes qt ON qt.qtypeid = q.qtypeid
 	 
-	 WHERE a.audid = <cfqueryparam cfsqltype="cf_sql_integer" value="#audid#"> 
+	 WHERE a.eventid = <cfqueryparam cfsqltype="cf_sql_integer" value="#eventid#"> 
     
     
     

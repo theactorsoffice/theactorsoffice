@@ -2,7 +2,7 @@
 
 
 
-<cfloop query="auditions">
+<cfloop query="events">
    
     <cfoutput>
         
@@ -10,7 +10,7 @@
     $(document).ready(function() {
         $("##remoteUpdateAnswer").on("show.bs.modal", function(event) {
             // Place the returned HTML into the selected element
-            $(this).find(".modal-body").load("/include/remoteassform.cfm?audid=#audid#&audprojectid=#audprojectid#");
+            $(this).find(".modal-body").load("/include/remoteassform.cfm?eventid=#eventid#&audprojectid=#audprojectid#");
         });
     });
 
@@ -27,7 +27,7 @@
 
                     <div class="modal-header" style="background-color: ##f3f7f9;">
 
-                        <h4 class="modal-title" id="standard-modalLabel"><strong>#auditions.audstep#: </strong>#dateformat(auditions.audstartdate,'long')#: Personal Assessment</h4>
+                        <h4 class="modal-title" id="standard-modalLabel"><strong>#events.audstep#: </strong>#dateformat(events.eventStart,'long')#: Personal Assessment</h4>
 
                         <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i>
 
@@ -45,7 +45,7 @@
 
         </div>
         
-        <cfset audid = "#auditions.audid#" />
+        <cfset eventid = "#events.eventid#" />
         
         <cfinclude template="/include/qry/aud_questions.cfm" />
         
@@ -56,15 +56,15 @@
         
 <div class="card mb-1">
 
-                <div class="card-header" id="heading_#auditions.audid#">
+                <div class="card-header" id="heading_#events.eventid#">
 
                     <h5 class="m-0">
 
-                        <a class="text-dark" data-bs-toggle="collapse" href="##collapse_#auditions.audid#" aria-expanded="true">
+                        <a class="text-dark" data-bs-toggle="collapse" href="##collapse_#events.eventid#" aria-expanded="true">
 
                             <i class="mdi mdi-filmstrip mr-1 text-primary"></i>
                             
-                            <strong>#auditions.audstep#: </strong>#dateformat(auditions.audstartdate,'long')#
+                            <strong>#events.audstep#: </strong>#dateformat(events.eventStart,'long')#
 
                         </a>
 
@@ -72,7 +72,7 @@
 
                 </div>
 
-                <div id="collapse_#auditions.audid#" class="collapse show" aria-labelledby="headin_#auditions.audid#" data-bs-parent="##accordion">
+                <div id="collapse_#events.eventid#" class="collapse show" aria-labelledby="headin_#events.eventid#" data-bs-parent="##accordion">
 
                     <div class="card-body">
                         <h4>Audition Assessment Questionnaire        <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteUpdateAnswer" toggle="tooltip" data-bs-placement="top" title="Update Answer" data-bs-original-title="Update Answer">
@@ -87,7 +87,7 @@
                             
                                 <cfif #questions.recordcount# is "23543543543543534543543">
                                       <div class="col-md-12 col-lg-12 col-xl-12 p-1 text-nowrap">
-                                <a href="/include/aud_assessment_add.cfm?audid=#audid#&audprojectid=#audprojectid#" class="btn btn-primary waves-effect waves-light">Create</a>
+                                <a href="/include/aud_assessment_add.cfm?eventid=#eventid#&audprojectid=#audprojectid#" class="btn btn-primary waves-effect waves-light">Create</a>
                                     </div>
                                 </cfif>
                                 

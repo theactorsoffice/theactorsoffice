@@ -2,9 +2,9 @@
 
 <cfinclude template="/include/qry/aud_questions.cfm" />
 
-<cfparam name="audid" default="0" />
+<cfparam name="eventid" default="0" />
 
-<cfparam name="new_audID" default="0" />
+<cfparam name="new_eventid" default="0" />
 
 <cfparam name="new_aText" default="" />
 
@@ -59,4 +59,4 @@ WHERE answerID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_answerID#"
 
 </cfloop>
 
-<cflocation url="/app/audition/?audprojectid=#audprojectid#&audid=#audid#&secid=179" />
+<cflocation url="/app/audition/?audprojectid=#audprojectid#&eventid=#eventid#&secid=179" />

@@ -16,7 +16,7 @@
 
  
      <cfoutput>
-     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&audid=#audid#&secid=181&focusid=#focusid#" />
+     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&eventid=#eventid#&secid=181&focusid=#focusid#" />
      </cfoutput>
  
  

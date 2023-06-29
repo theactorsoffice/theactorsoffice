@@ -55,7 +55,7 @@
 
 <form action="/include/changestatus.cfm">
     <input type="hidden" value="#audprojectid#" name="audprojectid" />
-  <input type="hidden" name="audid" value="#focusid#" />
+  <input type="hidden" name="eventid" value="#focusid#" />
     <input type="hidden" name="focusid" value="#focusid#" />
     <input type="hidden" value="changestatus" name="pgaction" />
     <input type="hidden" name="NEW_AUDROLEID" value="#audroleid#" />
@@ -331,7 +331,7 @@
             $(document).ready(function() {
                 $("##auditionadd_#findstep.audstep#").on("show.bs.modal", function(event) {
                     // Place the returned HTML into the selected element
-                    $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?NEW_AUDSUBCATID=#new_audsubcatid#&audcatid=#audcatid#&pgaction=add&audstepid=#new_audstepid#&secid=#secid#&audid=#audid#&audprojectid=#audprojectid#&rpgid=184&details_recid=#audid#&details_pgid=176&pgdir=audition&focusid=#focusid#&userid=#userid#");
+                    $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?NEW_AUDSUBCATID=#new_audsubcatid#&audcatid=#audcatid#&pgaction=add&audstepid=#new_audstepid#&secid=#secid#&eventid=#eventid#&audprojectid=#audprojectid#&rpgid=184&details_recid=#eventid#&details_pgid=176&pgdir=audition&focusid=#focusid#&userid=#userid#");
                 });
             });
 
@@ -389,7 +389,7 @@
 
 
 
-<cfloop query="auditions">
+<cfloop query="events">
 
 
 
@@ -402,14 +402,14 @@
 
         <script>
             $(document).ready(function() {
-                $("##auditionupdate_#auditions.audid#").on("show.bs.modal", function(event) {
+                $("##auditionupdate_#events.eventid#").on("show.bs.modal", function(event) {
                     // Place the returned HTML into the selected element
-                    $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?secid=#secid#&audid=#auditions.audid#&audcatid=#audcatid#&audprojectid=#audprojectid#&rpgid=175&details_pgid=176&pgdir=audition&focusid=#focusid#&userid=#userid#");
+                    $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?secid=#secid#&eventid=#events.eventid#&audcatid=#audcatid#&audprojectid=#audprojectid#&rpgid=175&details_pgid=176&pgdir=audition&focusid=#focusid#&userid=#userid#");
                 });
             });
 
         </script>
-        <div id="auditionupdate_#auditions.audid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div id="auditionupdate_#events.eventid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: ##f3f7f9;">
@@ -550,7 +550,7 @@
                         <div class="form-switch col-md-3 col-sm-6 col-xs-6">
 
                             <cfquery name="callback_check" datasource="#dsn#" maxrows="1">
-                                SELECT * FROM auditions WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 2
+                                SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 2
                             </cfquery>
 
                             <cfif #rolecheck.iscallback# is "1">
@@ -594,7 +594,7 @@
 <div class="form-switch col-md-3 col-sm-6 col-xs-6">
 
 <cfquery name="Redirect_check" datasource="#dsn#" maxrows="1">
-    SELECT * FROM auditions WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 3
+    SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 3
 </cfquery>
 
                             <cfif #rolecheck.isRedirect# is "1">
@@ -639,7 +639,7 @@
                         <div class="form-switch col-md-3 col-sm-6 col-xs-6">
 
                             <cfquery name="Pin_check" datasource="#dsn#">
-                                SELECT * FROM auditions WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 4
+                                SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 4
                             </cfquery>
 
                             <cfif #rolecheck.isPin# is "1">
@@ -672,7 +672,7 @@
                         <div class="form-switch col-md-3 col-sm-6 col-xs-6">
 
                             <cfquery name="Booked_check" datasource="#dsn#">
-                                SELECT * FROM auditions WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
+                                SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
                             </cfquery>
 
                             <cfif #rolecheck.isBooked# is "1">
@@ -761,7 +761,7 @@
 
                 <cfif #focusid# is "0">
                     
-                    <cfif #auditions.recordcount# is "0">
+                    <cfif #events.recordcount# is "0">
                         
                         <cfoutput>
                                 <script>
@@ -812,13 +812,13 @@
 
                         <thead>
 
-                            <cfif (auditions.CurrentRow MOD 2)>
+                            <cfif (events.CurrentRow MOD 2)>
 
                                 <Cfset rowtype="Odd" />
 
                             </cfif>
 
-                            <cfif NOT (auditions.CurrentRow MOD 2)>
+                            <cfif NOT (events.CurrentRow MOD 2)>
 
                                 <Cfset rowtype="Even" />
 
@@ -840,7 +840,7 @@
 
                         <tbody>
 
-                            <cfloop query="auditions">
+                            <cfloop query="events">
 
                                 <cfoutput>
 
@@ -855,15 +855,15 @@
 
                                     <script>
                                         $(document).ready(function() {
-                                            $("##remoteDeleteAud#auditions.audid#").on("show.bs.modal", function(event) {
+                                            $("##remoteDeleteAud#events.eventid#").on("show.bs.modal", function(event) {
                                                 // Place the returned HTML into the selected element
-                                                $(this).find(".modal-body").load("/include/remoteDeleteFormAud.cfm?audid=#auditions.audid#&audprojectid=#audprojectid#&audroleid=#audroleid#&rpgid=175&pgaction=update");
+                                                $(this).find(".modal-body").load("/include/remoteDeleteFormAud.cfm?eventid=#events.eventid#&audprojectid=#audprojectid#&audroleid=#audroleid#&rpgid=175&pgaction=update");
                                             });
                                         });
 
                                     </script>
 
-                                    <div id="remoteDeleteAud#auditions.audid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div id="remoteDeleteAud#events.eventid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
                                         <div class="modal-dialog">
 
@@ -903,19 +903,19 @@
 
 
 
-                                            <a title="Edit" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionupdate_#auditions.audid#">
+                                            <a title="Edit" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionupdate_#events.eventid#">
 
                                                 <i class="mdi mdi-square-edit-outline mr-1"></i>
                                             </a>
 
-                                            <a title="View Details" href="/app/audition/?audprojectid=#audprojectid#&focusid=#auditions.audid#">
+                                            <a title="View Details" href="/app/audition/?audprojectid=#audprojectid#&focusid=#events.eventid#">
 
                                                 <i class="mdi mdi-eye-outline"></i>
 
                                             </a>
 
 
-                                            <a title="Delete Audition" href="DeleteModal.cfm?rpgid=175&amp;recid=#audid#" data-bs-toggle="modal" data-bs-target="##remoteDeleteAud#auditions.audid#">
+                                            <a title="Delete Audition" href="DeleteModal.cfm?rpgid=175&amp;recid=#eventid#" data-bs-toggle="modal" data-bs-target="##remoteDeleteAud#events.eventid#">
 
                                                 <i class="fe-trash-2"></i>
 
@@ -929,13 +929,13 @@
 
 
                                         <td class="dt-nowrap">
-                                            #DateFormat('#auditions.audstartDate#','mm-dd')#
-                                            <BR>#timeformat(auditions.audstarttime,'short')#
+                                            #DateFormat('#events.eventStart#','mm-dd')#
+                                            <BR>#timeformat(events.eventStartTime,'short')#
                                         </td>
 
-                                        <td class="dt-nowrap">#auditions.audstep#</td>
+                                        <td class="dt-nowrap">#events.audstep#</td>
 
-                                        <td class="dt-nowrap">#auditions.audtype# </td>
+                                        <td class="dt-nowrap">#events.audtype# </td>
 
 
 
@@ -965,13 +965,13 @@
   <cfquery name="auditionDetails" datasource="#dsn#">
 SELECT 
 pr.audprojectid as recid,
-ad.audid,
+ad.eventid,
 pr.audprojectid,
 ad.audLocation,
 ad.audMtgUrl,
-ad.audStartDate,
-ad.audStartTime,
-ad.audEndTime,
+ad.eventStart,
+ad.eventStartTime,
+ad.eventStopTime,
 ad.parkingDetails,
 ad.workwithcoach,
 t.audtype,
@@ -979,7 +979,7 @@ s.audstep,
 s.audstepid,
 ad.audroleid,
 ad.trackmileage,
-ad.audlocname,
+ad.eventLocation,
 pl.audplatform,
 r.audprojectID,
 pr.audSubCatID,
@@ -1004,7 +1004,7 @@ FROM audprojects pr
     
     INNER JOIN audroles r ON pr.audprojectID = r.audprojectID
     
-LEFT OUTER JOIN auditions ad ON r.audroleid = ad.audroleid 
+LEFT OUTER JOIN events ad ON r.audroleid = ad.audroleid 
 
 LEFT OUTER JOIN audsubcategories sub on sub.audsubcatid = pr.audsubcatid
         
@@ -1022,12 +1022,12 @@ LEFT OUTER JOIN regions rg on rg.regionid = ad.regionid
     
 LEFT OUTER JOIN countries c on rg.countryid = c.countryid
     
-WHERE  ad.audid = #focusid#
+WHERE  ad.eventid = #focusid#
 </cfquery>
                         
                         
                         
-        <cfset audid = auditiondetails.audid />                
+        <cfset eventid = auditiondetails.eventid />                
                     <cfoutput>
 
 
@@ -1037,14 +1037,14 @@ WHERE  ad.audid = #focusid#
 
         <script>
             $(document).ready(function() {
-                $("##auditionupdate_#auditionDetails.audid#").on("show.bs.modal", function(event) {
+                $("##auditionupdate_#auditionDetails.eventid#").on("show.bs.modal", function(event) {
                     // Place the returned HTML into the selected element
-                    $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?secid=#secid#&audid=#auditionDetails.audid#&audcatid=#audcatid#&audprojectid=#audprojectid#&rpgid=175&details_pgid=176&pgdir=audition&focusid=#focusid#&userid=#userid#");
+                    $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?secid=#secid#&eventid=#auditionDetails.eventid#&audcatid=#audcatid#&audprojectid=#audprojectid#&rpgid=175&details_pgid=176&pgdir=audition&focusid=#focusid#&userid=#userid#");
                 });
             });
 
         </script>
-        <div id="auditionupdate_#auditionDetails.audid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div id="auditionupdate_#auditionDetails.eventid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: ##f3f7f9;">
@@ -1090,7 +1090,7 @@ WHERE  ad.audid = #focusid#
                            <span class="ms-auto"> 
                                
                         
-       <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionupdate_#auditiondetails.audid#" data-bs-placement="top" title="Update Appointment" data-bs-original-title="Update Appointment">
+       <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionupdate_#auditiondetails.eventid#" data-bs-placement="top" title="Update Appointment" data-bs-original-title="Update Appointment">
 
                                             <i class="mdi mdi-square-edit-outline"></i>
 
@@ -1115,12 +1115,12 @@ WHERE  ad.audid = #focusid#
                                 
                                 
                  
-                                    <Cfif #auditiondetails.audstartDate# is not "">
-                                      <h4 class="px-1 d-flex text-nowrap">  <img src="/media-#host#/dates/#DateFormat('#auditiondetails.audstartDate#','yyyy-mm-dd')#.png" style="max-width:75px;" alt="...">
+                                    <Cfif #auditiondetails.eventStart# is not "">
+                                      <h4 class="px-1 d-flex text-nowrap">  <img src="/media-#host#/dates/#DateFormat('#auditiondetails.eventStart#','yyyy-mm-dd')#.png" style="max-width:75px;" alt="...">
                                         
                                              
                            <span class="ms-auto"> 
-                                     <cfif #auditions.recordcount# is not "1" and #focusid# is not "0"><a title="View Details" href="/app/audition/?audprojectid=#audprojectid#&focusid=0" class="text-decoration-underline"><button type="button" class="btn btn-xs btn-primary  waves-effect">View All #auditions.recordcount#</button></a></cfif>
+                                     <cfif #events.recordcount# is not "1" and #focusid# is not "0"><a title="View Details" href="/app/audition/?audprojectid=#audprojectid#&focusid=0" class="text-decoration-underline"><button type="button" class="btn btn-xs btn-primary  waves-effect">View All #events.recordcount#</button></a></cfif>
                                
                                           </span>
                                         
@@ -1142,7 +1142,7 @@ WHERE  ad.audid = #focusid#
  
 
 
-                                <div class="col-md-12 p-1"><strong>Time: </strong>#timeformat(auditiondetails.audStartTime)# <cfif #auditiondetails.audEndTime# is not "">- #timeformat(auditiondetails.audEndTime)#</cfif>
+                                <div class="col-md-12 p-1"><strong>Time: </strong>#timeformat(auditiondetails.eventStartTime)# <cfif #auditiondetails.eventStopTime# is not "">- #timeformat(auditiondetails.eventStopTime)#</cfif>
                                 </div>
 
                                 <div class="col-md-12 p-1"><strong> Stage: </strong>#auditiondetails.audstep#</div>
@@ -1196,7 +1196,7 @@ WHERE  ad.audid = #focusid#
 
 
                                 <cfif #auditiondetails.islocation# is "true">
-                                    <div class="col-md-12 p-1"><strong>Location: </strong>#auditionDetails.audlocname#<cfif #auditionDetails.audlocname# is not "" and #auditionDetails.audlocadd1# is not "">, #auditionDetails.audlocadd1#</cfif>
+                                    <div class="col-md-12 p-1"><strong>Location: </strong>#auditionDetails.eventLocation#<cfif #auditionDetails.eventLocation# is not "" and #auditionDetails.audlocadd1# is not "">, #auditionDetails.audlocadd1#</cfif>
                                         <cfif #auditionDetails.audlocadd2# is not "">, #auditionDetails.audlocadd2#</CFIF>
                                         <cfif #auditionDetails.audcity# is not "">, #auditionDetails.audcity#</cfif>
                                         <cfif #auditionDetails.regionname# is not ""> , #auditionDetails.regionname#</cfif>
@@ -1264,15 +1264,15 @@ WHERE  ad.audid = #focusid#
 
                                 <script>
                                     $(document).ready(function() {
-                                        $("##remoteDeleteAudDetails#auditiondetails.audid#").on("show.bs.modal", function(event) {
+                                        $("##remoteDeleteAudDetails#auditiondetails.eventid#").on("show.bs.modal", function(event) {
                                             // Place the returned HTML into the selected element
-                                            $(this).find(".modal-body").load("/include/remoteDeleteFormAud.cfm?audprojectid=#audprojectid#&audid=#auditiondetails.audid#&audroleid=#audroleid#&audcatid=#audcatid#&rpgid=175&pgaction=update");
+                                            $(this).find(".modal-body").load("/include/remoteDeleteFormAud.cfm?audprojectid=#audprojectid#&eventid=#auditiondetails.eventid#&audroleid=#audroleid#&audcatid=#audcatid#&rpgid=175&pgaction=update");
                                         });
                                     });
 
                                 </script>
 
-                                <div id="remoteDeleteAudDetails#auditiondetails.audid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div id="remoteDeleteAudDetails#auditiondetails.eventid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
                                     <div class="modal-dialog">
 
@@ -1313,7 +1313,7 @@ WHERE  ad.audid = #focusid#
 
 
 
-       <a title="Delete Audition appointment" href="" data-bs-toggle="modal" data-bs-target="##remoteDeleteAudDetails#audid#">
+       <a title="Delete Audition appointment" href="" data-bs-toggle="modal" data-bs-target="##remoteDeleteAudDetails#eventid#">
 
                                         <i class="fe-trash-2"></i>
 

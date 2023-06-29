@@ -209,7 +209,7 @@
 
                             <div id="hidden_divs">
                                 <div class="form-group col-md-12">
-                                    <label for="new_audstartdate">Zoom Link (optional)</label>
+                                    <label for="new_eventStart">Zoom Link (optional)</label>
 
                                     <input class="form-control" type="text" id="new_audLocation" autocomplete="off" name="new_audLocation" placeholder="Zoom link">
 
@@ -423,17 +423,17 @@
 
 
                             <div class="form-group col-md-6">
-                                <label for="new_audstartdate">Start Date / Due Date<span class="text-danger">*</span></label>
-                                <input id="new_audstartdate" class="form-control" autocomplete="off" name="new_audstartdate" type="date" data-parsley-required data-parsley-error-message="Start Date is required">
+                                <label for="new_eventStart">Start Date / Due Date<span class="text-danger">*</span></label>
+                                <input id="new_eventStart" class="form-control" autocomplete="off" name="new_eventStart" type="date" data-parsley-required data-parsley-error-message="Start Date is required">
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="new_audstartTime">Start Time / Due Time<span class="text-danger">*</span></label>
+                                <label for="new_eventStartTime">Start Time / Due Time<span class="text-danger">*</span></label>
 
 
 
 
-                                <select class="form-control" name="new_audstartTime" autocomplete="off" id="new_audstartTime" data-parsley-required data-parsley-error-message="Start Time is required">
+                                <select class="form-control" name="new_eventStartTime" autocomplete="off" id="new_eventStartTime" data-parsley-required data-parsley-error-message="Start Time is required">
                                     <option value="">Select a Start Time </option>
                                     <cfoutput>
                                         <option value="07:00" <cfif #timeformat('#userCalStarttime#','hh:mm TT')# is "07:00 AM">Selected</cfif>>07:00 AM</option>
@@ -514,7 +514,7 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="new_audendtime">Duration</label>
+                                <label for="new_eventStopTime">Duration</label>
                                 <select class="form-control" name="new_durid" autocomplete="off" id="new_durid">
                                     <cfoutput query="durations">
                                         <option value="#durations.durid#" <cfif #durations.durid# is "4"> selected </cfif> >#durations.durname#</option>
@@ -539,7 +539,7 @@
 
                                     <div class="form-group col-md-12">
                                         <label for="projName">Location Name<span class="text-danger">*</span></label>
-                                        <input class="form-control" type="text" id="audlocname" name="new_audlocname" placeholder="Location Name" required data-parsley-required data-parsley-error-message="Location Name is required">
+                                        <input class="form-control" type="text" id="eventLocation" name="new_eventLocation" placeholder="Location Name" required data-parsley-required data-parsley-error-message="Location Name is required">
 
                                         <div class="invalid-feedback">
                                             Please enter a Location Name.
@@ -697,7 +697,7 @@
 
                                                             <div class="form-group col-md-12">
                                                                 <label for="projName">Location Name<span class="text-danger">*</span></label>
-                                                                <input class="form-control" type="text" id="audlocname" name="new_audlocname" placeholder="Location Name" required data-parsley-required data-parsley-error-message="Location Name is required">
+                                                                <input class="form-control" type="text" id="eventLocation" name="new_eventLocation" placeholder="Location Name" required data-parsley-required data-parsley-error-message="Location Name is required">
 
                                                                 <div class="invalid-feedback">
                                                                     Please enter a Location Name.
@@ -856,9 +856,9 @@
 
     <cfif #isdefined('fsdfds')#>
         <script>
-            $('select[name=new_audstartTime]').on("change", function() {
+            $('select[name=new_eventStartTime]').on("change", function() {
                 var theSelectedIndex = $(this)[0].selectedIndex;
-                $.each($('select[name=new_audendtime] option'), function() {
+                $.each($('select[name=new_eventStopTime] option'), function() {
                     var endOptionIndex = $(this).index();
                     if (endOptionIndex < theSelectedIndex) {
                         $(this).attr('disabled', 'disabled');

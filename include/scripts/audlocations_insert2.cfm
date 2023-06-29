@@ -1,10 +1,10 @@
  <cfquery datasource="abod" name="x">
-     SELECT * from auditions where userid is not null
+     SELECT * from events where userid is not null
  </cfquery>
 
 
  <cfloop query="x">
-     <cfset new_audid=x.audid />
+     <cfset new_eventid=x.eventid />
      <cfset new_userid=x.userid />
 
      <cfquery datasource="abod" name="y">
@@ -14,7 +14,7 @@
      <cfset new_audlocid=y.audlocid />
 
      <cfquery datasource="abod" name="a">
-         update auditions set audlocid = #new_audlocid# where audid = #new_audid#
+         update events set audlocid = #new_audlocid# where eventid = #new_eventid#
      </cfquery>
 
  </cfloop>

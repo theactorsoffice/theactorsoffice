@@ -75,7 +75,7 @@
                 <li>
                                 <a href="#sidebarEmail" data-bs-toggle="collapse">
                                       <i data-feather="sliders"></i>
-                                    <span> Auditions - Admin </span>
+                                    <span> Auditionz - Admin </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <div class="collapse" id="sidebarEmail">

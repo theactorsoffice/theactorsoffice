@@ -61,7 +61,7 @@ END AS col6a,
     INNER join audroles r on p.audprojectID = r.audprojectID
  INNER join auditionsimport ai on p.audprojectID = ai.audprojectID
   
- LEFT JOIN auditions a ON r.audroleid = a.audroleid 
+ LEFT JOIN events a ON r.audroleid = a.audroleid 
  
  LEFT JOIN audsources s ON s.audSourceID = r.audSourceID
  LEFT JOIN contactdetails c ON c.contactID = p.contactid
@@ -96,7 +96,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
 
                 <h4 class="header-title">
 
-                  Auditions imported <span class="small right"></span>
+                  events imported <span class="small right"></span>
 
                 </h4>
 
@@ -107,7 +107,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
 
                         <cfoutput>
 
-                            <p>#results.recordcount# auditions were imported. Click on a name to view details.
+                            <p>#results.recordcount# events were imported. Click on a name to view details.
 
                             </p>
 
@@ -204,7 +204,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
  
 <h5>Step One: Import Template</h5>    
           
-<p>Download the <A href="/include/auditionimporttemplates.xlsx" target="new"><strong><i class="fe-upload"></i> Import Template</strong></A> to copy and paste all the auditions you'd like to import. <strong>Imports must be in this format.</strong></p>
+<p>Download the <A href="/include/auditionimporttemplates.xlsx" target="new"><strong><i class="fe-upload"></i> Import Template</strong></A> to copy and paste all the events you'd like to import. <strong>Imports must be in this format.</strong></p>
         
         
              <cfif #isdefined('dsfdsfdfs')#>

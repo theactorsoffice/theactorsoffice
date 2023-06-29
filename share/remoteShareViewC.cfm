@@ -19,20 +19,20 @@ FROM sharez where contactid = '#contactid#'
     
     </cfoutput>
 
-<cfquery name="auditions" datasource="#dsn#">
+<cfquery name="events" datasource="#dsn#">
 SELECT distinct p.projdate AS col1,
        p.projname AS col2,
        s.audstep AS col3
 FROM audprojects p
 INNER JOIN audroles r ON p.audprojectID = r.audprojectID
-INNER JOIN auditions a ON r.audroleid = a.audroleid
+INNER JOIN events a ON r.audroleid = a.audroleid
 INNER JOIN audsteps s ON s.audstepid = a.audstepid
 INNER JOIN audcontacts_auditions_xref x ON x.audprojectid = p.audprojectid
 INNER JOIN (
     SELECT p.audprojectID, MAX(s.audstepid) AS max_audstepid
     FROM audprojects p
     INNER JOIN audroles r ON p.audprojectID = r.audprojectID
-    INNER JOIN auditions a ON r.audroleid = a.audroleid
+    INNER JOIN events a ON r.audroleid = a.audroleid
     INNER JOIN audsteps s ON s.audstepid = a.audstepid
     INNER JOIN audcontacts_auditions_xref x ON x.audprojectid = p.audprojectid
     WHERE r.isdeleted IS FALSE AND p.isDeleted IS false
@@ -79,7 +79,7 @@ p.audprojectid AS recid
     INNER join audroles r on p.audprojectID = r.audprojectID
 
   
- LEFT JOIN auditions a ON r.audroleid = a.audroleid 
+ LEFT JOIN events a ON r.audroleid = a.audroleid 
  
  LEFT JOIN audsources s ON s.audSourceID = r.audSourceID
  LEFT JOIN contactdetails c ON c.contactID = p.contactid
@@ -113,7 +113,7 @@ GROUP BY r.audroleid, p.projname,s.audsource,rt.audroletype,r.iscallback,r.isred
 
 
 
-  <cfif #auditions.recordcount# is not "0">
+  <cfif #events.recordcount# is not "0">
 <hr>
       <p>Audition History</p>
 
@@ -126,7 +126,7 @@ GROUP BY r.audroleid, p.projname,s.audsource,rt.audroletype,r.iscallback,r.isred
 <th>Audition Status</th>
                     </tr>
                 </thead>
-                <cfloop query="auditions">
+                <cfloop query="events">
                     <cfoutput>
 
                                 

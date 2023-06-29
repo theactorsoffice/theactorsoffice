@@ -1,11 +1,11 @@
  <CFINCLUDE template="/include/remote_load.cfm" />
 
 <cfquery name="x" datasource="#dsn#">
-SELECT ad.audid,
+SELECT ad.eventid,
 
 sc.audcatid
 
-FROM auditions ad
+FROM events ad
 
 left OUTER JOIN audlocations l on l.audlocid = ad.audlocid    
                     
@@ -40,7 +40,7 @@ select callbacktypeid from audcallbacktypes where audcategoryid = #x.audcatid# o
 
 <cfloop query="f">
     <cfquery name="update" datasource="#dsn#"  >
- update auditions set callbacktypeid = #f.callbacktypeid# where audid = #x.audid#
+ update events set callbacktypeid = #f.callbacktypeid# where eventid = #x.eventid#
     </cfquery>
     
     </cfloop>

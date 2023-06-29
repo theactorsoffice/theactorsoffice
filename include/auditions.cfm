@@ -99,7 +99,7 @@
     WHERE audtype IN
 
     (SELECT t.audtype
-    FROM auditions a inner join audtypes t on t.audtypeid = a.audtypeid
+    FROM events a inner join audtypes t on t.audtypeid = a.audtypeid
     WHERE a.userid = #userid# AND a.isdeleted IS FALSE)
 
     ORDER BY audtype
@@ -272,7 +272,7 @@
 
                     <cfif #results.recordcount# is "0">
 
-                        <p>No auditions found</p>
+                        <p>No events found</p>
 
                     </cfif>
 
@@ -467,7 +467,7 @@
 
                 <cfif #results.recordcount# is "0">
 
-                    <p>No auditions found</p>
+                    <p>No events found</p>
 
                 </cfif>
 
@@ -708,7 +708,7 @@
         FROM audprojects p
 
         LEFT JOIN audroles r on p.audprojectID = r.audprojectID
-        LEFT JOIN auditions a ON r.audroleid = a.audroleid
+        LEFT JOIN events a ON r.audroleid = a.audroleid
         LEFT JOIN audsources s ON s.audSourceID = r.audSourceID
         LEFT JOIN contactdetails c ON c.contactID = p.contactid
         LEFT JOIN contactdetails c2 ON c2.contactID = r.contactid

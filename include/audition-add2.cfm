@@ -54,7 +54,7 @@
                <cfset new_contactid=new_contactid />
            <cfset new_userid=userid />
            <cfset new_systemid=1 />
-            <cfset new_suStartDate = new_audstartdate />
+            <cfset new_suStartDate = new_eventStart />
     
 
     <cfinclude template="modalansweryes.cfm" />

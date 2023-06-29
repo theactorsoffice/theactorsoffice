@@ -4,7 +4,7 @@
 
 <cfif #isdefined('recid')#>
 
-    <cfset audid=recid />
+    <cfset eventid=recid />
 </cfif>
 
 <cfif #pgaction# is "change">
@@ -33,7 +33,7 @@
     $(document).ready(function() {
         $("#catupdate").on("show.bs.modal", function(event) {
             // Place the returned HTML into the selected element
-            $(this).find(".modal-body").load("/include/catupdateform.cfm?AUDPROJECTID=<cfoutput>#projectdetails.audprojectid#</cfoutput>&audcatid=<cfoutput>#projectdetails.audcatid#</cfoutput>&rpgid=184&secid=176&details_recid=<Cfoutput>#audid#</cfoutput>&details_pgid=176&audid=<Cfoutput>#audid#</cfoutput>&pgdir=audition");
+            $(this).find(".modal-body").load("/include/catupdateform.cfm?AUDPROJECTID=<cfoutput>#projectdetails.audprojectid#</cfoutput>&audcatid=<cfoutput>#projectdetails.audcatid#</cfoutput>&rpgid=184&secid=176&details_recid=<Cfoutput>#eventid#</cfoutput>&details_pgid=176&eventid=<Cfoutput>#eventid#</cfoutput>&pgdir=audition");
         });
     });
 
@@ -60,7 +60,7 @@
     $(document).ready(function() {
         $("#auditionupdate").on("show.bs.modal", function(event) {
             // Place the returned HTML into the selected element
-            $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?secid=<cfoutput>#secid#</cfoutput>&audid=<cfoutput>#audid#</cfoutput>&rpgid=184&details_recid=<Cfoutput>#audid#</cfoutput>&details_pgid=176&recid=<Cfoutput>#audid#</cfoutput>&pgdir=audition");
+            $(this).find(".modal-body").load("/include/remoteaudupdateform.cfm?secid=<cfoutput>#secid#</cfoutput>&eventid=<cfoutput>#eventid#</cfoutput>&rpgid=184&details_recid=<Cfoutput>#eventid#</cfoutput>&details_pgid=176&recid=<Cfoutput>#eventid#</cfoutput>&pgdir=audition");
         });
     });
 
@@ -86,7 +86,7 @@
     $(document).ready(function() {
         $("#projectupdate").on("show.bs.modal", function(event) {
             // Place the returned HTML into the selected element
-            $(this).find(".modal-body").load("/include/remote_aud_project_update.cfm?<cfoutput>secid=#secid#</cfoutput>&audprojectid=<cfoutput>#projectdetails.audprojectid#</cfoutput>&rpgid=148&audid=<Cfoutput>#audid#</cfoutput>&pgdir=audition");
+            $(this).find(".modal-body").load("/include/remote_aud_project_update.cfm?<cfoutput>secid=#secid#</cfoutput>&audprojectid=<cfoutput>#projectdetails.audprojectid#</cfoutput>&rpgid=148&eventid=<Cfoutput>#eventid#</cfoutput>&pgdir=audition");
         });
     });
 
@@ -109,7 +109,7 @@
 </div>
 
 <cfparam name="secid" default="176" />
-<cfset audid=auditiondetails.audid />
+<cfset eventid=auditiondetails.eventid />
 <div class="row">
     
     <cfif #isdefined('sffsdfds')#>
@@ -119,7 +119,7 @@
            <div class="col-md-12">
 <form action="/app/audition/"  >
                   <input type="hidden" name="pgaction" value="change" />
-               <input type="hidden" name="recid" value="#audid#" />
+               <input type="hidden" name="recid" value="#eventid#" />
   <label for="new_audroletypeid">Style:  </label>
     <select id="new_istab" name="new_istab"    onchange="this.form.submit()">
         <option value="Y" <cfif #istab# is "Y"> Selected</cfif>>Tabs</option>
@@ -159,7 +159,7 @@
 
                 <div class="row">
                     <cfoutput>
-                        <h4 class="p-1 d-flex">#dateformat('#auditiondetails.audstartdate#','long')#
+                        <h4 class="p-1 d-flex">#dateformat('#auditiondetails.eventStart#','long')#
 
 
 
@@ -175,7 +175,7 @@
 
 
 
-                        <div class="col-md-12 p-1"><strong>Time: </strong>#timeformat(auditiondetails.audStartTime)# <cfif #auditiondetails.audEndTime# is not "">- #timeformat(auditiondetails.audEndTime)#</cfif>
+                        <div class="col-md-12 p-1"><strong>Time: </strong>#timeformat(auditiondetails.eventStartTime)# <cfif #auditiondetails.eventStopTime# is not "">- #timeformat(auditiondetails.eventStopTime)#</cfif>
                         </div>
 
                         <div class="col-md-12 p-1"><strong> Stage: </strong>#auditiondetails.audstep#</div>
@@ -307,7 +307,7 @@
 
                 <cfloop query="options">
                     <cfoutput>
-                        <a class="dropdown-item" href="/app/audition/?audprojectid=#audprojectid#&audid=#audid#&secid=#options.pgid#">#options.pgtitle#</a>
+                        <a class="dropdown-item" href="/app/audition/?audprojectid=#audprojectid#&eventid=#eventid#&secid=#options.pgid#">#options.pgtitle#</a>
                     </cfoutput>
                 </cfloop>
 

@@ -3,7 +3,7 @@
 
 <cfparam name="new_audlocid" default="" />
 
-<cfparam name="new_audlocname" default="" />
+<cfparam name="new_eventLocation" default="" />
 
 <cfparam name="new_audlocadd1" default="" />
 
@@ -26,7 +26,7 @@ UPDATE audlocations  SET
 
     userid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#"  null="#NOT len(trim(new_userid))#" /> ,
 
-    audlocname = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocname#" maxlength="500" null="#NOT len(trim(new_audlocname))#" />,
+    eventLocation = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventLocation#" maxlength="500" null="#NOT len(trim(new_eventLocation))#" />,
 
     audlocadd1 = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audlocadd1#" maxlength="500" null="#NOT len(trim(new_audlocadd1))#" />,
 
@@ -45,7 +45,7 @@ WHERE audlocid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audlocid#"
 </cfquery>
 
      <cfoutput>
-     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&audid=#audid#&secid=#secid#&focusid=#audid#" />
+     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&eventid=#eventid#&secid=#secid#&focusid=#eventid#" />
      </cfoutput>
 
 

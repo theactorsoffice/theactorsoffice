@@ -39,7 +39,7 @@ SELECT c.audcatname,c.audcatid,r.audroleid,r.incometypeid,r.payrate,r.netincome,
       <input type="hidden" name="focusid" value="#focusid#" />
          <input type="hidden" name="audprojectid" value="#audprojectid#" />
         <input type="hidden" name="new_userid" value="#userid#" />
-       <input type="hidden" name="audid" value="#audid#" />
+       <input type="hidden" name="eventid" value="#eventid#" />
        <input type="hidden" name="secid" value="#secid#" />     
     <input type="hidden" name="new_audroleid" value="#audroleid#" />
 </cfoutput>

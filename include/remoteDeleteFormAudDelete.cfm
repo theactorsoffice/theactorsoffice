@@ -1,10 +1,10 @@
 <cfinclude template="/include/remote_load.cfm" />
 
 <cfquery name="del" datasource="#dsn#" >  
-update auditions set isdeleted = 1 where audid = #audid#
+update events set isdeleted = 1 where eventid = #eventid#
 </cfquery>
     <cfquery name="del2" datasource="#dsn#" >  
-update events_tbl set isdeleted = 1 where audid = #audid#
+update events_tbl set isdeleted = 1 where eventid = #eventid#
 </cfquery>
     
 

@@ -11,7 +11,7 @@
  
 
     <form action="/include/remoteDeletelink2.cfm" method="post" class="needs-validation" novalidate>
-        <cfoutput><input type="hidden" name="audid" value="#audid#" /><input type="hidden" name="audprojectid" value="#audprojectid#" />
+        <cfoutput><input type="hidden" name="eventid" value="#eventid#" /><input type="hidden" name="audprojectid" value="#audprojectid#" />
                    <input type="hidden" name="linkid" value="#linkid#" />
                 <input type="hidden" name="secid" value="177" />
     

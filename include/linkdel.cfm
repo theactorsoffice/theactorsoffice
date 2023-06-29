@@ -23,9 +23,9 @@ SET isdeleted = 1 WHERE linkid = #linkid#
 <cfinclude template="/include/bigbrotherinclude.cfm" /> 
 
 
- <cfif #isdefined('audid')#>
+ <cfif #isdefined('eventid')#>
    <cfoutput>
-     <cfset returnurl = "/app/#returnurl#/?contactid=#rcontactid#&audid=#audid#&audprojectid=#audprojectid#&secid=178" />
+     <cfset returnurl = "/app/#returnurl#/?contactid=#rcontactid#&eventid=#eventid#&audprojectid=#audprojectid#&secid=178" />
 
      </cfoutput>
  

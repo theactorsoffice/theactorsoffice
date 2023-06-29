@@ -87,7 +87,7 @@
                      
                                     <th>URL</th>
                                     <th>Created</th>
-                                          <th>Auditions</th>
+                                          <th>Auditionz</th>
                                 </tr>
                       
                 
@@ -104,14 +104,14 @@
 
     <cfloop query="headshots_sel">
 
-    <cfquery name="auditions" datasource="#dsn#" >
+    <cfquery name="events" datasource="#dsn#" >
     SELECT distinct p.audprojectid FROM audprojects p 
 INNER JOIN audmedia_auditions_xref x ON p.audprojectID = x.audprojectid
 WHERE p.isdeleted = 0
 AND x.mediaid = #mediaid#
 </cfquery>
 
- <cfset materials = ValueList(auditions.audprojectid)>
+ <cfset materials = ValueList(events.audprojectid)>
 
 
 <CFINCLUDE template="/include/remote_load.cfm" />
@@ -212,7 +212,7 @@ AND x.mediaid = #mediaid#
 
                             </a>
 
-<cfif #auditions.recordcount# is "0"> 
+<cfif #events.recordcount# is "0"> 
 
 <a class="pt-0" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteDeleteaudmedia#headshots_sel.mediaid#" data-bs-placement="top" title="Delete media" data-bs-original-title="Delete media"><i class="mdi mdi-trash-can-outline"></i>
                         </a>
@@ -282,8 +282,8 @@ AND x.mediaid = #mediaid#
 
 
       <td class="text-nowrap">
-<cfif #numberformat(auditions.recordcount)# is not "0">
- <a style="text-decoration: underline; color: blue;" href="/app/auditions/?materials=#materials#">#numberformat(auditions.recordcount)#</a>
+<cfif #numberformat(events.recordcount)# is not "0">
+ <a style="text-decoration: underline; color: blue;" href="/app/auditions/?materials=#materials#">#numberformat(events.recordcount)#</a>
 
 <cfelse>
 

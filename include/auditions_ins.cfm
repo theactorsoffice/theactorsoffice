@@ -12,11 +12,11 @@
 
 <cfparam name="new_audMtgUrl" default="" />
 
-<cfparam name="new_audStartDate" default="" />
+<cfparam name="new_eventStart" default="" />
 
-<cfparam name="new_audStartTime" default="" />
+<cfparam name="new_eventStartTime" default="" />
 
-<cfparam name="new_audEndTime" default="" />
+<cfparam name="new_eventStopTime" default="" />
 
 <cfparam name="new_audplatformid" default="4" />
 
@@ -35,7 +35,7 @@
 <cfquery name="auditions_ins" datasource="#dsn#" result="result">
 
 
-    INSERT INTO auditions (
+    INSERT INTO events (
 
     userid,
 
@@ -47,11 +47,11 @@
 
     audMtgUrl,
 
-    audStartDate,
+    eventStart,
 
-    audStartTime,
+    eventStartTime,
 
-    audEndTime,
+    eventStopTime,
 
     audplatformID,
 
@@ -78,11 +78,11 @@
 
     <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audMtgUrl#" maxlength="500" null="#NOT len(trim(new_audMtgUrl))#" />,
 
-    <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_audStartDate#" null="#NOT len(trim(new_audStartDate))#" />,
+    <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_eventStart#" null="#NOT len(trim(new_eventStart))#" />,
 
-    <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audStartTime#" null="#NOT len(trim(new_audStartTime))#" />,
+    <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStartTime#" null="#NOT len(trim(new_eventStartTime))#" />,
 
-    <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audEndTime#" null="#NOT len(trim(new_audEndTime))#" />,
+    <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStopTime#" null="#NOT len(trim(new_eventStopTime))#" />,
 
     <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audplatformid#" null="#NOT len(trim(new_audplatformid))#" />,
 
@@ -101,5 +101,5 @@
 
 
 
-<cfinclude template="/include/AUDintoEVENTS.cfm" />
+ 
 

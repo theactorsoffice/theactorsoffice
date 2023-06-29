@@ -1,6 +1,6 @@
 <cfquery name="results"  datasource="#dsn#"  >
 SELECT 
-a.audid AS recid
+a.eventid AS recid
 ,'Date' AS head1
 
 ,'Project' AS head2
@@ -9,14 +9,14 @@ a.audid AS recid
 ,'Role' AS head5
 ,a.audstepid
 
-,a.audstartDate AS col1
+,a.eventStart AS col1
 ,p.projname AS col2
 ,s.audsourceid AS col3
 ,t.audtype AS col4
 ,rt.audroletype AS col5
 ,st.audstep
 
- FROM auditions a
+ FROM events a
     
  LEFT JOIN audroles r ON r.audroleid = a.audroleid 
  LEFT JOIN audprojects p ON p.audprojectID = r.audprojectID
@@ -26,10 +26,10 @@ a.audid AS recid
      LEFT JOIN audsteps st ON st.audstepid = a.audstepid
  WHERE a.isdeleted = 0 
 and r.audroleid = #audroleid#
-    and a.audid <> #audid#
+    and a.eventid <> #eventid#
     and a.audstepid <> 4
  
- ORDER BY a.audstartDate
+ ORDER BY a.eventStart
  </cfquery>    
 
 <div class="row">
@@ -75,7 +75,7 @@ and r.audroleid = #audroleid#
                                         <h5 class="card-title"><cfif #results.col2# is "">Unknown Project</cfif>#results.col2#</h5>
                                         <p class="card-text"><strong>Source: </strong>#results.col3#</p>
                                         <p class="card-text"><strong>Role: </strong>#results.col5#</p>
-                                        <a href="/app/audition/?audprojectid=#audprojectid#&audid=#results.recid#" class="btn btn-primary waves-effect waves-light">View</a>
+                                        <a href="/app/audition/?audprojectid=#audprojectid#&eventid=#results.recid#" class="btn btn-primary waves-effect waves-light">View</a>
                                     </div>
                                 </div> <!-- end card-->
                             </div> <!-- end col -->

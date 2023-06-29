@@ -27,13 +27,13 @@ e.eventID
 ,e.eventStartTime
 ,e.eventStopTime
 ,t.eventtypecolor
-,e.audid
+,e.eventid
 ,r.audprojectid
 ,s.audstep
  FROM events e 
     INNER JOIN eventtypes_user t on t.eventtypename = e.eventtypename
     
-    LEFT JOIN auditions a on e.audid = a.audid
+    LEFT JOIN events a on e.eventid = a.eventid
     LEFT JOIN audroles r on r.audroleid = a.audroleid
     LEFT JOIN audsteps s on s.audstepid = a.audstepid
 WHERE e.userid = #session.userid# and t.userid = #session.userid#

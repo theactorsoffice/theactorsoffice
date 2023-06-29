@@ -1,6 +1,6 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
-<cfparam name="audid" default="0" />
+<cfparam name="eventid" default="0" />
  
 <cfquery name="audmedia" datasource="#dsn#">
 SELECT 
@@ -13,13 +13,13 @@ m.mediaExt,
 m.userid,
 m.mediacreated,
 m.isdeleted,
-m.audid,
+m.eventid,
 t.mediaType,
 t.isimage,
 m.isImage
  FROM audmedia m  
  INNER JOIN audmediatypes t ON t.mediaTypeID = m.mediatypeid
- WHERE m.audid = #audid# AND m.isdeleted IS false
+ WHERE m.eventid = #eventid# AND m.isdeleted IS false
 </cfquery>
 
  

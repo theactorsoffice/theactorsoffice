@@ -66,10 +66,10 @@ FROM audroles r
 WHERE r.audroleid = #audroleid#
 </cfquery>
 
-<cfquery name="auditions" datasource="#dsn#">
+<cfquery name="events" datasource="#dsn#">
     SELECT
-    a.audid
-    FROM auditions a
+    a.eventid
+    FROM events a
 
     LEFT JOIN audroles r ON r.audroleid = a.audroleid
 
@@ -80,19 +80,19 @@ WHERE r.audroleid = #audroleid#
     LEFT JOIN audroletypes rt ON rt.audroletypeid = r.audroletypeid
     WHERE a.isdeleted = 0 and p.isdeleted = 0
     AND r.audroleid = #audroleid#
-    and a.audstartdate is not null
-    ORDER BY a.audstartDate
+    and a.eventStart is not null
+    ORDER BY a.eventStart
 </cfquery>
  
-<cfloop query = "auditions">
+<cfloop query = "events">
     
-    <cfset new_audid = auditions.audid />
+    <cfset new_eventid = events.eventid />
 <cfquery name="del" datasource="#dsn#" >  
-update auditions set isdeleted = 1 where audid = #new_audid#
+update events set isdeleted = 1 where eventid = #new_eventid#
 </cfquery>
     
     <cfquery name="del2" datasource="#dsn#" >  
-update events_tbl set isdeleted = 1 where audid = #new_audid#
+update events_tbl set isdeleted = 1 where eventid = #new_eventid#
 </cfquery>
     
     

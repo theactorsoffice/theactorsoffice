@@ -40,25 +40,25 @@
 
 
 <cfquery datasource="#dsn#" name="activate">
-update auditions_tbl set isdeleted = 0 where audid = #new_audid#
+update auditions_tbl set isdeleted = 0 where eventid = #new_eventid#
 </cfquery>
 
 
 <cfquery datasource="#dsn#" name="FindEvent" maxrows="1" >
-SELECT eventid,eventstart,eventstarttime,eventstoptime FROM events WHERE audid = #new_audid#
+SELECT eventid,eventstart,eventstarttime,eventstoptime FROM events WHERE eventid = #new_eventid#
 </cfquery>
 
  
   <cfquery name="auditionDetails" datasource="#dsn#">
 SELECT 
 pr.audprojectid as recid,
-ad.audid,
+ad.eventid,
 pr.audprojectid,
 ad.audLocation,
 ad.audMtgUrl,
-ad.audStartDate,
-ad.audStartTime,
-ad.audEndTime,
+ad.eventStart,
+ad.eventStartTime,
+ad.eventStopTime,
 ad.parkingDetails,
 ad.workwithcoach,
 t.audtype,
@@ -66,7 +66,7 @@ s.audstep,
 s.audstepid,
 ad.audroleid,
 ad.trackmileage,
-ad.audlocname,
+ad.eventLocation,
 pl.audplatform,
 r.audprojectID,
 pr.audSubCatID,
@@ -109,7 +109,7 @@ LEFT OUTER JOIN regions rg on rg.regionid = ad.regionid
     
 LEFT OUTER JOIN countries c on rg.countryid = c.countryid
     
-WHERE  ad.audid = #new_audid#
+WHERE  ad.eventid = #new_eventid#
 </cfquery>
 
 <cfquery name="projectDetails" datasource="#dsn#">
@@ -147,11 +147,11 @@ WHERE proj.audprojectID = #audprojectID#
     
     <cfset new_audlocid = auditionDetails.audlocid />
 
-    <cfset new_audStartDate = auditionDetails.audStartDate />
+    <cfset new_eventStart = auditionDetails.eventStart />
     
-    <cfset new_audStartTime = auditionDetails.audStartTime />
+    <cfset new_eventStartTime = auditionDetails.eventStartTime />
 
-    <cfset new_audEndTime = auditionDetails.audEndTime />
+    <cfset new_eventStopTime = auditionDetails.eventStopTime />
     
     <cfset new_contactid = projectDetails.contactid />
     
@@ -168,15 +168,15 @@ WHERE proj.audprojectID = #audprojectID#
 
     set eventid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#findEvent.eventid#" /> 
         
-         <cfif #new_audStartDate# is not "">
-       , eventstart = <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_audStartDate#"  null="#NOT len(trim(new_audStartDate))#" />
+         <cfif #new_eventStart# is not "">
+       , eventstart = <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_eventStart#"  null="#NOT len(trim(new_eventStart))#" />
         </cfif>
-        <cfif #new_audStartTime# is not "">,
-   eventStartTime = <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audStartTime#"  null="#NOT len(trim(new_audStartTime))#" /> 
+        <cfif #new_eventStartTime# is not "">,
+   eventStartTime = <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStartTime#"  null="#NOT len(trim(new_eventStartTime))#" /> 
 </cfif>
         
-                <cfif #new_audEndTime# is not "">,
-    eventstoptime = <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_audEndTime#"  null="#NOT len(trim(new_audEndTime))#" /> 
+                <cfif #new_eventStopTime# is not "">,
+    eventstoptime = <cfqueryparam cfsqltype="CF_SQL_TIME" value="#new_eventStopTime#"  null="#NOT len(trim(new_eventStopTime))#" /> 
         </cfif>
     where eventid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#findEvent.eventid#" /> 
     </cfquery>
@@ -187,7 +187,7 @@ WHERE proj.audprojectID = #audprojectID#
 <cfif #findEvent.recordcount# is "0">
     
  
-    <cfinclude template="/include/AUDintoEVENTS.cfm" />
+     
 
 </cfif>
 

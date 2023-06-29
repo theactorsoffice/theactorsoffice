@@ -11,8 +11,8 @@
 <cfparam name="focusid" default="" />
 <cfoutput>
 <cfif #focusid# is "">
-<cflocation url="/app/audition/?audid=#audid#" />
+<cflocation url="/app/audition/?eventid=#eventid#" />
     
 <cfelse>
-<cflocation url="/app/audition/?audid=#audid#&focusid=#focusid#" />
+<cflocation url="/app/audition/?eventid=#eventid#&focusid=#focusid#" />
 </cfif></cfoutput>

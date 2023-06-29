@@ -47,7 +47,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,
  
                     <center>
    
-<A href="/include/remoteselectedheadshot2.cfm?selected_audid=#selected_audid#&mediaid=#headshots_sel.mediaid#&audid=#audid#&audprojectid=#audprojectid#"> 
+<A href="/include/remoteselectedheadshot2.cfm?selected_eventid=#selected_eventid#&mediaid=#headshots_sel.mediaid#&eventid=#eventid#&audprojectid=#audprojectid#"> 
 <img src="https://#host#.theactorsoffice.com/media-#host#/users/#userid#/#headshots_sel.mediaFileName#?ver=#rand()#" class="mr-2 rounded-square gambar  img-thumbnail img-fluid p-0 m-0" title="User ID: 30" alt="profile-image" id="item-img-output">
 
 
@@ -60,7 +60,7 @@ SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,
                     <p class="p-0" style="padding:10px;">
                         <center>
 
-                            <a  href="/include/remoteselectedheadshot2.cfm?audid=#selected_audid#&mediaid=#headshots_sel.mediaid#&audprojectid=#audprojectid#" title="Select" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">Select</a>
+                            <a  href="/include/remoteselectedheadshot2.cfm?eventid=#selected_eventid#&mediaid=#headshots_sel.mediaid#&audprojectid=#audprojectid#" title="Select" data-bs-original-title="Add media" class="btn btn-xs btn-primary waves-effect waves-light">Select</a>
                         </center>
          
 

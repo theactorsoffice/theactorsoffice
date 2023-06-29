@@ -78,7 +78,7 @@
 
 <cfquery name="auditions_ins" datasource="#dsn#" result="result" >
   
-UPDATE auditions_tbl  SET 
+UPDATE events_tbl  SET 
 
 userid = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#"  null="#NOT len(trim(new_userid))#" /> ,
 

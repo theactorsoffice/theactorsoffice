@@ -40,7 +40,7 @@
 
 
 <cfquery datasource="#dsn#" name="activate">
-update auditions_tbl set isdeleted = 0 where eventid = #new_eventid#
+update events_tbl set isdeleted = 0 where eventid = #new_eventid#
 </cfquery>
 
 
@@ -91,7 +91,7 @@ FROM audprojects pr
     
     INNER JOIN audroles r ON pr.audprojectID = r.audprojectID
     
-LEFT OUTER JOIN auditions_tbl ad ON r.audroleid = ad.audroleid 
+LEFT OUTER JOIN events_tbl ad ON r.audroleid = ad.audroleid 
 
 LEFT OUTER JOIN audsubcategories sub on sub.audsubcatid = pr.audsubcatid
         

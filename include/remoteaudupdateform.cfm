@@ -236,7 +236,7 @@
 
         <cfquery name="auditions_ins" datasource="#dsn#" result="rez">
 
-            INSERT INTO auditions_tbl (
+            INSERT INTO events_tbl (
 
             userid,
 
@@ -336,7 +336,7 @@
         INNER JOIN audcategories c on c.audcatid = a2.audcatid
         LEFT OUTER JOIN audunions a3 ON ( a.`unionID` = a3.`unionID` )
         INNER JOIN audroles a4 ON ( a.`audprojectID` = a4.`audprojectID` )
-        INNER JOIN auditions_tbl ad on (ad.`audroleid` = a4.`audroleid`)
+        INNER JOIN events_tbl ad on (ad.`audroleid` = a4.`audroleid`)
         LEFT outer JOIN audsteps step on step.audstepid = ad.audstepid
 
         LEFT OUTER JOIN audroletypes a5 ON ( a4.`audRoleTypeID` = a5.audroletypeid )

@@ -9,8 +9,6 @@
 
 <cfparam name="new_audLocation" default="" />
 
-<cfparam name="new_audMtgUrl" default="" />
-
 <cfparam name="new_audlocid" default="" />
 
 <cfparam name="new_eventStart" default="" />
@@ -102,8 +100,6 @@ audcity = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audcity#" maxleng
 regionid = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_regionid#" maxlength="2" null="#NOT len(trim(new_regionid))#" /> ,
     
 audzip = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audzip#" maxlength="10" null="#NOT len(trim(new_audzip))#" /> ,
-
-audMtgUrl = <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audMtgUrl#" maxlength="500" null="#NOT len(trim(new_audMtgUrl))#" /> ,
 
 eventStart = <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_eventStart#"  null="#NOT len(trim(new_eventStart))#" /> ,
 

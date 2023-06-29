@@ -10,8 +10,6 @@
 
 <cfparam name="new_audlocid" default="" />
 
-<cfparam name="new_audMtgUrl" default="" />
-
 <cfparam name="new_eventStart" default="" />
 
 <cfparam name="new_eventStartTime" default="" />
@@ -68,8 +66,6 @@
 
     audLocation,
 
-    audMtgUrl,
-
     eventStart,
 
     eventStartTime,
@@ -96,8 +92,6 @@
     <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audTypeID#" null="#NOT len(trim(new_audTypeID))#" />,
 
     <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audLocation#" maxlength="500" null="#NOT len(trim(new_audLocation))#" />,
-
-    <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_audMtgUrl#" maxlength="500" null="#NOT len(trim(new_audMtgUrl))#" />,
 
     <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_eventStart#" null="#NOT len(trim(new_eventStart))#" />,
 

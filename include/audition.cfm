@@ -316,7 +316,7 @@
         ad.eventid,
         pr.audprojectid,
         ad.audLocation,
-        ad.audMtgUrl,
+  
         ad.eventStart,
         ad.eventStartTime,
         ad.eventStopTime,

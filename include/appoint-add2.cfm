@@ -40,7 +40,7 @@
 </cfif>
 
 <cfquery datasource="#dsn#" name="add" result="result">
-    INSERT INTO events (
+    INSERT INTO events_tbl (
     eventTitle
     ,eventTypeName
     ,eventDescription

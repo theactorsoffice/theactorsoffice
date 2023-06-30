@@ -28,7 +28,6 @@
 
 <cfparam name="new_trackmileage" default="0" />
 
-<cfabort>
 
 <cfquery name="auditions_ins" datasource="#dsn#" result="result">
 

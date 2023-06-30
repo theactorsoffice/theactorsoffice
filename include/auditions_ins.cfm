@@ -67,9 +67,9 @@
 
     VALUES (
 
-        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventtitle#" maxlength="500" null="#NOT len(trim(new_audLocation))#" />,
+        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventtitle#" maxlength="500" null="#NOT len(trim(new_eventtitle))#" />,
 
-        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventdescription#" maxlength="500" null="#NOT len(trim(new_audLocation))#" />,
+        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventdescription#" maxlength="500" null="#NOT len(trim(new_audLnew_eventdescriptionocation))#" />,
 
     <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#" null="#NOT len(trim(new_userid))#" />,
 

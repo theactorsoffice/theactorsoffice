@@ -92,4 +92,5 @@ VALUES (
 
 <cfset new_audprojectID = result.GENERATEDKEY />
 <cfset audprojectid = new_audprojectid />
- 
+ <cfset new_eventtitle = new_projName />
+  <cfset new_eventdescription = new_projDescription />

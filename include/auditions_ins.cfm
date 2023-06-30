@@ -34,6 +34,10 @@
 
     INSERT INTO events_tbl (
 
+        eventtitle,
+
+        eventdescription,
+
     userid,
 
     audRoleID,
@@ -62,6 +66,10 @@
 
 
     VALUES (
+
+        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventtitle#" maxlength="500" null="#NOT len(trim(new_audLocation))#" />,
+
+        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value="#new_eventdescription#" maxlength="500" null="#NOT len(trim(new_audLocation))#" />,
 
     <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_userid#" null="#NOT len(trim(new_userid))#" />,
 

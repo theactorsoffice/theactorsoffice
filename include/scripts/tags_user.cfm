@@ -1,6 +1,6 @@
 <cfparam name="dbug" default="Y" />
 
-<CFINCLUDE template="/include/remote_load.cfm" />\<cfquery datasource="#dsn#" name="u"  >
+<CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="u"  >
         SELECT * from taousers
     </cfquery>
 

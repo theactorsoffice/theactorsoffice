@@ -19,6 +19,12 @@
 
 <cfparam name="new_isDeleted" default="0" />
 
+ <cfif #left(new_mediaURL,4)# is not "http">
+<cfset new_mediaURL = "https://#new_mediaURL#" />
+</cfif>
+
+
+
 
 <cfquery name="audmedia_ins" datasource="#dsn#" result="result">
 

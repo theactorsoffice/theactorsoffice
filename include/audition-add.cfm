@@ -46,7 +46,7 @@
 
 <cfinclude template="/include/remote_load.cfm" />
 
-<cfinclude template="/include/qry/audplatforms_sel.cfm" />
+<cfinclude template="/include/qry/audplatforms_user_sel.cfm" />
 
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT
@@ -231,7 +231,7 @@
 
                                         <option value="">--</option>
 
-                                        <cfoutput query="audplatforms_sel">
+                                        <cfoutput query="audplatforms_user_sel">
 
                                             <option value="#audplatforms_sel.id#"> #audplatforms_sel.name# </option>
 

@@ -38,7 +38,7 @@ $(document).ready(function() {
 
     setupAutocomplete('#companySearch', '#results', '/include/CompanyLookup.cfc', 'getCompanies');
     setupAutocomplete('#contactFullName', '#nameResults', '/include/FullNameLookup.cfc', 'getFullNames');
-    setupAutocomplete('#new_audrolename', '#audRoleResults', '/include/AudRoleNames.cfc', 'getAudRoleNames');
+    
 
     $('#contactFullName, #new_audrolename').on('keydown', function(e) {
         if (e.keyCode == 13) {

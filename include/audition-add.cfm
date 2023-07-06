@@ -253,7 +253,7 @@
                             <div class="form-group col-md-6 col-sm-12">
                                 <label for="new_audrolename">Role Name <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text" id="new_audrolename" autocomplete="off" required data-parsley-required data-parsley-error-message="Role Name is required" name="new_audrolename" placeholder="Role Name">
-                                <div id="audRoleResults"></div>
+                              
                             </div>
 
 

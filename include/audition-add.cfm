@@ -233,7 +233,7 @@
 
                                         <cfoutput query="audplatforms_user_sel">
 
-                                            <option value="#audplatforms_sel.id#"> #audplatforms_sel.name# </option>
+                                            <option value="#audplatforms_user_sel.id#"> #audplatforms_user_sel.name# </option>
 
                                         </cfoutput>
 

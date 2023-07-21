@@ -247,7 +247,7 @@
                  
                  
                  <cfquery datasource="#dsn#" name="master"  >
-                 select * from sitetypes_master where sitetypename = '#current_sitetypename#'
+                 select * from sitetypes_master where sitetypename = '#current_sitetypename#' order by siteTypeName
                  </cfquery>
                  
                  <cfif #master.recordcount# is "0">
@@ -440,6 +440,7 @@
                             FROM contactitems
                             WHERE contactid=#myteam.contactid# AND valuetext <> 'My Team'
                                 AND valuecategory = 'Tag' AND valuetext <> 'My Rep Team'
+                            ORDER BY concat(' <span class=\'badge badge-blue\'>',`contactitems`.`valueText`,'</span>')
                         </cfquery>
                                               
                                                                     <cfquery datasource="#dsn#" name="Findphone"  >  

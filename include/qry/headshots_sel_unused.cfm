@@ -22,4 +22,6 @@ e.isimage as isValidImage
     WHERE m.userid = #userid# AND m.isdeleted IS false and m.mediatypeid = 1 
     
     and mediaid not in (select mediaid from audmedia_auditions_xref where audprojectid = #audprojectid#)
+
+    ORDER BY m.mediaName
 </cfquery>

@@ -22,10 +22,8 @@ e.isimage as isValidImage
  INNER JOIN audmediatypes t ON t.mediaTypeID = m.mediatypeid
  LEFT JOIN exttypes e on e.mediaext = m.mediaext
  WHERE m.userid = #userid# AND m.isdeleted IS false and t.ismaterial = 1 and m.isshare = 1
+ ORDER BY m.mediaName
 </cfquery>
 
  
-
-<cfif #isdefined('adfd')#>
-AND e.isimage IS true
-</cfif>
+ 

@@ -9,4 +9,5 @@ SELECT
 FROM essences e
  
 WHERE e.userID = #userid# AND isdeleted IS false
+order by e.essencename 
 </cfquery>

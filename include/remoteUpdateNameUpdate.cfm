@@ -26,6 +26,8 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
  <cfelse>
      ,contactPronoun = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(contactPronoun)#" />
      </cfif>
+
+     
            <cfif #contactbirthday# is not "">
     ,contactbirthday = <cfqueryparam cfsqltype="cf_sql_date" value="#contactbirthday#" /> 
     </cfif>

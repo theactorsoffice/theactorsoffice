@@ -37,6 +37,8 @@
 </cfoutput>
 
 <cfloop query="x">
+
+<cfset cdfullname = x.cdfirstname & " " & x.cdlastname />
     <cfquery datasource="#dsn#" name="find" maxrows="1">
         select * from audprojects where projname = '#x.projname#' and userid = #session.userid# and isdeleted = 0
     </cfquery>
@@ -112,8 +114,6 @@
     <cfset new_projName=trim(x.projname) />
 
     <cfset new_audrolename=trim(x.audrolename) />
-
- 
 
     <cfif #x.audcatname# is not "">
 

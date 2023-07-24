@@ -19,7 +19,9 @@
      <CFINCLUDE template="/include/remote_load.cfm" />
 
 
-
+<cfif #new_contactid# is "">
+<cfset new_contactid = 0 />
+</cfif>
 
 
 <cfif #new_contactid# is "0" and #cdfullname# is not "">

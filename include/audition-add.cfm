@@ -498,9 +498,8 @@
 
 
                                     <label for="audplatformid">Audition Platform </label>
+    <select id="audplatformid" name="new_audplatformid" class="form-control" onchange="if (this.value=='CustomPlatform'){this.form['CustomPlatform'].style.visibility='visible',this.form['CustomPlatform'].required=true} else {this.form['CustomPlatform'].style.visibility='hidden',this.form['CustomPlatform'].required=false};">
 
-                                    <select id="audplatformid" name="new_audplatformid" class="form-control"  
-                                    onchange="if (this.value=='CustomPlatform'){this.form['CustomPlatform_label'].style.visibility='visible';this.form['CustomPlatform'].required=true;this.form['CustomPlatforms'].style.visibility='visible';} else {this.form['CustomPlatform_label'].style.visibility='hidden';this.form['CustomPlatform'].required=false;this.form['CustomPlatforms'].style.visibility='hidden';">
 
 
                                         <option value="">--</option>
@@ -518,7 +517,7 @@
                                 </div>
 
 
-                    <div class="form-group col-md-6" id="CustomPlatforms" style="visibility:hidden;"> <label for="CustomPlatform">Custom Platform</label>
+                    <div class="form-group col-md-6" >
                         <input class="form-control" required="false" type="text" id="CustomPlatform" name="CustomPlatform" value="" placeholder="Enter a Custom Platform">
                     </div>
 

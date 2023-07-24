@@ -409,7 +409,7 @@
         </cfscript>
         
         
-        
+        <cfabort>
 
         <cfheader name="content-disposition" value="Attachment;filename=#fileName#">
             <cfcontent file="#app_direct#\#fileName#" type="application/vnd.ms-excel">

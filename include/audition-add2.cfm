@@ -1,4 +1,5 @@
 <cfparam name="modalAnswer" default="No" />
+<cfparam name="CustomPlatform" default="" />
 
 <cfparam name="cdco" default="" />
 
@@ -8,9 +9,6 @@
 </cfif>
 
 
-    
- 
-    
 <cfoutput>
 <cfset new_userid = #cookie.userid# />
 </cfoutput>
@@ -118,6 +116,30 @@
 </cfif>
 
 
+
+    <cfquery name="FIND" datasource="#dsn#" maxrows="1">
+        Select audplatformid from audPlatforms_user_tbl where userid = #userid# and audplatform = '#CustomPlatform#'
+    </cfquery>
+
+<cfif #new_audPlatformid# is "CustomPlatform" and #CustomPlatform# is not "" and #find.recordcount# is "0">
+
+    <cfquery name="insert" datasource="#dsn#" result="resultx">
+        INSERT INTO audPlatforms_user_tbl (audPlatform,userid)
+        VALUES ('#CustomPlatform#',#userid#)
+    </cfquery>
+
+    <cfset new_audPlatformid=resultx.generatedkey>
+
+<Cfelseif #new_audplatformid# is "CustomPlatform" and #CustomPlatform# is not "" and #find.recordcount# is "1">
+
+    <cfset new_audPlatformid=find.audplatformid />
+
+<Cfelseif #new_audplatformid# is "CustomPlatform" and #CustomPlatform# is "">
+
+    <cfset new_audPlatformid=old_audplatformid />
+
+</cfif>
+      
 
 
 

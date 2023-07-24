@@ -68,7 +68,7 @@
                 and d.contactid in (#idlist#)
     </cfquery>
         
-    
+    <cfoutput>#x.recordcount#</cfoutput>
     <cfloop query="x">
         <cfset new_Tag1="" />
         <cfset new_Tag2="" />

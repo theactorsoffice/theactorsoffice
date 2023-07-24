@@ -1058,11 +1058,11 @@ T4: #t4#<BR>
 
 
  
-                        <cfif #details.contactpronoun# is not "">
+                     
      <p class="mt-1 mb-0 text-muted py-1 font-14">
-                            <cfoutput><strong>Gender Pronoun:</strong> #details.contactpronoun#</cfoutput>
+                            <cfoutput><strong>Gender Pronoun:</strong>    <cfif #details.contactpronoun# is not "">#details.contactpronoun#  </cfif></cfoutput>
                             </p>
-                        </cfif>
+                      
 
 
 
@@ -1089,7 +1089,7 @@ T4: #t4#<BR>
                 </p>
 
 
-                <cfif #details.contactmeetingdate# is not "">
+              
 
                     <cfset meetingdate="#dateformat('#details.contactmeetingdate#','medium')#" />
 
@@ -1108,22 +1108,21 @@ T4: #t4#<BR>
                         </cfoutput>
                     </p>
 
-                </cfif>
+         
 
 
+ 
 
-                <cfif #details.refer_contact_id# is not "">
-
-                    <cfif #refer_details.recordcount# is "1">
+                  
 
                         <p class="mt-1 mb-0 text-muted py-1 font-14">
 
-                            <strong>Referred By:</strong> #refer_details.fullName#
+                            <strong>Referred By:</strong>   <cfif #refer_details.recordcount# is "1">#refer_details.fullName#  </cfif>
                         </p>
 
-                    </cfif>
+                  
 
-                </cfif>
+           
 
 
               

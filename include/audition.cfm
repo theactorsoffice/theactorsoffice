@@ -1132,7 +1132,7 @@
                                                 <i class="fe-trash-2"></i>
 
                                             </a>
-<cfif #events.eventid# is not "">
+<cfif #events.eventid# is not "" and #isdefined('sdfdfsdfdsf')#>
        <a title="Edit" href="/app/appoint/?eventid=#events.eventid#&returnurl=calendar-appoint">
 
                                                 <i class="mdi mdi-calendar mr-1"></i>

@@ -503,11 +503,11 @@
                                     onchange="if (this.value=='CustomPlatform'){
     this.form['CustomPlatform'].style.visibility='visible';
     this.form['CustomPlatform'].required=true;
-    this.form['CustomPlatforms'].style.visibility='visible'; // added line
+    this.form['CustomPlatforms'].style.visibility='visible'; 
 } else {
     this.form['CustomPlatform'].style.visibility='hidden';
     this.form['CustomPlatform'].required=false;
-    this.form['CustomPlatforms'].style.visibility='hidden'; // added line
+    this.form['CustomPlatforms'].style.visibility='hidden'; 
 }
 ">
 

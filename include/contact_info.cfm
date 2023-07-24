@@ -1053,11 +1053,7 @@ T4: #t4#<BR>
 
 
 
-
-
-
-
- 
+pronouns
                      
      <p class="mt-1 mb-0 text-muted py-1 font-14">
                             <cfoutput><strong>Gender Pronoun:</strong>    <cfif #details.contactpronoun# is not "">#details.contactpronoun#  </cfif></cfoutput>

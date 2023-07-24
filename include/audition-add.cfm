@@ -499,10 +499,12 @@
 
                                     <label for="audplatformid">Audition Platform </label>
 
-                                    <select id="audplatformid" name="new_audplatformid" class="form-control">
+                                    <select id="audplatformid" name="new_audplatformid" class="form-control"  onchange="if (this.value=='CustomPlatform'){this.form['CustomPlatform'].style.visibility='visible',this.form['CustomPlatform'].required=true} else {this.form['CustomPlatform'].style.visibility='hidden',this.form['CustomPlatform'].required=false};">
 
 
                                         <option value="">--</option>
+
+                                          <option value="CustomPlatform">***ADD CUSTOM</option>
 
                                         <cfoutput query="audplatforms_user_sel">
 
@@ -513,6 +515,11 @@
                                     </select>
 
                                 </div>
+
+
+                                <div class="form-group col-md-6" id="CustomPlatforms" style="visibility:hidden;"> <label for="CustomPlatform">Custom Platform</label>
+                            <input class="form-control"  type="text" id="CustomPlatform" name="CustomPlatform" value="" placeholder="Enter a Custom Platform">
+                        </div>
 
                             </div>
 

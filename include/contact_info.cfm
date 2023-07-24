@@ -1113,7 +1113,7 @@ pronouns
 
                         <p class="mt-1 mb-0 text-muted py-1 font-14">
 
-                            <strong>Referred By:</strong>   <cfif #refer_details.recordcount# is "1">#refer_details.fullName#  </cfif>
+                            <strong>Referred By:</strong> <cfif #details.refer_contact_id# is not "">  <cfif #refer_details.recordcount# is "1">#refer_details.fullName#  </cfif></cfif>
                         </p>
 
                   

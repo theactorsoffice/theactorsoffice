@@ -500,16 +500,7 @@
                                     <label for="audplatformid">Audition Platform </label>
 
                                     <select id="audplatformid" name="new_audplatformid" class="form-control"  
-                                    onchange="if (this.value=='CustomPlatform'){
-    this.form['CustomPlatform'].style.visibility='visible';
-    this.form['CustomPlatform'].required=true;
-    this.form['CustomPlatforms'].style.visibility='visible'; 
-} else {
-    this.form['CustomPlatform'].style.visibility='hidden';
-    this.form['CustomPlatform'].required=false;
-    this.form['CustomPlatforms'].style.visibility='hidden'; 
-}
-">
+                                    onchange="if (this.value=='CustomPlatform'){this.form['CustomPlatform'].style.visibility='visible';this.form['CustomPlatform'].required=true;this.form['CustomPlatforms'].style.visibility='visible';} else {this.form['CustomPlatform'].style.visibility='hidden';this.form['CustomPlatform'].required=false;this.form['CustomPlatforms'].style.visibility='hidden';">
 
 
                                         <option value="">--</option>

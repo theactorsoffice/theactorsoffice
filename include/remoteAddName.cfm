@@ -19,8 +19,8 @@
         <input class="form-control" type="text" id="contactFullName" name="contactFullName" value="" data-parsley-maxlength="500" 
         data-parsley-maxlength-message="Max length 500 characters" 
         data-parsley-required data-parsley-error-message="Valid Name is required" placeholder="Enter Name" autocomplete="off">
-        <div id="nameResults"></div>
-
+        <cfif #isdefined('sfsfsd')#><div id="nameResults"></div>
+</cfif>
     </div>
 
 

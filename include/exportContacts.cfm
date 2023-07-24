@@ -68,18 +68,7 @@
                 and d.contactid in (#idlist#)
     </cfquery>
         
-    <cfoutput> SELECT
-        contactid as new_contactid,
-        SUBSTRING_INDEX(contactfullname, ' ', 1) AS new_FirstName,
-    SUBSTRING(contactfullname, LENGTH(SUBSTRING_INDEX(contactfullname, ' ', 1))+2) AS new_LastName,
-        contactmeetingdate as new_contactmeetingdate,
-        ContactMeetingLoc as new_ContactMeetingLoc,
-        contactbirthday as new_contactbirthday
-
-        from `contactdetails` `d`
-        where `d`.`contactStatus` = 'Active'
-            and d.userid = #session.userid#
-                and d.contactid in (#idlist#)</cfoutput>
+  
     <cfloop query="x">
         <cfset new_Tag1="" />
         <cfset new_Tag2="" />
@@ -420,7 +409,7 @@
         </cfscript>
         
         
-        <cfabort>
+
 
         <cfheader name="content-disposition" value="Attachment;filename=#fileName#">
             <cfcontent file="#app_direct#\#fileName#" type="application/vnd.ms-excel">

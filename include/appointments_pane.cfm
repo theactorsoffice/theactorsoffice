@@ -37,7 +37,7 @@
 
         <thead>
 
-            <cfoutput query=" View Audition" maxrows="1">
+                <cfoutput query="eventresults" maxrows="1">
 
                 <cfif (eventresults.CurrentRow MOD 2)>
 

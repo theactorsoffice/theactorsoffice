@@ -152,52 +152,8 @@
 
     <div class="card">
 
-        <div class="btn-group col-md-12">
-
-            <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                <Cfoutput>#pgname#</Cfoutput>
-                <i class="fe-menu"></i>
-
-            </button>
-            <div class="dropdown-menu">
-
-                <cfloop query="FindOptions">
-                    <cfoutput>
-                        <a class="dropdown-item" href="/app/#pgDir#/?eventid=#eventid#&returnurl=calendar-appoint&rcontactid=0&new_pgid=#FindOptions.pgid#">#FindOptions.pgname#</a>
-                    </cfoutput>
-                </cfloop>
-
-            </div>
-        </div><!-- /btn-group -->
-
-
-
-
-        <div class="card-body">
-
-            <cfif #pgid# is "128">
-                <cfinclude template="/include/eventcontacts_pane.cfm" />
-            </cfif>
-
-            <cfif #pgid# is "129">
-                <cfinclude template="/include/eventnotes_pane.cfm" />
-            </cfif>
-
-
-        </div>
-    </div>
 
  
-
-
-
-
-
-
-
-
-<div style="height:24px;">&nbsp;</div>
     <ul class="nav nav-tabs">
         <cfoutput>
 
@@ -229,6 +185,30 @@
         </cfoutput>
 
     </ul>
+
+
+        <div class="card-body">
+
+            <cfif #pgid# is "128">
+                <cfinclude template="/include/eventcontacts_pane.cfm" />
+            </cfif>
+
+            <cfif #pgid# is "129">
+                <cfinclude template="/include/eventnotes_pane.cfm" />
+            </cfif>
+
+
+        </div>
+    </div>
+
+ 
+
+
+
+
+
+
+
 
 
 

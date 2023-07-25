@@ -402,7 +402,7 @@ AND p.userid=#userid#
        <cfquery datasource="#dsn#" name="report_6">
     SELECT
     count(p.audprojectid) as totals,
-    s.audsource as label,
+    IFNULL(s.audsource, 'Unknown') as label,
     'Auditions' as itemDataset
     FROM
     audprojects p
@@ -441,27 +441,26 @@ AND p.userid=#userid#
        
               <cfquery datasource="#dsn#" name="report_6">
 SELECT
-        count(p.audprojectid) as totals,
-        c.recordname as label,
-        'Auditions' as itemDataset
-        FROM
-        audprojects p
-        INNER join audroles r on p.audprojectID = r.audprojectID
-        INNER JOIN audsources s ON s.audsourceid = r.audsourceid
-        INNER JOIN contactdetails c ON c.contactid = r.contactid
-        WHERE
-        r.isdeleted IS FALSE
-        AND p.isDeleted IS FALSE
-        AND p.projdate >=
-        <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangestart#" />
-        AND p.projdate
-        <= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangeend#" />
-        AND p.userid=#userid#
-        AND s.audsourceid = 1
-        GROUP BY
-        label
-        ORDER BY
-        label
+    count(p.audprojectid) as totals,
+    IFNULL(c.recordname, 'Unknown') as label,
+    'Auditions' as itemDataset
+FROM
+    audprojects p
+INNER JOIN audroles r on p.audprojectID = r.audprojectID
+INNER JOIN audsources s ON s.audsourceid = r.audsourceid
+LEFT JOIN contactdetails c ON c.contactid = r.contactid
+WHERE
+    r.isdeleted IS FALSE
+    AND p.isDeleted IS FALSE
+    AND p.projdate >= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangestart#" />
+    AND p.projdate <= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangeend#" />
+    AND p.userid=#userid#
+    AND s.audsourceid = 1
+GROUP BY
+    label
+ORDER BY
+    label
+
 </cfquery>
        
        
@@ -482,27 +481,26 @@ SELECT
        
                      <cfquery datasource="#dsn#" name="report_6">
 SELECT
-        count(p.audprojectid) as totals,
-        ss.submitsitename as label,
-        'Auditions' as itemDataset
-        FROM
-        audprojects p
-        INNER join audroles r on p.audprojectID = r.audprojectID
-        INNER JOIN audsources s ON s.audsourceid = r.audsourceid
-INNER JOIN audsubmitsites_user ss on ss.submitsiteid = r.submitsiteid
-        WHERE
-        r.isdeleted IS FALSE
-        AND p.isDeleted IS FALSE
-        AND p.projdate >=
-        <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangestart#" />
-        AND p.projdate
-        <= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangeend#" />
-        AND p.userid=#userid#
-        AND s.audsourceid = 2
-        GROUP BY
-        label
-        ORDER BY
-        label
+    count(p.audprojectid) as totals,
+    IFNULL(ss.submitsitename, 'Unknown') as label,
+    'Auditions' as itemDataset
+FROM
+    audprojects p
+INNER JOIN audroles r on p.audprojectID = r.audprojectID
+INNER JOIN audsources s ON s.audsourceid = r.audsourceid
+Left JOIN audsubmitsites_user ss on ss.submitsiteid = r.submitsiteid
+WHERE
+    r.isdeleted IS FALSE
+    AND p.isDeleted IS FALSE
+    AND p.projdate >= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangestart#" />
+    AND p.projdate <= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangeend#" />
+    AND p.userid=#userid#
+    AND s.audsourceid = 2
+GROUP BY
+    label
+ORDER BY
+    label
+
 </cfquery>
        
        
@@ -520,13 +518,13 @@ INNER JOIN audsubmitsites_user ss on ss.submitsiteid = r.submitsiteid
               <cfquery datasource="#dsn#" name="report_6">
 SELECT
         count(p.audprojectid) as totals,
-        c.recordname as label,
+        IFNULL(c.recordname, 'Unknown') as label,
         'Auditions' as itemDataset
         FROM
         audprojects p
         INNER join audroles r on p.audprojectID = r.audprojectID
         INNER JOIN audsources s ON s.audsourceid = r.audsourceid
-        INNER JOIN contactdetails c ON c.contactid = r.contactid
+        LEFT JOIN contactdetails c ON c.contactid = r.contactid
         WHERE
         r.isdeleted IS FALSE
         AND p.isDeleted IS FALSE
@@ -553,13 +551,13 @@ SELECT
                      <cfquery datasource="#dsn#" name="report_6">
 SELECT
         count(p.audprojectid) as totals,
-        o.opencallname as label,
+        IFNULL(o.opencallname, 'Unknown') as label,
         'Auditions' as itemDataset
         FROM
         audprojects p
         INNER join audroles r on p.audprojectID = r.audprojectID
         INNER JOIN audsources s ON s.audsourceid = r.audsourceid
-        INNER JOIN audopencalloptions_user o ON o.opencallid = r.contactid
+        LEFT JOIN audopencalloptions_user o ON o.opencallid = r.opencallid
         WHERE
         r.isdeleted IS FALSE
         AND p.isDeleted IS FALSE

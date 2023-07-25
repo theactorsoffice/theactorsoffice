@@ -18,7 +18,7 @@ VALUES (
 
 <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_contactid#"  null="#NOT len(trim(new_contactid))#" />,
 
-<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audprojectid#"  null="#NOT len(trim(new_audprojectid))#" />,'qry/audcontacts_auditions_xref_ins.cfm'
+<cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_audprojectid#"  null="#NOT len(trim(new_audprojectid))#" />
 
 );
 </cfquery>

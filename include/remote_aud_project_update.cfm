@@ -66,9 +66,9 @@
 
         </div>
 
-    </cfoutput>
+   
 
-
+<input type="hidden" name="old_contactid" value="#auditionprojectDetails.contactid#" /> </cfoutput>
     <div class="form-group col-sm-12">
 
         <label for="new_contactid">Casting Director </label>

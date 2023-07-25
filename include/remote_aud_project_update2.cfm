@@ -28,7 +28,32 @@ VALUES ('#CustomNetwork#',#audcatid#,#userid#)
             <Cfelse><cfset  new_networkid = old_networkid />
 </cfif>
 </cfif>  
-        
+
+
+ <cfset new_audprojectid = audprojectid />
+  <cfquery name="find_new" datasource="#dsn#" >
+select * from audcontacts_auditions_xref where audprojectid = #audprojectid# and contactid = #new_contactid#
+    </cfquery>
+
+    
+
+    <cfif #find_new.recordcount# is "0">
+<cfinclude template="/include/qry/audcontacts_auditions_xref_ins.cfm" />
+
+
+    </cfif>
+
+<cfif old_contactid neq new_contactid />
+
+
+
+
+  <cfquery name="del" datasource="#dsn#" >
+delete from audcontacts_auditions_xref where audprojectid = #audprojectid# and contactid = #old_contactid#
+    </cfquery>
+
+ 
+</cfif>
         
 
 <cfinclude template="/include/qry/audprojects_upd.cfm" />

@@ -120,7 +120,7 @@
                 $(document).ready(function() {
                     $("##remoteDelete#audmedia.mediaid#").on("show.bs.modal", function(event) {
                         // Place the returned HTML into the selected element
-                        $(this).find(".modal-body").load("/include/remoteDeleteaudmedia_auditions_xref.cfm?mediaid=#audmedia.mediaid#&secid=177&audprojectid=#audprojectid#");
+                        $(this).find(".modal-body").load("/include/remoteDeleteaudmedia_auditions_xref.cfm?mediaid=#audmedia.mediaid#&secid=196&audprojectid=#audprojectid#");
                     });
                 });
             </script>

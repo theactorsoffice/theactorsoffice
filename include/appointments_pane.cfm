@@ -37,7 +37,7 @@
 
         <thead>
 
-            <cfoutput query="eventresults" maxrows="1">
+            <cfoutput query=" View Audition" maxrows="1">
 
                 <cfif (eventresults.CurrentRow MOD 2)>
 
@@ -95,14 +95,23 @@
 
                             </a>
 </cfif>
+
+
+  <cfif #eventresults.audprojectid# is  "">
+
+
+
                             <a title="Edit" href="/app/appoint-update/?eventid=#eventresults.eventid#&returnurl=contact&rcontactid=#currentid#">
 
                                 <i class="mdi mdi-square-edit-outline"></i>
 
                             </a>
+
+</cfif>
+
                             
                             
-                            <cfif #eventresults.eventid# is not "">
+                            <cfif #eventresults.audprojectid# is not "">
                                 
                         
                                 
@@ -110,9 +119,10 @@
                                 <a href="/app/audition/?audprojectid=#eventresults.audprojectid#" class="btn btn-xs btn-primary waves-effect waves-light"><i class="mdi mdi-eye-outline"></i> View Audition</a>
                                 
                                 
+                                <cfelse>
+
                                 
-                                
-                             
+                              <a href="/app/appoint/?eventid=#eventresults.eventid#" class="btn btn-xs btn-primary waves-effect waves-light"><i class="mdi mdi-eye-outline"></i> View Appointment</a>
                             
                             </cfif>
 

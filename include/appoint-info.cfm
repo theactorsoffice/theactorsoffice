@@ -152,7 +152,7 @@
 
     <div class="card">
 
-
+<Cfoutput>
 
        <div class="card" class="p-3">
 
@@ -175,7 +175,7 @@
 
 </ul>
 
-
+</cfoutput>
       <div class="tab-content p-0">
 
             <div class="tab-pane <cfif #tab1_expand# is 'true'> active</cfif>" id="role" role="tabpanel">

@@ -130,7 +130,7 @@
             
             
             
-<cfif #isdefined('blahblah')#>
+<cfif not #isdefined('blahblah')#>
             <li class="nav-item"> <a href="##links" data-bs-toggle="tab" aria-expanded="#tab3_expand#" class="nav-link<cfif #tab3_expand# is 'true'> active</cfif>">Links</a>
             </li>
 

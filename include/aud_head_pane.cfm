@@ -180,9 +180,7 @@
                         </a>
                       
                       <cfelse>
-                          
-                          
-                                      <a href="https://#host#.theactorsoffice.com/media-#host#/filetypes/#audmedia.mediaext#.png" data-toggle="lightbox" data-gallery="example-gallery">
+                                      <a href="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#audmedia.mediafilename#?ver=#rand()#" data-toggle="lightbox" data-gallery="example-gallery">
                        
                        
                        
@@ -193,6 +191,8 @@
 
 
                         </a>
+                          
+                   
                           
                           
                       

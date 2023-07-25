@@ -178,7 +178,7 @@
 
       <div class="tab-content p-0">
 
-            <div class="tab-pane <cfoutput>#role_showactive#</cfoutput>" id="role" role="tabpanel">
+            <div class="tab-pane <cfif #tab1_expand# is 'true'> active</cfif>" id="role" role="tabpanel">
 
                 <div class="p-3">
 
@@ -188,7 +188,7 @@
 
             </div>
 
-            <div class="tab-pane <cfoutput>#rel_showactive#</cfoutput>" id="rel" role="tabpanel">
+            <div class="tab-pane  <cfif #tab2_expand# is 'true'> active</cfif>" id="rel" role="tabpanel">
 
                 <div class="p-3">
 

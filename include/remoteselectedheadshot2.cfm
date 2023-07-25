@@ -11,7 +11,7 @@
 
 
      <cfoutput>
-     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&secid=177" />
+     <cfset returnurl = "/app/audition/?audprojectid=#audprojectid#&secid=196" />
      </cfoutput>
 	 
 	 <cflocation url="#returnurl#" >

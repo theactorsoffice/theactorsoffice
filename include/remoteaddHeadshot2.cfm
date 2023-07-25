@@ -6,7 +6,7 @@
 
 <cfset host=ListFirst(currentURL, "." ) />
 
-
+<cfset NEW_ISSHARE = "Y" />
 
 <cfquery datasource="#dsn#" name="FindUser">
     SELECT

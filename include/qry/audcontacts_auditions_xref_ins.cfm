@@ -10,7 +10,7 @@
   
 INSERT INTO audcontacts_auditions_xref  (
 
-contactid,audprojectid,xref
+contactid,audprojectid
     )
 
 

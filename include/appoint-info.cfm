@@ -160,7 +160,7 @@
 
 
             <li class="nav-item" role="presentation">
-                <a href="#role" data-bs-toggle="tab" aria-expanded="#tab1_expand#" class="nav-link <cfif #tab1_expand# is 'true'> active</cfif>" role="tab">
+                <a href="##role" data-bs-toggle="tab" aria-expanded="#tab1_expand#" class="nav-link <cfif #tab1_expand# is 'true'> active</cfif>" role="tab">
                     Attendees <cfif #Attendees.recordcount# is not "0">   
 
                             (#Attendees.recordcount#)</cfif> 
@@ -168,7 +168,7 @@
             </li>
 
             <li class="nav-item" role="presentation">
-                <a href="#rel" data-bs-toggle="tab" aria-expanded="#tab2_expand" class="nav-link <cfif #tab2_expand# is 'true'> active</cfif>" role="tab" tabindex="-1">
+                <a href="##rel" data-bs-toggle="tab" aria-expanded="#tab2_expand" class="nav-link <cfif #tab2_expand# is 'true'> active</cfif>" role="tab" tabindex="-1">
                     Notes<cfif #NotesEvent.recordcount# is not "0"> (#NotesEvent.recordcount#)</cfif>
                 </a>
             </li>

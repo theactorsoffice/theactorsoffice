@@ -43,7 +43,7 @@ select * from audcontacts_auditions_xref where audprojectid = #audprojectid# and
 
     </cfif>
 
-<cfif old_contactid neq new_contactid />
+<cfif old_contactid neq new_contactid >
 
 
 

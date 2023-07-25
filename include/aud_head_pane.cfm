@@ -120,7 +120,7 @@
                 $(document).ready(function() {
                     $("##remoteDelete#audmedia.mediaid#").on("show.bs.modal", function(event) {
                         // Place the returned HTML into the selected element
-                        $(this).find(".modal-body").load("/include/remoteDeleteaudmedia_auditions_xref.cfm?mediaid=#audmedia.mediaid#&secid=177&audprojectid=#audprojectid#");
+                        $(this).find(".modal-body").load("/include/remoteDeleteaudmedia_auditions_xref.cfm?mediaid=#audmedia.mediaid#&secid=196&audprojectid=#audprojectid#");
                     });
                 });
             </script>
@@ -165,38 +165,18 @@
 
                 <div class="p-3">
                     <center>
+        
+                  
+                      
+    <a href="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#audmedia.mediaFileName#?ver=#rand()#" data-toggle="lightbox" data-gallery="example-gallery">
+            
+<img src="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#audmedia.mediaFileName#?ver=#rand()#" class="mr-2 rounded-square gambar  img-thumbnail img-fluid p-0 m-0" title="User ID: 30" style="max-width:120px; height:120px; height:100%" alt="profile-image" id="item-img-output">
+
+
+
+                        </a>
+                      
              
-                  <cfif #audmedia.isimage# is "1">
-                   <a href="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#audmedia.mediafilename#?ver=#rand()#" data-toggle="lightbox" data-gallery="example-gallery">
-                       
-                       
-                       
-                        <img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/#audmedia.mediaext#.png" class="img-fluid p-0 m-0" style="max-width:64px;" />
-
-
-
-
-
-                        </a>
-                      
-                      <cfelse>
-                          
-                          
-                                      <a href="https://#host#.theactorsoffice.com/media-#host#/filetypes/#audmedia.mediaext#.png" data-toggle="lightbox" data-gallery="example-gallery">
-                       
-                       
-                       
-                        <img src="https://#host#.theactorsoffice.com/media-#host#/filetypes/#audmedia.mediaext#.png" class="img-fluid p-0 m-0" style="max-width:64px;" />
-
-
-
-
-
-                        </a>
-                          
-                          
-                      
-                      </cfif>
                         
                         
                         

@@ -416,7 +416,7 @@ AND p.userid=#userid#
     AND p.projdate
     <= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangeend#" />
     AND p.userid=#userid#
-    AND s.audsourceid <> 1
+ 
         GROUP BY
         label
         

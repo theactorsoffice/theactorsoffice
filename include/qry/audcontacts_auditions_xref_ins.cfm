@@ -24,4 +24,4 @@ VALUES (
 </cfquery>
 
 
-<cfset new_ = result.GENERATEDKEY />
+

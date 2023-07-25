@@ -192,5 +192,48 @@
 
 
 
+
+
+
+
+
+<div style="height:24px;">&nbsp;</div>
+    <ul class="nav nav-tabs">
+        <cfoutput>
+
+            <li class="nav-item"> <a href="##attendees" data-bs-toggle="tab" aria-expanded="#tab1_expand#" class="nav-link<cfif #tab1_expand# is 'true'> active</cfif>">Attendees    <cfif #Attendees.recordcount# is not "0">   <span class="badge  badge-primary badge-pill">
+
+                            #Attendees.recordcount#
+
+                        </span></cfif> </a>
+            </li>
+
+ 
+
+
+            <li class="nav-item"> <a href="##notes" data-bs-toggle="tab" aria-expanded="#tab2_expand#" class="nav-link<cfif #tab2_expand# is 'true'> active</cfif>">Notes   <cfif #NotesEvent.recordcount# is not "0">   <span class="badge  badge-primary badge-pill">
+
+                            #NotesEvent.recordcount#
+
+                        </span></cfif>
+                
+                
+                
+                </a>
+            </li>
+            
+            
+            
+            
+ 
+        </cfoutput>
+
+    </ul>
+
+
+
+
+
+
     <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />
     <cfinclude template="/include/bigbrotherinclude.cfm" />

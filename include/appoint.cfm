@@ -130,7 +130,7 @@
             
             
             
-<cfif not #isdefined('blahblah')#>
+<cfif  #isdefined('blahblah')#>
             <li class="nav-item"> <a href="##links" data-bs-toggle="tab" aria-expanded="#tab3_expand#" class="nav-link<cfif #tab3_expand# is 'true'> active</cfif>">Links</a>
             </li>
 
@@ -161,7 +161,7 @@
             <cfset contacts_table="contacts_attendees" />
       <cfoutput>
 <cfset eventid="#eventdetails.eventid#" /></cfoutput>
-            < cfinclude template="/include/contacts_table_attendees.cfm" />
+            <cfinclude template="/include/contacts_table_attendees.cfm" />
 
 
         </div>

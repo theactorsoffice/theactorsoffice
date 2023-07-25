@@ -153,55 +153,62 @@
     <div class="card">
 
 
- 
-    <ul class="nav nav-tabs">
-        <cfoutput>
 
-            <li class="nav-item"> <a href="##attendees" data-bs-toggle="tab" aria-expanded="#tab1_expand#" class="nav-link<cfif #tab1_expand# is 'true'> active</cfif>">Attendees    <cfif #Attendees.recordcount# is not "0">   <span class="badge  badge-primary badge-pill">
+       <div class="card" class="p-3">
 
-                            #Attendees.recordcount#
-
-                        </span></cfif> </a>
-            </li>
-
- 
+        <ul class="nav nav-pills navtab-bg nav-justified p-1" role="tablist">
 
 
-            <li class="nav-item"> <a href="##notes" data-bs-toggle="tab" aria-expanded="#tab2_expand#" class="nav-link<cfif #tab2_expand# is 'true'> active</cfif>">Notes   <cfif #NotesEvent.recordcount# is not "0">   <span class="badge  badge-primary badge-pill">
+            <li class="nav-item" role="presentation">
+                <a href="#role" data-bs-toggle="tab" aria-expanded="#tab1_expand#" class="nav-link <cfif #tab1_expand# is 'true'> active</cfif>" role="tab">
+                    Attendees <cfif #Attendees.recordcount# is not "0">   
 
-                            #NotesEvent.recordcount#
-
-                        </span></cfif>
-                
-                
-                
+                            (#Attendees.recordcount#)</cfif> 
                 </a>
             </li>
-            
-            
-            
-            
- 
-        </cfoutput>
 
-    </ul>
+            <li class="nav-item" role="presentation">
+                <a href="#rel" data-bs-toggle="tab" aria-expanded="#tab2_expand" class="nav-link <cfif #tab2_expand# is 'true'> active</cfif>" role="tab" tabindex="-1">
+                    Notes<cfif #NotesEvent.recordcount# is not "0"> (#NotesEvent.recordcount#)</cfif>
+                </a>
+            </li>
 
-
-        <div class="card-body">
-
-            <cfif #pgid# is "128">
-                <cfinclude template="/include/eventcontacts_pane.cfm" />
-            </cfif>
-
-            <cfif #pgid# is "129">
-                <cfinclude template="/include/eventnotes_pane.cfm" />
-            </cfif>
+</ul>
 
 
-        </div>
-    </div>
+      <div class="tab-content p-0">
 
- 
+            <div class="tab-pane <cfoutput>#role_showactive#</cfoutput>" id="role" role="tabpanel">
+
+                <div class="p-3">
+
+                  <cfinclude template="/include/eventcontacts_pane.cfm" />
+
+                </div>
+
+            </div>
+
+            <div class="tab-pane <cfoutput>#rel_showactive#</cfoutput>" id="rel" role="tabpanel">
+
+                <div class="p-3">
+
+                     <cfinclude template="/include/eventnotes_pane.cfm" />
+
+                </div>
+
+            </div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
 
 
 

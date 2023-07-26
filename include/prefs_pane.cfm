@@ -168,3 +168,38 @@
     </div>
 
 </div>
+
+
+   <cfquery datasource="#dsn#" name="subsites">
+        SELECT submitsiteid,submitsitename, catlist
+        FROM audsubmitsites_user 
+        WHERE userid = #userid#
+        order by submitsitename
+    </cfquery>
+
+
+<h5>
+
+    My Submission Sites
+
+</h5>
+
+<cfloop query="subsites"> 
+<cfoutput>
+
+    <div class="col-md-1 p-2">
+<a title="Edit" >
+
+                                <i class="mdi mdi-square-edit-outline"></i>
+
+                            </a>
+
+    </div>
+
+      <div class="col-md-2 p-2">#subsites.subsitename#
+
+    </div>
+
+
+
+    </cfoutput>

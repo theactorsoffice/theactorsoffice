@@ -187,18 +187,15 @@
 <cfloop query="subsites"> 
 <cfoutput>
 
-    <div class="col-md-1 p-2">
+    <div class="col-md-12 p-2">
 <a title="Edit" >
 
                                 <i class="mdi mdi-square-edit-outline"></i>
 
                             </a>
+ #subsites.submitsitename#
 
-    </div>
-
-      <div class="col-md-2 p-2">#subsites.submitsitename#
-
-    </div>
+ 
 
 
 

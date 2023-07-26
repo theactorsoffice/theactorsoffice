@@ -28,6 +28,7 @@ FROM events e
 INNER JOIN audroles r ON r.audroleid = e.audroleid
 INNER JOIN audprojects p ON p.audprojectid = r.audprojectid
 INNER JOIN contactdetails c ON c.contactid = p.contactid
+
 WHERE e.isdeleted = 0 
 
 AND r.audprojectid = #audprojectid# 

@@ -51,7 +51,7 @@ order by e.eventid desc
         $(document).ready(function() {
             $("##follow").on("show.bs.modal", function(event) {
                 // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("/include/followup_body.cfm?contactid=#followups.contactid#");
+                $(this).find(".modal-body").load("/include/folowup_body.cfm?contactid=#followups.contactid#");
             });
         });
     </script>

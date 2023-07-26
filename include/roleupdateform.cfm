@@ -438,7 +438,7 @@
             <cfquery datasource="#dsn#" name="subsites">
                 SELECT submitsiteid,submitsitename
                 FROM audsubmitsites_user
-                WHERE userid = #userid# and catlist LIKE '%#new_audcatid#%'
+                WHERE userid = #userid# and catlist LIKE '%#new_audcatid#%' and isdeleted = 0
                 order by submitsitename
             </cfquery>
 

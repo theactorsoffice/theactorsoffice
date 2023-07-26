@@ -35,6 +35,7 @@ where d.contactID = #contactid#
 <p>&nbsp;</p>
             <p>This audition is in the past.  Do you want to add <strong>#details.contactfullname#</strong> to a Follow Up System?<p>
 <p>&nbsp;</p>
+<i><p>Clicking Update will add #details.contactfullname# to a follow-up system and take you to their relationship details page.</i><p>
 </cfoutput>
 <form action="/include/systemchange.cfm">
 <cfoutput>
@@ -46,7 +47,7 @@ where d.contactID = #contactid#
 </cfoutput>
          <div>
          <center> 
-         <input name="submit" type="submit" value="Update" class="btn btn-xs btn-primary waves-effect mb-2 waves-light">
+         <input name="submit" type="submit" value="Add" class="btn btn-xs btn-primary waves-effect mb-2 waves-light">
          </center>
          </div>
 

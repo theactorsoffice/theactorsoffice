@@ -33,8 +33,6 @@ function unlock(){
     ,u.avatarname
     ,u.IsBetaTester
     ,u.defRows
-    
-    
     ,u.contactid AS userContactID
     ,u.tzid
     FROM taousers u

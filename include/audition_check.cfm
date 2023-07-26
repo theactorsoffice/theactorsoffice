@@ -40,22 +40,23 @@ order by e.eventid desc
 
 <cfif #followups.recordcount# is "1">
 
+
+<cfif #followups.recordcount# is "1">
+<cfoutput>
     <script>
         $(document).ready(function() {
-            $("#follow").modal('show');
-        });
-    </script>
-
-<cfoutput>
-<script>
-        $(document).ready(function() {
+            // Load the content when the modal is shown
             $("##follow").on("show.bs.modal", function(event) {
-                // Place the returned HTML into the selected element
                 $(this).find(".modal-body").load("/include/folowup_body.cfm?contactid=#followups.contactid#");
             });
+
+            // Show the modal
+            $("##follow").modal('show');
         });
     </script>
-</cfoutput>
+    </cfoutput>
+</cfif>
+
 
 
 

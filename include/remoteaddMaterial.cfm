@@ -41,7 +41,6 @@ function unlock(){
 
    <cfquery datasource="#dsn#" name="Type"  >             
 SELECT mediatypeid,mediatype from audmediatypes 
-SELECT mediatypeid,mediatype from audmediatypes 
 WHERE mediatype <> 'Headshot' 
 and isdeleted = 0
 

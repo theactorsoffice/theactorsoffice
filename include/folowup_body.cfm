@@ -30,12 +30,12 @@ FROM contactdetails d
  inner JOIN taousers u ON u.userid = d.userid
 where d.contactID = #contactid#
 </cfquery>
-
+<cfoutput>
 
 <p>&nbsp;</p>
             <p>This audition is in the past.  Do you want to add <strong>#details.contactfullname#</strong> to a Follow Up System?<p>
 <p>&nbsp;</p>
-
+</cfoutput>
 <form action="/include/systemchange.cfm">
 <cfoutput>
 <input type="hidden" name="contactid" value="#contactid#">

@@ -181,7 +181,7 @@
 <h5>
 
     My Submission Sites
-
+ 
 </h5>
 
 <cfloop query="subsites"> 

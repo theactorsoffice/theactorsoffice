@@ -196,7 +196,7 @@
 
     </div>
 
-      <div class="col-md-2 p-2">#subsites.subsitename#
+      <div class="col-md-2 p-2">#subsites.submitsitename#
 
     </div>
 

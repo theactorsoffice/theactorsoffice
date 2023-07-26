@@ -51,7 +51,7 @@ and isdeleted = 0
 and ismymaterial = 1
 </cfif>
 order by mediatype
-                </cfquery>  
+</cfquery>  
 
  
  <form action="/include/remoteaddMaterial2.cfm" method="post" class="parsley-examples" enctype="multipart/form-data" id="upload" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"

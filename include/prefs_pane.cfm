@@ -184,7 +184,7 @@
 
 </h5>
 
-<cfloop query="subsites">
+<cfloop query="subsites"> 
 <cfoutput>
 
     <div class="col-md-1 p-2">

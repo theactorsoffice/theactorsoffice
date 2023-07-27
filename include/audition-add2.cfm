@@ -162,4 +162,4 @@ SET `audprojectid` = #audprojectid#,
 </cfif>
 
      
-<cflocation url="/app/audition/?audprojectid=#new_audprojectid#" />
+<cflocation url="/app/audition/?audprojectid=#new_audprojectid#&isnew=1" />

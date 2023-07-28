@@ -182,7 +182,7 @@ INNER JOIN audprojects p ON r.audprojectid = p.audprojectid
 WHERE x.contactid = #deletecontactid# and p.audrojectid = #audprojectid#
 )
 
-    </cfoutput>
+    </cfoutput><cfabort>
  <cfquery name="delete2" datasource="#dsn#">
     DELETE FROM eventcontactsxref WHERE eventcontactid IN (
 SELECT x.eventcontactid

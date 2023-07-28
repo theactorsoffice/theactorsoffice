@@ -65,7 +65,7 @@
     <input class="form-check-input" type="checkbox" value="#audcatid#" id="catlist#audcatid#" name="catlist">
     <label class="form-check-label" for="catlist#audcatid#">
       #audcatname#
-    </label></cfouput>
+    </label></cfoutput>
   </div>
 </cfloop>
 

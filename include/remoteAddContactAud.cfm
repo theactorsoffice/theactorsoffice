@@ -117,6 +117,11 @@ inner join events e on e.eventid = a.eventid
 
     <!-- Closing div for form group -->
     </div>
+    <div class="form-group col-md-12">
+<p>This contact will be added to the audition project.</p>
+</div>
+
+
 
 
     <cfif #events.recordcount# is not "0">
@@ -125,9 +130,9 @@ inner join events e on e.eventid = a.eventid
     <div class="row">
         <div class="col-md-4 py-2">
         <cfif events.recordcount gte 2>
-        Add to appointment(s):
+        Check to add to specific appointment(s):
         <cfelseif events.recordcount eq 1 >
-        Add to appointment:
+        Check to add to appointment:
         </cfif></div>
         <div class="col-md-4 py-2">
             <div class="form-group">

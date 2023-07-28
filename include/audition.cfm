@@ -1543,7 +1543,16 @@
                     Notes
                 </a>
             </li>
- 
+
+            <cfquery name="questions_check" datasource="#dsn#" >
+    select *
+	 from events e
+	 inner join audroles r on r.audroleid = e.audroleid
+	 WHERE r.audproejctid = <cfqueryparam cfsqltype="cf_sql_integer" value="#audprojectid#"> 
+</cfquery>
+
+
+     <cfif #questions_check.recordcount# is not "0">
             <li class="nav-item" role="presentation">
                 <a href="#ques" data-bs-toggle="tab" aria-expanded="false" class="nav-link <Cfoutput>#ques_active#</Cfoutput>" tabindex="-1" role="tab">
                     Assessment

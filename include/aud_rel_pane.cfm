@@ -7,6 +7,13 @@
     });
 </script>
 
+
+<style>
+    .box-row {
+        margin-bottom: 20px; /* Adjust the margin as per your requirement */
+    }
+</style>
+
 <cfset modalid="remoteAddContactAud" />
 
 <cfset modaltitle="Add Contact" />
@@ -72,7 +79,7 @@
 
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row box-row">
         <cfloop query="audcontacts">
             <cfquery datasource="#dsn#" name="mytags">
                 SELECT contactid, itemid, CONCAT(' <span class=\'badge badge-blue\'>', `contactitems`.`valueText`, '</span>') AS tag, contactitems.valuetext

@@ -52,20 +52,27 @@
   WHERE isdeleted = 0 
   ORDER BY audcatname
 </cfquery>
+
+    <div class="form-group col-md-12">
+
+                                 <label class="control-label">Valid Audition Categories:</label>
+
+
+
     <div class="custom-group custom-checkbox">
 <cfloop query="getCategories">
-  <div class="form-check">
+  <div class="form-check"  style="margin-left:25px;"><Cfoutput>
     <input class="form-check-input" type="checkbox" value="#audcatid#" id="catlist#audcatid#" name="catlist">
     <label class="form-check-label" for="catlist#audcatid#">
       #audcatname#
-    </label>
+    </label></cfouput>
   </div>
 </cfloop>
 
 </div>
 
 
-             
+        </div>     
              
              
              

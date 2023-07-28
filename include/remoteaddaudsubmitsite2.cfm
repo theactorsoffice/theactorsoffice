@@ -7,7 +7,7 @@
    <cfif #catlist# is not "">
     <cfset sortedCatList = listSort(catlist, "numeric", "asc")>
 </cfif>
-    <cfabort>
+
    <cfquery datasource="#dsn#" name="find">
    Select submitsiteid from audsubmitsites_user where userid = #session.userid# and submitsitename = '#new_submitsitename#'
    </cfquery>

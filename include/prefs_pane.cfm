@@ -195,7 +195,7 @@
         
 
     </div>
-
+<cfoutput>
                                              <script>
     $(document).ready(function() {
         $("##remoteaddaudsubmitsite").on("show.bs.modal", function(event) {
@@ -204,7 +204,7 @@
         });
     });
 </script>
-
+</cfoutput>
 <cfset modalid="remoteaddaudsubmitsite" />
 
 <cfset modaltitle="Add Submission Site" />

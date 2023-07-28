@@ -172,7 +172,7 @@ where `audprojectid` = #audprojectid# and
 `contactid` = #deletecontactid#;
     </cfquery>
  <cfquery name="delete2" datasource="#dsn#">
-    DELETE FROM eventcontactsxref WHERE x.eventcontactid IN (
+    DELETE FROM eventcontactsxref WHERE eventcontactid IN (
 SELECT x.eventcontactid
 FROM eventcontactsxref x
 INNER JOIN events e ON x.eventid = e.eventid

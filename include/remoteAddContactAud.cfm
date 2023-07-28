@@ -20,6 +20,17 @@
 
 <!-- Include the file for remote loading -->
 <CFINCLUDE template="/include/remote_load.cfm" />
+<cfquery name="events" datasource="#dsn#">
+        SELECT distinct e.eventid, e.eventstart
+         from       audprojects p
+              INNER JOIN audroles r ON r.audprojectID = p.audprojectID  
+              inner join events a on a.audroleid = r.audroleid
+ 
+inner join events e on e.eventid = a.eventid
+        where p.audprojectid = #audprojectid# AND a.isDeleted = 0 AND r.isdeleted = 0 AND p.isdeleted = 0
+</cfquery>
+
+
 
 <!-- Query to fetch tags based on user id -->
 <cfquery name="tags" datasource="#dsn#">
@@ -106,6 +117,42 @@
 
     <!-- Closing div for form group -->
     </div>
+    <div class="form-group col-md-12">
+<p>This contact will be added to the audition project.</p>
+</div>
+
+
+
+
+    <cfif #events.recordcount# is not "0">
+    
+    <div class="form-group col-md-12">
+    <div class="row">
+        <div class="col-md-4 py-2">
+        <cfif events.recordcount gte 2>
+        Check to add to specific appointment(s):
+        <cfelseif events.recordcount eq 1 >
+        Check to add to appointment:
+        </cfif></div>
+        <div class="col-md-4 py-2">
+            <div class="form-group">
+                <cfoutput query="events">
+                    <div>
+                        <input type="checkbox" name="events_list" value="#events.eventid#" id="event#events.eventid#">
+                        <label for="event#events.eventid#">#dateFormat(events.eventStart, 'mm/dd/yy')#</label>
+                    </div>
+                </cfoutput>
+            </div>
+        </div>
+    </div>
+</div>
+<cfelse>
+<input type="hidden" name="events_list" value="" />
+</cfif>
+
+
+
+
 
     <!-- Submit button for the form -->
     <div class="form-group text-center col-md-12">

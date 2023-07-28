@@ -173,6 +173,18 @@ where `audprojectid` = #audprojectid# and
     </cfquery>
 
 
+ <cfquery name="delete2" datasource="#dsn#">
+UPDATE eventcontactsxref_tbl x
+INNER JOIN events e ON x.eventid = e.eventid
+INNER JOIN audroles r ON r.audRoleID = e.audroleid
+INNER JOIN audprojects p ON r.audprojectid = p.audprojectid
+SET x.isdeleted = 1
+WHERE x.contactid = #deletecontactid# AND p.audprojectid = #audprojectid#
+
+ </cfquery>
+
+
+
 
     <cfset ctaction="view" />
 
@@ -189,11 +201,15 @@ where `audprojectid` = #audprojectid# and
  
     
      
-
+<cfparam name="events_list" default="">
 
 
     <cfif #ctaction# is "addmember" and "#autocomplete_aud#" is not "">
+
+
 <cfoutput>        SELECT CONTACTID from contacts_ss WHERE userid = #userid# and col1 = '#autocomplete_aud#'</cfoutput> 
+
+
 
  <cfquery datasource="#dsn#" name="FINDK" maxrows="1">
         SELECT CONTACTID from contacts_ss WHERE userid = #userid# and col1 = '#autocomplete_aud#'
@@ -285,6 +301,37 @@ Select * from eventcontactsxref where  eventid = #x.eventid# and contactid = #ne
     </cfif>
     
    </cfloop>
+
+<cfif #events_list# is not "">
+
+<cfset EventNumbers = listToArray(events_list, ",")>
+
+<cfloop array="#EventNumbers#" index="eventNumber">
+
+      <cfquery datasource="#dsn#" name="findnumber">
+      Select * from eventcontactsxref where eventid =    <cfqueryparam cfsqltype="cf_sql_integer" value="#eventNumber#" />
+      and contactid =  <cfqueryparam cfsqltype="cf_sql_integer" value="#new_contactid#" />
+     </cfquery>
+
+     <cfif #findnumber.recordcount# is "0">
+
+      <cfquery datasource="#dsn#" name="inserts">
+        Insert IGNORE into  eventcontactsxref (eventid,contactid) values (
+        <cfqueryparam cfsqltype="cf_sql_integer" value="#eventNumber#" />,
+        <cfqueryparam cfsqltype="cf_sql_integer" value="#new_contactid#" />)
+    </cfquery>
+
+    </cfif>
+ 
+</cfloop>
+
+
+
+
+
+
+
+</cfif>
         
     <cfset ctaction="view" />
 

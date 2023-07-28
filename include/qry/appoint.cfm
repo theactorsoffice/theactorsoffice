@@ -49,6 +49,8 @@ order by d.contactfullname
 </cfquery>
 
  <cfquery name="attendees"  datasource="#dsn#"    >
-SELECT * FROM eventcontactsxref WHERE eventid = <Cfqueryparam value="#eventid#" cfsqltype="CF_SQL_INTEGER" />
+SELECT * FROM eventcontactsxref x
+inner join contactdetails c on x.contactid = c.contactid
+ WHERE x.eventid = <Cfqueryparam value="#eventid#" cfsqltype="CF_SQL_INTEGER" />
 
 </cfquery>

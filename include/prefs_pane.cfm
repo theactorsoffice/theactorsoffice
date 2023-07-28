@@ -203,7 +203,7 @@
     });
 </script>
 
-<cfset modalid="remoteUpdateaudsubmitsite_#subsites.id#" />
+<cfset modalid="remoteUpdateaudsubmitsite_#subsites.submitsiteid#" />
 
 <cfset modaltitle="Update Submission Site" />
 

@@ -99,7 +99,7 @@
             <cfset new_email = Findemail.email />
 
             <cfoutput>
-                <div class="col-xl-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="col-xl-3 col-md-4 col-sm-6 col-xs-12" style="padding-bottom:12px;">
                     <div class="text-center card-box border border-secondary border-1 h-100">
                         <div class="pt-1 pb-1">
                             <cfset contact_avatar_filename = "C:\home\theactorsoffice.com\media-#host#\users\#session.userid#\contacts\#audcontacts.contactid#\avatar.jpg" />

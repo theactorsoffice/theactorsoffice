@@ -44,9 +44,14 @@
             </div>
         </div>
     </div>
-
+<cfif #events.recordcount# is not "0">
     <div class="row">
-        <div class="col-md-2 py-2">Add to appointment(s):</div>
+        <div class="col-md-2 py-2">
+        <cfif events.recordcount gte 2>
+        Add to appointment(s):
+        <cfelseif events.recordcount eq 1 >
+        Add to appointment:
+        </cfif></div>
         <div class="col-md-8 py-2">
             <div class="form-group">
                 <cfoutput query="events">
@@ -58,6 +63,11 @@
             </div>
         </div>
     </div>
+
+<cfelse>
+<input type="hidden" name="events_list" value="" />
+</cfif>
+
 </form>
 
 

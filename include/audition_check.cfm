@@ -98,7 +98,7 @@ order by e.eventid desc
 </cfif>
  
 
-
+<cfquery name="addmissing" datasource="#dsn#">
  INSERT INTO audcontacts_auditions_xref (contactid,audprojectid,xrefnotes) 
 
 SELECT distinct x.contactid, r.audprojectid,'Was missing - audition_check.cfm' as xrefnotes
@@ -107,3 +107,4 @@ INNER JOIN events e ON x.eventid = e.eventid
 INNER JOIN audroles r ON r.audRoleID = e.audroleid
 LEFT JOIN audcontacts_auditions_xref ax ON x.contactid = ax.contactid AND r.audprojectid = ax.audprojectid
 WHERE ax.contactid IS NULL AND x.contactid > 0 
+</cfquery>

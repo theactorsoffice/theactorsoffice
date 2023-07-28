@@ -201,11 +201,15 @@ WHERE x.contactid = #deletecontactid# AND p.audprojectid = #audprojectid#
  
     
      
-
+<cfparam name="events_list" default="">
 
 
     <cfif #ctaction# is "addmember" and "#autocomplete_aud#" is not "">
+
+
 <cfoutput>        SELECT CONTACTID from contacts_ss WHERE userid = #userid# and col1 = '#autocomplete_aud#'</cfoutput> 
+
+
 
  <cfquery datasource="#dsn#" name="FINDK" maxrows="1">
         SELECT CONTACTID from contacts_ss WHERE userid = #userid# and col1 = '#autocomplete_aud#'
@@ -297,6 +301,27 @@ Select * from eventcontactsxref where  eventid = #x.eventid# and contactid = #ne
     </cfif>
     
    </cfloop>
+
+<cfif #events_list# is not "">
+
+<cfset EventNumbers = listToArray(events_list, ",")>
+
+<cfloop array="#EventNumbers#" index="eventNumber">
+      <cfquery datasource="#dsn#" name="inserts">
+        Insert IGNORE into  eventcontactsxref (eventid,contactid) values (
+        <cfqueryparam cfsqltype="cf_sql_integer" value="#eventNumber#" />,
+        <cfqueryparam cfsqltype="cf_sql_integer" value="#new_contactid#" />)
+    </cfquery>
+ 
+</cfloop>
+
+
+
+
+
+
+
+</cfif>
         
     <cfset ctaction="view" />
 

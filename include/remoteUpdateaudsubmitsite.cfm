@@ -53,27 +53,22 @@
   ORDER BY audcatname
 </cfquery>
 
-    <div class="form-group col-md-12">
-
-                                 <label class="control-label">Valid Audition Categories:</label>
-
-
-
-    <div class="custom-group custom-checkbox">
-<cfloop query="getCategories">
-  <div class="form-check"  style="margin-left:25px;"><Cfoutput>
-    <input class="form-check-input" type="checkbox" value="#audcatid#" id="catlist#audcatid#" name="catlist">
-    <label class="form-check-label" for="catlist#audcatid#">
-      #audcatname#
-    </label></cfoutput>
+<div class="form-group col-md-12">
+  <label class="control-label">Valid Audition Categories:</label>
+  <div class="custom-group custom-checkbox">
+    <cfloop query="getCategories">
+      <div class="form-check"  style="margin-left:25px;">
+        <cfoutput>
+          <input class="form-check-input" type="checkbox" value="#audcatid#" id="catlist#audcatid#" name="catlist" 
+          <cfif listFind(old_catlist, audcatid)>checked</cfif>>
+          <label class="form-check-label" for="catlist#audcatid#">
+            #audcatname#
+          </label>
+        </cfoutput>
+      </div>
+    </cfloop>
   </div>
-</cfloop>
-
 </div>
-
-
-        </div>     
-             
              
              
              

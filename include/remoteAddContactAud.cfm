@@ -123,13 +123,13 @@ inner join events e on e.eventid = a.eventid
     
     <div class="form-group col-md-12">
     <div class="row">
-        <div class="col-md-2 py-2">
+        <div class="col-md-4 py-2">
         <cfif events.recordcount gte 2>
         Add to appointment(s):
         <cfelseif events.recordcount eq 1 >
         Add to appointment:
         </cfif></div>
-        <div class="col-md-8 py-2">
+        <div class="col-md-4 py-2">
             <div class="form-group">
                 <cfoutput query="events">
                     <div>

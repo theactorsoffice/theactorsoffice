@@ -87,10 +87,10 @@
 <div style="margin-left:25px;">    <cfoutput>   
                 <label class="custom-control-label">
              <input type="checkbox" #disable_tag# class="custom-control-input" id="IsDeleted" value="1" name="IsDeleted"  >
-               <span class="custom-control-label" Style="color:#disable_tag#red;" for="deleteitem">Delete</span></label>
+               <span class="custom-control-label" Style="color:#disable_tag#red;" for="deleteitem">Delete<cfif #disable_tag# is "disabled">*</cfif></span></label>
             </div>   </cfoutput>  
 
-<cfif #disable_tag# is "disabled"><p><i>*Submission sites in use cannot be deleted.</i></p></cfif>
+<cfif #disable_tag# is "disabled"><p style="margin-left:25px;"><i>*Submission sites in use cannot be deleted.</i></p></cfif>
 </div>
              
              

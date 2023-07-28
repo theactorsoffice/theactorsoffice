@@ -26,46 +26,40 @@
 <p>Add a relationship from your existing relationships or <a href="remoteAddContact.cfm?src=account" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#remoteAddContactAud"><strong>Add</strong></a> a new one.</p>
 
 <form class="app-search" action="/app/audition/?secid=175" method="POST">
-    <input type="hidden" name="ctaction" value="addmember" />
- <Cfoutput>  
-    <input type="hidden" name="audprojectid" value="#audprojectid#" />
-    
-    
-    
-    </Cfoutput>
-    <div class="row" style="margin: auto;">
-        <div class="col-md-2 p-2">Add relationship:</div>
-        <div class="col-md-3 p-2">
+    <cfoutput>  
+        <input type="hidden" name="ctaction" value="addmember">
+        <input type="hidden" name="audprojectid" value="#audprojectid#">
+    </cfoutput>
+
+    <div class="row">
+        <div class="col-md-2 py-2">Add relationship:</div>
+        <div class="col-md-3 py-2">
             <div class="input-group">
                 <input type="text" class="form-control" name="autocomplete_aud" id="autocomplete_aud" placeholder="Search..." autocomplete="off">
                 <div class="input-group-append">
-                    <button id="mybtns" type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="background-color: #406e8e; border: #406e8e; height: 37px;">
-                        <i class="fe-plus"></i> Add </button>
+                    <button id="mybtns" type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light">
+                        <i class="fe-plus"></i> Add 
+                    </button>
                 </div>
             </div>
         </div>
-            <div class="row" style="margin: auto;">
- <div class="col-md-2 p-2">Add to appointment(s):</div>
-        <div class="col-md-8 p-2">
-    <div class="input-group">
-
-
-<cfoutput query="events">
-   <span style="padding-left:10px;"> <input type="checkbox" name="events_list" value="#events.eventid#" id="event#events.eventid#">
-    <label for="event#events.eventid#">#dateFormat(events.eventStart, 'mm/dd/yy')#</label></span>
-</cfoutput>
-
-
-
-
-    </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-2 py-2">Add to appointment(s):</div>
+        <div class="col-md-8 py-2">
+            <div class="form-group">
+                <cfoutput query="events">
+                    <div>
+                        <input type="checkbox" name="events_list" value="#events.eventid#" id="event#events.eventid#">
+                        <label for="event#events.eventid#">#dateFormat(events.eventStart, 'mm/dd/yy')#</label>
+                    </div>
+                </cfoutput>
+            </div>
+        </div>
     </div>
-</div>
-
-
 </form>
+
 
 <div class="container-fluid">
     <div class="row">

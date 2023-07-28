@@ -177,7 +177,8 @@ SELECT x.eventcontactid
 FROM eventcontactsxref x
 INNER JOIN events e ON x.eventid = e.eventid
 INNER JOIN audroles r ON r.audRoleID = e.audroleid
-WHERE x.contactid = #deletecontactid# and r.audrojectid = #audprojectid#
+INNER JOIN audprojects p ON r.audprojectid = p.audprojectid
+WHERE x.contactid = #deletecontactid# and p.audrojectid = #audprojectid#
 )
  </cfquery>
 

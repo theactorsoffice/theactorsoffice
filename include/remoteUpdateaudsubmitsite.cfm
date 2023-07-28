@@ -46,7 +46,7 @@
              
              
 
-             <cfquery name="getCategories" datasource="your_datasource">
+             <cfquery name="getCategories" datasource="#dsn#">
   SELECT audcatid, audcatname 
   FROM audcategories 
   WHERE isdeleted = 0 

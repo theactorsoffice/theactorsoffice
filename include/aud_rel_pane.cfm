@@ -46,7 +46,7 @@
         </div>
             <div class="row" style="margin: auto;">
  <div class="col-md-2 p-2">Add to appointment(s):</div>
-        <div class="col-md-8">
+        <div class="col-md-8 p-2">
     <div class="input-group">
 
 

@@ -174,14 +174,13 @@ where `audprojectid` = #audprojectid# and
 
 
  <cfquery name="delete2" datasource="#dsn#">
-  update eventcontactsxref set isdeleted = 1 WHERE eventcontactid IN (
-SELECT x.eventcontactid
-FROM eventcontactsxref x
+UPDATE eventcontactsxref x
 INNER JOIN events e ON x.eventid = e.eventid
 INNER JOIN audroles r ON r.audRoleID = e.audroleid
 INNER JOIN audprojects p ON r.audprojectid = p.audprojectid
-WHERE x.contactid = #deletecontactid# and p.audprojectid = #audprojectid#
-)
+SET x.isdeleted = 1
+WHERE x.contactid = #deletecontactid# AND p.audprojectid = #audprojectid#
+
  </cfquery>
 
 

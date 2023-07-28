@@ -35,7 +35,7 @@
     </Cfoutput>
     <div class="row" style="margin: auto;">
         <div class="col-md-2 p-2">Add relationship:</div>
-        <div class="col-md-8 p-2">
+        <div class="col-md-3 p-2">
             <div class="input-group">
                 <input type="text" class="form-control" name="autocomplete_aud" id="autocomplete_aud" placeholder="Search..." autocomplete="off">
                 <div class="input-group-append">
@@ -44,6 +44,7 @@
                 </div>
             </div>
         </div>
+            <div class="row" style="margin: auto;">
  <div class="col-md-2 p-2">Add to appointment(s):</div>
         <div class="col-md-8 p-2">
     <div class="input-group">
@@ -61,7 +62,7 @@
     </div>
 
     </div>
-
+</div>
 
 
 </form>

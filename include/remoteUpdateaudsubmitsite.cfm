@@ -70,15 +70,27 @@
   </div>
 </div>
              
-             
+                       <cfquery name="findsubs" datasource="#dsn#">
+                       Select * from audroles where userid = #session.userid# and subsiteid = #subsiteid#
+                       </cfquery>
+
+                       <cfif #findsubs.recordcount# is "0">
+
+                       <cfset disable_tag = "" />
+
+                       <cfelse>
+<cfset disable_tag = "disabled" />
+                       </cfif>
              
              <div class="custom-group custom-checkbox">
 
-<div style="margin-left:25px;">
+<div style="margin-left:25px;">    <cfoutput>   
                 <label class="custom-control-label">
-                    <input type="checkbox" class="custom-control-input" id="IsDeleted" value="1" name="IsDeleted"  >
-                    <span class="custom-control-label" for="deleteitem">Delete</span></label>
-            </div>
+             <input type="checkbox" #disable_tag# class="custom-control-input" id="IsDeleted" value="1" name="IsDeleted"  >
+               <span class="custom-control-label" Style="color:#disable_tag#red;" for="deleteitem">Delete</span></label>
+            </div>   </cfoutput>  
+
+<cfif #disable_tag# is "disabled"><p><i>*Submission sites in use cannot be deleted.</i></p>
 </div>
              
              

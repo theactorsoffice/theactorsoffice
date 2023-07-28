@@ -27,6 +27,8 @@
         where submitsiteid = #find.submitsiteid#
     </cfquery>
 
+    <cfabort>
+
    <cfelse>
 
 

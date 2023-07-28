@@ -71,7 +71,7 @@
 </div>
              
                        <cfquery name="findsubs" datasource="#dsn#">
-                       Select * from audroles where userid = #session.userid# and subsiteid = #subsiteid#
+                       Select * from audroles where userid = #session.userid# and submitsiteid = #submitsiteid#
                        </cfquery>
 
                        <cfif #findsubs.recordcount# is "0">

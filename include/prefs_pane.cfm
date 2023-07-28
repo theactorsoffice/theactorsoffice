@@ -173,7 +173,7 @@
    <cfquery datasource="#dsn#" name="subsites">
         SELECT submitsiteid,submitsitename, catlist
         FROM audsubmitsites_user 
-        WHERE userid = #userid#
+        WHERE userid = #userid# and submitsitename <> ''
         order by submitsitename
     </cfquery>
 
@@ -184,21 +184,48 @@
  
 </h5>
 
-<cfloop query="subsites"> 
-<cfoutput>
+   <div class="container-fluid">
+                               <div class="row">
+                          
+                                     <cfloop query="subsites">
+                                         
+                                          <div class="col-md-2 col-lg-3 col-sm-12"> 
+                                    <Cfoutput>                         
+                                         
+                                         
+                                         
+                                         <script>
+    $(document).ready(function() {
+        $("##remoteUpdateaudsubmitsite_#subsites.submitsiteid#").on("show.bs.modal", function(event) {
+            // Place the returned HTML into the selected element
+            $(this).find(".modal-body").load("/include/remoteUpdateaudsubmitsite.cfm?userid=#userid#&src=account&submitsiteid=#subsites.submitsiteid#");
+        });
+    });
+</script>
 
-    <div class="col-md-12 p-2">
-<a title="Edit" >
+<cfset modalid="remoteUpdateaudsubmitsite_#subsites.id#" />
 
-                                <i class="mdi mdi-square-edit-outline"></i>
+<cfset modaltitle="Update Submission Site" />
 
-                            </a>
- #subsites.submitsitename#
+<cfinclude template="/include/modal.cfm" />
 
  
-
+<p class="p-2">
+<a href="" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteUpdateaudsubmitsite_#subsites.submitsiteid#"> 
+<button type="button" class="btn  btn-soft-secondary rounded-pill waves-effect">#subsites.submitsitename#</button> 
+</a>
+</p>              
+</cfoutput>
+<BR>
 </div>
+</cfloop>
+                             
+                                   
+             
+                                             </div>
+       </div>                     
 
-    </cfoutput>
-
-    </cfloop>
+                        
+ 
+                                
+                                 

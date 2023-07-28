@@ -172,17 +172,7 @@ where `audprojectid` = #audprojectid# and
 `contactid` = #deletecontactid#;
     </cfquery>
 
-    <cfoutput>
-    DELETE FROM eventcontactsxref WHERE eventcontactid IN (
-SELECT x.eventcontactid
-FROM eventcontactsxref x
-INNER JOIN events e ON x.eventid = e.eventid
-INNER JOIN audroles r ON r.audRoleID = e.audroleid
-INNER JOIN audprojects p ON r.audprojectid = p.audprojectid
-WHERE x.contactid = #deletecontactid# and p.audrojectid = #audprojectid#
-)
 
-    </cfoutput><cfabort>
  <cfquery name="delete2" datasource="#dsn#">
     DELETE FROM eventcontactsxref WHERE eventcontactid IN (
 SELECT x.eventcontactid
@@ -190,7 +180,7 @@ FROM eventcontactsxref x
 INNER JOIN events e ON x.eventid = e.eventid
 INNER JOIN audroles r ON r.audRoleID = e.audroleid
 INNER JOIN audprojects p ON r.audprojectid = p.audprojectid
-WHERE x.contactid = #deletecontactid# and p.audrojectid = #audprojectid#
+WHERE x.contactid = #deletecontactid# and p.audprojectid = #audprojectid#
 )
  </cfquery>
 

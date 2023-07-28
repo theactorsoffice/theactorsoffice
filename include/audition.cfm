@@ -1543,13 +1543,13 @@
                     Notes
                 </a>
             </li>
-<cfif #projectDetails.isdirect# is "0">
+ 
             <li class="nav-item" role="presentation">
                 <a href="#ques" data-bs-toggle="tab" aria-expanded="false" class="nav-link <Cfoutput>#ques_active#</Cfoutput>" tabindex="-1" role="tab">
                     Assessment
                 </a>
             </li>
-            </cfif>
+   
     
             <cfif #roledetails.isbooked# is "1">
                 <li class="nav-item" role="presentation">

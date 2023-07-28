@@ -37,7 +37,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" name="autocomplete_aud" id="autocomplete_aud" placeholder="Search..." autocomplete="off">
                 <div class="input-group-append">
-                    <button id="mybtns" type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light">
+                    <button id="mybtns" type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="height: 37.3889px">
                         <i class="fe-plus"></i> Add 
                     </button>
                 </div>

@@ -9,7 +9,7 @@
         FROM audsubmitsites_user 
         WHERE submitsiteid = #submitsiteid#
      </cfquery>
-
+<cfset old_catlist = details.catlist />
 
 <form method="post" action="/include/remoteupdateessenceContact2.cfm" class="parsley-examples" name="version-form" id="form-version"   data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"
   data-parsley-trigger="keyup" data-parsley-validate>

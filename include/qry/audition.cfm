@@ -174,7 +174,7 @@ where `audprojectid` = #audprojectid# and
 
 
  <cfquery name="delete2" datasource="#dsn#">
-    DELETE FROM eventcontactsxref WHERE eventcontactid IN (
+  update eventcontactsxref set isdeleted = 1 WHERE eventcontactid IN (
 SELECT x.eventcontactid
 FROM eventcontactsxref x
 INNER JOIN events e ON x.eventid = e.eventid

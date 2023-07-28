@@ -1558,6 +1558,8 @@
                     Assessment
                 </a>
             </li>
+
+            </cfif>
    
     
             <cfif #roledetails.isbooked# is "1">

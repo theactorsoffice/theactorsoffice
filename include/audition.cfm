@@ -1548,7 +1548,7 @@
     select *
 	 from events e
 	 inner join audroles r on r.audroleid = e.audroleid
-	 WHERE r.audproejctid = <cfqueryparam cfsqltype="cf_sql_integer" value="#audprojectid#"> 
+	 WHERE r.audprojectid = <cfqueryparam cfsqltype="cf_sql_integer" value="#audprojectid#"> 
 </cfquery>
 
 

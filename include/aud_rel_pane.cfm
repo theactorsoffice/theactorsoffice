@@ -46,13 +46,13 @@
         </div>
             <div class="row" style="margin: auto;">
  <div class="col-md-2 p-2">Add to appointment(s):</div>
-        <div class="col-md-8 p-2">
+        <div class="col-md-8">
     <div class="input-group">
 
 
 <cfoutput query="events">
-    <input type="checkbox" name="events_list" value="#events.eventid#" id="event#events.eventid#">
-    <label for="event#events.eventid#">#dateFormat(events.eventStart, 'mm/dd/yy')#</label><br>
+   <span style="padding-left:10px;"> <input type="checkbox" name="events_list" value="#events.eventid#" id="event#events.eventid#">
+    <label for="event#events.eventid#">#dateFormat(events.eventStart, 'mm/dd/yy')#</label></span>
 </cfoutput>
 
 

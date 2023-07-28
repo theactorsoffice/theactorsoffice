@@ -44,7 +44,7 @@
                     Please enter a Submission Site.
                 </div>
              
-             
+             </cfoutput>
 
              <cfquery name="getCategories" datasource="#dsn#">
   SELECT audcatid, audcatname 
@@ -53,14 +53,14 @@
   ORDER BY audcatname
 </cfquery>
     <div class="custom-group custom-checkbox">
-<cfoutput query="getCategories">
+<cfloop query="getCategories">
   <div class="form-check">
     <input class="form-check-input" type="checkbox" value="#audcatid#" id="catlist#audcatid#" name="catlist">
     <label class="form-check-label" for="catlist#audcatid#">
       #audcatname#
     </label>
   </div>
-</cfoutput>
+</cfloop>
 
 </div>
 

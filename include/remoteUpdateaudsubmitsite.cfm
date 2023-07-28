@@ -90,7 +90,7 @@
                <span class="custom-control-label" Style="color:#disable_tag#red;" for="deleteitem">Delete</span></label>
             </div>   </cfoutput>  
 
-<cfif #disable_tag# is "disabled"><p><i>*Submission sites in use cannot be deleted.</i></p>
+<cfif #disable_tag# is "disabled"><p><i>*Submission sites in use cannot be deleted.</i></p></cfif>
 </div>
              
              

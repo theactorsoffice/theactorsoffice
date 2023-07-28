@@ -79,7 +79,7 @@
 
 
 <div class="container-fluid">
-    <div class="row box-row">
+    <div class="row box-row mb-3">
         <cfloop query="audcontacts">
             <cfquery datasource="#dsn#" name="mytags">
                 SELECT contactid, itemid, CONCAT(' <span class=\'badge badge-blue\'>', `contactitems`.`valueText`, '</span>') AS tag, contactitems.valuetext

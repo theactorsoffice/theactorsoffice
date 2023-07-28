@@ -174,7 +174,7 @@ where `audprojectid` = #audprojectid# and
 
 
  <cfquery name="delete2" datasource="#dsn#">
-UPDATE eventcontactsxref x
+UPDATE eventcontactsxref_tbl x
 INNER JOIN events e ON x.eventid = e.eventid
 INNER JOIN audroles r ON r.audRoleID = e.audroleid
 INNER JOIN audprojects p ON r.audprojectid = p.audprojectid

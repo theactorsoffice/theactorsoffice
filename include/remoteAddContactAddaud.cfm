@@ -79,6 +79,48 @@ SET `audprojectid` = #audprojectid#,
 `contactid` = #CONTACTID#;
     </cfquery>
 
+<cfparam name="events_list" default="">
+
+
+
+
+<cfif #events_list# is not "">
+
+<cfset EventNumbers = listToArray(events_list, ",")>
+
+<cfloop array="#EventNumbers#" index="eventNumber">
+
+      <cfquery datasource="#dsn#" name="findnumber">
+      Select * from eventcontactsxref where eventid =    <cfqueryparam cfsqltype="cf_sql_integer" value="#eventNumber#" />
+      and contactid =  <cfqueryparam cfsqltype="cf_sql_integer" value="#CONTACTID#" />
+     </cfquery>
+
+     <cfif #findnumber.recordcount# is "0">
+
+      <cfquery datasource="#dsn#" name="inserts">
+        Insert IGNORE into  eventcontactsxref (eventid,contactid) values (
+        <cfqueryparam cfsqltype="cf_sql_integer" value="#eventNumber#" />,
+        <cfqueryparam cfsqltype="cf_sql_integer" value="#CONTACTID#" />)
+    </cfquery>
+
+    </cfif>
+ 
+</cfloop>
+
+
+
+
+
+
+
+</cfif>
+
+
+
+
+
+
+
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 
 	

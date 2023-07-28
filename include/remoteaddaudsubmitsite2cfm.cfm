@@ -1,12 +1,16 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
-   <cfquery datasource="#dsn#" name="find">
-   Select * from audsubmitsites_user where userid = #session.userid# and submitsitename = '#new_submitsitename#'
-   </cfquery>
+<Cfparam name="catlist" default="" />
 
    <cfif #catlist# is not "">
     <cfset sortedCatList = listSort(catlist, "numeric", "asc")>
 </cfif>
+
+   <cfquery datasource="#dsn#" name="find">
+   Select submitsiteid from audsubmitsites_user where userid = #session.userid# and submitsitename = '#new_submitsitename#'
+   </cfquery>
+
+ 
 
    <cfif #find.recordcount# is "1">
     <cfquery name="update" datasource="#dsn#" >   
@@ -29,7 +33,7 @@
    
    <cfquery datasource="#dsn#" name="add">
    INSERT INTO audsubmitsites_user (submitsitename, catlist, userid)
-   values ('#trim(submitsitename)#', '#sortedCatList#', #session.userid#)
+   values ('#new_submitsitename#', '#sortedCatList#', #session.userid#)
     </cfquery>
 
 

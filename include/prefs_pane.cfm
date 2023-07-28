@@ -178,11 +178,58 @@
     </cfquery>
 
 
-<h5>
+
+
+<div class="d-flex justify-content-between">
+
+    <div class="float-left">
+
+        
+
+    <h5>
 
     My Submission Sites
  
 </h5>
+
+        
+
+    </div>
+
+                                             <script>
+    $(document).ready(function() {
+        $("##remoteaddaudsubmitsite").on("show.bs.modal", function(event) {
+            // Place the returned HTML into the selected element
+            $(this).find(".modal-body").load("/include/remoteaddaudsubmitsite.cfm?userid=#userid#");
+        });
+    });
+</script>
+
+<cfset modalid="remoteaddaudsubmitsite" />
+
+<cfset modaltitle="Add Submission Site" />
+
+<cfinclude template="/include/modal.cfm" />
+
+
+
+
+    <div class="float-end">
+
+        <a href=""  data-bs-remote="true" data-bs-toggle="modal" 
+        data-bs-target="#remoteaddaudsubmitsite" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" 
+        style="background-color: #406e8e; border: #406e8e;">
+
+            Add
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
 
    <div class="container-fluid">
                                <div class="row">

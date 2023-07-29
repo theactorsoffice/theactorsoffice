@@ -129,14 +129,15 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
 <!--- Compare the arrays --->
  
 <cfif NOT arraysAreEqual(spreadsheetColumnsArray, correctColumnsArray)>
-    <cfset SESSION.ErrorMessage = "The spreadsheet you uploaded isn't in the correct format. Please try again.">
-        <script>
-    $(document).ready(function(){
-        $('#errorModal').modal('show');
-    });
-    </script>
+   <h3>The spreadsheet is not in the correct format.  Please use the template provided and upload again.</h3>
+<p>&nbsp;</p>
+      <Center> <button onclick="goBack()">Go Back</button> </center>
 
-       <cfset SESSION.ErrorMessage = "">
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
 </cfif>
 
 <!--- create a variable to store the codes of products that could not be imported --->

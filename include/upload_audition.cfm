@@ -1,3 +1,10 @@
+ 
+  
+    
+ 
+ 
+
+
 <cfparam name="new_projName" default=""/>
 
 <cfparam name="new_projDescription" default=""/>
@@ -68,6 +75,42 @@
 columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
                headerrow="1"/>
 
+<cffunction name="arraysAreEqual" returntype="boolean">
+    <cfargument name="array1" type="array" required="true">
+    <cfargument name="array2" type="array" required="true">
+    <cfset var i = "">
+    
+    <!--- Check if arrays are of same size --->
+    <cfif arrayLen(arguments.array1) neq arrayLen(arguments.array2)>
+        <cfreturn false>
+    </cfif>
+    
+    <!--- Check if arrays have same elements in same order --->
+    <cfloop index="i" from="1" to="#arrayLen(arguments.array1)#">
+        <cfif arguments.array1[i] neq arguments.array2[i]>
+            <cfreturn false>
+        </cfif>
+    </cfloop>
+    
+    <!--- If no differences were found, the arrays are equal --->
+    <cfreturn true>
+</cffunction>
+
+<!--- Get the column names from the imported data --->
+<cfset spreadsheetColumns = importdata.columnList/>
+
+<!--- Convert the string of column names to an array --->
+<cfset spreadsheetColumnsArray = ListToArray(spreadsheetColumns) />
+
+<!--- Define the correct columns for your application --->
+<cfset correctColumns = "projdate,projname,audrolename,audcatname,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projdescription,chardescription,note" />
+
+<!--- Convert the correct column list to an array --->
+<cfset correctColumnsArray = ListToArray(correctColumns) />
+
+<!--- Compare the arrays --->
+ 
+
 <!--- create a variable to store the codes of products that could not be imported --->
 <cfset failedimports = ""/>
 
@@ -124,8 +167,8 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
             )
         </cfquery>
     </cfif>
-
 </cfloop>
+
 
 <cfinclude template="transfer_audition.cfm" />
 <cflocation url="/app/auditions-import/?uploadid=#new_uploadid#">

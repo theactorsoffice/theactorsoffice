@@ -167,6 +167,11 @@ body.authentication-bg {
 
   <center> <h3>The spreadsheet is not in the correct format.  Please use the template provided and upload again.</h3></center>
 <p>&nbsp;</p>
+
+<h4>Columns Needed:</h4>
+<p><i>Date,	Project,	Role,	Category,	Source,	CD_FirstName,	CD_LastName,	Callback?,	Redirect?,	Pin/Avail?,	Booked?,	Project_Description,	Character_Description,	Note</i></p>
+</p>
+<p>&nbsp;</p>
       <Center> <button onclick="goBack()">Go Back</button> </center>
 
     <script>

@@ -1,3 +1,34 @@
+<cfif IsDefined("SESSION.ErrorMessage")>
+    <div class="modal" tabindex="-1" role="dialog" id="errorModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Error</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>#SESSION.ErrorMessage#</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    $(document).ready(function(){
+        $('#errorModal').modal('show');
+    });
+    </script>
+    
+    <!--- Once the error message is shown, we clear it from the session --->
+    <cfset SESSION.ErrorMessage = "">
+</cfif>
+
+
 <cfparam name="new_projName" default=""/>
 
 <cfparam name="new_projDescription" default=""/>
@@ -102,8 +133,9 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
 <cfset correctColumnsArray = ListToArray(correctColumns) />
 
 <!--- Compare the arrays --->
+ 
 <cfif NOT arraysAreEqual(spreadsheetColumnsArray, correctColumnsArray)>
-    <cfthrow type="InvalidColumnError" message="The columns in the uploaded spreadsheet do not match the expected columns." />
+    <cfset SESSION.ErrorMessage = "The spreadsheet you uploaded isn't in the correct format. Please try again.">
 </cfif>
 
 <!--- create a variable to store the codes of products that could not be imported --->

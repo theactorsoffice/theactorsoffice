@@ -1,23 +1,5 @@
  
-    <div class="modal" tabindex="-1" role="dialog" id="errorModal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Error</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>#SESSION.ErrorMessage#</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  
     
  
  
@@ -129,6 +111,60 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
 <!--- Compare the arrays --->
  
 <cfif NOT arraysAreEqual(spreadsheetColumnsArray, correctColumnsArray)>
+
+   <html lang="en">
+
+    <head>
+        
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <title>Admin | Support Tickets</title>
+            <meta content="TAO Administration" name="description" />
+            <meta content="Kevin King" name="author" />
+            <meta name="robots" content="noindex">
+        
+<link href="/app/assets/images/favicon.ico?ver=1.9.7" rel="shortcut icon" type="text/css"  />
+
+<script src="/app/assets/js/jquery-3.6.0.min.js?ver=1.9.7"></script>
+
+<link href="/app/assets/css/icons.min.css?ver=1.9.7" rel="stylesheet" type="text/css"  />
+
+<link href="/assets/css/utilityclasses.css?ver=1.9.7" rel="stylesheet" type="text/css"  />
+
+<link href="/app/assets/css/app.min.css?ver=1.9.7" rel="stylesheet" type="text/css" id="app-style" />
+
+<link href="/app/assets/css/datatables.min.css?ver=1.9.7" rel="stylesheet" type="text/css"  />
+
+<link href="/app/assets/css/datatables.min.css?ver=1.9.7" rel="stylesheet" type="text/css"  />
+
+<link href="/app/assets/css/dataTables.checkboxes.css?ver=1.9.7" type="text/css"  />
+
+<link href="/app/assets/css/dataTables.checkboxes.css?ver=1.9.7" type="text/css"  />
+
+<script src="/app/assets/js/jquery.chained.js?ver=1.9.7"></script>
+
+<style>
+body.authentication-bg {
+    background-color: #406E8E;
+	background-size: cover;
+	background-position: center
+}
+    .navbar-custom {
+	background-color: #406E8E;
+	
+}
+    
+    
+</style>
+   </head>
+
+    <!-- body start -->
+
+    <body >
+
+
+
    <h3>The spreadsheet is not in the correct format.  Please use the template provided and upload again.</h3>
 <p>&nbsp;</p>
       <Center> <button onclick="goBack()">Go Back</button> </center>
@@ -137,7 +173,12 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
     function goBack() {
         window.history.back();
     }
-    </script><cfabort>
+    </script>
+    </body>
+
+    </html>
+    
+    <cfabort>
 </cfif>
 
 <!--- create a variable to store the codes of products that could not be imported --->

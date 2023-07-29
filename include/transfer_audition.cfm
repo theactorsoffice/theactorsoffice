@@ -18,6 +18,8 @@
 
 <cfparam name="isdirect" default="0"/>
 
+<cfparam name="isredirect" default="0"/>
+
 <cfparam name="isbooked" default="0"/>
 
 <cfparam name="ispin" default="0"/>

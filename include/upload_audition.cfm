@@ -68,13 +68,26 @@
 columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
                headerrow="1"/>
 
-               <cffile action="upload" filefield="form.file" destination="#cUploadFolder#\" 
-        nameconflict="MAKEUNIQUE"/>
-
-<!--- read the spreadsheet data into a query object --->
-<cfspreadsheet action="read" query="importdata" src="#cUploadFolder#\#cffile.serverfile#" 
-columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
-               headerrow="1"/>
+<cffunction name="arraysAreEqual" returntype="boolean">
+    <cfargument name="array1" type="array" required="true">
+    <cfargument name="array2" type="array" required="true">
+    <cfset var i = "">
+    
+    <!--- Check if arrays are of same size --->
+    <cfif arrayLen(arguments.array1) neq arrayLen(arguments.array2)>
+        <cfreturn false>
+    </cfif>
+    
+    <!--- Check if arrays have same elements in same order --->
+    <cfloop index="i" from="1" to="#arrayLen(arguments.array1)#">
+        <cfif arguments.array1[i] neq arguments.array2[i]>
+            <cfreturn false>
+        </cfif>
+    </cfloop>
+    
+    <!--- If no differences were found, the arrays are equal --->
+    <cfreturn true>
+</cffunction>
 
 <!--- Get the column names from the imported data --->
 <cfset spreadsheetColumns = importdata.columnList/>
@@ -89,12 +102,9 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
 <cfset correctColumnsArray = ListToArray(correctColumns) />
 
 <!--- Compare the arrays --->
-<cfif !ArrayIsEqual(spreadsheetColumnsArray, correctColumnsArray)>
+<cfif NOT arraysAreEqual(spreadsheetColumnsArray, correctColumnsArray)>
     <cfthrow type="InvalidColumnError" message="The columns in the uploaded spreadsheet do not match the expected columns." />
 </cfif>
-
-<!--- ... rest of your code ... --->
-
 
 <!--- create a variable to store the codes of products that could not be imported --->
 <cfset failedimports = ""/>
@@ -152,8 +162,8 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
             )
         </cfquery>
     </cfif>
-
 </cfloop>
+
 
 <cfinclude template="transfer_audition.cfm" />
 <cflocation url="/app/auditions-import/?uploadid=#new_uploadid#">

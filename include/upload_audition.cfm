@@ -1,4 +1,4 @@
-<cfif IsDefined("SESSION.ErrorMessage")>
+ 
     <div class="modal" tabindex="-1" role="dialog" id="errorModal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -18,15 +18,9 @@
       </div>
     </div>
 
-    <script>
-    $(document).ready(function(){
-        $('#errorModal').modal('show');
-    });
-    </script>
     
-    <!--- Once the error message is shown, we clear it from the session --->
-    <cfset SESSION.ErrorMessage = "">
-</cfif>
+ 
+ 
 
 
 <cfparam name="new_projName" default=""/>
@@ -135,7 +129,14 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
 <!--- Compare the arrays --->
  
 <cfif NOT arraysAreEqual(spreadsheetColumnsArray, correctColumnsArray)>
-    <cfset SESSION.ErrorMessage = "The spreadsheet you uploaded isn't in the correct format. Please try again."><cfabort>
+    <cfset SESSION.ErrorMessage = "The spreadsheet you uploaded isn't in the correct format. Please try again.">
+        <script>
+    $(document).ready(function(){
+        $('#errorModal').modal('show');
+    });
+    </script>
+
+       <cfset SESSION.ErrorMessage = "">
 </cfif>
 
 <!--- create a variable to store the codes of products that could not be imported --->

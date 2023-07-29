@@ -165,7 +165,7 @@ body.authentication-bg {
 
 
 
-   <h3>The spreadsheet is not in the correct format.  Please use the template provided and upload again.</h3>
+  <center> <h3>The spreadsheet is not in the correct format.  Please use the template provided and upload again.</h3></center>
 <p>&nbsp;</p>
       <Center> <button onclick="goBack()">Go Back</button> </center>
 

@@ -135,7 +135,7 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
 <!--- Compare the arrays --->
  
 <cfif NOT arraysAreEqual(spreadsheetColumnsArray, correctColumnsArray)>
-    <cfset SESSION.ErrorMessage = "The spreadsheet you uploaded isn't in the correct format. Please try again.">
+    <cfset SESSION.ErrorMessage = "The spreadsheet you uploaded isn't in the correct format. Please try again."><cfabort>
 </cfif>
 
 <!--- create a variable to store the codes of products that could not be imported --->

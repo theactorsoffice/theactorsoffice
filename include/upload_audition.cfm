@@ -137,7 +137,7 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
     function goBack() {
         window.history.back();
     }
-    </script>
+    </script><cfabort>
 </cfif>
 
 <!--- create a variable to store the codes of products that could not be imported --->

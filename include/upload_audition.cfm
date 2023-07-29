@@ -68,6 +68,34 @@
 columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
                headerrow="1"/>
 
+               <cffile action="upload" filefield="form.file" destination="#cUploadFolder#\" 
+        nameconflict="MAKEUNIQUE"/>
+
+<!--- read the spreadsheet data into a query object --->
+<cfspreadsheet action="read" query="importdata" src="#cUploadFolder#\#cffile.serverfile#" 
+columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
+               headerrow="1"/>
+
+<!--- Get the column names from the imported data --->
+<cfset spreadsheetColumns = importdata.columnList/>
+
+<!--- Convert the string of column names to an array --->
+<cfset spreadsheetColumnsArray = ListToArray(spreadsheetColumns) />
+
+<!--- Define the correct columns for your application --->
+<cfset correctColumns = "projdate,projname,audrolename,audcatname,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projdescription,chardescription,note" />
+
+<!--- Convert the correct column list to an array --->
+<cfset correctColumnsArray = ListToArray(correctColumns) />
+
+<!--- Compare the arrays --->
+<cfif !ArrayIsEqual(spreadsheetColumnsArray, correctColumnsArray)>
+    <cfthrow type="InvalidColumnError" message="The columns in the uploaded spreadsheet do not match the expected columns." />
+</cfif>
+
+<!--- ... rest of your code ... --->
+
+
 <!--- create a variable to store the codes of products that could not be imported --->
 <cfset failedimports = ""/>
 

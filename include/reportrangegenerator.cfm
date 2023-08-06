@@ -87,44 +87,21 @@
 
     <cfif #x.rangename# is "Last 3 Months">
 
-        <cfset current_month=month(now()) />
 
-        <cfset current_day=day(now()) />
 
-        <cfif #current_month# is "3">
+ <cfset currentDate = now() />
 
-            <cfset three_month=12 />
 
-            <cfset three_year=last_year />
 
-            <cfelseif #current_month# is "2">
+<cfset newRangeStartx = CreateDate(year(currentDate), month(currentDate) - 3, 1) />
 
-                <cfset three_month=11 />
+<cfoutput>
 
-                <cfset three_year=last_year />
+ <cfset new_rangeend="#dateformat('#currentDate#','YYYY-MM-dd')#" />
 
-                <cfelseif #current_month# is "1">
+  <cfset newRangeStart="#dateformat('#newRangeStartx#','YYYY-MM-dd')#" />
 
-                    <cfset three_month=10 />
-
-                    <cfset three_year=last_year />
-
-                    <cfelse>
-
-                        <cfset three_year=current_year />
-
-                        <cfset three_month=current_month - 3 />
-
-        </cfif>
-
-        <cfoutput>
-
-            <cfset new_rangeend="#dateformat('#now()#','YYYY-MM-dd')#" />
-
-            <cfset new_rangestart="#dateformat('#now()#','#three_year#-#three_month#-#current_day#')#" />
-
-        </cfoutput>
-
+</cfoutput>
     </cfif>
 
     <cfif #x.rangename# is "Last 6 Months">

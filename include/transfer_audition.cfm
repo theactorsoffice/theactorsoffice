@@ -250,7 +250,11 @@ subcat found<BR>
     </cfif>
 
 
+<cfif #new_audRoleName# is "">
 
+<cfset new_audRoleName = "Unknown" />
+
+</cfif>
 
 
     <cfquery name="audroles_ins" datasource="#dsn#" result="result">

@@ -363,13 +363,14 @@
 
 
                 <option value=""></option>
+                       <option value="custom">***ADD NEW***</option>
                 <cfoutput query="companies">
                     <option value="#companies.new_valuecompany#" <cfif #companies.new_valuecompany# is "#details.valuecompany#"> selected
         </cfif>>#companies.new_valuecompany# </option>
 
 
         </cfoutput>
-        <option value="custom">***ADD NEW***</option>
+ 
 
         </select>
 

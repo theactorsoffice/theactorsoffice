@@ -41,11 +41,23 @@
     rangeend
     FROM reportranges where rangeid = #new_rangeid#
 </cfquery>
+ 
 
-<cfoutput>
-    <cfset new_rangestart="#dateformat('#rangeselected.rangestart#','YYYY-MM-dd')#" />
-    <cfset new_rangeend="#dateformat('#rangeselected.rangeend#','YYYY-MM-dd')#" />
-</cfoutput>
+<cfif IsDate(rangeselected.rangestart)>
+    <cfset new_rangestart = DateFormat(rangeselected.rangestart, "yyyy-mm-dd")>
+<cfelse>
+    <!--- Set a very old date as the default value. --->
+    <cfset new_rangestart = "1900-01-01">
+</cfif>
+
+<cfif IsDate(rangeselected.rangeend)>
+    <cfset new_rangeend = DateFormat(rangeselected.rangeend, "yyyy-mm-dd")>
+<cfelse>
+    <!--- Set a future date as the default value. --->
+    <cfset new_rangeend = "2100-01-01">
+</cfif>
+
+ 
 
 
 <cfquery datasource="#dsn#" name="report_10">
@@ -58,8 +70,8 @@
     AND p.isDeleted IS FALSE
     AND r.iscallback = 1
     AND p.userid = #userid#
-    AND p.projdate >= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangestart#" /> 
-    AND p.projdate <= <cfqueryparam cfsqltype="cf_sql_date" value="#rangeselected.rangeend#" />
+    AND p.projdate >= <cfqueryparam cfsqltype="cf_sql_date" value="#new_rangestart#" /> 
+    AND p.projdate <= <cfqueryparam cfsqltype="cf_sql_date" value="#new_rangeend#" />
 </cfquery>
 
   

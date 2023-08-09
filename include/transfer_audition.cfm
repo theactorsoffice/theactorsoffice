@@ -85,6 +85,8 @@
         SELECT audcatid FROM audcategories WHERE audcatname = '#y.audcatname#'
     </cfquery>
 
+
+<Cfif #isdefined('usingsub')#>
 <cfif #findcat.recordcount# is not "1">
  <cfset new_status="Invalid" />
     <cfquery datasource="#dsn#" name="err" >
@@ -105,6 +107,14 @@
 
 
 </cfif>
+</cfif>
+
+
+
+
+
+
+
 </cfif>
 
 

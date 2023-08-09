@@ -138,7 +138,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
                         <cfloop query="results">
 
    <cfquery datasource="#dsn#" name="errs"      >
-        select error_msg FROM auditionsimport_error WHERE id = #results.uploadid#
+        select error_msg FROM auditionsimport_error WHERE id = #results.id#
             </cfquery>
                   <Cfset err_list = valuelist(errs.error_msg) />  
 

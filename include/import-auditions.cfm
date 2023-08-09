@@ -38,29 +38,29 @@ p.audprojectid AS recid
 ,'Role' AS head4
 ,'Source' as head5
 ,'Import Status' as head6
-,p.projdate AS col1
-,p.audprojectdate as col1b
-,p.projname AS col2
-,ca.audcatname as col3
-,r.audrolename as col4
-,s.audsource AS col5
-,c2.recordname as contactname
-,sc.audsubcatname
+,ai.projdate AS col1
+,ai.projdate as col1b
+,ai.projname AS col2
+,ai.audcatname as col3
+,ai.audrolename as col4
+,ai.audsource AS col5
+,concat(ai.cdfirstname," ", ai.cdlastname) as contactname
+,ai.audsubcatname
 
 ,CASE
-WHEN r.iscallback THEN 'Callback'
-WHEN r.isredirect THEN 'Redirect'
-WHEN r.ispin THEN 'Pin'
-WHEN r.isbooked THEN 'Book'
+WHEN ai.callback_yn = "y" THEN 'Callback'
+WHEN ai.redirect_yn = "y" THEN 'Redirect'
+WHEN ai.pin_yn = "y" THEN 'Pin'
+WHEN ai.booked_yn = "y" THEN 'Book'
 ELSE 'Audition'
 END AS col6a,
-        ai.status as col6
- 
- FROM audprojects p
+        ai.`status` as col6
+ FROM auditionsimport ai
+
+ inner join audprojects p ON  p.audprojectID = ai.audprojectID
     
-    INNER join audroles r on p.audprojectID = r.audprojectID
- INNER join auditionsimport ai on p.audprojectID = ai.audprojectID
-  
+    LEFT join audroles r on p.audprojectID = r.audprojectID
+ 
  LEFT JOIN events a ON r.audroleid = a.audroleid 
  
  LEFT JOIN audsources s ON s.audSourceID = r.audSourceID
@@ -76,6 +76,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
     left join contactdetails c3 on c3.contactid = x.contactid
 
   WHERE r.isdeleted IS FALSE AND p.isDeleted IS false
+
 
  AND p.userid =  <Cfqueryparam value="#userid#" cfsqltype="CF_SQL_INTEGER" />
     
@@ -96,7 +97,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
 
                 <h4 class="header-title">
 
-                  events imported <span class="small right"></span>
+                  Events imported <span class="small right"></span>
 
                 </h4>
 

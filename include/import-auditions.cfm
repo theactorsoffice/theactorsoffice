@@ -75,12 +75,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
     
     left join contactdetails c3 on c3.contactid = x.contactid
 
-  WHERE  p.userid =  <Cfqueryparam value="#userid#" cfsqltype="CF_SQL_INTEGER" />
-    
- 
-    
-    
-    and ai.uploadid = <Cfqueryparam value="#uploadid#" cfsqltype="CF_SQL_INTEGER" />
+  WHERE ai.uploadid = <Cfqueryparam value="#uploadid#" cfsqltype="CF_SQL_INTEGER" />
 
 </cfquery>
 

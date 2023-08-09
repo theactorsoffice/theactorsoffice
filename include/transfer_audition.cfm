@@ -402,6 +402,7 @@ subcat found<BR>
             )
         </cfquery>
 
+</cfif>
 
     <cfquery datasource="#dsn#" name="update_contact">
         Update auditionsimport

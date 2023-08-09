@@ -57,7 +57,7 @@ END AS col6a,
         ai.`status` as col6
  FROM auditionsimport ai
 
- inner join audprojects p ON  p.audprojectID = ai.audprojectID
+ left join audprojects p ON  p.audprojectID = ai.audprojectID
     
     LEFT join audroles r on p.audprojectID = r.audprojectID
  

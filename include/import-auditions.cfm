@@ -144,7 +144,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
 
                             <cfoutput>
 
-
+<h2>#err_list#</h2>
 
                                 <cfset cur_link="/app/audition/?audprojectid=#results.audprojectid#" />
 

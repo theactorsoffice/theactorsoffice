@@ -72,7 +72,7 @@
 
 <!--- read the spreadsheet data into a query object --->
 <cfspreadsheet action="read" query="importdata" src="#cUploadFolder#\#cffile.serverfile#" 
-columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
+columnnames="projDate,projName,audRoleName,audcatsubname,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
                headerrow="1"/>
 
 <cffunction name="arraysAreEqual" returntype="boolean">

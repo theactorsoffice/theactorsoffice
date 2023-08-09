@@ -22,6 +22,7 @@ function unlock(){
     <cfquery datasource="#dsn#" name="results"      >
     SELECT 
 p.audprojectid AS recid
+,ai.uploadid
     ,p.audprojectid
 ,r.audroleid
 ,st.audstep
@@ -136,10 +137,10 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
                     <tbody>
                         <cfloop query="results">
 
-
-        
-            
-                    
+   <cfquery datasource="#dsn#" name="errs"      >
+        select error_msg FROM auditionsimport_error WHERE id = #results.uploadid#
+            </cfquery>
+                  <Cfset err_list = valuelist(errs.error_msg) />  
 
                             <cfoutput>
 
@@ -166,11 +167,24 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
 
                                         </a>
                                     </td>
-                                    <td><A href="#cur_link#">#col2#</A></td>
+                                    <td>
+                                    <cfif #results.audprojectid# is not "">
+                                    <A href="#cur_link#">#col2#</A>
+                                    <cfelse>
+#col2#
+                                    </cfif>
+                                    </td>
                                     <td>#col3#</td>
                                     <td>#col4#</td>
                                     <td>#col5#</td>
-                                    <td>#col6#</td>
+                                    <td>
+                                    <Cfif #col6# is "invalid">
+
+                                    <A href="" title="#err_list#"><font color="red">Invalid</A>
+                                    <Cfelse>
+                                    #col6#
+                                    </cfif>
+                                    </td>
 
                                 </tr>
                             </cfoutput>

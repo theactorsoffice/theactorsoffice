@@ -120,11 +120,16 @@ columnnames="projDate,projName,audRoleName,audcatsubname,audsource,cdfirstname,c
     --->
     <cfif LEN(importdata.projName) gt 0>
 
-    <cfset parts = listToArray(importdata.audcatsubname, '-')>
-<cfset audcatname = parts[1]>
-<cfset audsubcatname = parts[2]>
-
-
+<!--- Check if the hyphen exists in the string --->
+<cfif find('-', audcatsubname)>
+  <cfset parts = listToArray(audcatsubname, '-')>
+  <cfset audcatname = parts[1]>
+  <cfset audsubcatname = parts[2]>
+<cfelse>
+  <!--- Handle the case where there's no hyphen --->
+  <cfset audcatname = "">
+  <cfset audsubcatname = "">
+</cfif>
     
         <cfquery datasource="#dsn#" name="find">
             INSERT INTO `auditionsimport` (`uploadid`

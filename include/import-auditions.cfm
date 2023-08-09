@@ -20,7 +20,7 @@ function unlock(){
     
     
     <cfquery datasource="#dsn#" name="results"      >
-    SELECT 
+    SELECT ai.id,
 p.audprojectid AS recid
 ,ai.uploadid
     ,p.audprojectid

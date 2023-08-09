@@ -104,7 +104,7 @@ SELECT * FROM audsources WHERE isdeleted = 0 AND audsource = '#y.audsource#'
 </cfquery>
 
 
-<cfif #findsub.findsource# is not "1">
+<cfif #findsource.recordcount# is not "1">
  <cfset new_status="Invalid" />
     <cfquery datasource="#dsn#" name="err" >
     insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid Source')

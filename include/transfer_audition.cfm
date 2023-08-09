@@ -24,48 +24,145 @@
 
 <cfparam name="ispin" default="0"/>
 
-
 <cfinclude template="/include/remote_load.cfm"/>
 
-<cfquery datasource="#dsn#" name="x">
+
+
+
+
+
+
+
+
+<cfquery datasource="#dsn#" name="y">
     Select *
     from auditionsimport
     where uploadid = #new_uploadid#
 </cfquery>
 
-<cfoutput>
-    x: #x.recordcount#
-    <br>
-</cfoutput>
+<cfloop query="y">
+
+<cfset new_status = "Valid" />
+
+
+
+    <cfquery datasource="#dsn#" name="find" maxrows="1">
+        select * from audprojects where projname = '#y.projname#' and userid = #session.userid# and isdeleted = 0
+    </cfquery>
+
+    <cfif #find.recordcount# is not "0">
+
+        <cfset new_status="Invalid" />
+
+      <cfquery datasource="#dsn#" name="err" >
+    insert into auditionsimport_error (id, error_msg) values (#y.id#,'Duplicate project')
+    </cfquery>
+
+    </cfif>
+
+
+<cfif #y.projname# is "">
+ <cfset new_status="Invalid" />
+    <cfquery datasource="#dsn#" name="err" >
+    insert into auditionsimport_error (id, error_msg) values (#y.id#,'Missing project name')
+    </cfquery>
+</cfif>
+
+
+<cfif #y.audrolename# is "">
+ <cfset new_status="Invalid" />
+    <cfquery datasource="#dsn#" name="err" >
+    insert into auditionsimport_error (id, error_msg) values (#y.id#,'Missing Role name')
+    </cfquery>
+</cfif>
+
+
+
+
+
+
+    <cfquery datasource="#dsn#" name="findcat" >
+        SELECT audcatid FROM audcategories WHERE audcatname = '#y.audcatname#'
+    </cfquery>
+
+<cfif #findcat.recordcount# is not "1">
+ <cfset new_status="Invalid" />
+    <cfquery datasource="#dsn#" name="err" >
+    insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid Category')
+    </cfquery>
+
+    <cfelse>
+
+    <cfquery datasource="#dsn#" name="findsub" >
+        SELECT * FROM audsubcategories WHERE audsubcatname = '#y.audsubcatname#' and audcatid = #findcat.audcatid#
+    </cfquery>
+
+<cfif #findsub.recordcount# is not "1">
+ <cfset new_status="Invalid" />
+    <cfquery datasource="#dsn#" name="err" >
+    insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid SubCategory')
+    </cfquery>
+
+
+</cfif>
+</cfif>
+
+
+
+    <cfquery datasource="#dsn#" name="findsource" >
+SELECT * FROM audsources WHERE isdeleted = 0 AND audsource = '#y.audsource#'
+</cfquery>
+
+
+<cfif #findsub.findsource# is not "1">
+ <cfset new_status="Invalid" />
+    <cfquery datasource="#dsn#" name="err" >
+    insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid Source')
+    </cfquery>
+
+
+</cfif>
+
+
+
+
+
+
+             <cfquery datasource="#dsn#" name="update">
+            UPDATE auditionsimport
+            SET status = '#new_status#' where id = #y.id#
+        </cfquery>
+
+        </cfloop>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<cfquery datasource="#dsn#" name="x">
+    Select *
+    from auditionsimport
+    where uploadid = #new_uploadid# and status = 'Valid'
+</cfquery>
+
 
 <cfloop query="x">
 
+
 <cfset cdfullname = x.cdfirstname & " " & x.cdlastname />
-    <cfquery datasource="#dsn#" name="find" maxrows="1">
-        select * from audprojects where projname = '#x.projname#' and userid = #session.userid# and isdeleted = 0
-    </cfquery>
-
-    <cfoutput>
-        find: #find.projname# (#find.recordcount#)
-        <br>
-    </cfoutput>
-    <cfif #find.recordcount# is "1">
-
-        <cfset new_status="Duplicate" />
-        <cfset new_audprojectid=find.audprojectid />
-
-        <cfoutput>
-            result:duplicate - audprojectid: #find.audprojectid#
-            <br>
-        </cfoutput>
-        <cfquery datasource="#dsn#" name="update">
-            UPDATE auditionsimport
-            SET status = '#new_status#' where id = #x.id#
-        </cfquery>
-
-        <cfoutput>  UPDATE auditionsimport
-            SET status = '#new_status#' where id = #x.id#<BR></cfoutput>
-        <cfelse>
 
             <cfquery datasource="#dsn#" name="findcd">
                 select * from contactdetails where contactfullname = '#cdfullname#'
@@ -129,11 +226,7 @@ AND CONCAT(c.audcatname,"-",s.audSubCatName) = '#x.audcatname#'
             </cfquery>
         
         
-<cfoutput>   SELECT s.audsubcatid
-FROM audcategories c INNER JOIN audsubcategories s ON s.audcatid = c.audcatid 
 
-WHERE c.isdeleted = 0 AND s.isdeleted = 0 
-AND CONCAT(c.audcatname,"-",s.audSubCatName) = '#x.audcatname#'  <BR></cfoutput>
             <cfif #find_subcat.recordcount# is "1">
 subcat found<BR>
                 <cfset new_audsubcatid=find_subcat.audsubcatid />
@@ -318,7 +411,7 @@ subcat found<BR>
 
             )
         </cfquery>
-    </cfif>
+
 
     <cfquery datasource="#dsn#" name="update_contact">
         Update auditionsimport

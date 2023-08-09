@@ -75,10 +75,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
     
     left join contactdetails c3 on c3.contactid = x.contactid
 
-  WHERE r.isdeleted IS FALSE AND p.isDeleted IS false
-
-
- AND p.userid =  <Cfqueryparam value="#userid#" cfsqltype="CF_SQL_INTEGER" />
+  WHERE  p.userid =  <Cfqueryparam value="#userid#" cfsqltype="CF_SQL_INTEGER" />
     
  
     

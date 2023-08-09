@@ -86,36 +86,16 @@
     </cfquery>
 
 
-<Cfif #isdefined('usingsub')#>
 <cfif #findcat.recordcount# is not "1">
  <cfset new_status="Invalid" />
     <cfquery datasource="#dsn#" name="err" >
     insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid Category')
     </cfquery>
 
-    <cfelse>
-
-    <cfquery datasource="#dsn#" name="findsub" >
-        SELECT * FROM audsubcategories WHERE audsubcatname = '#y.audsubcatname#' and audcatid = #findcat.audcatid#
-    </cfquery>
-
-<cfif #findsub.recordcount# is not "1">
- <cfset new_status="Invalid" />
-    <cfquery datasource="#dsn#" name="err" >
-    insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid SubCategory')
-    </cfquery>
 
 
 </cfif>
-</cfif>
 
-
-
-
-
-
-
-</cfif>
 
 
 
@@ -427,6 +407,5 @@ subcat found<BR>
         Update auditionsimport
         set status='#new_status#', audprojectid = #new_audprojectid# where id = #x.id#
     </cfquery>
-<cfoutput>    Update auditionsimport
-        set status='#new_status#', audprojectid = #new_audprojectid# where id = #x.id#<BR/></cfoutput>
+
 </cfloop>

@@ -180,7 +180,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
                                     <td>
                                     <Cfif #col6# is "invalid">
 
-                                    <A href="" title="#err_list#"><font color="red">Invalid</A>
+                                    <A href="" title="#err_list#"><font color="red">Invalid <i class="fe-search"></i></A>
                                     <Cfelse>
                                     #col6#
                                     </cfif>

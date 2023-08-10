@@ -232,7 +232,12 @@ subcat found<BR>
         </cfif>
  
 
-            
+       <cfset iscallback=0 />
+              <cfset isredirect=0 />
+                     <cfset ispin=0 />
+                            <cfset isbooked=0 />
+
+
             
            <cfset iscallback=0 />  
             <cfset isredirect=0 />  
@@ -422,9 +427,3 @@ subcat found<BR>
     </cfquery>
 
 </cfloop>
-    <cfquery datasource="#dsn#" name="fix">
-UPDATE audprojects p
-INNER JOIN auditionsimport i ON i.audprojectid = p.audprojectid
-SET p.projdate = i.projdate
-WHERE STR_TO_DATE(i.projdate, '%Y-%m-%d') IS NOT NULL;
-</cfquery>

@@ -10,7 +10,8 @@
 <cfquery datasource="#dsn#" name="del">
     UPDATE audprojects
     set projdate = NULL
-    where isdeleted <> 1 and userid = #userid#
+    where isdeleted <> 1 and userid = #userid# and audprojectid in 
+    (SELECT r.audprojectid FROM audroles r INNER JOIN events e ON e.audRoleID = r.audroleid)
 </cfquery>
 
 <cfquery datasource="#dsn#" name="x">
@@ -115,3 +116,10 @@
         <br>
     </cfoutput>
 </cfif>
+
+    <cfquery datasource="#dsn#" name="fix">
+UPDATE audprojects p
+INNER JOIN auditionsimport i ON i.audprojectid = p.audprojectid
+SET p.projdate = i.projdate
+WHERE STR_TO_DATE(i.projdate, '%Y-%m-%d') IS NOT NULL;
+</cfquery>

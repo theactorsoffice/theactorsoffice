@@ -185,4 +185,14 @@ columnnames="projDate,projName,audRoleName,audcatsubname,audsource,cdfirstname,c
 
 
 <cfinclude template="transfer_audition.cfm" />
+
+
+    <cfquery datasource="#dsn#" name="fix">
+UPDATE audprojects p
+INNER JOIN auditionsimport i ON i.audprojectid = p.audprojectid
+SET p.projdate = i.projdate
+WHERE STR_TO_DATE(i.projdate, '%Y-%m-%d') IS NOT NULL;
+</cfquery>
+
+
 <cflocation url="/app/auditions-import/?uploadid=#new_uploadid#">

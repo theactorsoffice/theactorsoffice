@@ -10,7 +10,8 @@
 <cfquery datasource="#dsn#" name="del">
     UPDATE audprojects
     set projdate = NULL
-    where isdeleted <> 1 and userid = #userid#
+    where isdeleted <> 1 and userid = #userid# and audprojectid in 
+    (SELECT r.audprojectid FROM audroles r INNER JOIN events e ON e.audRoleID = r.audroleid)
 </cfquery>
 
 <cfquery datasource="#dsn#" name="x">

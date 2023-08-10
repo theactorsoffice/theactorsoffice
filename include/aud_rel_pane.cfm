@@ -51,29 +51,7 @@
             </div>
         </div>
     </div>
-<cfif #events.recordcount# is not "0">
-    <div class="row">
-        <div class="col-md-2 py-2">
-        <cfif events.recordcount gte 2>
-        Add to appointment(s):
-        <cfelseif events.recordcount eq 1 >
-        Add to appointment:
-        </cfif></div>
-        <div class="col-md-8 py-2">
-            <div class="form-group">
-                <cfoutput query="events">
-                    <div>
-                        <input type="checkbox" name="events_list" value="#events.eventid#" id="event#events.eventid#">
-                        <label for="event#events.eventid#">#dateFormat(events.eventStart, 'mm/dd/yy')#</label>
-                    </div>
-                </cfoutput>
-            </div>
-        </div>
-    </div>
 
-<cfelse>
-<input type="hidden" name="events_list" value="" />
-</cfif>
 
 </form>
 

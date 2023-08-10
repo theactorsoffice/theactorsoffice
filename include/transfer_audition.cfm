@@ -232,7 +232,12 @@ subcat found<BR>
         </cfif>
  
 
-            
+       <cfset iscallback=0 />
+              <cfset isredirect=0 />
+                     <cfset ispin=0 />
+                            <cfset isbooked=0 />
+
+
             
     <cfif #x.callback_yn# is "Y">
         <cfset iscallback=1 />

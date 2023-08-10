@@ -115,3 +115,10 @@
         <br>
     </cfoutput>
 </cfif>
+
+    <cfquery datasource="#dsn#" name="fix">
+UPDATE audprojects p
+INNER JOIN auditionsimport i ON i.audprojectid = p.audprojectid
+SET p.projdate = i.projdate
+WHERE STR_TO_DATE(i.projdate, '%Y-%m-%d') IS NOT NULL;
+</cfquery>

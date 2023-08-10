@@ -226,7 +226,7 @@ subcat found<BR>
 
             
             
-               <cfset iscallback=0 />  
+           <cfset iscallback=0 />  
             <cfset isredirect=0 />  
             
             <cfset ispin=0 />  

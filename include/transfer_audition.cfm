@@ -226,13 +226,6 @@ subcat found<BR>
 
             
             
-            
-            
-            
-            
-            
-            
-            
     <cfif #x.callback_yn# is "Y">
         <cfset iscallback=1 />
     </cfif>

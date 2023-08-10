@@ -72,7 +72,7 @@
 
 <!--- read the spreadsheet data into a query object --->
 <cfspreadsheet action="read" query="importdata" src="#cUploadFolder#\#cffile.serverfile#" 
-columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
+columnnames="projDate,projName,audRoleName,audcatsubname,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projDescription,charDescription,note" 
                headerrow="1"/>
 
 <cffunction name="arraysAreEqual" returntype="boolean">
@@ -103,7 +103,7 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
 <cfset spreadsheetColumnsArray = ListToArray(spreadsheetColumns) />
 
 <!--- Define the correct columns for your application --->
-<cfset correctColumns = "projdate,projname,audrolename,audcatname,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projdescription,chardescription,note" />
+<cfset correctColumns = "projdate,projname,audrolename,audcatsubname,audsource,cdfirstname,cdlastname,callback_yn,redirect_yn,pin_yn,booked_yn,projdescription,chardescription,note" />
 
 <!--- Convert the correct column list to an array --->
 <cfset correctColumnsArray = ListToArray(correctColumns) />
@@ -119,13 +119,24 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
     <!--- check row contains valid data (all fields must contain a value and price must be numeric) 
     --->
     <cfif LEN(importdata.projName) gt 0>
+
+<!--- Check if the hyphen exists in the string --->
+<cfif find('-', audcatsubname)>
+  <cfset parts = listToArray(audcatsubname, '-')>
+  <cfset audcatname = parts[1]>
+  <cfset audsubcatname = parts[2]>
+<cfelse>
+  <!--- Handle the case where there's no hyphen --->
+  <cfset audcatname = "">
+  <cfset audsubcatname = "">
+</cfif>
     
         <cfquery datasource="#dsn#" name="find">
             INSERT INTO `auditionsimport` (`uploadid`
             <cfif #importdata.projDate# is not "">
                 , `projDate` 
             </cfif>
-            , `projName`, `audRoleName`, `audCatName`,  `audsource`,
+            , `projName`, `audRoleName`, `audCatName`,`audsubcatname`,  `audsource`,
             `cdfirstname`,`cdlastname`, `callback_yn`, `redirect_yn`, `pin_yn`, `booked_yn`,
             `projDescription`, `charDescription`, `note`)
             VALUES
@@ -143,7 +154,10 @@ columnnames="projDate,projName,audRoleName,audCatName,audsource,cdfirstname,cdla
             ,<cfqueryparam cfsqltype="cf_sql_varchar" maxlength="500" 
                       value="#TRIM(importdata.audRoleName)#"/>
             ,<cfqueryparam cfsqltype="cf_sql_varchar" maxlength="100" 
-                      value="#TRIM(importdata.audCatName)#"/>
+                      value="#TRIM(audCatName)#"/>
+
+              ,<cfqueryparam cfsqltype="cf_sql_varchar" maxlength="100" 
+                      value="#TRIM(audSubCatName)#"/>
             
             ,<cfqueryparam cfsqltype="cf_sql_varchar" maxlength="100" 
                       value="#TRIM(importdata.audsource)#"/>

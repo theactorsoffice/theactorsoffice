@@ -85,27 +85,17 @@
         SELECT audcatid FROM audcategories WHERE audcatname = '#y.audcatname#'
     </cfquery>
 
+
 <cfif #findcat.recordcount# is not "1">
  <cfset new_status="Invalid" />
     <cfquery datasource="#dsn#" name="err" >
     insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid Category')
     </cfquery>
 
-    <cfelse>
-
-    <cfquery datasource="#dsn#" name="findsub" >
-        SELECT * FROM audsubcategories WHERE audsubcatname = '#y.audsubcatname#' and audcatid = #findcat.audcatid#
-    </cfquery>
-
-<cfif #findsub.recordcount# is not "1">
- <cfset new_status="Invalid" />
-    <cfquery datasource="#dsn#" name="err" >
-    insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid SubCategory')
-    </cfquery>
 
 
 </cfif>
-</cfif>
+
 
 
 
@@ -114,7 +104,7 @@ SELECT * FROM audsources WHERE isdeleted = 0 AND audsource = '#y.audsource#'
 </cfquery>
 
 
-<cfif #findsub.findsource# is not "1">
+<cfif #findsource.recordcount# is not "1">
  <cfset new_status="Invalid" />
     <cfquery datasource="#dsn#" name="err" >
     insert into auditionsimport_error (id, error_msg) values (#y.id#,'Invalid Source')
@@ -208,7 +198,7 @@ SELECT * FROM audsources WHERE isdeleted = 0 AND audsource = '#y.audsource#'
             <cfset select_userid=session.userid />
             <cfset select_contactid=new_contactid />
             <cfinclude template="/include/scripts/folder_setup.cfm" />
-    </cfif>
+
 
     <cfset new_projName=trim(x.projname) />
 
@@ -412,11 +402,11 @@ subcat found<BR>
             )
         </cfquery>
 
+</cfif>
 
     <cfquery datasource="#dsn#" name="update_contact">
         Update auditionsimport
         set status='#new_status#', audprojectid = #new_audprojectid# where id = #x.id#
     </cfquery>
-<cfoutput>    Update auditionsimport
-        set status='#new_status#', audprojectid = #new_audprojectid# where id = #x.id#<BR/></cfoutput>
+
 </cfloop>

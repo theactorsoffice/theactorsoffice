@@ -152,11 +152,6 @@ SELECT * FROM audsources WHERE isdeleted = 0 AND audsource = '#y.audsource#'
 <cfloop query="x">
 <cfset new_projdate = dateformat(x.projdate,'MM/DD/YYYY') />
 
-<cfoutput>
-new_projdate: #new_projdate#
-</cfoutput>
-
-<Cfabort>
 <cfif IsDate(new_projdate)>
     <cfset new_projdate = x.projdate>
 <cfelse>
@@ -420,3 +415,9 @@ subcat found<BR>
     </cfquery>
 
 </cfloop>
+    <cfquery datasource="#dsn#" name="fix">
+UPDATE audprojects p
+INNER JOIN auditionsimport i ON i.audprojectid = p.audprojectid
+SET p.projdate = i.projdate
+WHERE STR_TO_DATE(i.projdate, '%Y-%m-%d') IS NOT NULL;
+</cfquery>

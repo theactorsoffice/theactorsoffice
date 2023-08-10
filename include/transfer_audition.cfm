@@ -151,6 +151,13 @@ SELECT * FROM audsources WHERE isdeleted = 0 AND audsource = '#y.audsource#'
 
 <cfloop query="x">
 
+<cfif IsDate(x.projdate)>
+    <cfset new_projdate = x.projdate>
+<cfelse>
+    <cfset new_projdate = Now()>
+</cfif>
+
+
 
 <cfset cdfullname = x.cdfirstname & " " & x.cdlastname />
 
@@ -285,7 +292,8 @@ subcat found<BR>
         audSubCatID,
         isDeleted,
         IsDirect,
-        contactid
+        contactid,
+        projdate
         )
         VALUES
 
@@ -303,6 +311,9 @@ subcat found<BR>
         <cfqueryparam cfsqltype="CF_SQL_BIT" value="#isdirect#" null="#NOT len(trim(isdirect))#" />
         ,
         <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_contactid#" null="#NOT len(trim(new_contactid))#" />
+
+                ,
+        <cfqueryparam cfsqltype="CF_SQL_DATE" value="#new_projdate#"/>
         )
     </cfquery>
 

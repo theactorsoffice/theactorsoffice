@@ -153,8 +153,10 @@ SELECT * FROM audsources WHERE isdeleted = 0 AND audsource = '#y.audsource#'
 <cfset new_projdate = dateformat(x.projdate,'MM/DD/YYYY') />
 
 <cfoutput>
-new_projdate: #new_projdate#<Cfabort>
+new_projdate: #new_projdate#
 </cfoutput>
+
+<Cfabort>
 <cfif IsDate(new_projdate)>
     <cfset new_projdate = x.projdate>
 <cfelse>

@@ -51,8 +51,8 @@
             </div>
         </div>
     </div>
-<cfif events.recordcount gt 0>
-<cfset events_list = valuelist(events.eventid) />
+<cfif events_nobooking.recordcount gt 0>
+<cfset events_list = valuelist(events_nobooking.eventid) />
 <cfelse>
 <cfset events_list = 0 />
 </cfif>

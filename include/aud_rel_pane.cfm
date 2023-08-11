@@ -57,7 +57,7 @@
 <cfset events_list_nobooking = 0 />
 </cfif>
 <cfoutput>
-<input type="hidden" name="events_list" value="#events_list#" />
+<input type="hidden" name="events_list_nobooking" value="#events_list_nobooking#" />
 </cfoutput>
 
 </form>

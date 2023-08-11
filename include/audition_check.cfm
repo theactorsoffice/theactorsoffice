@@ -106,5 +106,5 @@ FROM eventcontactsxref x
 INNER JOIN events e ON x.eventid = e.eventid
 INNER JOIN audroles r ON r.audRoleID = e.audroleid
 LEFT JOIN audcontacts_auditions_xref ax ON x.contactid = ax.contactid AND r.audprojectid = ax.audprojectid
-WHERE ax.contactid IS NULL AND x.contactid > 0 
+WHERE ax.contactid IS NULL AND x.contactid > 0 AND e.audstepid <> 5
 </cfquery>

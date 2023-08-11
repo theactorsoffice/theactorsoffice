@@ -308,7 +308,7 @@ SET `audprojectid` = #audprojectid#,
               inner join events a on a.audroleid = r.audroleid
  
 inner join events e on e.eventid = a.eventid
-        where p.audprojectid = #audprojectid# AND a.isDeleted = 0 AND r.isdeleted = 0 AND p.isdeleted = 0
+        where p.audprojectid = #audprojectid# AND a.isDeleted = 0 AND r.isdeleted = 0 AND p.isdeleted = 0 and e.audstepid <> 5
         </cfquery>
         
         <cfloop query="x">

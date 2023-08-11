@@ -355,9 +355,9 @@ Select * from eventcontactsxref where  eventid = #x.eventid# and contactid = #ne
      <cfif #findnumber.recordcount# is "0">
 
       <cfquery datasource="#dsn#" name="inserts">
-        Insert IGNORE into  eventcontactsxref (eventid,contactid) values (
+        Insert IGNORE into  eventcontactsxref (eventid,contactid,isdeleted) values (
         <cfqueryparam cfsqltype="cf_sql_integer" value="#eventNumber#" />,
-        <cfqueryparam cfsqltype="cf_sql_integer" value="#new_contactid#" />)
+        <cfqueryparam cfsqltype="cf_sql_integer" value="#new_contactid#" />,1)
     </cfquery>
 
     </cfif>

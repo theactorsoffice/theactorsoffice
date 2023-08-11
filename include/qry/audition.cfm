@@ -341,9 +341,9 @@ Select * from eventcontactsxref where  eventid = #x.eventid# and contactid = #ne
     
    </cfloop>
 
-<cfif #events_list# is not "">
+<cfif #events_list_nobooking# is not "">
 
-<cfset EventNumbers = listToArray(events_list, ",")>
+<cfset EventNumbers = listToArray(events_list_nobooking, ",")>
 
 <cfloop array="#EventNumbers#" index="eventNumber">
 

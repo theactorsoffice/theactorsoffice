@@ -340,7 +340,7 @@ Select * from eventcontactsxref where  eventid = #x.eventid# and contactid = #ne
     </cfif>
     
    </cfloop>
-
+<Cfparam name="EVENTS_LIST_NOBOOKING" default="" />
 <cfif #events_list_nobooking# is not "">
 
 <cfset EventNumbers = listToArray(events_list_nobooking, ",")>

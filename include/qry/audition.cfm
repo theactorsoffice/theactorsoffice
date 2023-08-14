@@ -128,6 +128,45 @@ where `audprojectid` = #audprojectid#
     ORDER BY a.eventStart
 </cfquery>
 
+
+<cfquery name="events_nobooking" datasource="#dsn#">
+    SELECT
+    e.eventid,
+    a.eventid AS eventid
+    ,'Date' AS head1
+
+    ,'Project' AS head2
+    ,'Source' as head3
+    ,'Type' as head4
+    ,'Role' AS head5
+    ,a.audstepid
+    ,a.eventStartTime
+    ,a.eventStart
+    ,p.projname AS col2
+    ,s.audsource AS col3
+    ,t.audtype
+    ,a.audlocation
+    ,rt.audroletype AS col5
+    ,st.audstep
+    ,a.workwithcoach
+    FROM events a
+
+    LEFT JOIN audroles r ON r.audroleid = a.audroleid
+
+    LEFT JOIN audprojects p ON p.audprojectID = r.audprojectID
+    LEFT JOIN audsources s ON s.audSourceID = r.audSourceID
+    LEFT JOIN audtypes t ON t.audtypeid = a.audtypeid
+    LEFT JOIN audsteps st ON st.audstepid = a.audstepid
+    LEFT JOIN audroletypes rt ON rt.audroletypeid = r.audroletypeid
+    LEFT join events e on e.eventid = a.eventid
+    WHERE a.isdeleted = 0 and p.isdeleted = 0 and r.isdeleted = 0 and a.isdeleted = 0
+    AND r.audroleid = #audroleid#
+and a.audstepid <> 5
+    ORDER BY a.eventStart
+</cfquery>
+
+
+
 <cfquery name="finda" datasource="#dsn#" maxrows="1">
     SELECT
     a.eventid AS eventid
@@ -269,7 +308,7 @@ SET `audprojectid` = #audprojectid#,
               inner join events a on a.audroleid = r.audroleid
  
 inner join events e on e.eventid = a.eventid
-        where p.audprojectid = #audprojectid# AND a.isDeleted = 0 AND r.isdeleted = 0 AND p.isdeleted = 0
+        where p.audprojectid = #audprojectid# AND a.isDeleted = 0 AND r.isdeleted = 0 AND p.isdeleted = 0 and e.audstepid <> 5
         </cfquery>
         
         <cfloop query="x">
@@ -301,10 +340,10 @@ Select * from eventcontactsxref where  eventid = #x.eventid# and contactid = #ne
     </cfif>
     
    </cfloop>
+<Cfparam name="EVENTS_LIST_NOBOOKING" default="" />
+<cfif #events_list_nobooking# is not "">
 
-<cfif #events_list# is not "">
-
-<cfset EventNumbers = listToArray(events_list, ",")>
+<cfset EventNumbers = listToArray(events_list_nobooking, ",")>
 
 <cfloop array="#EventNumbers#" index="eventNumber">
 
@@ -315,12 +354,18 @@ Select * from eventcontactsxref where  eventid = #x.eventid# and contactid = #ne
 
      <cfif #findnumber.recordcount# is "0">
 
+      <cfquery datasource="#dsn#" name="find2">
+      Select * from events where eventid =    <cfqueryparam cfsqltype="cf_sql_integer" value="#eventNumber#" />
+      and audstepid <> 5
+     </cfquery>
+
+<cfif #find2.recordcount# is not "0">
       <cfquery datasource="#dsn#" name="inserts">
         Insert IGNORE into  eventcontactsxref (eventid,contactid) values (
         <cfqueryparam cfsqltype="cf_sql_integer" value="#eventNumber#" />,
         <cfqueryparam cfsqltype="cf_sql_integer" value="#new_contactid#" />)
     </cfquery>
-
+</cfif>
     </cfif>
  
 </cfloop>

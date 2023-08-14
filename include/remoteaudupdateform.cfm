@@ -311,6 +311,8 @@
 
 
 
+
+
     <cfquery name="aud_det" datasource="#dsn#">
         SELECT ad.eventid,a4.`audroleid`, a.`projName`, a.`projDescription`, ad.`eventStartTime`, ad.`eventStopTime`, ad.`eventStart`, a1.`network`, a2.`audSubCatName`, a2.`audSubCatName`,
         a3.`unionName`,a2.audsubcatid,ad.audlocid,
@@ -1058,7 +1060,7 @@
 
            <div class="form-group col-md-12">
 
-               <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light" id="btn-save-event">Update</button>
+               <button type="submit" class="btn btn-primary btn-sm waves-effect waves-light" id="btn-save-event">Add</button>
 
            </div>
 

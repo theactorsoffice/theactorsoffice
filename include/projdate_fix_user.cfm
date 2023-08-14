@@ -137,9 +137,14 @@ WHERE p.isdeleted = 0
 AND c.IsDeleted = 0
 AND e.isdeleted = 0
 AND r.isdeleted = 0
+and e.audstepid <> 5
 AND ecx.eventid IS NULL;
 </cfquery>
 
  <cfquery name="remove" datasource="#dsn#" >
 delete FROM eventcontactsxref WHERE eventid NOT IN (SELECT eventid FROM events);
+</cfquery>
+
+ <cfquery name="remove2" datasource="#dsn#" >
+delete FROM eventcontactsxref WHERE eventid  IN (SELECT eventid FROM events WHERE audstepid = 5);
 </cfquery>

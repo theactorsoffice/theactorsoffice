@@ -123,3 +123,23 @@ INNER JOIN auditionsimport i ON i.audprojectid = p.audprojectid
 SET p.projdate = i.projdate
 WHERE STR_TO_DATE(i.projdate, '%Y-%m-%d') IS NOT NULL;
 </cfquery>
+
+ <cfquery name="correct" datasource="#dsn#" >
+    INSERT INTO eventcontactsxref (eventid,contactid)
+SELECT distinct e.eventid, c.contactid
+FROM audprojects p
+INNER JOIN audcontacts_auditions_xref ax ON ax.audprojectid = p.audprojectid
+INNER JOIN contactdetails c ON c.contactid = ax.contactid
+INNER JOIN audroles r ON r.audprojectID = p.audprojectid
+INNER JOIN events e ON e.audRoleID = r.audroleid
+LEFT JOIN eventcontactsxref ecx ON ecx.eventid = e.eventid AND ecx.contactid = c.contactid
+WHERE p.isdeleted = 0
+AND c.IsDeleted = 0
+AND e.isdeleted = 0
+AND r.isdeleted = 0
+AND ecx.eventid IS NULL;
+</cfquery>
+
+ <cfquery name="remove" datasource="#dsn#" >
+delete FROM eventcontactsxref WHERE eventid NOT IN (SELECT eventid FROM events);
+</cfquery>

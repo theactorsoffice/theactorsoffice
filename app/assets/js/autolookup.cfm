@@ -12,7 +12,7 @@
     <cfquery datasource="#dsn#" name="jsons_aud">
     SELECT  distinct 
 c.recordname AS col1
-FROM contactdetails 
+FROM contactdetails c
 WHERE c.userid = #userid# and c.recordname not like '%#chr(34)#%'
 ORDER BY c.recordname
     </cfquery>   

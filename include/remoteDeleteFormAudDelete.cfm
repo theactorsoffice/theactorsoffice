@@ -7,7 +7,9 @@ update events set isdeleted = 1 where eventid = #eventid#
 update events_tbl set isdeleted = 1 where eventid = #eventid#
 </cfquery>
     
-
+ <cfquery name="remove" datasource="#dsn#" >
+delete FROM eventcontactsxref WHERE eventid NOT IN (SELECT eventid FROM events);
+</cfquery>
 
       <cflocation url="/app/audition/?audprojectid=#audprojectid#" />
     

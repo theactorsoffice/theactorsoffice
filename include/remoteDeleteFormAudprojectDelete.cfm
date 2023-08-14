@@ -67,36 +67,16 @@ WHERE r.audroleid = #audroleid#
 </cfquery>
 
 <cfquery name="events" datasource="#dsn#">
-    SELECT
-    a.eventid
-    FROM events a
-
-    LEFT JOIN audroles r ON r.audroleid = a.audroleid
-
-    LEFT JOIN audprojects p ON p.audprojectID = r.audprojectID
-    LEFT JOIN audsources s ON s.audSourceID = r.audSourceID
-    LEFT JOIN audtypes t ON t.audtypeid = a.audtypeid
-    LEFT JOIN audsteps st ON st.audstepid = a.audstepid
-    LEFT JOIN audroletypes rt ON rt.audroletypeid = r.audroletypeid
-    WHERE a.isdeleted = 0 and p.isdeleted = 0
-    AND r.audroleid = #audroleid#
-    and a.eventStart is not null
-    ORDER BY a.eventStart
+    SELECT eventid from events where audroleid = #audroleid#
 </cfquery>
  
 <cfloop query = "events">
     
     <cfset new_eventid = events.eventid />
 <cfquery name="del" datasource="#dsn#" >  
-update events set isdeleted = 1 where eventid = #new_eventid#
-</cfquery>
-    
-    <cfquery name="del2" datasource="#dsn#" >  
 update events_tbl set isdeleted = 1 where eventid = #new_eventid#
 </cfquery>
     
-    
-
 </cfloop>
 
 <cfquery name="del2" datasource="#dsn#" >  
@@ -106,6 +86,15 @@ update audprojects set isdeleted = 1 where audprojectid = #audprojectid#
 
 <cfquery name="del3" datasource="#dsn#" >  
 update audroles set isdeleted = 1 where audroleid = #audroleid#
+</cfquery>
+
+<cfquery name="del4" datasource="#dsn#" >  
+delete FROM audcontacts_auditions_xref where audprojectid = #audprojectid#
+</cfquery>
+
+
+ <cfquery name="remove" datasource="#dsn#" >
+delete FROM eventcontactsxref WHERE eventid NOT IN (SELECT eventid FROM events);
 </cfquery>
 
 

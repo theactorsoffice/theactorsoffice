@@ -14,7 +14,7 @@
 c.recordname AS col1
 FROM contactitems ci
 INNER JOIN contactdetails c ON c.contactid = ci.contactid
-WHERE c.userid = #userid# c.recordname not like '%#chr(34)#%'
+WHERE c.userid = #userid# and c.recordname not like '%#chr(34)#%'
 ORDER BY c.recordname
     </cfquery>   
     

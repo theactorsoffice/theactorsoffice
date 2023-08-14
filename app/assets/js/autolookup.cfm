@@ -12,11 +12,8 @@
     <cfquery datasource="#dsn#" name="jsons_aud">
     SELECT  distinct 
 c.recordname AS col1
-FROM contactitems ci
-INNER JOIN contactdetails c ON c.contactid = ci.contactid
-INNER JOIN tags_user ti ON ti.tagname = ci.valuetext
-WHERE ci.valuecategory = 'Tag' AND ti.userid = #session.userid# 
-and c.userid = ti.userid AND ti.IsCasting <> 3 and  c.recordname not like '%#chr(34)#%'
+FROM contactdetails c
+WHERE c.userid = #userid# and c.recordname not like '%#chr(34)#%'
 ORDER BY c.recordname
     </cfquery>   
     

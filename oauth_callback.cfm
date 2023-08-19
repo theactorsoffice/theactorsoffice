@@ -6,7 +6,7 @@
 <!--- Set up the parameters for the token request --->
 <cfset clientId = "764716537559-ncfiag8dl4p05v7c9kcoltss0ou3heki.apps.googleusercontent.com">
 <cfset clientSecret = "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"> <!--- Replace with your client secret --->
-<cfset redirectUri = "https://app.theactorsoffice.com/oauth_callback.cfm">
+<cfset redirectUri = "https://dev.theactorsoffice.com/oauth_callback.cfm">
 <cfset tokenUrl = "https://www.googleapis.com/oauth2/v4/token">
 
 <!--- Construct the POST data for the token request --->

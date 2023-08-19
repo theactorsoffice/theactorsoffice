@@ -118,7 +118,8 @@
     ,left(u.passwordhash,10) as U
      ,u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip
     ,isauditionmodule
-    
+    ,u.access_token
+    ,u.refresh_token
     FROM taousers u
     LEFT join timezones t on t.tzid = u.tzid
     WHERE u.userid = #userid#
@@ -195,6 +196,8 @@
         ,u.countryid
         ,left(u.passwordhash,10) as U
         ,u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip
+          ,u.access_token
+    ,u.refresh_token
     ,isauditionmodule
         FROM taousers u
         LEFT join timezones t on t.tzid = u.tzid
@@ -242,7 +245,8 @@
             ,left(u.passwordhash,10) as U
             ,u.viewtypeid, u.add1, u.add2, u.city, u.regionid, u.zip,c.countryid
             
-            
+              ,u.access_token
+    ,u.refresh_token
             
             
     ,isauditionmodule
@@ -573,8 +577,9 @@ and l.linktype <> 'css'
          <cfset userregionid=FindUser.regionid />
          <cfset userzip=FindUser.zip />
          <cfset userviewtypeid=FindUser.viewtypeid />
-        
 
+  <cfset refresh_token=FindUser.refresh_token />
+    <cfset access_token=FindUser.access_token />
     <cfset userContactid=FindUser.userContactID />
     <cfset userCalStarttime=FindUser.calstarttime />
     <cfset userCalendtime=FindUser.calendtime />

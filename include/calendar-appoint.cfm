@@ -112,3 +112,14 @@
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />
 
 <cfinclude template="/include/bigbrotherinclude.cfm" />
+
+<cfif #refresh_token# is "">
+<cfset clientId = "TAO">
+<cfset redirectUri = "https://app.theactorsoffice.com/oauth_callback.cfm">
+<cfset scope = "https://www.googleapis.com/auth/calendar">
+
+<cfset authUrl = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=#clientId#&redirect_uri=#redirectUri#&scope=#scope#">
+
+<cflocation url="#authUrl#" addtoken="no">
+
+</cfif>

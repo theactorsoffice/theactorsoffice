@@ -30,6 +30,6 @@
         refresh_token = <cfqueryparam value="#refreshToken#" cfsqltype="CF_SQL_VARCHAR">
     WHERE userid = <cfqueryparam value="30" cfsqltype="CF_SQL_INTEGER"> <!--- Replace with the current user's ID --->
 </cfquery>
-<cfdump var="#tokenResponse.FileContent#">
+
 <!--- Redirect the user to a success page or continue with your application's flow --->
 <cflocation url="/app/contacts/" addtoken="no">

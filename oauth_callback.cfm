@@ -1,11 +1,11 @@
- <CFINCLUDE template="/include/remote_load.cfm" />
+ 
 
 <!--- Get the authorization code from the query parameters --->
 <cfset authorizationCode = URL.code>
 
 <!--- Set up the parameters for the token request --->
-<cfset clientId = "TAO">
-<cfset clientSecret = "764716537559-ncfiag8dl4p05v7c9kcoltss0ou3heki.apps.googleusercontent.com"> <!--- Replace with your client secret --->
+<cfset clientId = "764716537559-ncfiag8dl4p05v7c9kcoltss0ou3heki.apps.googleusercontent.com">
+<cfset clientSecret = "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"> <!--- Replace with your client secret --->
 <cfset redirectUri = "https://app.theactorsoffice.com/oauth_callback.cfm">
 <cfset tokenUrl = "https://www.googleapis.com/oauth2/v4/token">
 
@@ -24,12 +24,12 @@
 <cfset refreshToken = tokenData.refresh_token>
 
 <!--- Save the access token and refresh token in the database for the current user --->
-<cfquery name="updateUserToken" datasource="#dsn#">
+<cfquery name="updateUserToken" datasource="abo">
     UPDATE taousers
     SET access_token = <cfqueryparam value="#accessToken#" cfsqltype="CF_SQL_VARCHAR">,
         refresh_token = <cfqueryparam value="#refreshToken#" cfsqltype="CF_SQL_VARCHAR">
-    WHERE userid = <cfqueryparam value="#session.userid#" cfsqltype="CF_SQL_INTEGER"> <!--- Replace with the current user's ID --->
+    WHERE userid = <cfqueryparam value="30" cfsqltype="CF_SQL_INTEGER"> <!--- Replace with the current user's ID --->
 </cfquery>
-
+<cfdump var="#tokenResponse.FileContent#">
 <!--- Redirect the user to a success page or continue with your application's flow --->
 <cflocation url="/app/contacts/" addtoken="no">

@@ -42,4 +42,4 @@
     </cfquery>
 </cfif>
 <!--- Redirect the user to a success page or continue with your application's flow --->
-<cflocation url="/app/contacts/" addtoken="no">
+<cflocation url="/app/calendar-appoint/" addtoken="no">

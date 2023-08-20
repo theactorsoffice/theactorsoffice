@@ -33,9 +33,28 @@
         </cfif>
     </div>
     <div>
+
+
+<cfif #access_token# is "">
+<cfset clientId = "764716537559-ncfiag8dl4p05v7c9kcoltss0ou3heki.apps.googleusercontent.com">
+<cfset redirectUri = "https://dev.theactorsoffice.com/include/oauth_callback.cfm">
+<cfset scope = "https://www.googleapis.com/auth/calendar">
+
+<cfset authUrl = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=#clientId#&redirect_uri=#redirectUri#&scope=#scope#&access_type=offline">
+
+  <A href="#authUrl#"> <button class="btn btn-xs btn-primary" type="button" >
+            <i class="mdi mdi-link"></i>
+            Link Google
+        </button></a>
+
+</cfif>
+
+
+
+
    <button class="btn btn-xs btn-primary" type="button" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#subscription" toggle="tooltip" data-bs-placement="top" title="View Link" data-bs-original-title="View Link">
             <i class="mdi mdi-link"></i>
-            Link
+            Subscribe
         </button>
 
         <button class="btn btn-xs btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">

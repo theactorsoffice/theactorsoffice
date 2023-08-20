@@ -1,4 +1,4 @@
-<cfquery datasource="#dsn#" name="FindUser">
+<cfquery datasource="abo" name="FindUser">
     SELECT
     u.userid
     ,u.recordname

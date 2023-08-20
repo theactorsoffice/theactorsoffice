@@ -16,19 +16,24 @@
     <cfhttpparam type="body" value="#postData#">
 </cfhttp>
 
-<!--- Parse the JSON response to get the access token and refresh token --->
-<cfset tokenData = DeserializeJSON(tokenResponse.FileContent)>
-<cfset accessToken = tokenData.access_token>
-<cfset refreshToken = tokenData.refresh_token>
+<!--- Check if refresh_token is available --->
+<cfif StructKeyExists(tokenData, "refresh_token")>
+    <cfset refreshToken = tokenData.refresh_token>
 
-<!--- Save the access token and refresh token in the database for the current user --->
-<CFINCLUDE template="/include/remote_load.cfm" />
-<cfquery name="updateUserToken"datasource="#dsn#">  
-    UPDATE taousers
-    SET access_token = <cfqueryparam value="#accessToken#" cfsqltype="CF_SQL_VARCHAR">,
-        refresh_token = <cfqueryparam value="#refreshToken#" cfsqltype="CF_SQL_VARCHAR">
-    WHERE userid = <cfqueryparam value="#session.userid#" cfsqltype="CF_SQL_INTEGER"> <!--- Replace with the current user's ID --->
-</cfquery>
-
+    <!--- Update both access_token and refresh_token --->
+    <cfquery name="updateUserToken" datasource="#dsn#">
+        UPDATE taousers
+        SET access_token = <cfqueryparam value="#accessToken#" cfsqltype="CF_SQL_VARCHAR">,
+            refresh_token = <cfqueryparam value="#refreshToken#" cfsqltype="CF_SQL_VARCHAR">
+        WHERE userid = <cfqueryparam value="#session.userid#" cfsqltype="CF_SQL_INTEGER">
+    </cfquery>
+<cfelse>
+    <!--- Update only access_token --->
+    <cfquery name="updateUserToken" datasource="#dsn#">
+        UPDATE taousers
+        SET access_token = <cfqueryparam value="#accessToken#" cfsqltype="CF_SQL_VARCHAR">
+        WHERE userid = <cfqueryparam value="#session.userid#" cfsqltype="CF_SQL_INTEGER">
+    </cfquery>
+</cfif>
 <!--- Redirect the user to a success page or continue with your application's flow --->
 <cflocation url="/app/contacts/" addtoken="no">

@@ -21,19 +21,20 @@
 <!--- Check if refresh_token is available --->
 <cfif StructKeyExists(tokenData, "refresh_token")>
     <cfset refreshToken = tokenData.refresh_token>
-
+  <cfset accessToken = tokenData.access_token>
     <!--- Update both access_token and refresh_token --->
     <cfquery name="updateUserToken" datasource="#dsn#">
         UPDATE taousers
-        SET access_token = <cfqueryparam value="#tokenData.accessToken#" cfsqltype="CF_SQL_VARCHAR">,
-            refresh_token = <cfqueryparam value="#tokenData.refreshToken#" cfsqltype="CF_SQL_VARCHAR">
+        SET access_token = <cfqueryparam value="#accesstoken#" cfsqltype="CF_SQL_VARCHAR">,
+            refresh_token = <cfqueryparam value="#refreshToken#" cfsqltype="CF_SQL_VARCHAR">
         WHERE userid = <cfqueryparam value="#session.userid#" cfsqltype="CF_SQL_INTEGER">
     </cfquery>
 <cfelse>
+  <cfset accessToken = tokenData.access_token>
     <!--- Update only access_token --->
     <cfquery name="updateUserToken" datasource="#dsn#">
         UPDATE taousers
-        SET access_token = <cfqueryparam value="#tokenData.accessToken#" cfsqltype="CF_SQL_VARCHAR">
+        SET access_token = <cfqueryparam value="#accessToken#" cfsqltype="CF_SQL_VARCHAR">
         WHERE userid = <cfqueryparam value="#session.userid#" cfsqltype="CF_SQL_INTEGER">
     </cfquery>
 </cfif>

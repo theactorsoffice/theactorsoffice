@@ -6,7 +6,6 @@
     secretkey="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" 
     redirecturi="https://dev.theactorsoffice.com/include/google_auth.cfm" 
     result="authResult" 
-    access_type="offline"
     scope="https://www.googleapis.com/auth/calendar">
 </cfoauth>
 
@@ -15,8 +14,8 @@
 
 <cfquery name="updateUserToken"  datasource="#dsn#" >
     UPDATE taousers
-    SET access_token = <cfqueryparam value="#authResult.access_token#" cfsqltype="CF_SQL_VARCHAR">,
-        refresh_token = <cfqueryparam value="#authResult.refresh_token#" cfsqltype="CF_SQL_VARCHAR">
+    SET access_token = <cfqueryparam value="#authResult.access_token#" cfsqltype="CF_SQL_VARCHAR">
+        
     WHERE userid = <cfqueryparam value="#session.userid#" cfsqltype="CF_SQL_INTEGER">
 </cfquery>
 

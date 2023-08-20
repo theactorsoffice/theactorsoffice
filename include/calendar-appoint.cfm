@@ -118,7 +118,7 @@
 <cfset redirectUri = "https://dev.theactorsoffice.com/include/oauth_callback.cfm">
 <cfset scope = "https://www.googleapis.com/auth/calendar">
 
-<cfset authUrl = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=#clientId#&redirect_uri=#redirectUri#&scope=#scope#">
+<cfset authUrl = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=#clientId#&redirect_uri=#redirectUri#&scope=#scope#&access_type=offline">
 
 <cflocation url="#authUrl#" addtoken="no">
 

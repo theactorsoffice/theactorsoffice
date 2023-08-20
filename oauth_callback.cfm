@@ -1,5 +1,5 @@
  
-
+ <cfparam name="url.code" default="x" />
 <!--- Get the authorization code from the query parameters --->
 <cfset authorizationCode = URL.code>
 
@@ -17,7 +17,7 @@
     <cfhttpparam type="header" name="Content-Type" value="application/x-www-form-urlencoded">
     <cfhttpparam type="body" value="#postData#">
 </cfhttp>
-<cfdump var="#tokenResponse.FileContent#"><Cfabort>
+
 <!--- Parse the JSON response to get the access token and refresh token --->
 <cfset tokenData = DeserializeJSON(tokenResponse.FileContent)>
 <cfset accessToken = tokenData.access_token>

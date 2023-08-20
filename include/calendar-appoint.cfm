@@ -115,8 +115,7 @@
 
 <cfif #refresh_token# is "">
 <cfset clientId = "764716537559-ncfiag8dl4p05v7c9kcoltss0ou3heki.apps.googleusercontent.com">
-<cfset redirectUri = "https://dev.theactorsoffice.com/include/
-oauth_callback.cfm">
+<cfset redirectUri = "https://dev.theactorsoffice.com/include/oauth_callback.cfm">
 <cfset scope = "https://www.googleapis.com/auth/calendar">
 
 <cfset authUrl = "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=#clientId#&redirect_uri=#redirectUri#&scope=#scope#">

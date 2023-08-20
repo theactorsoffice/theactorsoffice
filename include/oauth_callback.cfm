@@ -15,7 +15,7 @@
     <cfhttpparam type="header" name="Content-Type" value="application/x-www-form-urlencoded">
     <cfhttpparam type="body" value="#postData#">
 </cfhttp>
-<cfdump var="#tokenResponse#" /><cfaborT>
+
 <!--- Parse the JSON response to get the access token and refresh token --->
 <cfset tokenData = DeserializeJSON(tokenResponse.FileContent)>
 <cfset accessToken = tokenData.access_token>

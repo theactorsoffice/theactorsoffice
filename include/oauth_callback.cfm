@@ -11,10 +11,13 @@
 <cfset postData = "code=#authorizationCode#&client_id=#clientId#&client_secret=#clientSecret#&redirect_uri=#redirectUri#&grant_type=authorization_code">
 
 <!--- Make the POST request to exchange the authorization code for an access token --->
-<cfhttp url="#tokenUrl#" method="post" result="tokenData">
+<cfhttp url="#tokenUrl#" method="post" result="tokenResponse">
     <cfhttpparam type="header" name="Content-Type" value="application/x-www-form-urlencoded">
     <cfhttpparam type="body" value="#postData#">
 </cfhttp>
+
+<!--- Deserialize the JSON response to get the token data --->
+<cfset tokenData = DeserializeJSON(tokenResponse.FileContent)>
 
 <CFINCLUDE template="/include/remote_load.cfm" />
 

@@ -36,7 +36,8 @@
 <cfhttp url="#apiUrl#" method="get" result="calendarResponse">
     <cfhttpparam type="header" name="Authorization" value="Bearer #accessToken#">
 </cfhttp>
-
+<cfdump var="#calendarResponse#">
 <cfset events = DeserializeJSON(calendarResponse.FileContent)>
-
+<cfoutput>
 <cfdump var="#events#">
+</cfoutput>

@@ -1,4 +1,4 @@
-<cfquery datasource="abo" name="FindUser">
+<cfquery datasource="abod" name="FindUser">
     SELECT
     u.userid
     ,u.recordname

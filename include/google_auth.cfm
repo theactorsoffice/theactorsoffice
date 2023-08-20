@@ -3,7 +3,7 @@
 <cfoauth 
     type="google" 
     clientid="764716537559-ncfiag8dl4p05v7c9kcoltss0ou3heki.apps.googleusercontent.com" 
-    clientsecret="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" 
+    secretkey="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" 
     redirecturi="https://dev.theactorsoffice.com/include/google_auth.cfm" 
     result="authResult" 
     scope="https://www.googleapis.com/auth/calendar">

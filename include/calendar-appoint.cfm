@@ -113,7 +113,7 @@
 
 <cfinclude template="/include/bigbrotherinclude.cfm" />
 
-<cfif #refresh_token# is "">
+<cfif #access_token# is "">
 <cfset clientId = "764716537559-ncfiag8dl4p05v7c9kcoltss0ou3heki.apps.googleusercontent.com">
 <cfset redirectUri = "https://dev.theactorsoffice.com/include/oauth_callback.cfm">
 <cfset scope = "https://www.googleapis.com/auth/calendar">

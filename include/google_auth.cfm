@@ -6,6 +6,7 @@
     secretkey="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" 
     redirecturi="https://dev.theactorsoffice.com/include/google_auth.cfm" 
     result="authResult" 
+    access_type="offline"
     scope="https://www.googleapis.com/auth/calendar">
 </cfoauth>
 

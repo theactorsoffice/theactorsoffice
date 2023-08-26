@@ -36,6 +36,9 @@
     <cfhttpparam type="header" name="Authorization" value="Bearer #accessToken#">
 </cfhttp>
 
+
+<cfabort>
+
 <cfset calendars = DeserializeJSON(calendarListResponse.FileContent)>
 
 <cfset calendarsJSON = SerializeJSON(calendars)>

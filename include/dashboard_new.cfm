@@ -11,8 +11,8 @@
 
 
 .small-badge {
-  padding: .2em .4em;
-  font-size: .75rem;
+  padding: .2em .3em;
+  font-size: .70rem;
   line-height: 1;
   border-radius: .2rem;
 }

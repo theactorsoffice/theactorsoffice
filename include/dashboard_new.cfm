@@ -1,4 +1,4 @@
-
+<div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 <cfloop query="dashboards">
 <cfoutput>
 <div class="grid-item panel panel-default" data-id="1">
@@ -7,3 +7,19 @@
 </div>
 </cfoutput>
 </cfloop>
+</div>
+
+<script>
+// initialize Packery
+var $grid = $('.packery-grid').packery({
+  itemSelector: '.grid-item',
+  gutter: 10
+});
+
+// make all items draggable
+$grid.find('.grid-item').each( function( i, gridItem ) {
+  var draggie = new Draggabilly( gridItem );
+  // bind drag events to Packery
+  $grid.packery( 'bindDraggabillyEvents', draggie );
+});
+</script>

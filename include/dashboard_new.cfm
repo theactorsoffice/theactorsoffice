@@ -55,6 +55,7 @@ $( function() {
 // initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
+  percentPosition: true,
   gutter: 10
 });
 

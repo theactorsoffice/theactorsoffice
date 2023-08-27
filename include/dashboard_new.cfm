@@ -62,7 +62,7 @@
 // Initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 20,  // Increasing gutter
+  gutter: 10,  // Increasing gutter
   percentPosition: true
 });
 

@@ -1,4 +1,13 @@
 
+<style>
+.grid-item {
+  box-sizing: border-box; /* To make sure padding is included in the width */
+  width: calc(25% - 10px); /* Assuming 10px as the total padding + margin */
+}
+.card {
+  margin: 0;
+  padding: 0;
+}
 
 </style>
 <cfparam name="batchlist" default="0" />
@@ -7,7 +16,7 @@
 
 
 <cfloop query="dashboards">
- <cfoutput><div class="card grid-item" style="width:25%" data-id="#dashboards.pnid#"></cfoutput>
+ <cfoutput><div class="card grid-item" data-id="#dashboards.pnid#"></cfoutput>
                
                     <div class="card-header" id="heading_system_<cfoutput>#dashboards.currentrow#</cfoutput>">
 
@@ -62,8 +71,8 @@ $( function() {
 // initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  percentPosition: true,
-  gutter: 10
+  gutter: 0, // Setting gutter to 0
+  percentPosition: true
 });
 
 // make all items draggable

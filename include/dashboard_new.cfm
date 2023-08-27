@@ -3,8 +3,10 @@
 .grid-item {
   box-sizing: border-box; /* To make sure padding is included in the width */
   width: calc(25% - 20px); /* Assuming 10px as the total padding + margin */
+   margin: 0;
+  padding: 0;
 }
-
+ 
 
 
 .small-badge {

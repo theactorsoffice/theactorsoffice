@@ -1,15 +1,15 @@
 
 <style>
 .grid-item {
-  box-sizing: border-box; /* To make sure padding is included in the width */
-  width: calc(25% - 10px); /* Assuming 10px as the total padding + margin */
+  width: 24%; /* Slightly less than 25% to account for gutters */
+  float: left; /* Makes items sit side by side */
 }
 .card {
   margin: 0;
   padding: 0;
 }
-
 </style>
+
 <cfparam name="batchlist" default="0" />
 <cfparam name="NEW_SITETYPEID" default="0" /> 
 <div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
@@ -59,18 +59,15 @@
 
 
 <script>
-
 // Initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 10,
-  percentPosition: true,
-  layoutMode: 'vertical'
+  gutter: 5, // Assuming you want a small gutter between items
 });
 
 // Make all items draggable
-$grid.find('.grid-item').each(function(i, gridItem) {
+$grid.find('.grid-item').each( function(i, gridItem) {
   var draggie = new Draggabilly(gridItem);
-  $grid.packery('bindDraggabillyEvents', draggie);
+  $grid.packery( 'bindDraggabillyEvents', draggie );
 });
 </script>

@@ -16,6 +16,15 @@
   line-height: .9;
   border-radius: .2rem;
 }
+
+.packery-drop-placeholder {
+  outline: 3px dashed #444;
+  outline-offset: -6px;
+  /* transition position changing */
+  -webkit-transition: -webkit-transform 0.2s;
+          transition: transform 0.2s;
+}
+
 </style>
 
 <cfparam name="batchlist" default="0" />

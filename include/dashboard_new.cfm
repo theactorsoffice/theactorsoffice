@@ -5,7 +5,7 @@
   width: calc(25% - 10px); /* Assuming 10px as the total padding + margin */
 }
 .card {
-  margin: 10;
+  margin: 0;
   padding: 0;
 }
 
@@ -59,18 +59,18 @@
 
 
 <script>
+
 // Initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 10,  // Increasing gutter
-  percentPosition: true
+  gutter: 10,
+  percentPosition: true,
+  layoutMode: 'vertical'
 });
 
 // Make all items draggable
-$grid.find('.grid-item').each( function(i, gridItem) {
-  var draggie = new Draggabilly(gridItem, {
-    snapToGrid: [25, 25]  // Snaps to a 25x25 grid while dragging
-  });
+$grid.find('.grid-item').each(function(i, gridItem) {
+  var draggie = new Draggabilly(gridItem);
   $grid.packery('bindDraggabillyEvents', draggie);
 });
 </script>

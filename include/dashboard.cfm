@@ -16,7 +16,7 @@ function moveItem (array, fromIndex, toIndex) {
 </script>
 
 <cfparam name="pgaction" default="View" />
-
+<cfparam name="nots_total" default="0" />
 <cfparam name="batchlist" default="0" />
 
 <cfif #pgaction# is "batch">

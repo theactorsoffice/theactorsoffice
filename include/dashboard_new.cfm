@@ -5,14 +5,14 @@
   width: calc(25% - 20px); /* Assuming 10px as the total padding + margin */
 }
 .card {
-  margin: 5;
-  padding: 5;
+  margin: 0;
+  padding: 0;
 }
 
 </style>
 <cfparam name="batchlist" default="0" />
 <cfparam name="NEW_SITETYPEID" default="0" /> 
-<div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 15 }'>
+<div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 
 
 <cfloop query="dashboards">
@@ -71,8 +71,7 @@ $( function() {
 // initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 0, // Setting gutter to 0
-  percentPosition: true
+  gutter: 10
 });
 
 // make all items draggable

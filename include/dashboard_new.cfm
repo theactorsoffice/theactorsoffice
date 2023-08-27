@@ -4,7 +4,7 @@
 
 
 <cfloop query="dashboards">
- <div class="card grid-item mb-1"  data-id="#dashboards.pnid#">
+ <div class="card grid-item mb-1 col-xl-#dashboards.pnColXl# col-md-#dashboards.pnColMd#" data-id="#dashboards.pnid#">
                
                     <div class="card-header" id="heading_system_<cfoutput>#dashboards.currentrow#</cfoutput>">
 

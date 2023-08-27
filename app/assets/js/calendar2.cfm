@@ -2,9 +2,7 @@
 
 
     <cfsavecontent variable="events_loop">
-        
         <cfloop query="events">
-
             <cfoutput>
                 <cfset starttime="#timeformat('#events.eventStartTime#','HH:mm')#" />
                 <cfset stoptime="#timeformat('#events.eventstopTime#','HH:mm')#" />
@@ -18,20 +16,16 @@
                         <cfset endrecur=DateAdd('d', 2, initial_endrecur) />
                     </cfif>
                     {
-
-
                     <Cfif #events.dow# is not "">
                         groupId: 'recurring#events.eventid#',
                         startRecur: '#newdate#',
                         daysOfWeek: [ #final_dow# ],
                         startTime: '#starttime#',
                         endTime: '#stoptime#',
-
                         <cfif #events.endrecur# is not "">
                             endRecur: '#endrecur#',
                         </cfif>
                     </Cfif>
-
                     title: '#replace(events.col1, "'", "\'", "ALL")#',
                     start: '#newdate# #starttime#',
                     end: '#enddate# #stoptime#',
@@ -39,34 +33,25 @@
                     url: '/app/appoint/?eventid=#events.eventid#&returnurl=calendar-appoint&rcontactid=0',
                     <cfelse>
                         url: '/app/audition/?focusid=#events.eventid#&audprojectid=#events.audprojectid#',
-                        
                     </cfif>
-                    
                     description: '#replace(events.col5, "'", "\'", "ALL")#',
                     className: "colorkey-#EVENTS.id#"
                     }
-
                     <cfif #events.currentrow# is "#events.recordcount#">
-
                         <cfelse>,
                     </cfif>
             </cfoutput>
         </cfloop>
     </cfsavecontent>
 
-
-
-
 <script>
 ! function(l) {
     "use strict";
-
     function e() {
         this.$body = l("body"), this.$modal = l("#event-modal"), this.$calendar = l("#calendar"), this.$btnNewEvent = l("#btn-new-event"), this.$btnDeleteEvent = l("#btn-delete-event"), this.$btnSaveEvent = l("#btn-save-event"), this.$modalTitle = l("#modal-title"), this.$calendarObj = null, this.$selectedEvent = null, this.$newEventData = null
     }
     e.prototype.init = function() {
         var e = new Date(l.now());
- 
         var t = [<cfoutput>#events_loop#</cfoutput>
               ],
             a = this;
@@ -87,26 +72,15 @@
                 prev: "Prev",
                 next: "Next"
             },
-            
 displayEventTime: false,
-     
-            
-         
             defaultView: "timeGridWeek",
             handleWindowResize: !0,
-      
             header: {
                 left: "prev,next today",
                 center: "title",
                 right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
             },
-            
-
-            
-            
             events: t,
-     
-    
             eventClick: function(e) {
                 a.onEventClick(e)
             }
@@ -116,9 +90,7 @@ displayEventTime: false,
                 allDay: !0
             })
         })
-            
             , 
-            
             l(a.$btnDeleteEvent.on("click", function(e) {
             a.$selectedEvent && (a.$selectedEvent.remove(), a.$selectedEvent = null, a.$modal.modal("hide"))
         }))
@@ -129,8 +101,6 @@ function() {
     window.jQuery.CalendarApp.init()
 }();
 </script>
-    
-    </script> 
     
     
     

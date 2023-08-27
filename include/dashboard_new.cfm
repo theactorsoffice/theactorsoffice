@@ -7,7 +7,12 @@
 <cfparam name="NEW_SITETYPEID" default="0" /> 
 <div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 
+<div class="row">
+                         
+    
+    
 
+<div class="col-12">
 <cfloop query="dashboards">
  <cfoutput><div class="card grid-item" data-id="#dashboards.pnid#"></cfoutput>
                
@@ -48,6 +53,11 @@
 
 </cfloop>
 </div>
+</div>
+</div>
+
+
+
 <script>
 
 $( function() {

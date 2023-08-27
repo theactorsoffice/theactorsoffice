@@ -9,12 +9,7 @@
  
 
 
-.small-badge {
-  padding: .2em .2em;
-  font-size: .65rem;
-  line-height: .9;
-  border-radius: .2rem;
-}
+
 
 .packery-drop-placeholder {
   outline: 3px dashed #444;

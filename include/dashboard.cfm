@@ -237,7 +237,7 @@ $( function() {
                             </div>
 
                             <h6 class="header-title">#dashboards.pnTitle# <cfif #dashboards.pntitle# is "Relationship Reminders"> 
-                            <span class="badge bg-secondary">#nots_total#</span> </cfif></h6>
+                            <span class="badge bg-secondary small-badge">#nots_total#</span> </cfif></h6>
 
                             <div id="cardCollpase#k#" class="collapse pt-1 show">
 

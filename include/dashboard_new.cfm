@@ -92,4 +92,8 @@ $grid.find('.grid-item').each( function(i, gridItem) {
   var draggie = new Draggabilly(gridItem);
   $grid.packery( 'bindDraggabillyEvents', draggie );
 });
+
+packery.on( 'dragItemPositioned', function( event, draggedItem ) {
+    app.tiles.settings.packeryEl.packery();
+});
 </script>

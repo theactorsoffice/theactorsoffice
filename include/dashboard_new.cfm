@@ -1,13 +1,10 @@
 
 <style>
 .grid-item {
-  width: 24%; /* Slightly less than 25% to account for gutters */
-  float: left; /* Makes items sit side by side */
+  width: calc(25% - 10px);  /* 10px is the gutter */
+  height: 200px;  /* Set a fixed height */
 }
-.card {
-  margin: 0;
-  padding: 0;
-}
+
 </style>
 
 <cfparam name="batchlist" default="0" />
@@ -62,12 +59,18 @@
 // Initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 5, // Assuming you want a small gutter between items
+  gutter: 10
 });
 
 // Make all items draggable
-$grid.find('.grid-item').each( function(i, gridItem) {
+$grid.find('.grid-item').each(function(i, gridItem) {
   var draggie = new Draggabilly(gridItem);
-  $grid.packery( 'bindDraggabillyEvents', draggie );
+  $grid.packery('bindDraggabillyEvents', draggie);
 });
+
+// Force layout after drag
+$grid.on('dragItemPositioned', function() {
+  $grid.packery();
+});
+
 </script>

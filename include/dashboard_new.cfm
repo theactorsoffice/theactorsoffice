@@ -66,6 +66,7 @@ var $grid = $('.packery-grid').packery({
   gutter: 10,  // Increasing gutter
    fitWidth: true,  // layout will be centered within parent
   resizable: true,  // container will resize to fit items
+    columnWidth: '.grid-item',
   percentPosition: true
 });
 

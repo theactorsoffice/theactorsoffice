@@ -10,7 +10,7 @@
 
                         <h5 class="m-0" style="width:100%'">
 
-                            <a class="text-dark collapsed" data-bs-toggle="collapse" href="#collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" aria-expanded="#header_aria_expanded#">
+                            <a class="text-dark collapsed" data-bs-toggle="collapse" href="##collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" aria-expanded="#header_aria_expanded#">
 
                                 <cfoutput>#dashboards.pnTitle# <cfif #dashboards.pntitle# is "Relationship Reminders"> 
                             <span class="badge bg-secondary">#nots_total#</span> </cfif></cfoutput>  

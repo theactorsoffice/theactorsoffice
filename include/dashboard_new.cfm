@@ -58,32 +58,19 @@
 
 
 
-
 <script>
-
-$( function() {
-  $( "#sortable" ).sortable();
-  $( "#sortable" ).disableSelection();
-} );
-
-</script>
-<script>
-// initialize Packery
+// Initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
   gutter: 20,  // Increasing gutter
   percentPosition: true
 });
 
-
-// make all items draggable
-$grid.find('.grid-item').each( function( i, gridItem ) {
-
-
-var draggie = new Draggabilly('.grid-item', {
-  snapToGrid: [25, 25]  // Snaps to a 25x25 grid while dragging
+// Make all items draggable
+$grid.find('.grid-item').each( function(i, gridItem) {
+  var draggie = new Draggabilly(gridItem, {
+    snapToGrid: [25, 25]  // Snaps to a 25x25 grid while dragging
+  });
+  $grid.packery('bindDraggabillyEvents', draggie);
 });
-  $grid.packery( 'bindDraggabillyEvents', draggie );
-});
-
 </script>

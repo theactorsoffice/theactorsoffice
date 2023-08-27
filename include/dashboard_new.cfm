@@ -1,10 +1,15 @@
+<style>
+.grid-item {
+  width: 25%;
+}
+</style>
 <cfparam name="batchlist" default="0" />
 <cfparam name="NEW_SITETYPEID" default="0" /> 
 <div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 
 
 <cfloop query="dashboards">
- <cfoutput><div class="card grid-item col-xl-#dashboards.pnColXl# col-md-#dashboards.pnColMd#" data-id="#dashboards.pnid#"></cfoutput>
+ <cfoutput><div class="card grid-item" data-id="#dashboards.pnid#"></cfoutput>
                
                     <div class="card-header" id="heading_system_<cfoutput>#dashboards.currentrow#</cfoutput>">
 

@@ -58,32 +58,20 @@
 
 
 
-
+<!-- The consolidated script -->
 <script>
+  $(document).ready(function() {
+    // Initialize Packery
+    var $grid = $('.packery-grid').packery({
+      itemSelector: '.grid-item',
+      gutter: 10,
+      percentPosition: true
+    });
 
-$( function() {
-  $( "#sortable" ).sortable();
-  $( "#sortable" ).disableSelection();
-} );
-
-</script>
-<script>
-// initialize Packery
-var $grid = $('.packery-grid').packery({
-  itemSelector: '.grid-item',
-  gutter: 20,  // Increasing gutter
-  percentPosition: true
-});
-
-
-// make all items draggable
-$grid.find('.grid-item').each( function( i, gridItem ) {
-
-
-var draggie = new Draggabilly('.grid-item', {
-  snapToGrid: [25, 25]  // Snaps to a 25x25 grid while dragging
-});
-  $grid.packery( 'bindDraggabillyEvents', draggie );
-});
-
+    // Make all items draggable
+    $grid.find('.grid-item').each(function(i, gridItem) {
+      var draggie = new Draggabilly(gridItem);
+      $grid.packery('bindDraggabillyEvents', draggie);
+    });
+  });
 </script>

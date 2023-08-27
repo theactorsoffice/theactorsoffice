@@ -20,7 +20,7 @@
 
                     </div>
 
-                    <div id="collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" class="<cfoutput>#collapse_show#</cfoutput>" aria-labelledby="collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" data-bs-parent="#accordion_systems"  >
+          
 
 
                         <div class="card-body">

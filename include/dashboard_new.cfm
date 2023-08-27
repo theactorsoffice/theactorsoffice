@@ -1,11 +1,13 @@
 
-<style>
-.grid-item {
-  width: calc(25% - 10px);  /* 10px is the gutter */
-  height: 200px;  /* Set a fixed height */
-}
-
-</style>
+  <style>
+    .packery-grid {
+      width: 100%;
+    }
+    .grid-item {
+      width: calc(25% - 10px);
+      box-sizing: border-box;
+    }
+  </style>
 
 <cfparam name="batchlist" default="0" />
 <cfparam name="NEW_SITETYPEID" default="0" /> 
@@ -54,23 +56,19 @@
 </div>
 
 
-
 <script>
-// Initialize Packery
-var $grid = $('.packery-grid').packery({
-  itemSelector: '.grid-item',
-  gutter: 10
-});
+  $(document).ready(function() {
+    // Initialize Packery
+    var $grid = $('.packery-grid').packery({
+      itemSelector: '.grid-item',
+      gutter: 10,
+      percentPosition: true
+    });
 
-// Make all items draggable
-$grid.find('.grid-item').each(function(i, gridItem) {
-  var draggie = new Draggabilly(gridItem);
-  $grid.packery('bindDraggabillyEvents', draggie);
-});
-
-// Force layout after drag
-$grid.on('dragItemPositioned', function() {
-  $grid.packery();
-});
-
+    // Make all items draggable
+    $grid.find('.grid-item').each(function(i, gridItem) {
+      var draggie = new Draggabilly(gridItem);
+      $grid.packery('bindDraggabillyEvents', draggie);
+    });
+  });
 </script>

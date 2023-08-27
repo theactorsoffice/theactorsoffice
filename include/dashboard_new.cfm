@@ -8,6 +8,14 @@
   margin: 0;
   padding: 0;
 }
+
+
+.small-badge {
+  padding: .2em .4em;
+  font-size: .75rem;
+  line-height: 1;
+  border-radius: .2rem;
+}
 </style>
 
 <cfparam name="batchlist" default="0" />
@@ -26,7 +34,7 @@
                  <a class="text-dark collapsed" data-bs-toggle="collapse" href="#collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" aria-expanded="#header_aria_expanded#">
 
                                 <cfoutput>#dashboards.pnTitle# <cfif #dashboards.pntitle# is "Relationship Reminders"> 
-                            <span class="badge bg-secondary">#nots_total#</span> </cfif></cfoutput>  
+                            <span class="badge bg-secondary small-badge">#nots_total#</span> </cfif></cfoutput>  
 
                             </a>
 

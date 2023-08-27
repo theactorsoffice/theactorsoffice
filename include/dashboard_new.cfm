@@ -1,7 +1,7 @@
 <div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 <cfloop query="dashboards">
 <cfoutput>
-<div class="grid-item panel panel-default" data-id="1">
+<div class="grid-item panel panel-default" data-id="#dashboards.pnid#">
   <div class="panel-heading">#dashboards.pntitle#</div>
   <div class="panel-body">Content 1</div>
 </div>

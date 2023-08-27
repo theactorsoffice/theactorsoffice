@@ -146,12 +146,15 @@ SELECT
 
 <cfparam name="ctaction" default="view">
 
+<script>
+$( function() {
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
+} );
+</script>
 
 
-
-
-
-<div class="nomobile">
+<div id="sortable" class="nomobile">
 
 <cfif #ctaction# is "config">
     

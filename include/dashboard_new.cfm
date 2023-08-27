@@ -27,19 +27,7 @@
                         <div class="card-body">
 
                             <p>
-                                         <cfif #dashboards.pnfilename# is not "">
 
-                <cfoutput>
-
-                    <cfset pntitle="#dashboards.pnTitle#" />
-
-                </cfoutput>
-
-          
-
-
-
-            </cfif>
 
                             </p>
 
@@ -47,7 +35,6 @@
 
                     </div>
 
-                </div>
                  
     
 

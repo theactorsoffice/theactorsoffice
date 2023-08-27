@@ -2,10 +2,10 @@
 <style>
 .grid-item {
   box-sizing: border-box; /* To make sure padding is included in the width */
-  width: calc(25% - 40px); /* Assuming 10px as the total padding + margin */
+  width: calc(25% - 10px); /* Assuming 10px as the total padding + margin */
 }
 .card {
-  margin: 0;
+  margin: 10;
   padding: 0;
 }
 

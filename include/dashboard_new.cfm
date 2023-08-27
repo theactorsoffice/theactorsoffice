@@ -5,8 +5,8 @@
   width: calc(25% - 20px); /* Assuming 10px as the total padding + margin */
 }
 .card {
-  margin: 0;
-  padding: 0;
+  margin: 5;
+  padding: 5;
 }
 
 </style>

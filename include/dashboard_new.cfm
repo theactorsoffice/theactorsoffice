@@ -71,13 +71,19 @@ $( function() {
 // initialize Packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 10
+  gutter: 20,  // Increasing gutter
+  percentPosition: true
 });
+
 
 // make all items draggable
 $grid.find('.grid-item').each( function( i, gridItem ) {
-  var draggie = new Draggabilly( gridItem );
-  // bind drag events to Packery
+
+
+var draggie = new Draggabilly('.grid-item', {
+  snapToGrid: [25, 25]  // Snaps to a 25x25 grid while dragging
+});
   $grid.packery( 'bindDraggabillyEvents', draggie );
 });
+
 </script>

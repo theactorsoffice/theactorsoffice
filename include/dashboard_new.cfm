@@ -1,9 +1,8 @@
 <style>
 .grid-item {
-  width: 25%;
+  width: 20%;
 }
 
-.packery-grid {width:100%;}
 </style>
 <cfparam name="batchlist" default="0" />
 <cfparam name="NEW_SITETYPEID" default="0" /> 

@@ -48,7 +48,7 @@
                         <div class="card-body">
 
                             <p>
-
+  <cfinclude template="/include/#dashboards.pnFilename#" />
 
                             </p>
 

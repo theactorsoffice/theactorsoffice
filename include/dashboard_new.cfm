@@ -8,7 +8,14 @@
 </cfoutput>
 </cfloop>
 </div>
+<script>
 
+$( function() {
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
+} );
+
+</script>
 <script>
 // initialize Packery
 var $grid = $('.packery-grid').packery({

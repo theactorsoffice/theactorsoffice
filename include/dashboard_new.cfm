@@ -1,13 +1,14 @@
 
-  <style>
-    .packery-grid {
-      width: 100%;
-    }
-    .grid-item {
-      width: calc(25% - 10px);
-      box-sizing: border-box;
-    }
-  </style>
+<style>
+.grid-item {
+  box-sizing: border-box; /* To make sure padding is included in the width */
+  width: calc(25% - 10px); /* Assuming 10px as the total padding + margin */
+}
+.card {
+  margin: 0;
+  padding: 0;
+}
+</style>
 
 <cfparam name="batchlist" default="0" />
 <cfparam name="NEW_SITETYPEID" default="0" /> 
@@ -56,19 +57,20 @@
 </div>
 
 
-<script>
-  $(document).ready(function() {
-    // Initialize Packery
-    var $grid = $('.packery-grid').packery({
-      itemSelector: '.grid-item',
-      gutter: 10,
-      percentPosition: true
-    });
 
-    // Make all items draggable
-    $grid.find('.grid-item').each(function(i, gridItem) {
-      var draggie = new Draggabilly(gridItem);
-      $grid.packery('bindDraggabillyEvents', draggie);
-    });
-  });
+<script>
+// Initialize Packery
+var $grid = $('.packery-grid').packery({
+  itemSelector: '.grid-item',
+  gutter: 20,  // Increasing gutter
+   fitWidth: true,  // layout will be centered within parent
+  resizable: true,  // container will resize to fit items
+  percentPosition: true
+});
+
+// Make all items draggable
+$grid.find('.grid-item').each( function(i, gridItem) {
+  var draggie = new Draggabilly(gridItem);
+  $grid.packery( 'bindDraggabillyEvents', draggie );
+});
 </script>

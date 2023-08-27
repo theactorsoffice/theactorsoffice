@@ -1,5 +1,5 @@
 <cfparam name="batchlist" default="0" />
-
+<cfparam name="NEW_SITETYPEID" default="0" /> 
 <div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 
 
@@ -35,7 +35,7 @@
 
                 </cfoutput>
 
-                <cfinclude template="/include/#dashboards.pnFilename#" />
+          
 
 
 

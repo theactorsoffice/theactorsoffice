@@ -2,10 +2,57 @@
 <div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 <cfloop query="dashboards">
 <cfoutput>
-<div class="grid-item panel panel-default" data-id="#dashboards.pnid#">
-  <div class="panel-heading">#dashboards.pntitle#</div>
-  <div class="panel-body">Content 1</div>
-</div>
+
+
+ <div class="card grid-item mb-1"  data-id="#dashboards.pnid#">
+               
+                    <div class="card-header" id="heading_system_<cfoutput>#dashboards.currentrow#</cfoutput>">
+
+                        <h5 class="m-0" style="width:100%'">
+
+                            <a class="text-dark collapsed" data-bs-toggle="collapse" href="#collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" aria-expanded="#header_aria_expanded#">
+
+                                <cfoutput>#dashboards.pnTitle# <cfif #dashboards.pntitle# is "Relationship Reminders"> 
+                            <span class="badge bg-secondary">#nots_total#</span> </cfif></cfoutput>  
+
+                            </a>
+
+                        </h5>
+
+                    </div>
+
+                    <div id="collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" class="<cfoutput>#collapse_show#</cfoutput>" aria-labelledby="collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" data-bs-parent="#accordion_systems"  >
+
+
+                        <div class="card-body">
+
+                            <p>
+                                         <cfif #dashboards.pnfilename# is not "">
+
+                <cfoutput>
+
+                    <cfset pntitle="#dashboards.pnTitle#" />
+
+                </cfoutput>
+
+                <cfinclude template="/include/#dashboards.pnFilename#" />
+
+
+
+            </cfif>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                 
+    
+
+
+
 </cfoutput>
 </cfloop>
 </div>

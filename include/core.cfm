@@ -86,7 +86,7 @@
 <cfinclude template="#findlinkst.linkurl#?ver=#rev#">
 
 <cfelse>
-<link href="#findlinkst.linkurl#?ver=#rev#" <cfif #findlinkst.rel# is not "">rel="#rel#" </cfif>type="text/css" <cfif #findlinkst.hrefid# is not "">id="#findlinkst.hrefid#"</cfif> />
+<link href="#findlinkst.linkurl#?ver=#rev#.2" <cfif #findlinkst.rel# is not "">rel="#rel#" </cfif>type="text/css" <cfif #findlinkst.hrefid# is not "">id="#findlinkst.hrefid#"</cfif> />
 </cfif>
 </cfoutput>
 </cfloop>

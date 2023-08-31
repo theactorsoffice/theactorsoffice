@@ -16,7 +16,7 @@ function moveItem (array, fromIndex, toIndex) {
 </script>
 
 <cfparam name="pgaction" default="View" />
-
+<cfparam name="nots_total" default="0" />
 <cfparam name="batchlist" default="0" />
 
 <cfif #pgaction# is "batch">
@@ -237,7 +237,11 @@ $( function() {
                             </div>
 
                             <h6 class="header-title">#dashboards.pnTitle# <cfif #dashboards.pntitle# is "Relationship Reminders"> 
+<<<<<<< HEAD
                             <span class="badge bg-primary">#nots_total#</span> </cfif></h6>
+=======
+                            <span class="badge bg-secondary small-badge">#nots_total#</span> </cfif></h6>
+>>>>>>> dev
 
                             <div id="cardCollpase#k#" class="collapse pt-1 show">
 
@@ -386,7 +390,11 @@ $( function() {
                             <a class="text-dark collapsed" data-bs-toggle="collapse" href="#collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" aria-expanded="#header_aria_expanded#">
 
                                 <cfoutput>#dashboards.pnTitle# <cfif #dashboards.pntitle# is "Relationship Reminders"> 
+<<<<<<< HEAD
                             <span class="badge bg-primary">#nots_total#</span> </cfif></cfoutput>  
+=======
+                            <span class="badge bg-secondary">#nots_total#</span> </cfif></cfoutput>  
+>>>>>>> dev
 
                             </a>
 

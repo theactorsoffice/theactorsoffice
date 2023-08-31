@@ -80,13 +80,13 @@
 <cfloop query="FindLinksT">
 <cfoutput>
 <cfif "#findlinkst.linktype#" is "script">
-<script src="#findlinkst.linkurl#?ver=#rev#"></script>
+<script src="#findlinkst.linkurl#?ver=#rev#.2"></script>
 <cfelseif "#findlinkst.linktype#" is "script_include">
 
 <cfinclude template="#findlinkst.linkurl#?ver=#rev#">
 
 <cfelse>
-<link href="#findlinkst.linkurl#?ver=#rev#" <cfif #findlinkst.rel# is not "">rel="#rel#" </cfif>type="text/css" <cfif #findlinkst.hrefid# is not "">id="#findlinkst.hrefid#"</cfif> />
+<link href="#findlinkst.linkurl#?ver=#rev#.3" <cfif #findlinkst.rel# is not "">rel="#rel#" </cfif>type="text/css" <cfif #findlinkst.hrefid# is not "">id="#findlinkst.hrefid#"</cfif> />
 </cfif>
 </cfoutput>
 </cfloop>

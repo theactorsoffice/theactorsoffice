@@ -24367,4 +24367,17 @@ button.close {
 	position: absolute;
 }
 
- 
+.packery-grid {
+  width: 100%;
+}
+.grid-item {
+  width: calc(25% - 10px);
+  box-sizing: border-box;
+}
+
+.small-badge {
+	padding: .3em .3em;
+	font-size: .65rem;
+	line-height: .9;
+	border-radius: .2rem;
+  }

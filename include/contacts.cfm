@@ -472,7 +472,21 @@
 </div><!--- xxx --->
     
     
-    
+    <script>
+
+    $(document).ready(function() {
+  $('#myformexport').on('submit', function(e) {
+    e.preventDefault(); // Prevents the default form submit action
+
+    // Your AJAX code to submit the form data could go here if needed
+    // For example, using ColdFusion's `cfajaxproxy` or jQuery's `$.ajax`
+
+    // Close the modal
+    $('#exampleModal5').modal('hide');
+  });
+});
+
+</script>
     
     
     

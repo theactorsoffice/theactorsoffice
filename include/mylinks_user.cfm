@@ -8,7 +8,7 @@
 <script>
   const siteurl_list = "#siteurl_list#";
 </script></cfoutput>
-<button onclick="openAllUrls()">Open All URLs</button>
+<button onclick="openAllUrls()" class="badge badge-blue">Open All</button>
 
 
 <div class="row">

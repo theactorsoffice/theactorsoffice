@@ -473,16 +473,20 @@
     
     
     <script>
-
-    $(document).ready(function() {
+$(document).ready(function() {
   $('#myformexport').on('submit', function(e) {
     e.preventDefault(); // Prevents the default form submit action
+    console.log('Form submitted'); // Debug line
 
-    // Your AJAX code to submit the form data could go here if needed
-    // For example, using ColdFusion's `cfajaxproxy` or jQuery's `$.ajax`
+    // Your AJAX code here
 
-    // Close the modal
     $('#exampleModal5').modal('hide');
+    
+    if ($('#exampleModal5').hasClass('show')) {
+      console.log('Modal did not close');
+    } else {
+      console.log('Modal closed');
+    }
   });
 });
 

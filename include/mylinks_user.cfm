@@ -2,7 +2,7 @@
 <cfinclude template="/include/qry/mylinks_user.cfm" />  
 <!--- This is just an example of how the siteurl_list might be set in ColdFusion --->
 <Cfoutput>
-<cfset siteurl_list = "#mylinks_user.siteurl_list#">
+<cfset siteurl_list = "#all_links.siteurl_list#">
 
 <!--- Embed the siteurl_list into JavaScript --->
 <script>

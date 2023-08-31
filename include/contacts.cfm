@@ -472,7 +472,25 @@
 </div><!--- xxx --->
     
     
+    <script>
+$(document).ready(function() {
+  $('#myformexport').on('submit', function(e) {
+    e.preventDefault(); // Prevents the default form submit action
+    console.log('Form submitted'); // Debug line
+
+    // Your AJAX code here
+
+    $('#exampleModal5').modal('hide');
     
+    if ($('#exampleModal5').hasClass('show')) {
+      console.log('Modal did not close');
+    } else {
+      console.log('Modal closed');
+    }
+  });
+});
+
+</script>
     
     
     

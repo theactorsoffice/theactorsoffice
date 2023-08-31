@@ -40,7 +40,7 @@
 
 <p>Once added, they will appear in this list so you can easily add them to any of your auditions.</p> 
                                         
-                                        </p>
+                                
                                                       </div>
                </div>
            </div>

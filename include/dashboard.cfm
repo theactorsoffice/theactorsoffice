@@ -432,16 +432,6 @@ $( function() {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
             </cfloop>  
 
             </div>

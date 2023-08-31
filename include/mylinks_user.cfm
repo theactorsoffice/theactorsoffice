@@ -1,5 +1,16 @@
 
-<cfinclude template="/include/qry/mylinks_user.cfm" />       
+<cfinclude template="/include/qry/mylinks_user.cfm" />  
+<!--- This is just an example of how the siteurl_list might be set in ColdFusion --->
+<Cfoutput>
+<cfset siteurl_list = "#all_links.siteurl_list#">
+
+<!--- Embed the siteurl_list into JavaScript --->
+<script>
+  const siteurl_list = "#siteurl_list#";
+</script></cfoutput>
+<button onclick="openAllUrls()" class="badge badge-blue">Open All</button>
+
+
 <div class="row">
 <cfloop query="mylinks_user">
     <div class="col-md-12 col-lg-12">

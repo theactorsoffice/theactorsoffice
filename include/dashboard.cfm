@@ -432,16 +432,6 @@ $( function() {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
             </cfloop>  
 
             </div>
@@ -456,7 +446,14 @@ $( function() {
 
 
 
-
+<script>
+function openAllUrls() {
+  const urls = siteurl_list.split(',');
+  urls.forEach((url) => {
+    window.open(url.trim(), '_blank');
+  });
+}
+</script>
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />
 <cfinclude template="/include/bigbrotherinclude.cfm" />

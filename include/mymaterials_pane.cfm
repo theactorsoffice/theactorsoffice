@@ -54,7 +54,7 @@
 <cfoutput>
 
     <h4 class="p-1 d-flex">
-        My Materials             <a href="" title="click for details" data-bs-toggle="modal" data-bs-target="#mymaterialshelp">  
+        My Materials             <a href="" title="click for details" data-bs-toggle="modal" data-bs-target="##mymaterialshelp">  
                             <i class="fe-info font-14 mr-1"></i>
 
                         </a>

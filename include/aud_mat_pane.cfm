@@ -25,6 +25,28 @@
 
 <cfinclude template="/include/modal.cfm" />
 
+<div id="linkmediahelp" class="modal  fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-header" style="background-color: #f3f7f9;">
+                       <h4 class="modal-title" id="standard-modalLabel">Link Media</h4> <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i>
+
+                    </button>   </div>
+
+                   <div class="modal-body">
+                       
+<p>There are times when you submit your own monologues, songs, or sides as your audition.</p> 
+<p>To add materials in your repertoire to TAO, go to My Account and then Materials. </p>
+
+<p>Once added, they will appear in this list so you can easily add them to any of your auditions.</p> 
+                                        
+                                        </p>
+                                                      </div>
+               </div>
+           </div>
+       </div> 
+
+
 
 
 <cfoutput>
@@ -174,7 +196,11 @@
 
                              </cfoutput>
 
-                                    </select>
+                                    </select>       
+                                     <a href="" title="click for details" data-bs-toggle="modal" data-bs-target="#linkmediahelp">  
+                            <i class="fe-info font-14 mr-1"></i>
+
+                        </a>
 
 </form>
  

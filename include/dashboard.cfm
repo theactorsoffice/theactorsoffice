@@ -447,7 +447,7 @@ $( function() {
 
 
 <script>
-function openAllUrls() {
+function openAllUrls(siteurl_list) {
   const urls = siteurl_list.split(',');
   urls.forEach((url) => {
     window.open(url.trim(), '_blank');

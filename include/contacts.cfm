@@ -746,9 +746,20 @@ $(document).ready(function() {
     
     
     
-    
-    
-    
+    <script>
+    $(document).ready(function() {
+  $('#myformexport').on('submit', function(e) {
+    e.preventDefault();
+    var formData = $(this).serialize(); // Serialize form data
+
+    $.post('/include/exportcontacts.cfm', formData, function(response) {
+      // Do something with the response if you want
+      // Close the modal
+      $('#exampleModal5').modal('hide');
+    });
+  });
+});
+   </script> 
     
     
     

@@ -5,12 +5,10 @@
 <cfset siteurl_list = "#all_links.siteurl_list#">
 
 <!--- Embed the siteurl_list into JavaScript --->
-<script>
-  const siteurl_list = "#siteurl_list#";
-</script></cfoutput>
-<button onclick="openAllUrls()" class="badge badge-blue">Open All</button>
 
+ <button onclick="openAllUrls('#siteurl_list#')">Open All URLs</button>
 
+</cfoutput>
 <div class="row">
 <cfloop query="mylinks_user">
     <div class="col-md-12 col-lg-12">

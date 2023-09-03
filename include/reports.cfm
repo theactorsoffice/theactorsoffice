@@ -1,11 +1,7 @@
 <style>
-a[id^="anchor-"]::before {
-  content: "";
-  display: block;
-  height: 75px; /* Offset height */
-  margin-top: -75px; /* Offset height */
-  visibility: hidden;
-  pointer-events: none;
+.anchor-offset {
+  padding-top: 75px;
+  margin-top: -75px;
 }
 </style>
 <cfif #isauditionmodule# is "0">
@@ -147,7 +143,7 @@ Reports are only available to users who have access to the events module.<cfabor
 
         <div class="col-xl-#reports.colxl# col-md-#reports.colmd# col-lg">
 
-            <a id="anchor-#reports.reportid#"><div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
+            <a id="anchor-#reports.reportid#" class="anchor-offset"><div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
 
                 <div class="card-body" dir="ltr">
 

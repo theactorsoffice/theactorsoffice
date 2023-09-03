@@ -1,4 +1,10 @@
-
+<style>
+.anchor-offset {
+  box-sizing: border-box;
+  padding-top: 75px;
+  margin-top: -75px;
+}
+</style>
 <cfif #isauditionmodule# is "0">
 Reports are only available to users who have access to the events module.<cfabort>
 </cfif>
@@ -135,15 +141,10 @@ Reports are only available to users who have access to the events module.<cfabor
 <cfloop query="reports">
 
     <cfoutput>
-<style>
-.anchor-offset {
-  padding-top: 200px;
-  margin-top: -75px;
-}
-</style>
+
         <div class="col-xl-#reports.colxl# col-md-#reports.colmd# col-lg">
 
-            <a id="anchor-#reports.reportid#" style="margin-top:-200px;padding-top:-200px;"><div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
+            <a id="anchor-#reports.reportid#" class="anchor-offset"><div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
 
                 <div class="card-body" dir="ltr">
 

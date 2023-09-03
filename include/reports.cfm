@@ -1,3 +1,13 @@
+<style>
+a[id^="anchor-"]::before {
+  content: "";
+  display: block;
+  height: 75px; /* Offset height */
+  margin-top: -75px; /* Offset height */
+  visibility: hidden;
+  pointer-events: none;
+}
+</style>
 <cfif #isauditionmodule# is "0">
 Reports are only available to users who have access to the events module.<cfabort>
 </cfif>

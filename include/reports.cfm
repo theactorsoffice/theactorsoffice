@@ -1,5 +1,6 @@
 <style>
 .anchor-offset {
+  box-sizing: border-box;
   padding-top: 75px;
   margin-top: -75px;
 }
@@ -139,11 +140,11 @@ Reports are only available to users who have access to the events module.<cfabor
 
 <cfloop query="reports">
 
-    <cfoutput> <a id="anchor-#reports.reportid#" class="anchor-offset">
+    <cfoutput>
 
-        <div class="col-xl-#reports.colxl# col-md-#reports.colmd# col-lg">
+        <div id="anchor-#reports.reportid#"  class="col-xl-#reports.colxl# col-md-#reports.colmd# col-lg">
 
-           <div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
+            <a class="anchor-offset"><div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
 
                 <div class="card-body" dir="ltr">
 
@@ -173,10 +174,15 @@ Reports are only available to users who have access to the events module.<cfabor
 
                         </cfif>
             
-                                        <cfif #reports.reportid# is "6"  >              
+                                        <cfif #reports.reportid# is "6"  >
+                                            
+                                            
+                                     
+                                            
                                                    <cfquery datasource="#dsn#" name="audsources">
                                select audsourceid,audsource from audsources WHERE isdeleted = 0 ORDER BY audsource
                        </cfquery>
+                        
                         
                         <form action="/app/reportsRefresh/">
                             <cfoutput>
@@ -312,9 +318,9 @@ Reports are only available to users who have access to the events module.<cfabor
 
         </div>
 
-        </div>
-
         </div></a>
+
+        </div>
 
 
     </cfoutput>

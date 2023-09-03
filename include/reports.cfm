@@ -1,6 +1,6 @@
 <style>
 .anchor-offset {
-  padding-top: 75px;
+  padding-top: 200px;
   margin-top: -75px;
 }
 </style>

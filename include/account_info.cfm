@@ -1180,13 +1180,17 @@
     
      <cfparam name="tab9_expand" default="false" />
 
+          <cfparam name="tab0_expand" default="false" />
+
+               <cfparam name="tab10_expand" default="false" />
+
      
 
-    <cfif #tab1_expand# is "false" and #tab2_expand# is "false" and #tab3_expand# is "false" and #tab4_expand# is "false" and #tab7_expand# is "false" and #tab8_expand# is "false" and #tab9_expand# is "false"  >
+    <cfif #tab1_expand# is "false" and #tab2_expand# is "false" and #tab3_expand# is "false" and #tab4_expand# is "false" and #tab7_expand# is "false" and #tab8_expand# is "false" and #tab9_expand# is "false"  and #tab0_expand# is "false" and  and #tab10_expand# is "false">
 
-        <cfset tab1_expand="true" />
+        <cfset tab0_expand="true" />
 
-        <cfset t1=1 />
+        <cfset t0=1 />
 
 
     </cfif>
@@ -1198,6 +1202,9 @@
             <ul class="nav nav-pills navtab-bg nav-justified p-1">
                 
                 <cfoutput>
+
+                  <li class="nav-item"> <a href="##info" data-bs-toggle="tab" aria-expanded="#tab0_expand#" class="nav-link<cfif #tab0_expand# is 'true'> active</cfif>">Info </a>
+                    </li>
 
                     <li class="nav-item"> <a href="##profile" data-bs-toggle="tab" aria-expanded="#tab1_expand#" class="nav-link<cfif #tab1_expand# is 'true'> active</cfif>">Links </a>
                     </li>
@@ -1219,6 +1226,9 @@
                     </li>
 
                     <li class="nav-item"> <a href="##systems" data-bs-toggle="tab" aria-expanded="#tab7_expand#" class="nav-link<cfif #tab7_expand# is 'true'> active</cfif>">Systems</a>
+                    </li>
+
+                        <li class="nav-item"> <a href="##billing" data-bs-toggle="tab" aria-expanded="#tab10_expand#" class="nav-link<cfif #tab10_expand# is 'true'> active</cfif>">Billing</a>
                     </li>
                     
                  

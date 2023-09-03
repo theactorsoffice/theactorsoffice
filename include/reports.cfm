@@ -148,51 +148,14 @@ Reports are only available to users who have access to the events module.<cfabor
 
                 <div class="card-body" dir="ltr">
 
-                  
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     <h6 class="p-1 d-flex header-title">#reports.reportname#
                         
-                        
-                    </cfoutput>
-                        
-                        
-                    
-                    <span class="ms-auto">
-      
-                
-                
-                
-                
-                
-             
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                                        <cfif #reports.reportid# is "2" or #reports.reportid# is "7" or #reports.reportid# is "8" >
-                        
-                        
+    </cfoutput>
+
+<span class="ms-auto">
+
+<cfif #reports.reportid# is "2" or #reports.reportid# is "7" or #reports.reportid# is "8" >
+                            
                         <form action="/app/reportsRefresh/">
                             <cfoutput>
                             <input type="hidden" name="anchortag" value="anchor-#reports.reportid#" />

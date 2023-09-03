@@ -1,3 +1,10 @@
+<style>
+.anchor-offset {
+  box-sizing: border-box;
+  padding-top: 75px;
+  margin-top: -75px;
+}
+</style>
 <cfif #isauditionmodule# is "0">
 Reports are only available to users who have access to the events module.<cfabort>
 </cfif>
@@ -135,57 +142,20 @@ Reports are only available to users who have access to the events module.<cfabor
 
     <cfoutput>
 
-        <div class="col-xl-#reports.colxl# col-md-#reports.colmd# col-lg">
+        <div id="anchor-#reports.reportid#"  class="anchor-offset col-xl-#reports.colxl# col-md-#reports.colmd# col-lg">
 
-            <a id="anchor-#reports.reportid#"><div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
+            <a ><div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
 
                 <div class="card-body" dir="ltr">
 
-                  
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     <h6 class="p-1 d-flex header-title">#reports.reportname#
                         
-                        
-                    </cfoutput>
-                        
-                        
-                    
-                    <span class="ms-auto">
-      
-                
-                
-                
-                
-                
-             
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                                        <cfif #reports.reportid# is "2" or #reports.reportid# is "7" or #reports.reportid# is "8" >
-                        
-                        
+    </cfoutput>
+
+<span class="ms-auto">
+
+<cfif #reports.reportid# is "2" or #reports.reportid# is "7" or #reports.reportid# is "8" >
+                            
                         <form action="/app/reportsRefresh/">
                             <cfoutput>
                             <input type="hidden" name="anchortag" value="anchor-#reports.reportid#" />
@@ -195,45 +165,14 @@ Reports are only available to users who have access to the events module.<cfabor
                                    <input type="hidden" name="customend" value="#customend#" />
                     <input type="hidden" name="userid" value="#userid#" />
                             </cfoutput>
-                            
                             <select name="new_audcatid" onchange="this.form.submit()">
                             <Cfoutput query="categories">
-                                <option value="#categories.audcatid#" <cfif #categories.audcatid# is "#new_audcatid#">Selected </Cfif>>#categories.audcatname#</option>  
-                                
-                                
+                                <option value="#categories.audcatid#" <cfif #categories.audcatid# is "#new_audcatid#">Selected </Cfif>>#categories.audcatname#</option>   
                                 </Cfoutput>
-               
-                            
-                            
-                            
                             </select>
-                            
-                            
-                            
-                            
-                            
-                            
                             </form>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+
                         </cfif>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
                                         <cfif #reports.reportid# is "6"  >
                                             

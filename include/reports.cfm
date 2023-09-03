@@ -140,11 +140,11 @@ Reports are only available to users who have access to the events module.<cfabor
 
 <cfloop query="reports">
 
-    <cfoutput>
+    <cfoutput> <a id="anchor-#reports.reportid#" class="anchor-offset">
 
         <div class="col-xl-#reports.colxl# col-md-#reports.colmd# col-lg">
 
-            <a id="anchor-#reports.reportid#" class="anchor-offset"><div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
+           <div class="card"  id="#reports.reportid#" style="border: 1px solid ##e5e5e5;border-radius:3px;">
 
                 <div class="card-body" dir="ltr">
 

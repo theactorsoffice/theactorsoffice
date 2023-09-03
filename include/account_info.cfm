@@ -1186,7 +1186,10 @@
 
      
 
-    <cfif #tab1_expand# is "false" and #tab2_expand# is "false" and #tab3_expand# is "false" and #tab4_expand# is "false" and #tab7_expand# is "false" and #tab8_expand# is "false" and #tab9_expand# is "false"  and #tab0_expand# is "false" and  and #tab10_expand# is "false">
+    <cfif #tab1_expand# is "false" and #tab2_expand# is "false" and #tab3_expand# is "false" 
+    and #tab4_expand# is "false" and #tab7_expand# is "false"
+     and #tab8_expand# is "false" and #tab9_expand# is "false"  
+     and #tab0_expand# is "false" and  #tab10_expand# is "false">
 
         <cfset tab0_expand="true" />
 

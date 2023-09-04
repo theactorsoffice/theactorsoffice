@@ -130,7 +130,8 @@ IF: if #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "
     <cfoutput>
 
 
-    <cfif #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" and #t6# is "0"  and #t7# is "0" and #t8# is "0" and #t9# is "0" ><cfset tab1_expand = "true" /></cfif>
+    <cfif #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" 
+    and #t6# is "0"  and #t7# is "0" and #t8# is "0" and #t9# is "0" and #t0# is "0" and #t10# is "0" ><cfset tab0_expand = "true" /></cfif>
     </cfoutput>
         
         <cfsavecontent variable = "varafter"><Cfoutput>
@@ -139,6 +140,8 @@ T2: #t2#<BR>
 T3: #t3#<BR>
 T4: #t4#<BR>
 </Cfoutput></cfsavecontent>
+
+
     
   <Cfif #isdefined('dbug')#>  <cfoutput>#varcheck#<BR>#varif#<BR>var after: #varafter# #tab1_expand#</cfoutput><cfabort></Cfif>
       

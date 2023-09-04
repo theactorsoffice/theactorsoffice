@@ -1049,7 +1049,7 @@
                                 <th>Time</th>
                                 <th>Stage</th>
                                 <th>Type</th>
-                             
+                             <th>Assessment</th>
  
                             </tr>
 
@@ -1060,10 +1060,42 @@
                             <cfloop query="events">
 
                                 <cfoutput>
+        <script>
+    $(document).ready(function() {
+        $("##remoteUpdateAnswer_#events.eventid#").on("show.bs.modal", function(event) {
+            // Place the returned HTML into the selected element
+            $(this).find(".modal-body").load("/include/remoteassform.cfm?eventid=#events.eventid#&audprojectid=#audprojectid#");
+        });
+    });
+
+</script>
 
 
+       <div id="remoteUpdateAnswer_#events.eventid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
 
+            <div class="modal-dialog">
 
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: ##f3f7f9;">
+
+                        <h4 class="modal-title" id="standard-modalLabel"><strong>#events.audstep#: </strong>#dateformat(events.eventStart,'long')#: Personal Assessment</h4>
+
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
 
 
@@ -1153,12 +1185,21 @@
 
                                         <td class="dt-nowrap">   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#events.eventid#">#events.audstep#</a></td>
 
-                                        <td >   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#events.eventid#">#events.audtype#</a> <cfif #events.workwithcoach# is "1"><BR>(coached)</cfif>    </td>
+                                        <td  class="dt-nowrap">   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#events.eventid#">#events.audtype#</a> <cfif #events.workwithcoach# is "1"><BR>(coached)</cfif>    </td>
                                         
- 
+ <TD  class="dt-nowrap"><center>
+<cfif events.eventstart lte now()>
+ <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteUpdateAnswer_#events.eventid#" toggle="tooltip" data-bs-placement="top" title="Update Answer" data-bs-original-title="Update Answer">
+
+                                                      <i class="mdi mdi-square-edit-outline"></i> 
+
+                                                  </a> 
+</cfif>
+</center>
+                                            </td>
+
 
                                     </tr>
-
 
 
 
@@ -1543,7 +1584,7 @@
                     Notes
                 </a>
             </li>
-
+<cfif #isdefined('sdfsdfsdff')#>
             <cfquery name="questions_check" datasource="#dsn#" >
     select *
 	 from events e
@@ -1560,7 +1601,7 @@
             </li>
 
             </cfif>
-   
+   </cfif>
     
             <cfif #roledetails.isbooked# is "1">
                 <li class="nav-item" role="presentation">
@@ -1639,7 +1680,7 @@
             </div>
 
 
-
+<cfif #isdefined('sdfsdfsdff')#>
 
             <div class="tab-pane <cfoutput>#ques_showactive#</cfoutput>" id="ques" role="tabpanel">
 
@@ -1651,7 +1692,7 @@
 
             </div>
     
-
+</cfif>
 
 
 

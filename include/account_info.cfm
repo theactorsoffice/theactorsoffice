@@ -1246,6 +1246,12 @@
 
             <div class="tab-content">
 
+                  <div class="tab-pane<cfif #tab0_expand# is 'true'> show active</cfif>" id="info">
+                    
+                    <cfinclude template="/include/myinfo_pane.cfm" />
+                    
+                </div>
+
                 <div class="tab-pane<cfif #tab1_expand# is 'true'> show active</cfif>" id="profile">
                     
                     <cfinclude template="/include/mylinks_pane.cfm" />
@@ -1290,6 +1296,12 @@
                     <cfinclude template="/include/systemprefs_pane.cfm" />
 
                 </div>
+
+                
+                  <div class="tab-pane<cfif #tab10_expand# is 'true'> show active</cfif>" id="billing">
+                    
+                    <cfinclude template="/include/mybilling_pane.cfm" />
+                    
                 
        
 

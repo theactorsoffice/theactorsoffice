@@ -1231,7 +1231,7 @@
                     <li class="nav-item"> <a href="##systems" data-bs-toggle="tab" aria-expanded="#tab7_expand#" class="nav-link<cfif #tab7_expand# is 'true'> active</cfif>">Systems</a>
                     </li>
 
-                        <li class="nav-item"> <a href="##billing" data-bs-toggle="tab" aria-expanded="#tab10_expand#" class="nav-link<cfif #tab10_expand# is 'true'> active</cfif>">Billings</a>
+                        <li class="nav-item"> <a href="##billing" data-bs-toggle="tab" aria-expanded="#tab10_expand#" class="nav-link<cfif #tab10_expand# is 'true'> active</cfif>">Billing</a>
                     </li>
                  
                  
@@ -1298,9 +1298,9 @@
                 </div>
 
                 
-                  <div class="tab-pane" id="billing">
+               <div class="tab-pane<cfif #tab10_expand# is 'true'> show active</cfif>" id="billing">
                     
-                    <cfinclude template="/include/mybilling_pane.cfm" />
+                  xxx
                     
                 </div>
        

@@ -1188,7 +1188,7 @@
                                         <td  class="dt-nowrap">   <a title="View Details" href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionDetails_#events.eventid#">#events.audtype#</a> <cfif #events.workwithcoach# is "1"><BR>(coached)</cfif>    </td>
                                         
  <TD  class="dt-nowrap"><center>
-<cfif events.eventstart gte now()>
+<cfif events.eventstart lte now()>
  <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteUpdateAnswer_#events.eventid#" toggle="tooltip" data-bs-placement="top" title="Update Answer" data-bs-original-title="Update Answer">
 
                                                       <i class="mdi mdi-square-edit-outline"></i> 

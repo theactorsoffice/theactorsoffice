@@ -1,6 +1,6 @@
-<CFINCLUDE template="remote_load.cfm" />
+ 
 
-<cfquery datasource="#dsn#" name="x">
+<cfquery datasource="abod" name="x">
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png'
 </cfquery>
 
@@ -33,7 +33,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
             <cfimage action="write" destination="#image_dir#/custom_#id#.png" source="#imageObj#" format="png"></cfimage>
             
             <!-- Update Record -->
-            <cfquery datasource="#dsn#" name="update">
+            <cfquery datasource="abod" name="update">
             update sitelinks_user 
             set siteicon = '#new_siteicon#'
             where id = #id#

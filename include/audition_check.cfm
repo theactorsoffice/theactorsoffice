@@ -23,14 +23,14 @@ WHERE e.eventtitle != p.projname;
 <cfif #isnew# is "1">
 
 <cfquery name="followups" datasource="#dsn#" maxrows="1">
-SELECT distinct p.contactid,c.contactfullname, c.userid
+SELECT distinct p.contactid,c.contactfullname, c.userid, e.eventStart
 FROM events e
 INNER JOIN audroles r ON r.audroleid = e.audroleid
 INNER JOIN audprojects p ON p.audprojectid = r.audprojectid
 INNER JOIN contactdetails c ON c.contactid = p.contactid
 
 WHERE e.isdeleted = 0 
-AND e.eventStart <= NOW()
+
 AND r.audprojectid = #audprojectid# 
 AND p.contactid NOT IN (
 
@@ -39,9 +39,11 @@ order by e.eventid desc
 </cfquery>
 
 
-
-
 <cfif #followups.recordcount# is "1">
+
+
+<cfif followups.eventstart lt now()>
+
 <cfoutput>
     <script>
         $(document).ready(function() {
@@ -94,6 +96,7 @@ order by e.eventid desc
 
 </cfif>
 
+</cfif>
  
 
 <cfquery name="addmissing" datasource="#dsn#">

@@ -1,4 +1,4 @@
-<h4>My Info
+<h4>                  <cfoutput>#userFirstName# #userlastName# </cfoutput>
 
         <span class="float-end">
   
@@ -6,3 +6,28 @@
   
   </span>
 </h4>
+
+              <p class="card-text">
+
+
+
+
+
+                    <A href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
+
+                        <figure>
+
+                            <Center><img src="<Cfoutput>#browser_user_avatar_filename#</cfoutput>?ver=<Cfoutput>#rand()#</cfoutput>" class="mr-2 rounded-circle gambar img-responsive img-thumbnail" title="User ID: <cfoutput>#userid#</cfoutput>" style="max-width:120px; width:100%;" alt="profile-image" id="item-img-output" />
+                                <figcaption>
+                                    <cfoutput>#useravatarname#</cfoutput>
+                                </figcaption>
+                            </Center>
+
+
+                        </figure>
+
+                    </A>
+
+
+
+                </p>

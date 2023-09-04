@@ -984,7 +984,7 @@
             <Center>
 
                 <h4 class="card-header text-nowrap" style="color:white;background-color: #406E8E;margin:0!important;padding:15px!important;">
-                    <cfoutput>#userFirstName# #userlastName# </cfoutput>
+  
                 </h4>
 
 
@@ -1001,30 +1001,7 @@
 
 
 
-                <p class="card-text">
-
-
-
-
-
-                    <A href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
-
-                        <figure>
-
-                            <Center><img src="<Cfoutput>#browser_user_avatar_filename#</cfoutput>?ver=<Cfoutput>#rand()#</cfoutput>" class="mr-2 rounded-circle gambar img-responsive img-thumbnail" title="User ID: <cfoutput>#userid#</cfoutput>" style="max-width:120px; width:100%;" alt="profile-image" id="item-img-output" />
-                                <figcaption>
-                                    <cfoutput>#useravatarname#</cfoutput>
-                                </figcaption>
-                            </Center>
-
-
-                        </figure>
-
-                    </A>
-
-
-
-                </p>
+  
 
 
             </div>

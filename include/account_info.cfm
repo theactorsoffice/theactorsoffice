@@ -1200,7 +1200,9 @@
 
     <div class="card">
         
-        <div class="card-body">
+        <div class="card-body">   <cfoutput>
+<h1>t10: #t10# tab10_expand:#tab10_expand#</h1>
+</cfoutput><cfaborT>
             
             <ul class="nav nav-pills navtab-bg nav-justified p-1">
                 

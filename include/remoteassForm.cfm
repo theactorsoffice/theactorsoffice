@@ -64,7 +64,7 @@
             </div>
 
             <cfif #questions.qtype# is "text">
-                <div class="form-group col-md-12 pt-0 pb-1">
+                <div class="form-group col-md-12 pt-0 pb-0">
 
                     <input class="form-control" type="text" id="q#questions.qid#" value="#questions.atext#" name="q#questions.qid#">
 
@@ -72,7 +72,7 @@
             </cfif>
 
             <cfif #questions.qtype# is "long">
-                <div class="form-group col-md-12 pt-0 pb-1">
+                <div class="form-group col-md-12 pt-0 pb-0">
 
 
                     <textarea class="form-control" type="text" id="q#questions.qid#"  name="q#questions.qid#" rows="4" required>#questions.amemo#</textarea>

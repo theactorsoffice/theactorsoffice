@@ -23,7 +23,7 @@ WHERE e.eventtitle != p.projname;
 <cfif #isnew# is "1">
 
 <cfquery name="followups" datasource="#dsn#" maxrows="1">
-SELECT distinct p.contactid,c.contactfullname, c.userid
+SELECT distinct p.contactid,c.contactfullname, c.userid, e.eventStart
 FROM events e
 INNER JOIN audroles r ON r.audroleid = e.audroleid
 INNER JOIN audprojects p ON p.audprojectid = r.audprojectid
@@ -42,7 +42,8 @@ order by e.eventid desc
 <cfif #followups.recordcount# is "1">
 
 
-<cfif #followups.recordcount# is "1">
+<cfif followups.eventstart lt now()>
+
 <cfoutput>
     <script>
         $(document).ready(function() {

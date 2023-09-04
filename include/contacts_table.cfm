@@ -143,14 +143,34 @@
                 enabled: false
             },
                 
-                     {
-                text: 'Export',
-                className: 'exportcontacts', 
-           action: function (e, node, config){
-                $('#exampleModal5').modal('show')
-                },
-                enabled: false
-            }
+                    {
+    text: 'Export',
+    className: 'exportcontacts', 
+    action: function (e, node, config){
+        var formexport = $('#myformexport')[0];
+        
+        // Clear the form first, in case this is not the first time submitting
+        $('input[name="idlist"]', formexport).remove();
+        
+        var rows_selectedexport = table.column(0).checkboxes.selected();
+
+        // Iterate over all selected checkboxes
+        $.each(rows_selectedexport, function(index, rowId) {
+            // Create a hidden element 
+            $(formexport).append(
+                $('<input>')
+                .attr('type', 'hidden')
+                .attr('name', 'idlist')
+                .val(rowId)
+            );
+        });
+        
+        // Submit the form
+        formexport.submit();
+    },
+    enabled: false
+}
+
     
     
     

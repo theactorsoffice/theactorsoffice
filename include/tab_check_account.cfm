@@ -145,7 +145,7 @@ T4: #t4#<BR>
     
   <Cfif #isdefined('dbug')#>  <cfoutput>#varcheck#<BR>#varif#<BR>var after: #varafter# #tab1_expand#</cfoutput><cfabort></Cfif>
       <cfoutput>
-<h1>#t10#</h1>
+<h1>t10: #t10# tab10_expand:#tab10_expand#</h1>
 </cfoutput><cfaborT>
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 

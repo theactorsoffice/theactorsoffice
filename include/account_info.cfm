@@ -1297,7 +1297,11 @@
 
                 </div>
 
-                
+                                <div class="tab-pane<cfif #tab10_expand# is 'true'> show active</cfif>" id="billing">
+                    
+                    <cfinclude template="/include/mybilling_pane.cfm" />
+
+                </div>
     
        
 

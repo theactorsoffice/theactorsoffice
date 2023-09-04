@@ -59,6 +59,19 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+
+        // Variable to hold the selected rows data
+let selectedRowsData = [];
+
+// Update selected rows whenever a row is selected or deselected
+$('#<cfoutput>#contacts_table#</cfoutput>').on('select.dt deselect.dt', function() {
+    selectedRowsData = table.rows({ selected: true }).data().toArray();
+    table.buttons(['.exportcontacts']).enable(
+        selectedRowsData.length === 0 ? false : true
+    );
+});
+
+
         var table = $('#<cfoutput>#contacts_table#</cfoutput>').DataTable({
             "pageLength": < cfoutput > #userdefRows # < /cfoutput>,
             stateSave: false,
@@ -143,14 +156,24 @@
                 enabled: false
             },
                 
-           {
-    text: 'Export',
-    className: 'exportcontacts',
-    action: function (e, node, config) {
-        window.location.href = '/include/exportcontacts.cfm';
-    },
-    enabled: false
-}
+ {
+            text: 'Export',
+            className: 'exportcontacts',
+            action: function (e, node, config) {
+                $.ajax({
+                    url: '/include/exportcontacts.cfm',
+                    type: 'POST',
+                    data: { selectedRows: JSON.stringify(selectedRowsData) },
+                    success: function (response) {
+                        console.log("Export successful:", response);
+                    },
+                    error: function (error) {
+                        console.log("Export failed:", error);
+                    }
+                });
+            },
+            enabled: false
+        }
     
     
     

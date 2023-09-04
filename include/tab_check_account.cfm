@@ -25,8 +25,6 @@
 
 <cfparam name="tab0_expand" default="false" />
 
-<cfparam name="tab10_expand" default="false" />
-
 <cfparam name="tab1_expand" default="false" />
 
 <cfparam name="tab2_expand" default="false" />
@@ -43,6 +41,8 @@
 <cfparam name="tab8_expand" default="false" />
 
 <cfparam name="tab9_expand" default="false" />
+
+<cfparam name="tab10_expand" default="false" />
 
 <cfset tab0_expand="false" />
 
@@ -115,8 +115,7 @@ T4: #t4#<BR>
     <cfset tab9_expand = "true" />
 <cfset tab1_expand="false" />
 
-
-    <cfelseif t10 eq 1> 
+<cfelseif t10 eq 1> 
     <cfset tab10_expand = "true" />
 </cfif>
     

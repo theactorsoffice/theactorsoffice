@@ -146,7 +146,7 @@
     
     
 
-    <Cflocation url="/app/myaccount/?t3=1" />
+    <Cflocation url="/app/myaccount/?t0=1" />
 
 </cfif>
 

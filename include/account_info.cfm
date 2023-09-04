@@ -146,7 +146,7 @@
     
     
 
-    <Cflocation url="/app/myaccount/?t3=1" />
+    <Cflocation url="/app/myaccount/?t0=1" />
 
 </cfif>
 
@@ -975,135 +975,6 @@
 
 <cfset pgrtn="P" />
 
-<div class="row">
-
-    <div class="col-md-3 col-sm-6 col-xs-12">
-
-        <div class="card h-100">
-
-            <Center>
-
-                <h4 class="card-header text-nowrap" style="color:white;background-color: #406E8E;margin:0!important;padding:15px!important;">
-                    <cfoutput>#userFirstName# #userlastName# </cfoutput>
-                </h4>
-
-
-
-            </Center>
-
-            <div class="card-body">
-
-
-
-
-                <div class="py-0 px-2 flex text-center font-18">
-                    <a title="Update Account" data-bs-toggle="modal" data-bs-target="#remoteUpdateAccount" data-bs-original-title="Update Account"> <i class="mdi mdi-square-edit-outline"></i></a>
-                </div>
-
-
-
-
-                <p class="card-text">
-
-
-
-
-
-                    <A href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
-
-                        <figure>
-
-                            <Center><img src="<Cfoutput>#browser_user_avatar_filename#</cfoutput>?ver=<Cfoutput>#rand()#</cfoutput>" class="mr-2 rounded-circle gambar img-responsive img-thumbnail" title="User ID: <cfoutput>#userid#</cfoutput>" style="max-width:120px; width:100%;" alt="profile-image" id="item-img-output" />
-                                <figcaption>
-                                    <cfoutput>#useravatarname#</cfoutput>
-                                </figcaption>
-                            </Center>
-
-
-                        </figure>
-
-                    </A>
-
-
-
-                </p>
-
-
-            </div>
-        </div>
-
-    </div>
-
-    <cfoutput>
-
-        <cfset h5style="font-size:0.875rem;font-weight: 500;text-align:left;margin-bottom:0;" />
-
-    </cfoutput>
-
-    <div class="col-md-9 col-sm-6 col-xs-12">
-
-        <div class="card h-100">
-
-
-
-
-            <div class="card-body">
-                <h4 class="text-nowrap">
-                    Account Billing Information
-                </h4>
-                <div class="row" style="margin: auto;">
-
-
-
-
-
-
-                    <cfoutput query="thrivecartdetails">
-
-                        <div class="col-md-12 col-lg-6 p-1"><strong>Invoice ID: </strong>#invoiceid#</div>
-
-
-
-                        <div class="col-md-12 col-lg-6 p-1"><strong>Purchase Date: </strong>#dateformat(purchasedate)#</div>
-
-                        <cfif #dateformat(trialenddate)# is not "">
-
-                            <div class="col-md-12 col-lg-6 p-1"><strong>Trial End Date: </strong>#dateformat(trialenddate)#</div>
-                        </cfif>
-
-
-                        <div class="col-md-12 col-lg-6 p-1"><strong>Product: </strong>#baseproductlabel#</div>
-
-
-                        <div class="col-md-12 col-lg-6 p-1"><strong>Plan: </strong>#planname#</div>
-
-                    </cfoutput>
-
-
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<p>&nbsp;</p>
-
-
-
-
 
 
 
@@ -1180,24 +1051,34 @@
     
      <cfparam name="tab9_expand" default="false" />
 
+          <cfparam name="tab0_expand" default="false" />
+
+               <cfparam name="tab10_expand" default="false" />
+
      
 
-    <cfif #tab1_expand# is "false" and #tab2_expand# is "false" and #tab3_expand# is "false" and #tab4_expand# is "false" and #tab7_expand# is "false" and #tab8_expand# is "false" and #tab9_expand# is "false"  >
+    <cfif #tab1_expand# is "false" and #tab2_expand# is "false" and #tab3_expand# is "false" 
+    and #tab4_expand# is "false" and #tab7_expand# is "false"
+     and #tab8_expand# is "false" and #tab9_expand# is "false"  
+     and #tab0_expand# is "false" and  #tab10_expand# is "false">
 
-        <cfset tab1_expand="true" />
+        <cfset tab0_expand="true" />
 
-        <cfset t1=1 />
+        <cfset t0=1 />
 
 
     </cfif>
 
     <div class="card">
         
-        <div class="card-body">
+        <div class="card-body">  
             
             <ul class="nav nav-pills navtab-bg nav-justified p-1">
                 
                 <cfoutput>
+
+                  <li class="nav-item"> <a href="##info" data-bs-toggle="tab" aria-expanded="#tab0_expand#" class="nav-link<cfif #tab0_expand# is 'true'> active</cfif>">Info </a>
+                    </li>
 
                     <li class="nav-item"> <a href="##profile" data-bs-toggle="tab" aria-expanded="#tab1_expand#" class="nav-link<cfif #tab1_expand# is 'true'> active</cfif>">Links </a>
                     </li>
@@ -1220,7 +1101,10 @@
 
                     <li class="nav-item"> <a href="##systems" data-bs-toggle="tab" aria-expanded="#tab7_expand#" class="nav-link<cfif #tab7_expand# is 'true'> active</cfif>">Systems</a>
                     </li>
-                    
+
+                        <li class="nav-item"> <a href="##billing" data-bs-toggle="tab" aria-expanded="#tab10_expand#" class="nav-link<cfif #tab10_expand# is 'true'> active</cfif>">Billing</a>
+                    </li>
+                 
                  
                     <span class="ml-auto padding-bottom:11px;text-nowrap border border-top-0 !important border-left-0 !important border-right-0 !important" style="border-top:0 !important;border-left:0 !important;border-right:0 !important;">
 
@@ -1232,6 +1116,12 @@
 
 
             <div class="tab-content">
+
+                  <div class="tab-pane<cfif #tab0_expand# is 'true'> show active</cfif>" id="info">
+                    
+                    <cfinclude template="/include/myinfo_pane.cfm" />
+                    
+                </div>
 
                 <div class="tab-pane<cfif #tab1_expand# is 'true'> show active</cfif>" id="profile">
                     
@@ -1277,10 +1167,16 @@
                     <cfinclude template="/include/systemprefs_pane.cfm" />
 
                 </div>
-                
+
+                                <div class="tab-pane<cfif #tab10_expand# is 'true'> show active</cfif>" id="billing">
+                    
+                    <cfinclude template="/include/mybilling_pane.cfm" />
+
+                </div>
+    
        
 
-            </div>
+  
 
         </div>
 

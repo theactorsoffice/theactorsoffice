@@ -30,7 +30,7 @@ INNER JOIN audprojects p ON p.audprojectid = r.audprojectid
 INNER JOIN contactdetails c ON c.contactid = p.contactid
 
 WHERE e.isdeleted = 0 
-
+AND e.eventStart <= GETDATE()
 AND r.audprojectid = #audprojectid# 
 AND p.contactid NOT IN (
 
@@ -39,7 +39,6 @@ order by e.eventid desc
 </cfquery>
 
 
-<cfif #followups.recordcount# is "1">
 
 
 <cfif #followups.recordcount# is "1">
@@ -95,7 +94,6 @@ order by e.eventid desc
 
 </cfif>
 
-</cfif>
  
 
 <cfquery name="addmissing" datasource="#dsn#">

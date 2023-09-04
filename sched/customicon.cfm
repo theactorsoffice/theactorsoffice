@@ -3,7 +3,7 @@
 <cfquery datasource="abod" name="x">
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png'
 </cfquery>
-
+  <Cfabort>
 <cfloop query="x">
     <cfset id = x.id />
     <cfset siteurl = x.siteurl />
@@ -12,7 +12,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
     <cfif NOT findNoCase("http", siteurl)>
         <cfset siteurl = "http://" & siteurl />
     </cfif>
-  <Cfabort>
+
     <cftry>
         <cfhttp url="#siteurl#/favicon.ico" method="get" getAsBinary="yes" result="result"></cfhttp>
         

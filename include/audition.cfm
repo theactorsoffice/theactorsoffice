@@ -1049,7 +1049,7 @@
                                 <th>Time</th>
                                 <th>Stage</th>
                                 <th>Type</th>
-                             
+                             <th>Assessent</th>
  
                             </tr>
 
@@ -1159,7 +1159,16 @@
 
                                     </tr>
 
+<TD>
 
+ <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteUpdateAnswer" toggle="tooltip" data-bs-placement="top" title="Update Answer" data-bs-original-title="Update Answer">
+
+                                                      <i class="mdi mdi-square-edit-outline"></i> 
+
+                                                  </a> 
+
+
+                                            </td>
 
 
                                 </cfoutput>

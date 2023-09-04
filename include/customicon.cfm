@@ -1,5 +1,5 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
-
+<cfabort>
 <cfquery datasource="#dsn#" name="x">
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png'
 </cfquery>

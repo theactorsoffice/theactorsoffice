@@ -1233,7 +1233,7 @@
 
                         <li class="nav-item"> <a href="##billing" data-bs-toggle="tab" aria-expanded="#tab10_expand#" class="nav-link<cfif #tab10_expand# is 'true'> active</cfif>">Billing</a>
                     </li>
-                    
+                    <cfoutput>tab10_expand: #tab10_expand#</cfoutput><cfabort>
                  
                     <span class="ml-auto padding-bottom:11px;text-nowrap border border-top-0 !important border-left-0 !important border-right-0 !important" style="border-top:0 !important;border-left:0 !important;border-right:0 !important;">
 

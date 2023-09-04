@@ -3,7 +3,7 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
 <cfset new_audprojectid = audprojectid />
-
+    <cfparam name="focusid" default="" />
  
     
     

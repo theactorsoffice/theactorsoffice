@@ -1,6 +1,7 @@
 <cfset dbugz = 1 />
 
  
+<cfparam name="t0" default="0" />
 
 <cfparam name="t1" default="0" />
 
@@ -20,6 +21,11 @@
 
 <cfparam name="t9" default="0" />
 
+<cfparam name="t10" default="0" />
+
+<cfparam name="tab0_expand" default="false" />
+
+<cfparam name="tab10_expand" default="false" />
 
 <cfparam name="tab1_expand" default="false" />
 
@@ -37,6 +43,8 @@
 <cfparam name="tab8_expand" default="false" />
 
 <cfparam name="tab9_expand" default="false" />
+
+<cfset tab0_expand="false" />
 
 <cfset tab1_expand="false" />
 
@@ -56,6 +64,8 @@
 
 <cfset tab9_expand="false" />
 
+<cfset tab10_expand="false" />
+
 <cfsavecontent variable = "varcheck"><Cfoutput>
 T1: #t1#<BR>
 T2: #t2#<BR>
@@ -66,6 +76,10 @@ T4: #t4#<BR>
 <cfif t1 eq 1>
 
     <cfset tab1_expand = "true" />
+
+    <cfelseif t0 eq 1>
+    
+    <cfset tab0_expand = "true" />
 
 <cfelseif t2 eq 1>
     
@@ -100,10 +114,14 @@ T4: #t4#<BR>
     
     <cfset tab9_expand = "true" />
 <cfset tab1_expand="false" />
+
+
+    <cfelseif t10 eq 1> 
+    <cfset tab10_expand = "true" />
 </cfif>
     
-    <cfif t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 eq 0><cfset t1 = 1 /><cfset tab1_expand = "true" /><cfelse>
-    <cfset  tab1_expand = "false" /></cfif>
+    <cfif t0 + t1 + t2 + t3 + t4 + t5 + t6 + t7 + t8 + t9 + t10 eq 0><cfset t0 = 1 /><cfset tab0_expand = "true" /><cfelse>
+    <cfset  tab0_expand = "false" /></cfif>
     
     <cfsavecontent variable = "varif"><Cfoutput>
 IF: if #t1# is "0" and #t2# is "0" and #t3# is "0" and #t4# is "0" and #t5# is "0" and #t6# is "0"<BR>

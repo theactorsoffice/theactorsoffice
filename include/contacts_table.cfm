@@ -142,19 +142,22 @@
                 },
                 enabled: false
             },
-                
-                     {
-                text: 'Export',
-                className: 'exportcontacts', 
-           action: function (e, node, config){
-                $('#exampleModal5').modal('show')
-                },
-                enabled: false
-            }
+                {
+    text: 'Export',
+    className: 'exportcontacts',
+    action: function (e, node, config) {
+        window.location.href = '/include/exportcontacts.cfm';
+    },
+    enabled: false
+}
     
     
     
-        ],
+        ]
+        
+        
+        
+        ,
 
 
               columnDefs: [{

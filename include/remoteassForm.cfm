@@ -88,7 +88,7 @@
 
 
     <div class="form-group text-center col-md-12">
-        <button class=" btn btn-primary editable-submit btn-sm waves-effect waves-light" type="submit" style="background-color: #406e8e; border: #406e8e;">Submit</button>
+        <button class=" btn btn-primary editable-submit btn-sm waves-effect waves-light" value="Update" type="submit" style="background-color: #406e8e; border: #406e8e;">Submit</button>
     </div>
 
 

@@ -441,7 +441,8 @@
 <div class="modal-body">
 
  <form  method="post" class="parsley-examples demo-default selectize-close-btn" 
- data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate="" novalidate="" id="myformexport" name="myformexport" action="/include/exportcontacts.cfm" method="POST" >
+ data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], 
+ input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate="" novalidate="" id="myformexport" name="myformexport" action="/include/exportcontacts.cfm" method="POST" >
    
      <div class="form-group col-md-12">
          <label for="valuetext">Export all selected relationships</label>

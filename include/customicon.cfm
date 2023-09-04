@@ -12,7 +12,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
     <cfif NOT findNoCase("http", siteurl)>
         <cfset siteurl = "http://" & siteurl />
     </cfif>
-    
+    <cfabort>
     <cftry>
         <cfhttp url="#siteurl#/favicon.ico" method="get" getAsBinary="yes" result="result"></cfhttp>
         

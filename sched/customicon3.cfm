@@ -75,6 +75,8 @@ AND siteicon = 'not found'
             where id = #id#
         </cfquery>
     </cfif>
+
+    <cfoutput>#x.id#</cfoutput>
 </cfloop>
 
 

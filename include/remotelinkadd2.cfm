@@ -22,13 +22,19 @@ Select * from sitelinks_user where userid = #userid# and sitename = '#new_sitena
     </cfoutput>
     
 </cfif>
-
-<cfquery name="add" datasource="#dsn#" >
-insert into sitelinks_user (sitename,siteurl,userid,sitetypeid,IsCustom<cfif #ver# is not "">,ver</cfif>)
-    values   ('#new_sitename#','#new_siteurl#',#userid#,#new_sitetypeid#,1<cfif #ver# is not "">,#ver#</cfif>)
+ 
+<cfquery name="add" datasource="#dsn#" result="queryResult">
+    INSERT INTO sitelinks_user (sitename, siteurl, userid, sitetypeid, IsCustom<cfif #ver# is not "">, ver</cfif>)
+    VALUES ('#new_sitename#', '#new_siteurl#', #userid#, #new_sitetypeid#, 1<cfif #ver# is not "">, #ver#</cfif>)
 </cfquery>
 
-    
+<!-- Get the ID of the last inserted record -->
+<cfset new_id = queryResult.GENERATED_KEY>
+
+<!-- Now, lastInsertedId contains the ID of the newly inserted record -->
+
+<cfinclude template="/include/customicon_finder.cfm" />
+
 
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 

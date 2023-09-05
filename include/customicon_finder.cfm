@@ -148,17 +148,15 @@ WHERE id = #new_id#
 
 <cfcatch type="any">
 
-<cfoutput>not found: #pngfilename#<BR>          update sitelinks_user 
-            set siteicon = 'Not Found'  
-            where id = #x.id#<BR></cfoutput>  
+ 
 
         <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
-            set siteicon = 'Not Found'
+            set siteicon = 'unknown.png'
             where id = #x.id#
         </cfquery>
 
-        <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput> not found!</h2>
+        <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput> unknown.png!</h2>
 </cfcatch>
 </cftry>
 
@@ -166,19 +164,19 @@ WHERE id = #new_id#
 
 
     <cfelse>
-        <!-- Update record to show icon was not found -->
+        <!-- Update record to show icon was unknown.png -->
         <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
-            set siteicon = 'Not Found'
+            set siteicon = 'unknown.png'
             where id = #id#
         </cfquery>
 
-        <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput>not found!</h2>
+        <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput>unknown.png!</h2>
     </cfif>
     <cfelse>
             <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
-            set siteicon = 'Not Found'
+            set siteicon = 'unknown.png'
             where id = #id#
         </cfquery>
     </cfif>

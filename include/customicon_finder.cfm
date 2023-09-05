@@ -65,7 +65,13 @@ WHERE id = #new_id#
 
         <!-- New image name and directory -->
         <cfset new_siteicon = "custom_#id#.png" />
+
+        <Cfif #dsn# is "abo">
         <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\32" />
+        <cfelse>
+        <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\32" />
+        </cfif>
+
  <Cfoutput>new_siteicon: #new_siteicon#<BR></cfoutput>
  <Cfoutput>image_dir: #image_dir#<BR></cfoutput>
 

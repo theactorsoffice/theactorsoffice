@@ -30,9 +30,24 @@ WHERE id = #new_id#
 
         <!-- Temp file paths -->
 
+ <Cfif #dsn# is "abo">
+        
         <cfset tempDir ="C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\32\temp" />
+        
+
+        <cfelse>
+
+
+        <cfset tempDir ="C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\32\temp" />
+       
+        <cfset tempDir_uat ="C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\32\temp" />
+        </cfif>
+
+
 <Cfoutput>tempdir: #tempDir#<BR></cfoutput>
         <cfset tempFileName = tempDir & CreateObject("java", "java.io.File").separator & "favicon_#id#.ico">
+ <cfset tempFileName_uat = tempDir_uat & CreateObject("java", "java.io.File").separator & "favicon_#id#.ico">
+
 <Cfoutput>tempfilename: #tempFileName#<BR></cfoutput>
         <!-- Save the ICO file -->
  <!-- Delete the file if it already exists -->
@@ -44,7 +59,12 @@ WHERE id = #new_id#
         file="#tempFileName#"
         output="#result.fileContent#"
         mode="777" />
-
+ <Cfif #dsn# is "abod">
+  <cffile action="write"
+        file="#tempFileName_uat#"
+        output="#result.fileContent#"
+        mode="777" />
+ </cfif>
 
 
         <!-- Convert ICO to PNG using ImageMagick -->
@@ -68,8 +88,13 @@ WHERE id = #new_id#
 
         <Cfif #dsn# is "abo">
         <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\32" />
+        
+
         <cfelse>
+
         <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\32" />
+       
+       
         </cfif>
 
  <Cfoutput>new_siteicon: #new_siteicon#<BR></cfoutput>
@@ -103,6 +128,14 @@ WHERE id = #new_id#
 
 
         <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#imageObj#" format="png"></cfimage>
+
+<cfif #dns# is "abod">
+        <cfset image_dir_uat = "C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\32" />
+
+
+   <cfimage action="write" destination="#image_dir_uat#\custom_#id#.png" source="#imageObj#" format="png"></cfimage>
+</cfif>
+
 <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput> found!</h2>
 
         <cfquery datasource="#dsn#" name="update">

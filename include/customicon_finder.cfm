@@ -19,7 +19,7 @@ WHERE id = #new_id#
     <cfset domain = listFirst(tempUrl, "/")>
     <cfset rootUrl = protocol & domain>
 
-    <cfhttp url="#rootUrl#/favicon.ico"  timeout="30" method="get" getAsBinary="yes" result="result" />
+    <cfhttp url="#rootUrl#/favicon.ico"  timeout="60" method="get" getAsBinary="yes" result="result" />
 <cfoutput>url: #rootUrl#/favicon.ico<BR></cfoutput>
     <!-- Check if cfhttp was successful and the content type indicates an image -->
     <cfif result.statusCode EQ "200 OK">
@@ -129,7 +129,7 @@ WHERE id = #new_id#
 
         <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#imageObj#" format="png"></cfimage>
 
-<cfif #dns# is "abod">
+<cfif #dsn# is "abod">
         <cfset image_dir_uat = "C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\32" />
 
 
@@ -148,17 +148,15 @@ WHERE id = #new_id#
 
 <cfcatch type="any">
 
-<cfoutput>not found: #pngfilename#<BR>          update sitelinks_user 
-            set siteicon = 'Not Found'  
-            where id = #x.id#<BR></cfoutput>  
+ 
 
         <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
-            set siteicon = 'Not Found'
+            set siteicon = 'unknown.png'
             where id = #x.id#
         </cfquery>
 
-        <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput> not found!</h2>
+        <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput> unknown.png!</h2>
 </cfcatch>
 </cftry>
 
@@ -166,19 +164,19 @@ WHERE id = #new_id#
 
 
     <cfelse>
-        <!-- Update record to show icon was not found -->
+        <!-- Update record to show icon was unknown.png -->
         <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
-            set siteicon = 'Not Found'
+            set siteicon = 'unknown.png'
             where id = #id#
         </cfquery>
 
-        <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput>not found!</h2>
+        <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput>unknown.png!</h2>
     </cfif>
     <cfelse>
             <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
-            set siteicon = 'Not Found'
+            set siteicon = 'unknown.png'
             where id = #id#
         </cfquery>
     </cfif>

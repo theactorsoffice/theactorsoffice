@@ -73,7 +73,7 @@ AND siteicon = 'not found'
         <!-- No .ico found in the source code. Update the database accordingly -->
         <cfquery datasource="abo" name="update">
             update sitelinks_user 
-            set siteicon = 'Not Found'
+            set siteicon = 'unknown.png'
             where id = #id#
         </cfquery>
     </cfif>

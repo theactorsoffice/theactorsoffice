@@ -1,4 +1,6 @@
-<cfquery datasource="abo" name="x" maxrows="1">
+ <CFINCLUDE template="/include/remote_load.cfm" />
+
+<cfquery datasource="#dsn#" name="x" maxrows="1">
 SELECT id, sitename, siteurl, siteicon FROM sitelinks_user 
 WHERE id = #new_id#
 </cfquery>
@@ -97,7 +99,7 @@ WHERE id = #new_id#
         <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#imageObj#" format="png"></cfimage>
 <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput> found!</h2>
 
-        <cfquery datasource="abo" name="update">
+        <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
             set siteicon = '#new_siteicon#'
             where id = #id#
@@ -111,7 +113,7 @@ WHERE id = #new_id#
             set siteicon = 'Not Found'  
             where id = #x.id#<BR></cfoutput>  
 
-        <cfquery datasource="abo" name="update">
+        <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
             set siteicon = 'Not Found'
             where id = #x.id#
@@ -126,7 +128,7 @@ WHERE id = #new_id#
 
     <cfelse>
         <!-- Update record to show icon was not found -->
-        <cfquery datasource="abo" name="update">
+        <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
             set siteicon = 'Not Found'
             where id = #id#
@@ -135,7 +137,7 @@ WHERE id = #new_id#
         <h2><cfoutput>#rootUrl#/favicon.ico</cfoutput>not found!</h2>
     </cfif>
     <cfelse>
-            <cfquery datasource="abo" name="update">
+            <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
             set siteicon = 'Not Found'
             where id = #id#
@@ -152,12 +154,12 @@ WHERE id = #new_id#
 
   
   
-       <cfquery datasource="abo" name="x">
+       <cfquery datasource="#dsn#" name="x">
   SELECT id,userid,sitename,siteurl,siteicon FROM sitelinks_user WHERE siteicon LIKE 'custom%'
   </cfquery>
 
   <cfloop query="x">
-     <cfquery datasource="abo" name="update">
+     <cfquery datasource="#dsn#" name="update">
             update sitelinks_user 
             set siteicon = '#x.siteicon#'
             where userid = #x.userid#

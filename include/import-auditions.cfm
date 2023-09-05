@@ -11,7 +11,7 @@ function unlock(){
    <CFINCLUDE template="/include/remote_load.cfm" />
     
     <cfquery datasource="#dsn#" name="upload_details"      >
-    select contactid from contactsimport where uploadid = #uploadid# and status = 'Added'
+    select audprojectid from auditionsimport where uploadid = #uploadid# and status = 'Added'
     </cfquery>
     
     <cfset conlist = valuelist(upload_details.contactid) />
@@ -323,7 +323,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
 
 
                                 <TR>
-                                    <TD><a title="View" href="/app/contacts/?byimport=#imports.uploadid#">#imports.total_adds#</i></a></TD>
+                                    <TD><a title="View" href="/app/auditions/?byimport=#imports.uploadid#">#imports.total_adds#</i></a></TD>
                                     <TD>#imports.uploadid#</TD>
                                     <TD>#dateformat(imports.timestamp)#</TD>
                                     <TD>#timeformat(imports.timestamp)#</TD>

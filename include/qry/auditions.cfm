@@ -5,7 +5,7 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
 <cfparam name="audsearch" default="" />
-
+<cfparam name="byimport" default="" />
 <cfparam name="sel_audstepid" default="x" />
 
 <cfparam name="sel_audtype" default="x" />
@@ -71,6 +71,18 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
   WHERE r.isdeleted IS FALSE AND p.isDeleted IS false
 
  AND p.userid = #userid#
+ 
+
+    <cfif #byimport# is not "">
+
+    and p.audprojectid in (SELECT audprojectid FROM auditionsimport WHERE uploadid = #byimport# )
+
+    </cfif>
+ 
+    
+
+
+
     
     <cfif  #sel_audcatid# is not "x">
     

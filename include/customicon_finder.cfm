@@ -19,7 +19,7 @@ WHERE id = #new_id#
     <cfset domain = listFirst(tempUrl, "/")>
     <cfset rootUrl = protocol & domain>
 
-    <cfhttp url="#rootUrl#/favicon.ico"  timeout="30" method="get" getAsBinary="yes" result="result" />
+    <cfhttp url="#rootUrl#/favicon.ico"  timeout="60" method="get" getAsBinary="yes" result="result" />
 <cfoutput>url: #rootUrl#/favicon.ico<BR></cfoutput>
     <!-- Check if cfhttp was successful and the content type indicates an image -->
     <cfif result.statusCode EQ "200 OK">

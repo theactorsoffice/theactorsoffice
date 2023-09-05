@@ -129,7 +129,7 @@ WHERE id = #new_id#
 
         <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#imageObj#" format="png"></cfimage>
 
-<cfif #dns# is "abod">
+<cfif #dsn# is "abod">
         <cfset image_dir_uat = "C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\32" />
 
 

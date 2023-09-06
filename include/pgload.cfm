@@ -593,6 +593,7 @@ and l.linktype <> 'css'
     <cfset userdefRows=FindUser.defRows />
     <cfset userdefCountry=FindUser.countryid />
     <cfset userdefState=FindUser.regionid />
+        <cfset usercountryname=FindUser.countryname />
     <cfset def_countryid=FindUser.countryid />
     <cfset def_regionid=FindUser.regionid />  
         

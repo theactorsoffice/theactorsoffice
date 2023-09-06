@@ -53,7 +53,7 @@
           <dd class="col-sm-9">#userdefstate#</dd>
 
           <dt class="col-sm-3">Country:</dt>
-          <dd class="col-sm-9">#userdefcountry#</dd>
+          <dd class="col-sm-9">#usercountryname#</dd>
         </dl>
     
 

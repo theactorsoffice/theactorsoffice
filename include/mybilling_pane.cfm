@@ -31,8 +31,7 @@
                         <div class="col-md-12 col-lg-6 p-1"><strong>Plan: </strong>#planname#</div>
 
                     </cfoutput>
-
-
+<div class="col-md-12 col-lg-6 p-1">Have questions and want to cancel?  <a href="mailto:support@theactorsoffice.com">Email</A> us</div>
 
                 </div>
 

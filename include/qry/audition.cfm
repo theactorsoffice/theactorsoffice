@@ -5,7 +5,9 @@
 
 <cfquery name="submitsitefix" datasource="#dsn#">
 update audroles 
-SET submitsiteid = NULL
+SET submitsiteid = NULL,
+contactid = NULL,
+opencallid = NULL
 WHERE audsourceid IS NULL;
 </cfquery>
 

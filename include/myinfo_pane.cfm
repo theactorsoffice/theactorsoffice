@@ -47,10 +47,10 @@
           <dd class="col-sm-9">#userzip#</dd>
 
           <dt class="col-sm-3">State/Region:</dt>
-          <dd class="col-sm-9">#userstate#</dd>
+          <dd class="col-sm-9">#userdefstate#</dd>
 
           <dt class="col-sm-3">Country:</dt>
-          <dd class="col-sm-9">#usercountry#</dd>
+          <dd class="col-sm-9">#userdefcountry#</dd>
         </dl>
       </div>
 

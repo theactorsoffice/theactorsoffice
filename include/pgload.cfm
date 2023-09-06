@@ -123,7 +123,7 @@
     ,u.refresh_token
     FROM taousers u
     LEFT join timezones t on t.tzid = u.tzid
-     LEFT JOIN countries c on c.regionid
+     LEFT JOIN countries c on c.countryid = u.countryid
     WHERE u.userid = #userid#
 </cfquery>
     
@@ -204,7 +204,7 @@
     ,isauditionmodule
         FROM taousers u
         LEFT join timezones t on t.tzid = u.tzid
-         LEFT JOIN countries c on c.regionid
+     LEFT JOIN countries c on c.countryid = u.countryid
         WHERE u.userid = '#userid#'
     </cfquery>
 </cfif>
@@ -257,7 +257,7 @@
     ,isauditionmodule
             FROM taousers u
             LEFT join timezones t on t.tzid = u.tzid
-            LEFT JOIN countries c on c.regionid
+       LEFT JOIN countries c on c.countryid = u.countryid
             WHERE u.userid = '#userid#'
         </cfquery>
 </cfif>

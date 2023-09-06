@@ -1,33 +1,62 @@
-<h4>                  <cfoutput>#userFirstName# #userlastName# </cfoutput>
+ <h4>                  
+ 
+ <cfoutput>#userFirstName# #userlastName# </cfoutput>
 
-        <span class="float-end">
+<span class="float-end">
   
-           <a title="Update Account" data-bs-toggle="modal" data-bs-target="#remoteUpdateAccount" data-bs-original-title="Update Account"> <i class="mdi mdi-square-edit-outline"></i></a>
+    <a title="Update Account" data-bs-toggle="modal" data-bs-target="#remoteUpdateAccount" data-bs-original-title="Update Account"> <i class="mdi mdi-square-edit-outline"></i></a>
   
   </span>
-</h4>
 
-              <p class="card-text">
-
+</h4> 
 
 
 
+  <div class="row">
+    <!-- First Column: 20% Width -->
+    <div class="col-2">
+      <p class="card-text">
+        <a href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
+         <center> <figure>
+            <img src="<cfoutput>#browser_user_avatar_filename#</cfoutput>?ver=<cfoutput>#rand()#</cfoutput>" class="mr-2 rounded-circle gambar img-responsive img-thumbnail" title="User ID: <cfoutput>#userid#</cfoutput>" style="max-width:120px; width:100%;" alt="profile-image" id="item-img-output" />
+            <figcaption>
+              <Center><cfoutput>#useravatarname#</cfoutput></center>
+            </figcaption>
+          </figure></center>
+        </a>
+      </p>
+    </div>
+    
+    <!-- Second Column: 80% Width -->
+    <div class="col-10">
+<cfoutput>
+        <dl class="row">
+      
 
-                    <A href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
 
-                        <figure>
+          <dt class="col-sm-3">Email:</dt>
+          <dd class="col-sm-9">#useremail#</dd>
 
-                            <img src="<Cfoutput>#browser_user_avatar_filename#</cfoutput>?ver=<Cfoutput>#rand()#</cfoutput>" class="mr-2 rounded-circle gambar img-responsive img-thumbnail" title="User ID: <cfoutput>#userid#</cfoutput>" style="max-width:120px; width:100%;" alt="profile-image" id="item-img-output" />
-                                <figcaption>
-                                    <cfoutput>#useravatarname#</cfoutput>
-                                </figcaption>
-                    
+          <dt class="col-sm-3">Address:</dt>
+          <dd class="col-sm-9">
+            #useradd1#<br>
+            #useradd2#
+          </dd>
 
+          <dt class="col-sm-3">Town/City:</dt>
+          <dd class="col-sm-9">#usercity#</dd>
 
-                        </figure>
+          <dt class="col-sm-3">Postal Code:</dt>
+          <dd class="col-sm-9">#userzip#</dd>
 
-                    </A>
+          <dt class="col-sm-3">State/Region:</dt>
+          <dd class="col-sm-9">#userdefstate#</dd>
 
+          <dt class="col-sm-3">Country:</dt>
+          <dd class="col-sm-9">#usercountryname#</dd>
+        </dl>
+    
 
-
-                </p>
+      </cfoutput>
+</div>
+</div>

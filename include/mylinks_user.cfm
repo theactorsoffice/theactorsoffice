@@ -6,7 +6,7 @@
 
 <!--- Embed the siteurl_list into JavaScript --->
 
- <button onclick="openAllUrls('#siteurl_list#')">Open All URLs</button>
+ <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">Open All</button>
 
 </cfoutput>
 <div class="row">

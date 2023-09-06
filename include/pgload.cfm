@@ -112,6 +112,7 @@
     ,u.avatarname
     ,u.contactid AS userContactID
     ,u.tzid
+    ,c.countryname
     ,t.tzname
     ,u.customerid
      ,u.countryid
@@ -122,6 +123,7 @@
     ,u.refresh_token
     FROM taousers u
     LEFT join timezones t on t.tzid = u.tzid
+     LEFT JOIN countries c on c.countryid = u.countryid
     WHERE u.userid = #userid#
 </cfquery>
     
@@ -184,6 +186,7 @@
         ,u.userEmail
         ,u.contactid
         ,u.userRole
+        ,c.countryname
         ,u.calstarttime
         ,u.calendtime
         ,u.avatarname
@@ -201,6 +204,7 @@
     ,isauditionmodule
         FROM taousers u
         LEFT join timezones t on t.tzid = u.tzid
+     LEFT JOIN countries c on c.countryid = u.countryid
         WHERE u.userid = '#userid#'
     </cfquery>
 </cfif>
@@ -233,6 +237,7 @@
             ,u.userEmail
             ,u.contactid
             ,u.userRole
+            ,c.countryname
             ,u.calstarttime
             ,u.calendtime
             ,u.avatarname
@@ -252,7 +257,7 @@
     ,isauditionmodule
             FROM taousers u
             LEFT join timezones t on t.tzid = u.tzid
-            LEFT JOIN countries c on c.regionid
+       LEFT JOIN countries c on c.countryid = u.countryid
             WHERE u.userid = '#userid#'
         </cfquery>
 </cfif>
@@ -588,6 +593,7 @@ and l.linktype <> 'css'
     <cfset userdefRows=FindUser.defRows />
     <cfset userdefCountry=FindUser.countryid />
     <cfset userdefState=FindUser.regionid />
+        <cfset usercountryname=FindUser.countryname />
     <cfset def_countryid=FindUser.countryid />
     <cfset def_regionid=FindUser.regionid />  
         

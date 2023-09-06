@@ -11,10 +11,10 @@ function unlock(){
    <CFINCLUDE template="/include/remote_load.cfm" />
     
     <cfquery datasource="#dsn#" name="upload_details"      >
-    select audprojectid,contactid from auditionsimport where uploadid = #uploadid# and status = 'Added'
+    select audprojectid from auditionsimport where uploadid = #uploadid# and status = 'Added'
     </cfquery>
     
-    <cfset conlist = valuelist(upload_details.contactid) />
+    <cfset conlist = valuelist(upload_details.audprojectid) />
     <CFINCLUDE template="/include/remote_load.cfm" />
     
     

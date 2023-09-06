@@ -51,8 +51,6 @@
           <dt class="col-sm-3">Country:</dt>
           <dd class="col-sm-9">#userdefcountry#</dd>
         </dl>
-      </div>
+    
 
       </cfoutput>
-</div>
-</div>

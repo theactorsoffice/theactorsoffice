@@ -7,27 +7,26 @@
   </span>
 </h4>
 
-              <p class="card-text">
+          <div class="container">
+  <div class="row">
+    <!-- First Column: 20% Width -->
+    <div class="col-2">
+      <p class="card-text">
+        <a href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
+          <figure>
+            <img src="<cfoutput>#browser_user_avatar_filename#</cfoutput>?ver=<cfoutput>#rand()#</cfoutput>" class="mr-2 rounded-circle gambar img-responsive img-thumbnail" title="User ID: <cfoutput>#userid#</cfoutput>" style="max-width:120px; width:100%;" alt="profile-image" id="item-img-output" />
+            <figcaption>
+              <cfoutput>#useravatarname#</cfoutput>
+            </figcaption>
+          </figure>
+        </a>
+      </p>
+    </div>
+    
+    <!-- Second Column: 80% Width -->
+    <div class="col-10">
+     <p class="card-text">This is the second section</p>
 
-
-
-
-
-                    <A href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
-
-                        <figure>
-
-                            <img src="<Cfoutput>#browser_user_avatar_filename#</cfoutput>?ver=<Cfoutput>#rand()#</cfoutput>" class="mr-2 rounded-circle gambar img-responsive img-thumbnail" title="User ID: <cfoutput>#userid#</cfoutput>" style="max-width:120px; width:100%;" alt="profile-image" id="item-img-output" />
-                                <figcaption>
-                                    <cfoutput>#useravatarname#</cfoutput>
-                                </figcaption>
-                    
-
-
-                        </figure>
-
-                    </A>
-
-
-
-                </p>
+    </div>
+  </div>
+</div>

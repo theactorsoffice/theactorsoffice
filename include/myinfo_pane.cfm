@@ -1,13 +1,17 @@
- <h4>                  <cfoutput>#userFirstName# #userlastName# </cfoutput>
+ <h4>                  
+ 
+ <cfoutput>#userFirstName# #userlastName# </cfoutput>
 
-        <span class="float-end">
+<span class="float-end">
   
-           <a title="Update Account" data-bs-toggle="modal" data-bs-target="#remoteUpdateAccount" data-bs-original-title="Update Account"> <i class="mdi mdi-square-edit-outline"></i></a>
+    <a title="Update Account" data-bs-toggle="modal" data-bs-target="#remoteUpdateAccount" data-bs-original-title="Update Account"> <i class="mdi mdi-square-edit-outline"></i></a>
   
   </span>
+
 </h4> 
 
-          <div class="container">
+
+
   <div class="row">
     <!-- First Column: 20% Width -->
     <div class="col-2">
@@ -54,7 +58,5 @@
     
 
       </cfoutput>
-</div>
-</div>
 </div>
 </div>

@@ -13,12 +13,12 @@
     <div class="col-2">
       <p class="card-text">
         <a href="/app/image-upload/?contactid=<cfoutput>#contactid#&ref_pgid=7</cfoutput>">
-          <figure>
+         <center> <figure>
             <img src="<cfoutput>#browser_user_avatar_filename#</cfoutput>?ver=<cfoutput>#rand()#</cfoutput>" class="mr-2 rounded-circle gambar img-responsive img-thumbnail" title="User ID: <cfoutput>#userid#</cfoutput>" style="max-width:120px; width:100%;" alt="profile-image" id="item-img-output" />
             <figcaption>
               <Center><cfoutput>#useravatarname#</cfoutput></center>
             </figcaption>
-          </figure>
+          </figure></center>
         </a>
       </p>
     </div>
@@ -27,8 +27,7 @@
     <div class="col-10">
 <cfoutput>
         <dl class="row">
-          <dt class="col-sm-3">Name:</dt>
-          <dd class="col-sm-9">#userfirstname# #userlastname#</dd>
+      
 
 
           <dt class="col-sm-3">Email:</dt>

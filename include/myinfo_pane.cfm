@@ -25,45 +25,34 @@
     
     <!-- Second Column: 80% Width -->
     <div class="col-10">
-     <p class="card-text">  <div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <h2>Contact Information</h2>
+<cfoutput>
         <dl class="row">
           <dt class="col-sm-3">Name:</dt>
           <dd class="col-sm-9">#userfirstname# #userlastname#</dd>
 
-          <dt class="col-sm-3">Avatar Name:</dt>
-          <dd class="col-sm-9">#AvatarName#</dd>
 
           <dt class="col-sm-3">Email:</dt>
           <dd class="col-sm-9">#useremail#</dd>
 
           <dt class="col-sm-3">Address:</dt>
           <dd class="col-sm-9">
-            #add1#<br>
-            #add2#
+            #useradd1#<br>
+            #useradd2#
           </dd>
 
           <dt class="col-sm-3">Town/City:</dt>
-          <dd class="col-sm-9">#city#</dd>
+          <dd class="col-sm-9">#usercity#</dd>
 
           <dt class="col-sm-3">Postal Code:</dt>
-          <dd class="col-sm-9">#zip#</dd>
+          <dd class="col-sm-9">#userzip#</dd>
 
           <dt class="col-sm-3">State/Region:</dt>
-          <dd class="col-sm-9">#state#</dd>
+          <dd class="col-sm-9">#userstate#</dd>
 
           <dt class="col-sm-3">Country:</dt>
-          <dd class="col-sm-9">#country#</dd>
+          <dd class="col-sm-9">#usercountry#</dd>
         </dl>
       </div>
-    </div>
-  </div>
 
-
-</p>
-
-    </div>
-  </div>
+      </cfoutput>
 </div>

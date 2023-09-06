@@ -1,6 +1,13 @@
 <CFINCLUDE template="/include/projdate_fix_user.cfm" />
 
+
 <CFINCLUDE template="/include/remote_load.cfm" />
+
+<cfquery name="submitsitefix" datasource="#dsn#">
+update audroles 
+SET submitsiteid = NULL
+WHERE audsourceid IS NULL;
+</cfquery>
 
 <cfset new_audprojectid = audprojectid />
     <cfparam name="focusid" default="" />

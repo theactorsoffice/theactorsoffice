@@ -1,7 +1,7 @@
 
 
 
-<cfquery datasource="abod" name="x" maxrows="0">
+<cfquery datasource="abod" name="x" maxrows="50">
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png' 
 </cfquery>
 

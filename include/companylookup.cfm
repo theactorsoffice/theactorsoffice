@@ -42,7 +42,9 @@
                 url: 'CompanyLookup.cfc',
                 data: {
                     method: 'getCompanies',
-                    searchTerm: searchTerm
+                    searchTerm: searchTerm,
+                    dsn: <Cfoutput>#dsn#</cfoutput>,
+                    userid: <Cfoutput>#userid#</cfoutput>
                 },
                 dataType: 'json',
                 success: function(data) {

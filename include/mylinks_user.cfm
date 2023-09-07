@@ -42,7 +42,9 @@
     <cfset domain = listFirst(tempUrl, "/")>
     <cfset rootUrl = protocol & domain>
 
-
+<cfif left(domain, 4) is "www.">
+    <cfset domain = right(domain, len(domain) - 4)>
+</cfif>
  
 
 <img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#domain#" style="width:14px;" alt="#mylinks_user.sitename#" /> (#domain#)

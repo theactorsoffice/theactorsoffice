@@ -1,7 +1,7 @@
 <cfparam name="u" default="" />
 <cfparam name="p" default="" />
 <CFINCLUDE template="/include/remote_load.cfm" />
-
+<cfoutput>#recoverid#</cfoutput><cfabort>
 <cfif #isdefined('recoverid')# >
 <cfoutput>Select * from taousers where userid = #recoverid#</cfoutput>
 <cfquery name="U" datasource="#dsn#">

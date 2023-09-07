@@ -2,7 +2,7 @@
     <cffunction name="getCompanies_imdb" access="remote" returntype="query" output="false" returnformat="json">
         <cfargument name="searchTerm" type="string" required="true">
 
-        <cfquery name="queryCompanies" datasource="abo">
+        <cfquery name="queryCompanies_imdb" datasource="abo">
             SELECT coName
             FROM companies
             WHERE coName LIKE <cfqueryparam value="%#arguments.searchTerm#%" cfsqltype="cf_sql_varchar">
@@ -11,7 +11,7 @@
             LIMIT 10
         </cfquery>
         
-        <cfreturn queryCompanies>
+        <cfreturn queryCompanies_imdb>
     </cffunction>
         <cffunction name="getCompanies" access="remote" returntype="query" output="false" returnformat="json">
         <cfargument name="searchTerm" type="string" required="true">
@@ -27,11 +27,7 @@ AND d.contactstatus = 'Active'
 AND i.valuecompany LIKE <cfqueryparam value="#arguments.searchTerm#%" cfsqltype="cf_sql_varchar">
 AND d.userid = <cfqueryparam value="#arguments.userid#" cfsqltype="cf_sql_integer">
 ORDER BY i.valuecompany
-
-
-            and COID IN (SELECT coid FROM companies_cotypes_xref WHERE cotypeid = 18)
-
-            LIMIT 10
+ LIMIT 10
         </cfquery>
         
         <cfreturn queryCompanies>

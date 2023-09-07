@@ -3,6 +3,7 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
 
 <cfif #isdefined('recoverid')# >
+<cfoutput>Select * from taousers where userid = #recoverid#</cfoutput>
 <cfquery name="U" datasource="#dsn#">
 Select * from taousers where userid = #recoverid#
 </cfquery>

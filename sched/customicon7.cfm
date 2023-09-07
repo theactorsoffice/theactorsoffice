@@ -1,6 +1,4 @@
- <cftry>
-    <!-- Your code here -->
- 
+
 
 
 <cfquery datasource="abod" name="x" maxrows=50>
@@ -78,18 +76,6 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
                    timeout="60">
         </cfexecute>
 
-
- 
-
-<!-- Delete the temp file -->
-
-
-
-
- 
-
-
-
             <!-- Update Record -->
             <cfset new_siteicon = "custom_#id#.png">
             <cfquery datasource="abod" name="update">
@@ -106,9 +92,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 
 </cfif>
 
-
  <cfoutput>
-    
    
     <cfquery datasource="abod" name="find" maxrows=1>
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE id = #id#
@@ -123,24 +107,4 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE id = #id#
 
 </cfloop>
 
-
-
-
-   <cfcatch>
  
-<cfoutput>
-
-
-
-          <cfquery datasource="abod" name="update">
-                update sitelinks_user 
-                set siteicon = 'NOT A FILE'
-                where id = #x.id#
-            </cfquery>
-
-
-         <p><strong>Error Type:</strong> #cfcatch.type#</p>
-      <p><strong>Error Message:</strong> #cfcatch.message#</p>
-      <p><strong>Error Detail:</strong> #cfcatch.detail#</p></cfoutput>
-    </cfcatch>
-</cftry>

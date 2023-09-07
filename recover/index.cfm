@@ -2,7 +2,7 @@
 <cfparam name="p" default="" />
 <CFINCLUDE template="/include/remote_load.cfm" />
 
-<cfif #isdefined('recoverid')# and not #isdefined('recover')#>
+<cfif #isdefined('recoverid')# >
 <cfquery name="U" datasource="#dsn#">
 Select * from taousers where userid = #recoverid#
 </cfquery>

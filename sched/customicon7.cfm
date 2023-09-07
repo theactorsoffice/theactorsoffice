@@ -66,7 +66,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 </cfloop>
    <cfcatch>
  
-
+<cfoutput>
 
 
 
@@ -74,6 +74,6 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 
          <p><strong>Error Type:</strong> #cfcatch.type#</p>
       <p><strong>Error Message:</strong> #cfcatch.message#</p>
-      <p><strong>Error Detail:</strong> #cfcatch.detail#</p>
+      <p><strong>Error Detail:</strong> #cfcatch.detail#</p></cfoutput>
     </cfcatch>
 </cftry>

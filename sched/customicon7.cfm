@@ -11,13 +11,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
     <cfset id = x.id />
     <cfset siteurl = x.siteurl />
 
-    <cfoutput>
-    
-    iD: #id#<BR>
-
-    siteurl:#siteurl#<BR>
-
-    </cfoutput>
+   
 
  
 
@@ -53,11 +47,13 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
    
         
             <!-- Read PNG and Save -->
-       
+       <cftry>
             <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#icoResult.filecontent#" format="png" overwrite="false" ></cfimage>
 
 
                <cfimage action="write" destination="#image_dir_dev#\custom_#id#.png" source="#icoResult.filecontent#" format="png"    overwrite="false" ></cfimage>
+
+
                   <cfimage action="write" destination="#image_dir_uat#\custom_#id#.png" source="#icoResult.filecontent#" format="png"   overwrite="false" ></cfimage>
             <!-- Update Record -->
             <cfset new_siteicon = "custom_#id#.png">
@@ -66,9 +62,24 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
                 set siteicon = '#new_siteicon#'
                 where id = #x.id#
             </cfquery>
+
+   <cfcatch>
+
+   </cftry>
+
 </cfif>
 
 </cfloop>
+
+ <cfoutput>
+    
+    iD: #id#<BR>
+
+    siteurl:#siteurl#<BR>
+
+    </cfoutput>
+
+    
    <cfcatch>
  
 <cfoutput>

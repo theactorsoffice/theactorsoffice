@@ -25,6 +25,10 @@
           </figure></center>
         </a>
       </p>
+    <p class="card-text"><center>
+      <button type="button" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="background-color: #406e8e; border: #406e8e" href="/recover/" >Change Password</button></center>
+</p>
+
     </div>
     
     <!-- Second Column: 80% Width -->

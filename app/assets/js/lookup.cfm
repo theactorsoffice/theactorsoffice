@@ -8,7 +8,9 @@ $(document).ready(function() {
                     url: cfcFile,
                     data: {
                         method: remoteMethod,
-                        searchTerm: searchTerm
+                        searchTerm: searchTerm,
+                        dsn: "<Cfoutput>#dns#</cfoutput>",
+                        userid: "<Cfoutput>#userid#</cfoutput>"
                     },
                     dataType: 'json',
                     success: function(data) {

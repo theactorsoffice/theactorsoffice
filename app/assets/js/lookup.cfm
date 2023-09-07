@@ -9,7 +9,7 @@ $(document).ready(function() {
                     data: {
                         method: remoteMethod,
                         searchTerm: searchTerm,
-                        dsn: "<Cfoutput>#dns#</cfoutput>",
+                        dsn: "<Cfoutput>#dsn#</cfoutput>",
                         userid: "<Cfoutput>#userid#</cfoutput>"
                     },
                     dataType: 'json',

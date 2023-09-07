@@ -42,19 +42,51 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 
  
  <cfif icoResult.statusCode EQ "200 OK">
+ 
+
+<cfset tempFile = "#image_dir#\TEMP">
+<cfset pngFile = "#image_dir#\custom_#id#.png">
+
+<!-- Save the downloaded image to a temp file -->
+<cffile action="write" file="#tempFile#" output="#icoResult.filecontent#">
+
+ 
+
+      <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
+                   arguments="convert #tempFileName# #pngFile#"
+                   timeout="60">
+        </cfexecute>
 
 
-   
-        
-            <!-- Read PNG and Save -->
-       <cftry>
-            <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#icoResult.filecontent#" format="png" overwrite="false" ></cfimage>
+
+<!-- Now the image is in PNG format and stored at #pngFile# -->
+
+<!-- Repeat for dev and uat directories -->
+<cfset pngFile_dev = "#image_dir_dev#\custom_#id#.png">
+ 
+      <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
+                   arguments="convert #tempFileName# #pngFile_dev#"
+                   timeout="60">
+        </cfexecute>
+
+<cfset pngFile_uat = "#image_dir_uat#\custom_#id#.png">
+
+      <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
+                   arguments="convert #tempFileName# #pngFile_uat#"
+                   timeout="60">
+        </cfexecute>
+
+<!-- Delete the temp file -->
+<cffile action="delete" file="#tempFile#">
 
 
-               <cfimage action="write" destination="#image_dir_dev#\custom_#id#.png" source="#icoResult.filecontent#" format="png"    overwrite="false" ></cfimage>
 
 
-                  <cfimage action="write" destination="#image_dir_uat#\custom_#id#.png" source="#icoResult.filecontent#" format="png"   overwrite="false" ></cfimage>
+
+
+
+
+
             <!-- Update Record -->
             <cfset new_siteicon = "custom_#id#.png">
             <cfquery datasource="abo" name="update">
@@ -63,10 +95,6 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
                 where id = #x.id#
             </cfquery>
 
-   <cfcatch>
-   <Cfoutput>   <p><strong>Error Message:</strong> #cfcatch.message#</p></cfoutput>
-</cfcatch>
-   </cftry>
 
 </cfif>
 

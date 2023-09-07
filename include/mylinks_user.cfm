@@ -31,12 +31,18 @@
 <cfif #mylinks_user.siteicon# is "unknown.png">
 
  
+<cfset fullURL = "#mylinks_user.siteurl#">
+<cfset protocolDetected = false>
 
-<!-- Split the URL into parts based on the "//" -->
-<cfset urlParts = listToArray(mylinks_user.siteicon, "/")>
+<!-- Check if the URL starts with "http://" or "https://" -->
+<cfif left(fullURL, 7) is "http://" or left(fullURL, 8) is "https://">
+    <cfset protocolDetected = true>
+</cfif>
 
-<!-- Extract the part that contains the domain; it's typically the third element if the URL starts with http/https -->
-<cfset domainPart = urlParts[3]>
+<cfset urlParts = listToArray(fullURL, "/")>
+
+<!-- If protocol exists, take the third part as the domain; else, take the first -->
+<cfset domainPart = protocolDetected ? urlParts[3] : urlParts[1]>
 
 <!-- Further split to remove 'www.' or other subdomains -->
 <cfset domainArray = listToArray(domainPart, ".")>
@@ -44,8 +50,10 @@
 <!-- Get the last two parts to form the base domain -->
 <cfset domainCount = arrayLen(domainArray)>
 <cfset baseDomain = domainArray[domainCount - 1] & "." & domainArray[domainCount]>
- 
 
+<cfoutput>
+  The base domain is: #baseDomain#
+</cfoutput>
 
 
 

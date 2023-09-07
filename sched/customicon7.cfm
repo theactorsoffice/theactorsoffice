@@ -64,7 +64,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
             </cfquery>
 
    <cfcatch>
-
+</cfcatch>
    </cftry>
 
 </cfif>
@@ -79,7 +79,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 
     </cfoutput>
 
-    
+
    <cfcatch>
  
 <cfoutput>

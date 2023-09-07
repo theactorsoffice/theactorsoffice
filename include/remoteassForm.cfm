@@ -75,7 +75,7 @@
                 <div class="form-group col-md-12 pt-0 pb-0">
 
 
-                    <textarea class="form-control" type="text" id="q#questions.qid#"  name="q#questions.qid#" rows="4" required>#questions.amemo#</textarea>
+                    <textarea class="form-control" type="text" id="q#questions.qid#"  name="q#questions.qid#" rows="4" >#questions.amemo#</textarea>
                 </div>
             </cfif>
 

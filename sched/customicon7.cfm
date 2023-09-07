@@ -64,6 +64,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
             </cfquery>
 
    <cfcatch>
+   <Cfoutput>   <p><strong>Error Message:</strong> #cfcatch.message#</p></cfoutput>
 </cfcatch>
    </cftry>
 

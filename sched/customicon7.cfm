@@ -55,7 +55,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 <cffile action="write" file="#tempFile#" output="#icoResult.filecontent#">
 
       <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
-                   arguments="convert #tempFileName# #pngFile#"
+                   arguments="convert #tempFile# #pngFile#"
                    timeout="60">
         </cfexecute>
 
@@ -67,14 +67,14 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 <cfset pngFile_dev = "#image_dir_dev#\custom_#id#.png">
  
       <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
-                   arguments="convert #tempFileName# #pngFile_dev#"
+                   arguments="convert #tempFile# #pngFile_dev#"
                    timeout="60">
         </cfexecute>
 
 <cfset pngFile_uat = "#image_dir_uat#\custom_#id#.png">
 
       <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
-                   arguments="convert #tempFileName# #pngFile_uat#"
+                   arguments="convert #tempFile# #pngFile_uat#"
                    timeout="60">
         </cfexecute>
 

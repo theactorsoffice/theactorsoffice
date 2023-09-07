@@ -22,21 +22,34 @@
 
 <a href="#mylinks_user.siteurl#" class="text-reset font-14 py-1 px-1 d-inline-block"  target="#mylinks_user.sitename#"  title="#mylinks_user.sitename#" >
 
-<cfif #mylinks_user.siteicon# is "unknown.png">
-<cfset fullURL = mylinks_user.siteurl> <!-- Let's say fullURL = "http://www.example.com/some/path?param=value" -->
-<cfset urlArray = listToArray(fullURL, "/")> <!-- Split by "/" -->
 
-<!-- Check if the URL starts with "http://" or "https://" -->
-<cfif listFirst(fullURL, ":") is "http" or listFirst(fullURL, ":") is "https">
-    <cfset domainName = urlArray[3]> <!-- The domain should be the 3rd element in the array -->
-<cfelse>
-    <cfset domainName = urlArray[1]> <!-- If no "http://", it should be the first -->
-</cfif>
+
+
+
+
+
+<cfif #mylinks_user.siteicon# is "unknown.png">
 
  
 
+<!-- Split the URL into parts based on the "//" -->
+<cfset urlParts = listToArray(mylinks_user.siteicon, "/")>
 
-<img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#domainName#&size=14" style="width:14px;" alt="#mylinks_user.sitename#" />
+<!-- Extract the part that contains the domain; it's typically the third element if the URL starts with http/https -->
+<cfset domainPart = urlParts[3]>
+
+<!-- Further split to remove 'www.' or other subdomains -->
+<cfset domainArray = listToArray(domainPart, ".")>
+
+<!-- Get the last two parts to form the base domain -->
+<cfset domainCount = arrayLen(domainArray)>
+<cfset baseDomain = domainArray[domainCount - 1] & "." & domainArray[domainCount]>
+ 
+
+
+
+
+<img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#baseDomain#&size=14" style="width:14px;" alt="#mylinks_user.sitename#" />
 
 
 <cfelse>

@@ -2,9 +2,9 @@
 <cfparam name="p" default="" />
 <CFINCLUDE template="/include/remote_load.cfm" />
 
-<cfif #isdefined('session.userid')# and not #isdefined('recover')#>
+<cfif #isdefined('recoverid')# and not #isdefined('recover')#>
 <cfquery name="U" datasource="#dsn#">
-Select * from taousers where userid = #session.userid#
+Select * from taousers where userid = #recoverid#
 </cfquery>
 <cfelse>
 <cfquery name="U" datasource="#dsn#">

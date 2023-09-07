@@ -26,7 +26,7 @@
         </a>
       </p>
     <p class="card-text"><center>
-      <a  href="/recover/"><button type="button" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="background-color: #406e8e; border: #406e8e"  >Change Password</button></a></center>
+      <a  href="/recover/?recoverid=#userid#"><button type="button" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="background-color: #406e8e; border: #406e8e"  >Change Password</button></a></center>
 </p>
 
     </div>

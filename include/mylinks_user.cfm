@@ -47,7 +47,7 @@
 </cfif>
  
 
-<img  src="https://icon.horse/icon/#domain#" style="width:14px;" alt="#mylinks_user.sitename#" /> (#domain#)
+<img  src="https://icon.horse/icon/#domain#?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&fallback_bg=406e8e&size=small&ignore_other_sizes=false" style="width:14px;" alt="#mylinks_user.sitename#" /> (#domain#)
 
 
 <cfelse>

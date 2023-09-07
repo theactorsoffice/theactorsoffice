@@ -49,7 +49,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
         
             <!-- Read PNG and Save -->
        
-            <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#icoResult.filecontent#" format="png"></cfimage>
+            <cfimage action="write" destination="#image_dir#/custom_#id#.png" source="#icoResult.filecontent#" format="png"></cfimage>
             
             <!-- Update Record -->
             <cfset new_siteicon = "custom_#id#.png">

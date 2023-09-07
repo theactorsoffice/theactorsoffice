@@ -21,8 +21,7 @@
 
  
 <img src="/app/assets/images/retina-circular-icons/32/#mylinks_user.siteicon#" style="width:14px;" alt="#mylinks_user.sitename#"  />
-</cfif>
-
+ 
 #mylinks_user.sitename#
                                                 </a>
                                                 

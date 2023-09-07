@@ -24,7 +24,11 @@
             </figcaption>
           </figure></center>
         </a>
-      </p>
+      </p><form action="/recover/index.cfm">
+    <p class="card-text"><center><cfoutput><input type="hidden" name="recoverid" value="#userid#" />
+    </cfoutput><button type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="background-color: #406e8e; border: #406e8e"  >Change Password</button></center>
+</p>
+</form>
     </div>
     
     <!-- Second Column: 80% Width -->

@@ -3,7 +3,7 @@
  
 
 
-<cfquery datasource="abo" name="x" maxrows=50>
+<cfquery datasource="abo" name="x" maxrows=150>
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png' 
 </cfquery>
 

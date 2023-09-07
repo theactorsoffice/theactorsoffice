@@ -1,16 +1,20 @@
 <cfparam name="u" default="" />
 <cfparam name="p" default="" />
+ 
 <CFINCLUDE template="/include/remote_load.cfm" />
-<cfoutput>#recoverid#</cfoutput><cfabort>
+
 <cfif #isdefined('recoverid')# >
 <cfoutput>Select * from taousers where userid = #recoverid#</cfoutput>
 <cfquery name="U" datasource="#dsn#">
 Select * from taousers where userid = #recoverid#
 </cfquery>
-<cfelse>
+<cfelseif #isdefined('recover')#>
 <cfquery name="U" datasource="#dsn#">
 Select * from taousers where recover = '#recover#'
 </cfquery>
+
+<cfoutput>
+    <cfset cookie.recover = '#recover#' /></cfoutput>
 </cfif>
 
 
@@ -18,8 +22,7 @@ Select * from taousers where recover = '#recover#'
 <cflocation url="/app/dashboard/" />
 
 </cfif>
-<cfoutput>
-    <cfset cookie.recover = '#recover#' /></cfoutput>
+
 <cfparam name="pwrong" default="N" />
 
 <!DOCTYPE html>

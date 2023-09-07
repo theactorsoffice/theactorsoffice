@@ -12,54 +12,14 @@
 <div class="row">
 <cfloop query="mylinks_user">
     <div class="col-md-12 col-lg-12">
-                                                    <cfoutput>
-                                                        <cfif #mylinks_user.currentrow# is "1">
-                                                       
-                                                        </cfif>
-
+                                               
+                                                      <Cfoutput>
 
 
 
 <a href="#mylinks_user.siteurl#" class="text-reset font-14 py-1 px-1 d-inline-block"  target="#mylinks_user.sitename#"  title="#mylinks_user.sitename#" >
 
-
-
-
-
-
-
-<cfif #mylinks_user.siteicon# is "unknown.png">
-
- <Cfset siteurl = "#mylinks_user.siteurl#" />
-   <!-- Add 'http' if missing -->
-    <cfif NOT findNoCase("http", siteurl)>
-        <cfset siteurl = "http://" & siteurl />
-    </cfif>
-
-    <!-- Extract the root URL -->
-    <cfset protocol = listFirst(siteurl, "://") & "://">
-    <cfset tempUrl = listRest(siteurl, "://")>
-    <cfset domain = listFirst(tempUrl, "/")>
-    <cfset rootUrl = protocol & domain>
-
-<cfif left(domain, 4) is "www.">
-    <cfset domain = right(domain, len(domain) - 4)>
-</cfif>
  
-
-<img  src="https://icon.horse/icon/#domain#?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&fallback_bg=406e8e&size=small&ignore_other_sizes=false" style="width:14px;" alt="#mylinks_user.sitename#" /> 
-
-
-
-
-</cfoutput>
-
-
-
-   
-
-
-<cfelse>
 <img src="/app/assets/images/retina-circular-icons/32/#mylinks_user.siteicon#" style="width:14px;" alt="#mylinks_user.sitename#"  />
 </cfif>
 

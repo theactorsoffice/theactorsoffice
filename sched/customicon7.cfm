@@ -39,21 +39,24 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 </cfif>
     
     
-    <cfset image_dir = "/app/assets/images/retina-circular-icons/32" />
-    
+    <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\32" />
+<cfset image_dir_dev = "C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\32" />
+<cfset image_dir_uat = "C:\home\theactorsoffice.com\wwwroot\uat-subdomain_1.5\app\assets\images\retina-circular-icons\32" />
+
+    C:\home\theactorsoffice.com\media-#host#\users\#finduser.userid#
 <cfhttp url="https://icon.horse/icon/#domain#?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&fallback_bg=406e8e&size=small&ignore_other_sizes=false" method="get" getAsBinary="yes" result="icoResult"></cfhttp>
 
  
  <cfif icoResult.statusCode EQ "200 OK">
 
 
-            
-        
+   
         
             <!-- Read PNG and Save -->
        
             <cfimage action="write" destination="#image_dir#/custom_#id#.png" source="#icoResult.filecontent#" format="png"></cfimage>
-            
+               <cfimage action="write" destination="#image_dir_dev#/custom_#id#.png" source="#icoResult.filecontent#" format="png"></cfimage>
+                  <cfimage action="write" destination="#image_dir_uat#/custom_#id#.png" source="#icoResult.filecontent#" format="png"></cfimage>
             <!-- Update Record -->
             <cfset new_siteicon = "custom_#id#.png">
             <cfquery datasource="abo" name="update">

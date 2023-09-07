@@ -78,6 +78,8 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
                    timeout="60">
         </cfexecute>
 
+<cfoutput>
+<img src="/app/assets/images/retina-circular-icons/32/#pngfile_dev#" /><BR></cfoutput>
 <!-- Delete the temp file -->
 <cffile action="delete" file="#tempFile#">
 

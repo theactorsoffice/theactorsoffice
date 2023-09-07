@@ -54,9 +54,11 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
         
             <!-- Read PNG and Save -->
        
-            <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#icoResult.filecontent#" format="png" overwrite="false" nameConflict="skip"></cfimage>
-               <cfimage action="write" destination="#image_dir_dev#\custom_#id#.png" source="#icoResult.filecontent#" format="png"  nameConflict="skip"overwrite="false" ></cfimage>
-                  <cfimage action="write" destination="#image_dir_uat#\custom_#id#.png" source="#icoResult.filecontent#" format="png"  nameConflict="skip"overwrite="false" ></cfimage>
+            <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#icoResult.filecontent#" format="png" overwrite="false" ></cfimage>
+
+
+               <cfimage action="write" destination="#image_dir_dev#\custom_#id#.png" source="#icoResult.filecontent#" format="png"    overwrite="false" ></cfimage>
+                  <cfimage action="write" destination="#image_dir_uat#\custom_#id#.png" source="#icoResult.filecontent#" format="png"   overwrite="false" ></cfimage>
             <!-- Update Record -->
             <cfset new_siteicon = "custom_#id#.png">
             <cfquery datasource="abo" name="update">

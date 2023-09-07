@@ -30,34 +30,22 @@
 
 <cfif #mylinks_user.siteicon# is "unknown.png">
 
+ <Cfset siteurl = "#mylinks_user.siteurl#" />
+   <!-- Add 'http' if missing -->
+    <cfif NOT findNoCase("http", siteurl)>
+        <cfset siteurl = "http://" & siteurl />
+    </cfif>
+
+    <!-- Extract the root URL -->
+    <cfset protocol = listFirst(siteurl, "://") & "://">
+    <cfset tempUrl = listRest(siteurl, "://")>
+    <cfset domain = listFirst(tempUrl, "/")>
+    <cfset rootUrl = protocol & domain>
+
+
  
- 
-<cfset protocolDetected = false>
 
-<!-- Check if the URL starts with "http://" or "https://" -->
-<cfif left(mylinks_user.siteurl, 7) is "http://" or left(mylinks_user.siteurl, 8) is "https://">
-    <cfset protocolDetected = true>
-</cfif>
-
-<cfset urlParts = listToArray(mylinks_user.siteurl, "/")>
-
-<!-- If protocol exists, take the third part as the domain; else, take the first -->
-<cfset domainPart = protocolDetected ? urlParts[3] : urlParts[1]>
-
-<!-- Further split to remove 'www.' or other subdomains -->
-<cfset domainArray = listToArray(domainPart, ".")>
-
-<!-- Get the last two parts to form the base domain -->
-<cfset domainCount = arrayLen(domainArray)>
-<cfset baseDomain = domainArray[domainCount - 1] & "." & domainArray[domainCount]>
-
-<cfoutput>
-  The base domain is: #baseDomain#
-</cfoutput>
-
-
-
-<img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#baseDomain#&size=14" style="width:14px;" alt="#mylinks_user.sitename#" />
+<img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#rooturl#&size=14" style="width:14px;" alt="#mylinks_user.sitename#" />
 
 
 <cfelse>

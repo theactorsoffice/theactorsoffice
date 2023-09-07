@@ -109,8 +109,8 @@ $(document).ready(function() {
                     data: {
                         method: cfcMethod,
                         searchTerm: searchTerm,
-                        dsn: <Cfoutput>#dsn#</cfoutput>,
-                        userid: <Cfoutput>#userid#</cfoutput>
+                        dsn: "<Cfoutput>#dsn#</cfoutput>",
+                        userid: "<Cfoutput>#userid#</cfoutput>"
                     },
                     dataType: 'json',
                     success: function(data) {

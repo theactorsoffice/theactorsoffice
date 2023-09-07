@@ -13,7 +13,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 
  
 
-
+<cftry>
 
    <!-- Add 'http' if missing -->
     <cfif NOT findNoCase("http", siteurl)>
@@ -104,7 +104,10 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE id = #id#
 #find.sitename#<BR>
     </cfoutput>
 
-
+<cfcatch>
+error<BR>
+</cfcatch>
+</cftry>
 </cfloop>
 
  

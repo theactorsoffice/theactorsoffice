@@ -3,7 +3,7 @@
  
 
 
-<cfquery datasource="abo" name="x" maxrows=10>
+<cfquery datasource="abo" name="x" maxrows=50>
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png' 
 </cfquery>
 
@@ -70,7 +70,6 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 
 </cfif>
 
-</cfloop>
 
  <cfoutput>
     
@@ -81,12 +80,22 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
     </cfoutput>
 
 
+</cfloop>
+
+
+
+
    <cfcatch>
  
 <cfoutput>
 
 
 
+          <cfquery datasource="abo" name="update">
+                update sitelinks_user 
+                set siteicon = 'NOT A FILE'
+                where id = #x.id#
+            </cfquery>
 
 
          <p><strong>Error Type:</strong> #cfcatch.type#</p>

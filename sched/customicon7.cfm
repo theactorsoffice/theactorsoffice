@@ -56,8 +56,8 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
             <cfquery datasource="abo" name="update">
                 update sitelinks_user 
                 set siteicon = '#new_siteicon#'
-                where id = #mylinks_user.id#
+                where id = #x.id#
             </cfquery>
-
+</cfif>
 
 </cfloop>

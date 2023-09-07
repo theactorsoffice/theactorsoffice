@@ -44,13 +44,15 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
  <cfif icoResult.statusCode EQ "200 OK">
  
 
-<cfset tempFile = "#image_dir#\TEMP">
-<cfset pngFile = "#image_dir#\custom_#id#.png">
 
 <!-- Save the downloaded image to a temp file -->
-<cffile action="write" file="#tempFile#" output="#icoResult.filecontent#">
+
 
  
+<cfset tempFile = "#image_dir#\temp\custom_#id#.tmp">
+<cfset pngFile = "#image_dir#\custom_#id#.png">
+
+<cffile action="write" file="#tempFile#" output="#icoResult.filecontent#">
 
       <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
                    arguments="convert #tempFileName# #pngFile#"

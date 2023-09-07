@@ -3,7 +3,7 @@
  
 
 
-<cfquery datasource="abo" name="x" maxrows=10>
+<cfquery datasource="abo" name="x" maxrows=50>
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png' 
 </cfquery>
 
@@ -105,10 +105,15 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 
  <cfoutput>
     
-    iD: #id#<BR>
+   
+    <cfquery datasource="abo" name="find" maxrows=1>
+SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE id = #id#
+</cfquery>
 
-    siteurl:#siteurl#<BR>
 
+
+<img src="/app/assets/images/retina-circular-icons/32/#find.siteicon#" style="width:14px;" alt="#find.sitename#"  /><BR>
+#find.sitename#<BR>
     </cfoutput>
 
 

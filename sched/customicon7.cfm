@@ -3,7 +3,7 @@
  
 
 
-<cfquery datasource="abo" name="x" maxrows=50>
+<cfquery datasource="abod" name="x" maxrows=50>
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'not a file' 
 </cfquery>
 
@@ -92,7 +92,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
 
             <!-- Update Record -->
             <cfset new_siteicon = "custom_#id#.png">
-            <cfquery datasource="abo" name="update">
+            <cfquery datasource="abod" name="update">
                 update sitelinks_user 
                 set siteicon = '#new_siteicon#'
                 where id = #x.id#
@@ -132,7 +132,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE id = #id#
 
 
 
-          <cfquery datasource="abo" name="update">
+          <cfquery datasource="abod" name="update">
                 update sitelinks_user 
                 set siteicon = 'NOT A FILE'
                 where id = #x.id#

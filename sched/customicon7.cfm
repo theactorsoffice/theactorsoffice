@@ -29,7 +29,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
     
 <cfhttp url="https://icon.horse/icon/#domain#?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&fallback_bg=406e8e&size=small&ignore_other_sizes=false" method="get" getAsBinary="yes" result="icoResult"></cfhttp>
 
-<cfdump var="#icoResult" /><cfabort>
+<cfdump var="#icoResult#" /><cfabort>
  <cfif icoResult.statusCode EQ "200 OK">
             <!-- File Paths -->
             <cfset tempDir = GetTempDirectory()>

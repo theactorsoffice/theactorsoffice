@@ -2,40 +2,45 @@
 
    <CFINCLUDE template="/include/remote_load.cfm" />
 
+ 
 
+<cfset default_avatar_filename = "C:\home\theactorsoffice.com\media-app\users\13\avatar.jpg">
+ <cfset default_avatar_data = FileReadBinary(default_avatar_filename)>
+<cfset default_avatar_hash = Hash(default_avatar_data, "MD5")>
 
-<cfquery name="x" datasource="#dsn#" maxrows="10">
+<cfquery name="x" datasource="#dsn#" maxrows="1000">
 SELECT distinct
 d.contactid,
 d.contactfullname,
 d.userid,
+i.itemid,
 i.valuetext as contactemail
 FROM
 contactdetails d INNER JOIN contactitems i ON i.contactid = d.contactid
 INNER JOIN taousers u ON u.userid = d.userid
 WHERE i.valuecategory = 'Email' AND i.valuetext <> '' AND i.valuetext NOT LIKE '%test%'
-AND d.avatar_yn IS NULL
-AND u.userid <> 30
+AND i.avatar_yn IS NULL
+AND u.userid <> 30 and u.userid in (1,12,17,99)
 ORDER BY d.contactid
 </cfquery>
 
 <cfloop query="x">
-
-<cfquery name="find" datasource="#dsn#" >
-select contactid from contactdetails where contactid = #x.contactid# and avatar_yn is null
-</cfquery>
-
-<cfif #find.recordcount# is "1">
+ 
  
         <cfset contact_avatar_filename = "C:\home\theactorsoffice.com\media-#host#\users\#x.userid#\contacts\#x.contactid#\avatar.jpg" />
+<cfoutput>#x.contactfullname# avatar: C:\home\theactorsoffice.com\media-#host#\users\#x.userid#\contacts\#x.contactid#\avatar.jpg<BR></cfoutput>
 
-        <cfif  isimagefile(contact_avatar_filename)>
-
+<cfset contact_avatar_data = FileReadBinary(contact_avatar_filename)>
+<cfset contact_avatar_hash = Hash(contact_avatar_data, "MD5")>  
+<cfoutput>
+[#default_avatar_hash#]<BR>
+[#contact_avatar_hash#]<BR></cfoutput>
+        <cfif  default_avatar_hash neq contact_avatar_hash>
 <cfquery name="update" datasource="#dsn#" >
-update contactdetails set avatar_yn = 'Y' where contactid = #x.contactid# 
+update contactitems set avatar_yn = 'Y' where itemid = #x.itemid# 
 </cfquery>
 
-
+     <cfoutput>#x.contactfullname# avatar already exists<BR></cfoutput>
         <cfelse>
 
 
@@ -45,7 +50,7 @@ update contactdetails set avatar_yn = 'Y' where contactid = #x.contactid#
 
 
 
-<cfset gravatarURL = "https://www.gravatar.com/avatar/#emailHash#?s=200">
+<cfset gravatarURL = "https://www.gravatar.com/avatar/#emailHash#?s=200&d=404">
 
 
 
@@ -55,6 +60,10 @@ update contactdetails set avatar_yn = 'Y' where contactid = #x.contactid#
 
 <!--- Check if Gravatar exists (HTTP status code 200) --->
 <cfif httpResponse.StatusCode eq "200 OK">
+<Cfoutput>
+<img src="#gravatarURL#" alt="User Avatar">
+</cfoutput>
+<BR>
     <!--- Download and save the image --->
     <cfhttp url="#gravatarURL#" method="get" path="C:\home\theactorsoffice.com\media-#host#\users\#x.userid#\contacts\#x.contactid#" file="avatar.jpg">
     </cfhttp>
@@ -63,7 +72,7 @@ update contactdetails set avatar_yn = 'Y' where contactid = #x.contactid#
     </cfoutput>
 
         <cfquery name="update" datasource="#dsn#" >
-update contactdetails set avatar_yn = 'Y' where contactid = #x.contactid# 
+update contactitems set avatar_yn = 'Y' where itemid = #x.itemid# 
 </cfquery>
 
 
@@ -73,8 +82,9 @@ update contactdetails set avatar_yn = 'Y' where contactid = #x.contactid#
     <span style="color:red;">    #x.contactfullname#: No Gravatar found. Ignoring.</span><BR>
     </cfoutput>
 
-
-
+     <cfquery name="update" datasource="#dsn#" >
+update contactitems set avatar_yn = 'N' where itemid = #x.itemid# 
+</cfquery>
 
 
 
@@ -100,6 +110,9 @@ update contactdetails set avatar_yn = 'Y' where contactid = #x.contactid#
 
 
 
-</cfif>
+
+
+
+
 
 </cfloop>

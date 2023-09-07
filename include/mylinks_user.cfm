@@ -45,7 +45,7 @@
 
  
 
-<img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#rooturl#" style="width:14px;" alt="#mylinks_user.sitename#" /> (#rooturl#)
+<img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#domain#" style="width:14px;" alt="#mylinks_user.sitename#" /> (#domain#)
 
 
 <cfelse>

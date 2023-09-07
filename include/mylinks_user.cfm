@@ -47,7 +47,7 @@
 </cfif>
  
 
-<img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#domain#" style="width:14px;" alt="#mylinks_user.sitename#" /> (#domain#)
+<img  src="https://icon.horse/icon/#domain#" style="width:14px;" alt="#mylinks_user.sitename#" /> (#domain#)
 
 
 <cfelse>

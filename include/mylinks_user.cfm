@@ -31,15 +31,15 @@
 <cfif #mylinks_user.siteicon# is "unknown.png">
 
  
-<cfset fullURL = "#mylinks_user.siteurl#">
+ 
 <cfset protocolDetected = false>
 
 <!-- Check if the URL starts with "http://" or "https://" -->
-<cfif left(fullURL, 7) is "http://" or left(fullURL, 8) is "https://">
+<cfif left(mylinks_user.siteurl, 7) is "http://" or left(mylinks_user.siteurl, 8) is "https://">
     <cfset protocolDetected = true>
 </cfif>
 
-<cfset urlParts = listToArray(fullURL, "/")>
+<cfset urlParts = listToArray(mylinks_user.siteurl, "/")>
 
 <!-- If protocol exists, take the third part as the domain; else, take the first -->
 <cfset domainPart = protocolDetected ? urlParts[3] : urlParts[1]>

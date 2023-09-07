@@ -59,4 +59,4 @@ WHERE answerID = <cfqueryparam cfsqltype="CF_SQL_INTEGER" value="#new_answerID#"
 
 </cfloop>
 
-<cflocation url="/app/audition/?audprojectid=#audprojectid#&eventid=#eventid#&secid=179" />
+<cflocation url="/app/audition/?audprojectid=#audprojectid#&eventid=#eventid#&secid=176" />

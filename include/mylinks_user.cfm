@@ -21,8 +21,29 @@
 
 
 <a href="#mylinks_user.siteurl#" class="text-reset font-14 py-1 px-1 d-inline-block"  target="#mylinks_user.sitename#"  title="#mylinks_user.sitename#" >
-<img  src="https://icon.horse/icon/?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&uri=#mylinks_user.siteurl#&size=small&ignore_other_sizes=false&status_code_404=true"  style="width:14px;" alt="#mylinks_user.sitename#" />
-<img src="/app/assets/images/retina-circular-icons/32/#mylinks_user.siteicon#" style="width:14px;" alt="#mylinks_user.sitename#"  /> #mylinks_user.sitename#
+
+<cfif #mylinks_user.siteicon# is "unknown.png">
+<cfset fullURL = mylinks_user.siteurl> <!-- Let's say fullURL = "http://www.example.com/some/path?param=value" -->
+<cfset urlArray = listToArray(fullURL, "/")> <!-- Split by "/" -->
+
+<!-- Check if the URL starts with "http://" or "https://" -->
+<cfif listFirst(fullURL, ":") is "http" or listFirst(fullURL, ":") is "https">
+    <cfset domainName = urlArray[3]> <!-- The domain should be the 3rd element in the array -->
+<cfelse>
+    <cfset domainName = urlArray[1]> <!-- If no "http://", it should be the first -->
+</cfif>
+
+ 
+
+
+<img  src=https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=#domainName#&size=14" style="width:14px;" alt="#mylinks_user.sitename#" />
+
+
+<cfelse>
+<img src="/app/assets/images/retina-circular-icons/32/#mylinks_user.siteicon#" style="width:14px;" alt="#mylinks_user.sitename#"  />
+</cfif>
+
+#mylinks_user.sitename#
                                                 </a>
                                                 
                                                 

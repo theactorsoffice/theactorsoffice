@@ -77,7 +77,9 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
                    arguments="convert #tempFile# #pngFile_uat#"
                    timeout="60">
         </cfexecute>
-<cffile action="delete" file="#tempFile#">
+
+
+ 
 
 <!-- Delete the temp file -->
 
@@ -95,6 +97,11 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
                 set siteicon = '#new_siteicon#'
                 where id = #x.id#
             </cfquery>
+     <cfquery datasource="abod" name="update">
+                update sitelinks_user 
+                set siteicon = '#new_siteicon#'
+                where id = #x.id#
+            </cfquery>
 
 
 </cfif>
@@ -103,7 +110,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
  <cfoutput>
     
    
-    <cfquery datasource="abo" name="find" maxrows=1>
+    <cfquery datasource="abod" name="find" maxrows=1>
 SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE id = #id#
 </cfquery>
 

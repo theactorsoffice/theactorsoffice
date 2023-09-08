@@ -97,7 +97,7 @@
 
              </cfif>
 
-              <p>other directories: <cfoutput>#otherDirs#</cfoutput></p>
+          
 
              <!-- Loop over the other two directories to copy the file -->
 

@@ -25,7 +25,7 @@
 
 
 
-<form action="/app/dashboard/" method="post" id="submit-button">
+<form action="/app/dashboard_new/" method="post" id="submit-button">
 
     <div class="row">
 

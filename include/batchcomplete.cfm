@@ -9,4 +9,4 @@
     
 </cfloop>
 
-<cflocation url="/app/dashboard/?pgaction=view" />
+<cflocation url="/app/dashboard_new/?pgaction=view" />

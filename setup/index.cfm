@@ -21,7 +21,7 @@ WHERE th.STATUS = 'Emailed' and th.uuid = '#uuid#'
 
 
 	<cfif #u.recordcount# is not "1">
-<cflocation url="/app/dashboard/" />
+<cflocation url="/app/dashboard_new/" />
 
 </cfif>
 

@@ -171,6 +171,6 @@
 
 <cfif #src# is "d">
 
-    <cflocation url="/app/dashboard/" />
+    <cflocation url="/app/dashboard_new/" />
     
 </cfif>

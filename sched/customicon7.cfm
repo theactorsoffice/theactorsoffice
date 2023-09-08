@@ -62,9 +62,22 @@
 
      <cfif icoResult.statusCode EQ "200 OK">
 
+     <!-- Determine the file extension based on Content-Type -->
+    <cfset contentType = icoResult.responseHeader["Content-Type"]>
+ 
+    <cfset fileExtension = ".ico"> <!-- Default to .ico -->
+    <cfif contentType EQ "image/png">
+        <cfset fileExtension = ".png">
+    <cfelseif contentType EQ "image/jpeg">
+        <cfset fileExtension = ".jpg">
+    </cfif>
+
+
+
+
      <p>status is ok</p>
 
-         <cfset tempFile="#image_dir#\temp\custom_#id#.tmp" />
+         <cfset tempFile="#image_dir#\temp\custom_#id##fileExtension#" />
 
          <cfset pngFile="#image_dir#\custom_#id#.png" />
 

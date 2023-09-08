@@ -1,7 +1,7 @@
  <CFINCLUDE template="/include/remote_load.cfm" />
 
  <cfquery datasource="#dsn#" name="x" maxrows="50">
-     SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png'
+     SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon = 'unknown.png' and id = 8246
  </cfquery>
 
  <cfloop query="x">

@@ -111,15 +111,6 @@
 
              <!-- Loop over the other two directories to copy the file -->
 
-<cfif #isdefined('blah')#>
-
-             <cfloop array="#otherDirs#" index="targetDir">
-
-                 <cffile action="copy" source="#image_dir#\#fileName#" destination="#targetDir#"  />
-
-             </cfloop>
-             
-             </cfif>
              <cfquery datasource="#dsn#" name="update">
                  update sitelinks_user
                  set siteicon = '#filename#'
@@ -148,23 +139,5 @@
 
 </cfif>
 
- <cfcatch type="any">
-
-    <cfoutput>
-
-      <!-- Basic error information -->
-      <p><strong>Error Type:</strong> #cfcatch.type#</p>
-      <p><strong>Error Message:</strong> #cfcatch.message#</p>
-      <p><strong>Error Detail:</strong> #cfcatch.detail#</p>
-      
-      <!-- Advanced error information -->
-      <p><strong>Extended Info:</strong> #cfcatch.ExtendedInfo#</p>
-      <p><strong>Error Code:</strong> #cfcatch.ErrorCode#</p>
-
-    </cfoutput>
-
-  </cfcatch>
-
-</cftry>
-
- </cfloop>
+ 
+ 

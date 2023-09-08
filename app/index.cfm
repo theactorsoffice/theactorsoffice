@@ -1,2 +1,2 @@
-<cflocation url="/app/dashboard/" addtoken="No" />
+<cflocation url="/app/dashboard_new/" addtoken="No" />
 	

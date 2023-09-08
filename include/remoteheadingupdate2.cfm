@@ -51,6 +51,6 @@
 </cfif>
 <cfif #pgrtn# is "z">
 
-<cflocation url="/app/dashboard/" /> 
+<cflocation url="/app/dashboard_new/" /> 
     
 </cfif>

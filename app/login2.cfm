@@ -36,7 +36,7 @@ VALUES
  <Cfif #isdefined('xu')#>
     
        <cfset session.userid = xu />
-    <cflocation url="/app/dashboard" />
+    <cflocation url="/app/dashboard_new" />
   <cfelse>
     
 <cfset userpassword2 = Hash(j_password & loginQuery.passwordSalt, "SHA-512") />

@@ -50,11 +50,11 @@
                                                 
                                                 <cfif #ctaction# is "view">
                                                     <cfif #isdefined('sdfsdfdsfsdfs')#>
-                                                           <span style="font-size:14px;"><a style="color: ##406e8e !important;" title="Edit Configuration" href="/app/dashboard/?ctaction=config"><i class="mdi mdi-cog-outline"></i></a></span></cfif>
+                                                           <span style="font-size:14px;"><a style="color: ##406e8e !important;" title="Edit Configuration" href="/app/dashboard_new/?ctaction=config"><i class="mdi mdi-cog-outline"></i></a></span></cfif>
                                                     
                                                     <cfelse>
                                                         
-                                                          <span style="font-size:14px;"><a style="color: ##406e8e !important;" title="Edit Configuration" href="/app/dashboard/?ctaction=view"><i class="mdi mdi-cog-outline"></i></a>   </span>     <span style="color:green;margin-left:20px;">Drag your panels to a new order and press the button.  </span>
+                                                          <span style="font-size:14px;"><a style="color: ##406e8e !important;" title="Edit Configuration" href="/app/dashboard_new/?ctaction=view"><i class="mdi mdi-cog-outline"></i></a>   </span>     <span style="color:green;margin-left:20px;">Drag your panels to a new order and press the button.  </span>
 
                                             </cfif>
 

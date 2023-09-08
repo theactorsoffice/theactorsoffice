@@ -19,7 +19,7 @@ Select * from taousers where recover = '#recover#'
 
 
 	<cfif #u.recordcount# is not "1">
-<cflocation url="/app/dashboard/" />
+<cflocation url="/app/dashboard_new/" />
 
 </cfif>
 

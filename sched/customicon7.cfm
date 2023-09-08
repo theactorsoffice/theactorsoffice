@@ -68,7 +68,7 @@
 
  <p>temp file: <cfoutput>#tempFile#</cfoutput></p>
 
- <p>png file: <cfoutput>#pngile#</cfoutput></p>
+ <p>png file: <cfoutput>#pngFile#</cfoutput></p>
 
          <cffile action="write" file="#tempFile#" output="#icoResult.filecontent#" />
 

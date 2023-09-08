@@ -14,7 +14,7 @@
 
      <h2><cfoutput>siteurl: #siteurl#</cfoutput></h2>
 
-     <p>id:<cfoutput>#id#</p>
+     <p>id:<cfoutput>#id#</cfoutput></p>
 
      <!-- Add 'http' if missing -->
 

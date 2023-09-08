@@ -27,7 +27,7 @@
  </cfif>
 
 </cfloop>
-<cfaborT>
+
 
 
  <cfquery datasource="#dsn#" name="x" maxrows="50">

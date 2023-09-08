@@ -29,11 +29,11 @@ Select * from sitelinks_user where userid = #userid# and sitename = '#new_sitena
 </cfquery>
 
 <!-- Get the ID of the last inserted record -->
-<cfset new_id = queryResult.GENERATED_KEY>
+<cfset id = queryResult.GENERATED_KEY>
 
 <!-- Now, lastInsertedId contains the ID of the newly inserted record -->
 
-<cfinclude template="/include/customicon_finder.cfm" />
+<cfinclude template="/include/customicon_single.cfm" />
 
 
 

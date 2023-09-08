@@ -8,6 +8,14 @@
 }
  
 
+.card {
+    opacity: 0; /* Set the initial opacity to 0 */
+    transition: opacity 1s ease-in-out; /* 1s duration, easing function */
+}
+
+.card.loaded {
+    opacity: 1; /* Fully visible */
+}
 
 
 
@@ -20,6 +28,16 @@
 }
 
 </style>
+
+<script>
+$(document).ready(function(){
+    // Wait for a moment before triggering the animation
+    setTimeout(function(){
+        $(".card").addClass("loaded");
+    }, 100); // The delay in milliseconds
+});
+</script>
+
 
 <cfparam name="batchlist" default="0" />
 
@@ -90,4 +108,13 @@ $grid.find('.grid-item').each( function(i, gridItem) {
 packery.on( 'dragItemPositioned', function( event, draggedItem ) {
     app.tiles.settings.packeryEl.packery();
 });
+</script>
+
+<script>
+  $(document).ready(function(){
+    // Wait for a moment before triggering the animation
+    setTimeout(function(){
+      $(".card").addClass("loaded");
+    }, 100); // The delay in milliseconds
+  });
 </script>

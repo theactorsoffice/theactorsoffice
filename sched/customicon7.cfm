@@ -12,6 +12,10 @@
 
      <cfset siteurl=x.siteurl />
 
+     <h2><cfoutput>siteurl: #siteurl#</cfoutput></h2>
+
+     <p>id:<cfoutput>#id#</p>
+
      <!-- Add 'http' if missing -->
 
      <cfif NOT findNoCase("http", siteurl)>
@@ -52,11 +56,19 @@
 
      <cfhttp url="https://icon.horse/icon/#domain#?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&fallback_bg=406e8e&size=small&ignore_other_sizes=false" method="get" getAsBinary="yes" result="icoResult"></cfhttp>
 
+     <p><cfoutput>cfhttp: https://icon.horse/icon/#domain#?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&fallback_bg=406e8e&size=small&ignore_other_sizes=false</cfoutput></p>
+
      <cfif icoResult.statusCode EQ "200 OK">
+
+     <p>status is ok</p>
 
          <cfset tempFile="#image_dir#\temp\custom_#id#.tmp" />
 
          <cfset pngFile="#image_dir#\custom_#id#.png" />
+
+ <p>temp file: <cfoutput>#tempFile#</cfoutput></p>
+
+ <p>png file: <cfoutput>#pngile#</cfoutput></p>
 
          <cffile action="write" file="#tempFile#" output="#icoResult.filecontent#" />
 
@@ -66,6 +78,8 @@
          <!-- Filename -->
 
          <cfset fileName="custom_#id#.png">
+
+          <p>filename: <cfoutput>#filename#</cfoutput></p>
 
              <!-- Determine which environment we're in -->
 
@@ -83,11 +97,13 @@
 
              </cfif>
 
+              <p>other directories: <cfoutput>#otherDirs#</cfoutput></p>
+
              <!-- Loop over the other two directories to copy the file -->
 
              <cfloop array="#otherDirs#" index="targetDir">
 
-                 <cffile action="copy" source="#image_dir#\#fileName#" destination="#targetDir#\#fileName#" />
+                 <cffile action="copy" source="#image_dir#\#fileName#" destination="#targetDir#" />
 
              </cfloop>
 

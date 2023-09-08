@@ -46,6 +46,8 @@
 
      <cfset image_dir_uat="C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\32" />
 
+     <cftry>
+
      <cfhttp url="https://icon.horse/icon/#domain#?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&fallback_bg=406e8e&size=small&ignore_other_sizes=false" method="get" getAsBinary="yes" result="icoResult"></cfhttp>
 
      <cfif icoResult.statusCode EQ "200 OK">
@@ -115,4 +117,20 @@
 
      </cfif>
 
+ <cfcatch type="any">
+    <cfoutput>
+      <!-- Basic error information -->
+      <p><strong>Error Type:</strong> #cfcatch.type#</p>
+      <p><strong>Error Message:</strong> #cfcatch.message#</p>
+      <p><strong>Error Detail:</strong> #cfcatch.detail#</p>
+      
+      <!-- Advanced error information -->
+      <p><strong>Extended Info:</strong> #cfcatch.ExtendedInfo#</p>
+      <p><strong>Error Code:</strong> #cfcatch.ErrorCode#</p>
+      <p><strong>Native Error Code:</strong> #cfcatch.NativeErrorCode#</p>
+      <p><strong>Tag Context:</strong></p>
+      <cfdump var="#cfcatch.TagContext#">
+    </cfoutput>
+  </cfcatch>
+</cftry>
  </cfloop>

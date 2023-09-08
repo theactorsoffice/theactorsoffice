@@ -129,9 +129,8 @@
       <!-- Advanced error information -->
       <p><strong>Extended Info:</strong> #cfcatch.ExtendedInfo#</p>
       <p><strong>Error Code:</strong> #cfcatch.ErrorCode#</p>
-      <p><strong>Native Error Code:</strong> #cfcatch.NativeErrorCode#</p>
-      <p><strong>Tag Context:</strong></p>
-      <cfdump var="#cfcatch.TagContext#">
+
+
     </cfoutput>
   </cfcatch>
 </cftry>

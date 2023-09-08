@@ -1,6 +1,7 @@
  <CFINCLUDE template="/include/remote_load.cfm" />
+<cfparam name="check" default="N" />
 
-
+<Cfif #check# is "Y">
  <cfquery datasource="#dsn#" name="z" >
      SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND siteicon <> 'unknown.png'
  </cfquery>
@@ -27,7 +28,7 @@
  </cfif>
 
 </cfloop>
-
+</cfif>
 
 
  <cfquery datasource="#dsn#" name="x" maxrows="50">

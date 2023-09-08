@@ -33,7 +33,7 @@ Select * from sitelinks_user where userid = #userid# and sitename = '#new_sitena
 
 <!-- Now, lastInsertedId contains the ID of the newly inserted record -->
 
-<cfinclude template="/include/customicon_finder.cfm" />
+<cfinclude template="/include/customicon_single.cfm" />
 
 
 

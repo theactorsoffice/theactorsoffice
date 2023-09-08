@@ -93,7 +93,7 @@
                  where id = #id#
              </cfquery>
 
-             <cfif #dns# is "abo">
+             <cfif #dsn# is "abo">
 
                  <cfquery datasource="abod" name="update">
                      update sitelinks_user
@@ -103,7 +103,7 @@
 
              </cfif>
 
-             <cfif #dns# is "abod">
+             <cfif #dsn# is "abod">
 
                  <cfquery datasource="abo" name="update">
                      update sitelinks_user

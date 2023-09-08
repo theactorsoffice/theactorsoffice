@@ -1,2 +1,2 @@
-<cfinclude template="/include/core.cfm" />
+<cflocation url="/app/dashboard_new" />
 	

@@ -80,10 +80,10 @@
              </cfif>
 
              <!-- Loop over the other two directories to copy the file -->
-             
+
              <cfloop array="#otherDirs#" index="targetDir">
 
-                 <cffile action="copy" source="#image_dir##fileName#" destination="#targetDir##fileName#" />
+                 <cffile action="copy" source="#image_dir#\#fileName#" destination="#targetDir#\#fileName#" />
 
              </cfloop>
 

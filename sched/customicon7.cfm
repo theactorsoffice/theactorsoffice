@@ -146,13 +146,14 @@
           
 
              <!-- Loop over the other two directories to copy the file -->
-
+<cfif #isdefined('blah')#>
              <cfloop array="#otherDirs#" index="targetDir">
 
-                 <cffile action="copy" source="#image_dir#\#fileName#" destination="#targetDir#" />
+                 <cffile action="copy" source="#image_dir#\#fileName#" destination="#targetDir#"  />
 
              </cfloop>
-
+             
+             </cfif>
              <cfquery datasource="#dsn#" name="update">
                  update sitelinks_user
                  set siteicon = '#filename#'

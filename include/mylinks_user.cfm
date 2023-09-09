@@ -1,13 +1,7 @@
 
 <cfinclude template="/include/qry/mylinks_user.cfm" />  
 
-<Cfoutput>
-
-    <cfset siteurl_list = "#all_links.siteurl_list#" />
-
-    <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">Open All</button>
-
-</cfoutput>
+<div class="card-body">
 
 <div class="row">
 
@@ -36,6 +30,20 @@
         </div>
 
     </cfloop>
+
+</div>
+
+
+
+<Cfoutput>
+
+    <cfset siteurl_list = "#all_links.siteurl_list#" />
+
+    <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">Open All</button>
+
+</cfoutput>
+
+
     
  <div class="card-footer bg-light d-flex justify-content-between">
     <cfoutput>
@@ -45,9 +53,3 @@
   </div>
     
 </div>
-    
-
-
-<cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" />
-
-<cfinclude template="/include/bigbrotherinclude.cfm" /> 

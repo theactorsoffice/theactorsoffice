@@ -1,33 +1,5 @@
 
-<style>
-.grid-item {
-  box-sizing: border-box; /* To make sure padding is included in the width */
-  width: calc(25% - 20px); /* Assuming 10px as the total padding + margin */
-   margin: 0;
-  padding: 0;
-}
- 
 
-.card {
-    opacity: 0; /* Set the initial opacity to 0 */
-    transition: opacity 1s ease-in-out; /* 1s duration, easing function */
-}
-
-.card.loaded {
-    opacity: 1; /* Fully visible */
-}
-
-
-
-.packery-drop-placeholder {
-  outline: 3px dashed #444;
-  outline-offset: -6px;
-  /* transition position changing */
-  -webkit-transition: -webkit-transform 0.2s;
-          transition: transform 0.2s;
-}
-
-</style>
 
 <script>
 $(document).ready(function(){
@@ -46,34 +18,24 @@ $(document).ready(function(){
 
 
 <cfloop query="dashboards">
- <cfoutput><div class="card grid-item" data-id="#dashboards.pnid#"></cfoutput>
+ <cfoutput><div class="card grid-item loaded" data-id="#dashboards.pnid#"></cfoutput>
                
                     <div class="card-header" id="heading_system_<cfoutput>#dashboards.currentrow#</cfoutput>">
 
-                        <h5 class="m-0" style="width:100%'">
-
-                 <a class="text-dark collapsed" data-bs-toggle="collapse" href="#collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" aria-expanded="#header_aria_expanded#">
-
-                                <cfoutput>#dashboards.pnTitle# <cfif #dashboards.pntitle# is "Relationship Reminders"> 
+                      <h5 class="m-0">
+      <a class="text-dark collapsed" data-bs-toggle="collapse"  href="#collapse_system_<cfoutput>#dashboards.currentrow#</cfoutput>" aria-expanded="#header_aria_expanded#">
+              <cfoutput>#dashboards.pnTitle# <cfif #dashboards.pntitle# is "Relationship Reminders"> 
                             <span class="badge bg-secondary small-badge">#nots_total#</span> </cfif></cfoutput>  
-
-                            </a>
-
-                        </h5>
+      </a>
+    </h5>
 
                     </div>
 
           
 
 
-                        <div class="card-body">
-
-                            <p>
+                       
   <cfinclude template="/include/#dashboards.pnFilename#" />
-
-                            </p>
-
-                        </div>
 
                     </div>
 

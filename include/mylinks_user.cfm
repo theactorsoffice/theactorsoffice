@@ -30,11 +30,7 @@
         </div>
 
     </cfloop>
-
-
-
-
-
+  <div class="col-md-12 col-lg-12">
 <Cfoutput>
 
     <cfset siteurl_list = "#all_links.siteurl_list#" />
@@ -42,6 +38,10 @@
     <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">Open All</button>
 
 </cfoutput>
+
+</div>
+
+</div>
 
 </div>
     

@@ -25,7 +25,7 @@
 
                 </a> 
                                                         
-                <span id="edit_#mylinks_user.new_sitype_id#">
+                <span id="edit_#mylinks_user.id#">
                                                         
                     <i class="mdi mdi-square-edit-outline"></i>
 

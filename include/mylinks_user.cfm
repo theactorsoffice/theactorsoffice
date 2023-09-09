@@ -37,21 +37,12 @@
 
     </cfloop>
     
-    <div class="col-md-12 col-lg-12">
-
-     <p>
-
-      <cfoutput>  
-      
-       <a href=""><i class="mdi mdi-square-edit-outline"></i></a>
-
-       <a href=""><i class="fe-plus-circle"></i></a>
-
-       </cfoutput>
-       
-     </p>
-
-    </div>
+ <div class="card-footer bg-light d-flex justify-content-between">
+    <cfoutput>
+      <a href="" class="btn btn-link"><i class="mdi mdi-square-edit-outline"></i></a>
+      <a href="" class="btn btn-link"><i class="fe-plus-circle"></i></a>
+    </cfoutput>
+  </div>
     
 </div>
     

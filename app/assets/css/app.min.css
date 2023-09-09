@@ -24381,3 +24381,7 @@ button.close {
 	line-height: .9;
 	border-radius: .2rem;
   }
+
+  .card-footer {
+	background-color: #f8f9fa !important;  /* light grey */
+  }

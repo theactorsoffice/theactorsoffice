@@ -1,47 +1,62 @@
 
 <cfinclude template="/include/qry/mylinks_user.cfm" />  
-<!--- This is just an example of how the siteurl_list might be set in ColdFusion --->
+
 <Cfoutput>
-<cfset siteurl_list = "#all_links.siteurl_list#">
 
-<!--- Embed the siteurl_list into JavaScript --->
+    <cfset siteurl_list = "#all_links.siteurl_list#" />
 
- <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">Open All</button>
+    <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">Open All</button>
 
 </cfoutput>
+
 <div class="row">
-<cfloop query="mylinks_user">
-    <div class="col-md-12 col-lg-12">
-                                               
-                                                      <Cfoutput>
 
+    <cfloop query="mylinks_user">
 
-
-<a href="#mylinks_user.siteurl#" class="text-reset font-14 py-1 px-1 d-inline-block"  target="#mylinks_user.sitename#"  title="#mylinks_user.sitename#" >
-
- 
-<img src="/app/assets/images/retina-circular-icons/32/#mylinks_user.siteicon#" style="width:14px;" alt="#mylinks_user.sitename#"  />
- 
-#mylinks_user.sitename#
-                                                </a>
+        <div class="col-md-12 col-lg-12">
                                                 
-                                                
-                                                
-                                                </Cfoutput>
+            <Cfoutput>
+
+                <a href="#mylinks_user.siteurl#" class="text-reset font-14 py-1 px-1 d-inline-block"  target="#mylinks_user.sitename#"  title="#mylinks_user.sitename#" >
+
+                    <img src="/app/assets/images/retina-circular-icons/32/#mylinks_user.siteicon#" style="width:14px;" alt="#mylinks_user.sitename#" />
         
-    </div>
-        </cfloop>
+                    #mylinks_user.sitename#
+
+                </a> 
+                                                        
+                <span id="edit_#mylinks_user.new_sitype_id#">
+                                                        
+                    <i class="mdi mdi-square-edit-outline"></i>
+
+                </span>
+
+            </Cfoutput>
+            
+        </div>
+
+    </cfloop>
     
-    
-     <div class="col-md-12 col-lg-12">
-     <p style="text-align: center;">
-      <cfoutput>   <a href="/app/myaccount/?t1=1&target_id=#new_sitetypeid#"><i class="mdi mdi-square-edit-outline"></i></a></cfoutput>
+    <div class="col-md-12 col-lg-12">
+
+     <p>
+
+      <cfoutput>  
+      
+       <a href=""><i class="mdi mdi-square-edit-outline"></i></a>
+
+       <a href=""><i class="fe-plus-circle"></i></a>
+
+       </cfoutput>
+       
      </p>
- </div>
-    
-    
+
     </div>
     
+</div>
+    
 
 
-<cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 
+<cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" />
+
+<cfinclude template="/include/bigbrotherinclude.cfm" /> 

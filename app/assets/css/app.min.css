@@ -24412,3 +24412,19 @@ button.close {
   -webkit-transition: -webkit-transform 0.2s;
           transition: transform 0.2s;
 }
+
+/* Less padding on card body */
+.card-body {
+	padding: 1rem !important; /* Bootstrap default is 1.5rem */
+  }
+  
+  /* Less padding on card header */
+  .card-header {
+	padding: 0.5rem 1rem !important; /* Bootstrap default is 1rem */
+  }
+  
+  /* Less padding on card footer */
+  .card-footer {
+	padding: 0.5rem 1rem !important; /* Bootstrap default is 1rem */
+  }
+  

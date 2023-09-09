@@ -37,7 +37,7 @@ $(document).ready(function(){
                        
   <cfinclude template="/include/#dashboards.pnFilename#" />
 
-                    </div>
+                
 
                  
     

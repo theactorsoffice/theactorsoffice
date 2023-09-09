@@ -31,7 +31,7 @@
 
     </cfloop>
 
-</div>
+
 
 
 
@@ -43,7 +43,7 @@
 
 </cfoutput>
 
-
+</div>
     
  <div class="card-footer bg-light d-flex justify-content-between">
     <cfoutput>

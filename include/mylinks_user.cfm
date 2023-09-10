@@ -17,7 +17,7 @@
 
 <cfoutput>
 
-        <div id="addlink_#sitetypes.sitetypeid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div id="addlink_#new_sitetypeid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
 
             <div class="modal-dialog">
 

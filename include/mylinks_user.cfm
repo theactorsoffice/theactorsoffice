@@ -126,7 +126,8 @@
 
     <cfoutput>
 
-      <a href="" class="btn btn-link" id="edit_mode"><i class="mdi mdi-square-edit-outline"></i></a>
+   <span id="edit_#mylinks_user.id#" class="hide-edit-icon"><i class="mdi mdi-square-edit-outline"></i></span>
+
 
       <a class="btn btn-link" href="addlink.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##addlink_#new_sitetypeid#"><i class="fe-plus-circle"></i></a>
 

@@ -55,7 +55,7 @@
 
 
 <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">
-  <i class="fas fa-external-link-alt"></i><sup>+</sup> Open All
+  <i class="fas fa-files"></i>
 </button>
 
 

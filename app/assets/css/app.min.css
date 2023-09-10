@@ -24393,38 +24393,3 @@ button.close {
   padding: 0;
 }
  
-
-.card {
-    opacity: 0; /* Set the initial opacity to 0 */
-    transition: opacity 1s ease-in-out; /* 1s duration, easing function */
-}
-
-.card.loaded {
-    opacity: 1; /* Fully visible */
-}
-
-
-
-.packery-drop-placeholder {
-  outline: 3px dashed #444;
-  outline-offset: -6px;
-  /* transition position changing */
-  -webkit-transition: -webkit-transform 0.2s;
-          transition: transform 0.2s;
-}
-
-/* Less padding on card body */
-.card-body {
-	padding: 1rem !important; /* Bootstrap default is 1.5rem */
-  }
-  
-  /* Less padding on card header */
-  .card-header {
-	padding: 0.5rem 1rem !important; /* Bootstrap default is 1rem */
-  }
-  
-  /* Less padding on card footer */
-  .card-footer {
-	padding: 0.3rem .5rem !important; /* Bootstrap default is 1rem */
-  }
-  

@@ -55,7 +55,7 @@
 
 
 <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">
-  <i class="fas fa-files"></i>
+  <i class="mdi  mdi-book-plus-multiple"></i>
 </button>
 
 

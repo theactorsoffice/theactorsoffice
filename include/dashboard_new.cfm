@@ -97,14 +97,13 @@ function openAllUrls(siteurl_list) {
   });
 }
 </script>
-
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
-  const editModeButtons = document.querySelectorAll(".edit_mode");
+  const toggleEditModeButtons = document.querySelectorAll(".toggle_edit_mode");
   
-  editModeButtons.forEach((button) => {
+  toggleEditModeButtons.forEach((button) => {
     button.addEventListener("click", function(e){
-      e.preventDefault(); // Prevents the default action
+      // e.preventDefault(); // Not needed for a button, but can be left in
       const cardId = e.target.dataset.cardId;
       const editIcons = document.querySelectorAll(`#${cardId} .hide-edit-icon`);
       

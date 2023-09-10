@@ -53,7 +53,7 @@
 
 <cfoutput>
  
-<div class="card grid-item loaded" data-id="#dashboards.pnid#" id="card_#dashboards.pnid#">
+<div class="card grid-item loaded" data-id="#dashboards.pnid#" >
 
     <div class="card-header" id="heading_system_#dashboards.currentrow#">
 

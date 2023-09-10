@@ -24427,3 +24427,6 @@ button.close {
 	padding: 0.3rem .5rem !important; /* Bootstrap default is 1rem */
   }
   
+  .hide-edit-icon {
+    display: none;
+}

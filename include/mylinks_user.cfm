@@ -1,5 +1,52 @@
 <cfinclude template="/include/qry/mylinks_user.cfm" />  
 
+<cfoutput query="mylinks_user" maxrows="1">
+<cfset new_sitetypeid = "#mylinks_user.sitetypeid#" />
+</cfoutput>"
+
+    <cfoutput>
+
+        <script>
+            $(document).ready(function() {
+                $("##addlink_#new_sitetypeid#").on("show.bs.modal", function(event) {
+                    // Place the returned HTML into the selected element
+                    $(this).find(".modal-body").load("/include/remotelinkAdd.cfm?new_sitetypeid=#new_sitetypeid#&userid=#userid#");
+                });
+            });
+        </script>
+
+<cfoutput>
+
+        <div id="addlink_#sitetypes.sitetypeid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: ##f3f7f9;">
+
+                        <h4 class="modal-title" id="standard-modalLabel">Add Custom #pntitle# Link</h4>
+
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </cfoutput>
+
+
+
 <cfset siteurl_list = all_links.siteurl_list />
 
 <cfoutput>
@@ -75,7 +122,7 @@
 
       <a href="" class="btn btn-link"><i class="mdi mdi-square-edit-outline"></i></a>
 
-      <a href="" class="btn btn-link"><i class="fe-plus-circle"></i></a>
+      <a class="btn btn-link" href="addlink.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#addlink_784"><i class="fe-plus-circle"></i></a>
 
     </cfoutput>
 

@@ -24425,6 +24425,6 @@ button.close {
   
   /* Less padding on card footer */
   .card-footer {
-	padding: 0.5rem 1rem !important; /* Bootstrap default is 1rem */
+	padding: 0.3rem .5rem !important; /* Bootstrap default is 1rem */
   }
   

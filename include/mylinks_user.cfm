@@ -122,7 +122,7 @@
 
       <a href="" class="btn btn-link"><i class="mdi mdi-square-edit-outline"></i></a>
 
-      <a class="btn btn-link" href="addlink.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#addlink_784"><i class="fe-plus-circle"></i></a>
+      <a class="btn btn-link" href="addlink.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##addlink_#new_sitetypeid#"><i class="fe-plus-circle"></i></a>
 
     </cfoutput>
 

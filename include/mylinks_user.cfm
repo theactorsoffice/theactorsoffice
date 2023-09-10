@@ -54,9 +54,9 @@
  
 
 
-<button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">
-  <i class="mdi  mdi-book-plus-multiple"></i>
-</button>
+<center><button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">
+  <i class="mdi  mdi-book-plus-multiple"></i> Open All
+</button></center>
 
 
 

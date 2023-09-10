@@ -15,7 +15,7 @@
             });
         </script>
 
-<cfoutput>
+ 
 
         <div id="addlink_#new_sitetypeid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
 

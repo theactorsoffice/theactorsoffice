@@ -1,11 +1,12 @@
 <CFINCLUDE template="/include/remote_load.cfm" /> 
-
+<cfparam name="target" default="myaccount"  />
 
 <form action="/include/remotelinkadd2.cfm" method="post" class="parsley-examples" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden"
   data-parsley-trigger="keyup" data-parsley-validate id="profile-form">
     <cfoutput>   <input type="hidden" name="new_sitetypeid" value="#New_sitetypeid#" >
         <input type="hidden" name="userid" value="#userid#" >
     <input type="hidden" name="target_id" value="#new_sitetypeid#" >
+      <input type="hidden" name="target" value="#target#" >
     </cfoutput>
     
     

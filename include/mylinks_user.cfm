@@ -10,7 +10,7 @@
             $(document).ready(function() {
                 $("##addlink_#new_sitetypeid#").on("show.bs.modal", function(event) {
                     // Place the returned HTML into the selected element
-                    $(this).find(".modal-body").load("/include/remotelinkAdd.cfm?new_sitetypeid=#new_sitetypeid#&userid=#userid#");
+                    $(this).find(".modal-body").load("/include/remotelinkAdd.cfm?new_sitetypeid=#new_sitetypeid#&userid=#userid#&target=dashboard_new");
                 });
             });
         </script>
@@ -25,7 +25,7 @@
 
                     <div class="modal-header" style="background-color: ##f3f7f9;">
 
-                        <h4 class="modal-title" id="standard-modalLabel">Add Custom #pntitle# Link</h4>
+                        <h4 class="modal-title" id="standard-modalLabel">Add  #pntitle#</h4>
 
                         <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i>
 

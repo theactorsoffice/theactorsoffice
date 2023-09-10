@@ -98,3 +98,20 @@ function openAllUrls(siteurl_list) {
 }
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  const editModeButtons = document.querySelectorAll(".edit_mode");
+  
+  editModeButtons.forEach((button) => {
+    button.addEventListener("click", function(e){
+      e.preventDefault(); // Prevents the default action
+      const cardId = e.target.dataset.cardId;
+      const editIcons = document.querySelectorAll(`#${cardId} .hide-edit-icon`);
+      
+      editIcons.forEach((icon) => {
+        icon.classList.toggle("hide-edit-icon");
+      });
+    });
+  });
+});
+</script>

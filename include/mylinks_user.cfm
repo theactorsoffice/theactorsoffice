@@ -135,3 +135,15 @@
   </div><!--end card footer -->
     
 </div><!--end card -->
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const editModeButton = document.getElementById("edit_mode");
+    editModeButton.addEventListener("click", function(e){
+        e.preventDefault(); // Prevents the default action
+        const editIcons = document.querySelectorAll(".hide-edit-icon");
+        editIcons.forEach((icon) => {
+            icon.classList.toggle("hide-edit-icon");
+        });
+    });
+});
+</script>

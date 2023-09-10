@@ -1,5 +1,11 @@
 <cfinclude template="/include/qry/mylinks_user.cfm" />  
 
+
+<style>
+  .hide-edit-icon {
+    display: none;
+}
+</style>
 <cfoutput query="mylinks_user" maxrows="1">
 <cfset new_sitetypeid = "#mylinks_user.sitetypeid#" />
 </cfoutput>"

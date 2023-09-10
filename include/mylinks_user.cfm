@@ -51,8 +51,14 @@
             <div class="col-md-12 col-lg-12">
 
                 <Cfoutput>
+ 
 
-                    <button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">Open All</button>
+
+<button onclick="openAllUrls('#siteurl_list#')" class="badge badge-blue">
+  <i class="fas fa-external-link-alt"></i><sup>+</sup> Open All
+</button>
+
+
 
                 </cfoutput>
 

@@ -54,8 +54,8 @@
  
 
 
- <button onclick="openAllUrls('#siteurl_list#')" style="border: 1px solid ##406E8E;
-    outline: none; color: ##406E8E!important;" class="badge badge-light text-dark">
+ <button onclick="openAllUrls('#siteurl_list#')" style="border: 1px solid ##406E8E!important;
+    outline: none!important; color: ##406E8E!important;" class="badge badge-light text-dark">
   <i class="mdi  mdi-book-plus-multiple"></i> Open All
 </button> 
 

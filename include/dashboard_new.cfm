@@ -45,6 +45,7 @@ $(document).ready(function(){
 <script>
 
 // Initialize packery
+console.log("Before Packery");
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
   gutter: 10,  // Increasing gutter
@@ -53,6 +54,7 @@ var $grid = $('.packery-grid').packery({
     columnWidth: '.grid-item',
   percentPosition: true
 });
+console.log("After Packery");
 
 // Make all items draggable
 $grid.find('.grid-item').each( function(i, gridItem) {
@@ -66,8 +68,7 @@ packery.on( 'dragItemPositioned', function( event, draggedItem ) {
 </script>
 
  
-
-
+ 
 
 
 

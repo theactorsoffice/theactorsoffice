@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   
     // Packery initialization
-    var elem = document.querySelector('.packery-grid');
+    var elem = document.querySelector('.Packery-grid');
     var pckry = new Packery( elem, {
       // options
       itemSelector: '.grid-item',

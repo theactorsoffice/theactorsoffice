@@ -43,15 +43,16 @@ $(document).ready(function(){
 
 
 <script>
-// Initialize Packery
+
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 10,  // Increasing gutter
-   fitWidth: true,  // layout will be centered within parent
-  resizable: true,  // container will resize to fit items
-    columnWidth: '.grid-item',
-  percentPosition: true
+  gutter: 10,
+  columnWidth: '.grid-item'
 });
+
+
+
+
 
 // Make all items draggable
 $grid.find('.grid-item').each( function(i, gridItem) {
@@ -67,7 +68,7 @@ packery.on( 'dragItemPositioned', function( event, draggedItem ) {
 
 
 
-
+// Initialize Packery
 
 
 

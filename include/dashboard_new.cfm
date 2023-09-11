@@ -44,14 +44,13 @@ $(document).ready(function(){
 
 <script>
 
-// Initialize packery
 console.log("Before Packery");
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 10,  // Increasing gutter
-   fitWidth: true,  // layout will be centered within parent
-  resizable: true,  // container will resize to fit items
-    columnWidth: '.grid-item',
+  gutter: 10,
+  fitWidth: true,
+  resizable: true,
+  columnWidth: '.grid-item',
   percentPosition: true
 });
 console.log("After Packery");
@@ -62,9 +61,11 @@ $grid.find('.grid-item').each( function(i, gridItem) {
   $grid.packery( 'bindDraggabillyEvents', draggie );
 });
 
-packery.on( 'dragItemPositioned', function( event, draggedItem ) {
-    app.tiles.settings.packeryEl.packery();
+$grid.on( 'dragItemPositioned', function( event, draggedItem ) {
+  // replace the following line with whatever you need
+  //app.tiles.settings.packeryEl.packery();
 });
+
 </script>
 
  

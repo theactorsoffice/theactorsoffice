@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
+    // Your existing edit button logic
     const editModeButtons = document.querySelectorAll(".toggle_edit_mode");
     
     console.log("Found buttons:", editModeButtons); // Debugging line
@@ -21,6 +22,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
           icon.classList.toggle("hide-edit-icon");
         });
       });
+    });
+  
+    // Packery initialization
+    var elem = document.querySelector('.packery-grid');
+    var pckry = new Packery( elem, {
+      // options
+      itemSelector: '.grid-item',
+      gutter: 10
     });
   });
   

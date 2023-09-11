@@ -1,5 +1,29 @@
-<cfinclude template="/include/qry/mylinks_user.cfm" />  
 
+
+<cfquery name="mylinks_user"  >	
+SELECT 
+s.id
+,s.sitetypeid
+,s.sitename
+,s.siteurl
+,s.siteicon
+,s.sitetypeid
+,t.sitetypename
+,t.pntitle
+
+FROM sitelinks_user s INNER JOIN sitetypes_user t ON t.sitetypeid = s.siteTypeid
+WHERE s.userid = #userid# AND t.pntitle = '#pntitle#'
+ORDER BY s.sitename
+
+
+</cfquery>		
+<cfquery name="all_links"  >	
+SELECT 
+  GROUP_CONCAT(s.siteurl ORDER BY s.siteurl ASC SEPARATOR ', ') AS siteurl_list
+FROM sitelinks_user s 
+INNER JOIN sitetypes_user t ON t.sitetypeid = s.siteTypeid
+WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
+</cfquery>
 
 
 <cfoutput query="mylinks_user" maxrows="1">
@@ -16,8 +40,6 @@
                 });
             });
         </script>
-
- 
 
         <div id="addlink_#new_sitetypeid#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
 
@@ -46,8 +68,6 @@
         </div>
 
     </cfoutput>
-
-
 
 <cfset siteurl_list = all_links.siteurl_list />
 
@@ -101,14 +121,12 @@
 
                 <Cfoutput>
  
-
-
  <button onclick="openAllUrls('#siteurl_list#')" style="border: 1px solid ##406E8E!important;
     outline: none!important; color: ##406E8E!important;" class="badge badge-light text-dark">
+  
   <i class="mdi  mdi-book-plus-multiple"></i> Open All
+
 </button> 
-
-
 
                 </cfoutput>
 
@@ -123,8 +141,6 @@
     <cfoutput>
 
 <button class="btn btn-link toggle_edit_mode" data-card-id="card_#dashboards.pnid#"><i class="mdi mdi-square-edit-outline"></i></button>
-
-
 
       <a class="btn btn-link" href="addlink.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##addlink_#new_sitetypeid#"><i class="fe-plus-circle"></i></a>
 

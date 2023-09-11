@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
     });
   
-    // Packery initialization
+    // packery initialization
     var elem = document.querySelector('.packery-grid');
-    var pckry = new Packery( elem, {
+    var pckry = new packery( elem, {
       // options
       itemSelector: '.grid-item',
       gutter: 10

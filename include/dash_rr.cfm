@@ -22,6 +22,7 @@
     });
 </script>
 
+<cfoutput>
 
 <div class="card grid-item loaded" data-id="#dashboards.pnid#" >
 

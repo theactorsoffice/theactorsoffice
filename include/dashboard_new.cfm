@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 <cfparam name="NEW_SITETYPEID" default="0" /> 
 
-<div class="Packery-grid" data-Packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
+<div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 
 <cfloop query="dashboards">
          
@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 <script>
 
-var $grid = $('.Packery-grid').Packery({
+var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
   gutter: 10,
   columnWidth: '.grid-item'
@@ -57,18 +57,18 @@ var $grid = $('.Packery-grid').Packery({
 // Make all items draggable
 $grid.find('.grid-item').each( function(i, gridItem) {
   var draggie = new Draggabilly(gridItem);
-  $grid.Packery( 'bindDraggabillyEvents', draggie );
+  $grid.packery( 'bindDraggabillyEvents', draggie );
 });
 
-Packery.on( 'dragItemPositioned', function( event, draggedItem ) {
-    app.tiles.settings.PackeryEl.Packery();
+packery.on( 'dragItemPositioned', function( event, draggedItem ) {
+    app.tiles.settings.packeryEl.packery();
 });
 </script>
 
 
 
 
-// Initialize Packery
+// Initialize packery
 
 
 

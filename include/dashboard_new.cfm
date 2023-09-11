@@ -38,28 +38,36 @@ $(document).ready(function(){
 
 
 
+
+
+
+
 <script>
+
 // Initialize packery
 var $grid = $('.packery-grid').packery({
   itemSelector: '.grid-item',
-  gutter: 10
+  gutter: 10,  // Increasing gutter
+   fitWidth: true,  // layout will be centered within parent
+  resizable: true,  // container will resize to fit items
+    columnWidth: '.grid-item',
+  percentPosition: true
 });
 
 // Make all items draggable
-$grid.find('.grid-item').each(function(i, gridItem) {
+$grid.find('.grid-item').each( function(i, gridItem) {
   var draggie = new Draggabilly(gridItem);
-  $grid.packery('bindDraggabillyEvents', draggie);
+  $grid.packery( 'bindDraggabillyEvents', draggie );
 });
 
-// Force layout after drag
-$grid.on('dragItemPositioned', function() {
-  $grid.packery();
+packery.on( 'dragItemPositioned', function( event, draggedItem ) {
+    app.tiles.settings.packeryEl.packery();
 });
 </script>
 
-
-
  
+
+
 
 
 
@@ -101,4 +109,5 @@ function openAllUrls(siteurl_list) {
     }, 100); // The delay in milliseconds
   });
 </script>
+
 

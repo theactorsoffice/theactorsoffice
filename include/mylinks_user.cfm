@@ -28,7 +28,7 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
 
 <cfoutput query="mylinks_user" maxrows="1">
 <cfset new_sitetypeid = "#mylinks_user.sitetypeid#" />
-</cfoutput>"
+</cfoutput>
 
     <cfoutput>
 

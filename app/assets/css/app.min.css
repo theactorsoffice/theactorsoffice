@@ -24367,7 +24367,7 @@ button.close {
 	position: absolute;
 }
 
-.Packery-grid {
+.packery-grid {
   width: 100%;
 }
 .grid-item {
@@ -24404,7 +24404,7 @@ button.close {
 
 
 
-.Packery-drop-placeholder {
+.packery-drop-placeholder {
   outline: 3px dashed #444;
   outline-offset: -6px;
   /* transition position changing */

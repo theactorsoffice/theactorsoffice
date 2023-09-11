@@ -64,14 +64,22 @@ packery.on( 'dragItemPositioned', function( event, draggedItem ) {
 });
 </script>
 
-<script>
-  $(document).ready(function(){
-    // Wait for a moment before triggering the animation
-    setTimeout(function(){
-      $(".card").addClass("loaded");
-    }, 100); // The delay in milliseconds
-  });
-</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -97,4 +105,14 @@ function openAllUrls(siteurl_list) {
   });
 }
 </script>
+
+<script>
+  $(document).ready(function(){
+    // Wait for a moment before triggering the animation
+    setTimeout(function(){
+      $(".card").addClass("loaded");
+    }, 100); // The delay in milliseconds
+  });
+</script>
+
 

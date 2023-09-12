@@ -140,7 +140,7 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
 
     <cfoutput>
 
-<button class="btn btn-link toggle_edit_mode" data-id="card_#dashboards.pnid#"><i class="mdi mdi-square-edit-outline"></i></button>
+<button class="btn btn-link toggle_edit_mode" data-id="#dashboards.pnid#"><i class="mdi mdi-square-edit-outline"></i></button>
 
       <a class="btn btn-link" href="addlink.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##addlink_#new_sitetypeid#"><i class="fe-plus-circle"></i></a>
 

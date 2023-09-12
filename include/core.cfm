@@ -184,7 +184,7 @@ $('#menu a').click(function (e) {
 <cfloop query="FindLinksB">
     <cfoutput>
         <cfif "#findlinksb.linktype#" is "script">
-<script src="#findlinksb.linkurl#"></script>
+<script src="#findlinksb.linkurl#?ver=#rand()#"></script>
             <cfelseif "#findlinksb.linktype#" is "script_include">
                 <cfinclude template="#findlinksb.linkurl#">
                     <cfelse>

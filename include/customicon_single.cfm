@@ -1,6 +1,6 @@
 <!-- id and siteurl needed -->
 
-<cfparam name="dbug" default="N" />
+<cfparam name="dbug" default="Y" />
 
  <cfquery datasource="#dsn#" name="x" >
      SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE id = #id#

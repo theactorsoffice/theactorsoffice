@@ -166,7 +166,7 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
 
 
  <span id="edit_#mylinks_user.id#" class="hide-edit-icon" data-card-id="#dashboards.pnid#">
-        <a title="Edit" href="" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#updatelink_#mylinks_user.id#">
+        <a title="Edit" href="" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##updatelink_#mylinks_user.id#">
  <i class="mdi mdi-square-edit-outline"></i>
  </a>
  </span>

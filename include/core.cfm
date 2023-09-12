@@ -188,7 +188,7 @@ $('#menu a').click(function (e) {
             <cfelseif "#findlinksb.linktype#" is "script_include">
                 <cfinclude template="#findlinksb.linkurl#">
                     <cfelse>
-<link href="#findlinksb.linkurl#?rev=#rev#" <cfif #findlinksb.rel# is not ""> rel="#findlinksb.rel#"
+<link href="#findlinksb.linkurl#?rev=#rev#.5" <cfif #findlinksb.rel# is not ""> rel="#findlinksb.rel#"
         </cfif> type="text/css" <cfif #findlinksb.hrefid# is not "">id="#findlinksb.hrefid#"</cfif> />
         </cfif>
 

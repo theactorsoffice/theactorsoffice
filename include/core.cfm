@@ -119,7 +119,7 @@ body.authentication-bg {
 
     <!-- body start -->
 
-    <body >
+    <body style="overflow-y: scroll!important;" >
         <!-- Begin page -->
         <div id="wrapper">
             <!-- Topbar Start -->

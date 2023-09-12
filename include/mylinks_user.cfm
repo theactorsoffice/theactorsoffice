@@ -97,6 +97,58 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
 
         <cfloop query="mylinks_user">
 
+
+        
+    <cfoutput>
+
+        <script>
+            $(document).ready(function() {
+                $("##updatelink_#mylinks_user.id#").on("show.bs.modal", function(event) {
+                    // Place the returned HTML into the selected element
+                    $(this).find(".modal-body").load("/include/remotelinkUpdate.cfm?id=#mylinks_user.id#");
+                });
+            });
+        </script>
+
+    </cfoutput>
+
+    <cfoutput>
+
+        <div id="updatelink_#mylinks_user.id#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: ##f3f7f9;">
+
+                        <h4 class="modal-title" id="standard-modalLabel">#mylinks_user.sitetypename# Link Update</h4>
+
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">
+
+                            <i class="mdi mdi-close-thick"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </cfoutput>
+
+</cfloop>
+
+
+
+
             <div class="col-md-12">
                                                 
                 <Cfoutput>
@@ -108,8 +160,16 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
                         #mylinks_user.sitename#
 
                     </a> 
-                                                            
- <span id="edit_#mylinks_user.id#" class="hide-edit-icon" data-card-id="#dashboards.pnid#"><i class="mdi mdi-square-edit-outline"></i></span>
+
+
+
+
+
+ <span id="edit_#mylinks_user.id#" class="hide-edit-icon" data-card-id="#dashboards.pnid#">
+        <a title="Edit" href="" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#updatelink_#mylinks_user.id#">
+ <i class="mdi mdi-square-edit-outline"></i>
+ </a>
+ </span>
 
 
                 </Cfoutput>

@@ -24434,3 +24434,7 @@ button.close {
 body {
 	overflow-y: scroll;
   }
+
+  body.modal-open {
+	overflow: visible !important;
+  }

@@ -1,5 +1,5 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
-
+<cfparam name="target" default="myaccount" />
 <cfquery name="linkdetails" datasource="#dsn#">
                     SELECT * FROM sitelinks_user where id = #id#
                 </cfquery> 
@@ -10,6 +10,7 @@
     <cfoutput><input type="hidden" name="id" value="#linkdetails.id#" >
     <input type="hidden" name="target_id" value="#linkdetails.sitetypeid#" >
            <input type="hidden" name="new_iscustom" value="#linkdetails.iscustom#" >
+                      <input type="hidden" name="target" value="#target#" >
     </cfoutput>
     
     

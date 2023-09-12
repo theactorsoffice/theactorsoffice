@@ -103,7 +103,7 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
             $(document).ready(function() {
                 $("##updatelink_#mylinks_user.id#").on("show.bs.modal", function(event) {
                     // Place the returned HTML into the selected element
-                    $(this).find(".modal-body").load("/include/remotelinkUpdate.cfm?id=#mylinks_user.id#");
+                    $(this).find(".modal-body").load("/include/remotelinkUpdate.cfm?id=#mylinks_user.id#&target=dashboard_new");
                 });
             });
         </script>

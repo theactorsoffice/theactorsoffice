@@ -109,7 +109,8 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
 
                     </a> 
                                                             
-                    <span id="edit_#mylinks_user.id#" data-card-id="#dashboards.pnid#" class="hide-edit-icon"><i class="mdi mdi-square-edit-outline"></i></span>
+ <span id="edit_#mylinks_user.id#" class="hide-edit-icon" data-card-id="#dashboards.pnid#"><i class="mdi mdi-square-edit-outline"></i></span>
+
 
                 </Cfoutput>
             

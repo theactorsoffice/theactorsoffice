@@ -14,8 +14,6 @@ s.id
 FROM sitelinks_user s INNER JOIN sitetypes_user t ON t.sitetypeid = s.siteTypeid
 WHERE s.userid = #userid# AND t.pntitle = '#pntitle#'
 ORDER BY s.sitename
-
-
 </cfquery>		
 <cfquery name="all_links"  >	
 SELECT 
@@ -110,9 +108,6 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
             });
         </script>
 
-    </cfoutput>
-
-    <cfoutput>
 
         <div id="updatelink_#mylinks_user.id#" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
 
@@ -189,7 +184,7 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
 
 </button> 
 
-                </cfoutput>
+           
 
             </div><!-- end col-md-12 -->
 
@@ -199,8 +194,7 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
     
  <div class="card-footer bg-light d-flex justify-content-between">
 
-    <cfoutput>
-
+ 
  
 
 <button class="btn btn-link toggle_edit_mode" data-card-id="#dashboards.pnid#"><i class="mdi mdi-square-edit-outline"></i></button>

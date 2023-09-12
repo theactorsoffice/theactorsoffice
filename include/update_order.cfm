@@ -1,6 +1,7 @@
-
+<cfinclude template="/include/remote_load.cfm" />
 
 <cfset newOrder = ListToArray(FORM.order)>
+
 <cfloop from="1" to="#ArrayLen(newOrder)#" index="i">
   <cfquery datasource="#dsn#">
     UPDATE pgpanels_user

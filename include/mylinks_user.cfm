@@ -144,7 +144,7 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
 
     </cfoutput>
 
-</cfloop>
+
 
 
 

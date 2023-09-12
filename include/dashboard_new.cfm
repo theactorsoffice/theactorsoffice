@@ -73,7 +73,7 @@ $grid.on('dragItemPositioned', function() {
 
   // Send the new order to the server via AJAX
   $.ajax({
-    url: 'update_order.cfm', // your ColdFusion script
+    url: '/include/update_order.cfm', // your ColdFusion script
     type: 'POST',
     data: { order: newOrder.join(',') }, // send as comma-separated list
     success: function(response) {

@@ -61,9 +61,28 @@ $grid.find('.grid-item').each( function(i, gridItem) {
   $grid.packery( 'bindDraggabillyEvents', draggie );
 });
 
-$grid.on( 'dragItemPositioned', function( event, draggedItem ) {
-  // replace the following line with whatever you need
-  //app.tiles.settings.packeryEl.packery();
+$grid.on('dragItemPositioned', function() {
+  // Create an array to store the new order
+  var newOrder = [];
+
+  // Iterate over each item and push its data-id to the array
+  $grid.packery('getItemElements').forEach(function(itemElem) {
+    var id = $(itemElem).attr('data-id');
+    newOrder.push(id);
+  });
+
+  // Send the new order to the server via AJAX
+  $.ajax({
+    url: 'update_order.cfm', // your ColdFusion script
+    type: 'POST',
+    data: { order: newOrder.join(',') }, // send as comma-separated list
+    success: function(response) {
+      console.log('Updated successfully:', response);
+    },
+    error: function() {
+      console.log('Failed to update order');
+    }
+  });
 });
 
 </script>

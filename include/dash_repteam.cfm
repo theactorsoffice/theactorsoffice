@@ -1,5 +1,32 @@
  <cfinclude template="/include/qry/myteam.cfm" />
 
+
+ <cfoutput>
+
+<div class="card grid-item loaded" data-id="#dashboards.pnid#" >
+
+    <div class="card-header" id="heading_system_#dashboards.currentrow#">
+
+        <h5 class="m-0">
+
+            <a class="text-dark collapsed" data-bs-toggle="collapse"  href="##collapse_system_#dashboards.currentrow#"  >
+
+                #dashboards.pnTitle# 
+ 
+            </a>
+
+        </h5>
+
+    </div>
+
+</cfoutput>
+
+    <div class="card-body">
+
+
+
+
+
  <div class="row">
 
 
@@ -54,5 +81,8 @@
      </p>
  </div>
 
+
+ </div><!--end card -->
+</div>
  <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" />
          <cfinclude template="/include/bigbrotherinclude.cfm" /> 

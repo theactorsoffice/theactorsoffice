@@ -80,10 +80,10 @@
 <cfloop query="FindLinksT">
 <cfoutput>
 <cfif "#findlinkst.linktype#" is "script">
-<script src="#findlinkst.linkurl#?ver=#rev#.2"></script>
+<script src="#findlinkst.linkurl#?ver=#rev#.4"></script>
 <cfelseif "#findlinkst.linktype#" is "script_include">
 
-<cfinclude template="#findlinkst.linkurl#?ver=#rev#">
+<cfinclude template="#findlinkst.linkurl#?ver=#rev#.4">
 
 <cfelse>
 <link href="#findlinkst.linkurl#?ver=#rev#.3" <cfif #findlinkst.rel# is not "">rel="#rel#" </cfif>type="text/css" <cfif #findlinkst.hrefid# is not "">id="#findlinkst.hrefid#"</cfif> />
@@ -119,7 +119,7 @@ body.authentication-bg {
 
     <!-- body start -->
 
-    <body >
+    <body style="overflow-y: scroll!important;" >
         <!-- Begin page -->
         <div id="wrapper">
             <!-- Topbar Start -->
@@ -184,11 +184,11 @@ $('#menu a').click(function (e) {
 <cfloop query="FindLinksB">
     <cfoutput>
         <cfif "#findlinksb.linktype#" is "script">
-<script src="#findlinksb.linkurl#"></script>
+<script src="#findlinksb.linkurl#?ver=#rand()#"></script>
             <cfelseif "#findlinksb.linktype#" is "script_include">
                 <cfinclude template="#findlinksb.linkurl#">
                     <cfelse>
-<link href="#findlinksb.linkurl#?rev=#rev#" <cfif #findlinksb.rel# is not ""> rel="#findlinksb.rel#"
+<link href="#findlinksb.linkurl#?rev=#rev#.5" <cfif #findlinksb.rel# is not ""> rel="#findlinksb.rel#"
         </cfif> type="text/css" <cfif #findlinksb.hrefid# is not "">id="#findlinksb.hrefid#"</cfif> />
         </cfif>
 

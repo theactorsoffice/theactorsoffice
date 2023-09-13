@@ -32,15 +32,15 @@
 
      <cfoutput>
 
-         <cfset image_dir="C:\home\theactorsoffice.com\wwwroot\#host#-subdomain#suffix#\app\assets\images\retina-circular-icons\32" />
+         <cfset image_dir="C:\home\theactorsoffice.com\wwwroot\#host#-subdomain#suffix#\app\assets\images\retina-circular-icons\14" />
 
      </cfoutput>
 
-     <cfset image_dir_app="C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\32" />
+     <cfset image_dir_app="C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\14" />
 
-     <cfset image_dir_dev="C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\32" />
+     <cfset image_dir_dev="C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\14" />
 
-     <cfset image_dir_uat="C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\32" />
+     <cfset image_dir_uat="C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\14" />
 
      <cfhttp url="https://icon.horse/icon/#domain#?apikey=996ca328-b4b1-47a7-8d41-e5255525ab6b&fallback_bg=406e8e&size=small&ignore_other_sizes=false" method="get" getAsBinary="yes" result="icoResult"></cfhttp>
 
@@ -84,8 +84,10 @@
 
          <cffile action="write" file="#tempFile#" output="#icoResult.filecontent#" />
 
-         <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" arguments="convert #tempFile# #pngFile#" timeout="60">
-         </cfexecute>
+        <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
+           arguments="convert #tempFile# -resize 28x #pngFile#" 
+           timeout="60">
+</cfexecute>
 
          <!-- Filename -->
 
@@ -94,20 +96,23 @@
           <p>filename: <cfoutput>#filename#</cfoutput></p>
 
              <!-- Determine which environment we're in -->
+<cfif image_dir EQ image_dir_dev>
+  <cffile action="copy" 
+          source="#pngFile#" 
+          destination="#image_dir_uat#" 
+          nameconflict="overwrite" />
+<cfelseif image_dir EQ image_dir_uat>
+  <cffile action="copy" 
+          source="#pngfile#" 
+          destination="#image_dir_dev#" 
+          nameconflict="overwrite" />
+</cfif>
+ 
 
-            <cfif image_dir EQ image_dir_dev>
 
-                <cfset otherDirs=[image_dir_uat, image_dir_app] />
 
-            <cfelseif image_dir EQ image_dir_uat>
 
-                <cfset otherDirs=[image_dir_dev, image_dir_app] />
 
-            <cfelseif image_dir EQ image_dir_app>
-
-                 <cfset otherDirs=[image_dir_dev, image_dir_uat] />
-
-            </cfif>
 
              <!-- Loop over the other two directories to copy the file -->
 
@@ -117,27 +122,13 @@
                  where id = #id#
              </cfquery>
 
-             <cfif #dsn# is "abo">
+     
 
-                 <cfquery datasource="abod" name="update">
-                     update sitelinks_user
-                     set siteicon = '#filename#'
-                     where siteurl = '#siteurl#'
-                 </cfquery>
-
-             </cfif>
-
-             <cfif #dsn# is "abod">
-
-                 <cfquery datasource="abo" name="update">
-                     update sitelinks_user
-                     set siteicon = '#filename#'
-                     where siteurl = '#siteurl#'
-                 </cfquery>
-
-             </cfif>
 
 </cfif>
 
  
+ <cfif  #dbug# is "y">
  
+ <cfabort>
+ </cfif>

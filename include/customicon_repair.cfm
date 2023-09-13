@@ -7,7 +7,7 @@
 <cfloop query="z">
    <cfoutput>
 
-         <cfset image_dir="C:\home\theactorsoffice.com\wwwroot\#host#-subdomain#suffix#\app\assets\images\retina-circular-icons\32" />
+         <cfset image_dir="C:\home\theactorsoffice.com\wwwroot\#host#-subdomain#suffix#\app\assets\images\retina-circular-icons\14" />
 
      </cfoutput>
 

@@ -20,10 +20,29 @@
             }
         });
     });
-
 </script>
 
+<cfoutput>
 
+<div class="card grid-item loaded" data-id="#dashboards.pnid#" >
+
+    <div class="card-header" id="heading_system_#dashboards.currentrow#">
+
+        <h5 class="m-0">
+
+            <a class="text-dark collapsed" data-bs-toggle="collapse"  href="##collapse_system_#dashboards.currentrow#"  >
+
+                #dashboards.pnTitle# 
+ 
+            </a>
+
+        </h5>
+
+    </div>
+
+</cfoutput>
+
+    <div class="card-body">
 
 <form action="/app/dashboard_new/" method="post" id="submit-button">
 
@@ -92,3 +111,12 @@
     </div>
 
 </form>
+
+
+
+</div><!--card-body end -->
+    
+    
+</div><!--end card -->
+
+

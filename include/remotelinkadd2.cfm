@@ -1,5 +1,5 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
-
+<cfparam name="target" default="myaccount" />
 <cfparam name="ver" default="" />
 
 <cfquery name="find" datasource="#dsn#" >
@@ -39,4 +39,4 @@ Select * from sitelinks_user where userid = #userid# and sitename = '#new_sitena
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 
 
-<cflocation url="/app/myaccount/?t1=1&target_id=#target_id#" />   
+<cflocation url="/app/#target#/?t1=1&target_id=#target_id#" />   

@@ -24381,3 +24381,60 @@ button.close {
 	line-height: .9;
 	border-radius: .2rem;
   }
+
+  .card-footer {
+	background-color: #f8f9fa !important;  /* light grey */
+  }
+
+.grid-item {
+  box-sizing: border-box; /* To make sure padding is included in the width */
+  width: calc(25% - 20px); /* Assuming 10px as the total padding + margin */
+   margin: 0;
+  padding: 0;
+}
+ 
+
+
+
+
+
+.card.loaded {
+    opacity: 1; /* Fully visible */
+}
+
+
+
+.packery-drop-placeholder {
+  outline: 3px dashed #444;
+  outline-offset: -6px;
+  /* transition position changing */
+  -webkit-transition: -webkit-transform 0.2s;
+          transition: transform 0.2s;
+}
+
+/* Less padding on card body */
+.card-body {
+	padding: 1rem !important; /* Bootstrap default is 1.5rem */
+  }
+  
+  /* Less padding on card header */
+  .card-header {
+	padding: 0.5rem 1rem !important; /* Bootstrap default is 1rem */
+  }
+  
+  /* Less padding on card footer */
+  .card-footer {
+	padding: 0.3rem .5rem !important; /* Bootstrap default is 1rem */
+  }
+  
+  .hide-edit-icon {
+    display: none;
+}
+
+body {
+	overflow-y: scroll;
+  }
+
+  body.modal-open {
+	overflow: visible !important;
+  }

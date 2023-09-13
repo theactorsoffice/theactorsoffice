@@ -96,16 +96,24 @@
           <p>filename: <cfoutput>#filename#</cfoutput></p>
 
              <!-- Determine which environment we're in -->
+<cfif image_dir EQ image_dir_dev>
+  <cffile action="copy" 
+          source="#image_dir_dev#\#pngfile#" 
+          destination="#image_dir_uat#\#pngfile#" 
+          nameconflict="overwrite" />
+<cfelseif image_dir EQ image_dir_uat>
+  <cffile action="copy" 
+          source="#image_dir_uat#\#pngfile#" 
+          destination="#image_dir_dev#\#pngfile#" 
+          nameconflict="overwrite" />
+</cfif>
+Hope this helps! Let me know if you have more questions.
 
-            <cfif image_dir EQ image_dir_dev>
 
-         <cffile action="copy" source="#image_dir_dev#\\#pngfile#" destination="#image_dir_uat#" nameconflict="overwrite" />
 
-            <cfelseif image_dir EQ image_dir_uat>
 
-    <cffile action="copy" source="#image_dir_uat#\#pngfile#" destination="#image_dir_dev#" nameconflict="overwrite" />
 
-            </cfif>
+
 
              <!-- Loop over the other two directories to copy the file -->
 

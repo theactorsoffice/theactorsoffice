@@ -85,7 +85,7 @@
          <cffile action="write" file="#tempFile#" output="#icoResult.filecontent#" />
 
         <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
-           arguments="convert #tempFile# -resize 24x #pngFile#" 
+           arguments="convert #tempFile# -resize 28x #pngFile#" 
            timeout="60">
 </cfexecute>
 

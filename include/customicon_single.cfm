@@ -1,6 +1,6 @@
 <!-- id and siteurl needed -->
 
-<cfparam name="dbug" default="Y" />
+<cfparam name="dbug" default="N" />
 
  <cfquery datasource="#dsn#" name="x" >
      SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE id = #id#
@@ -107,8 +107,7 @@
           destination="#image_dir_dev#" 
           nameconflict="overwrite" />
 </cfif>
-Hope this helps! Let me know if you have more questions.
-
+ 
 
 
 

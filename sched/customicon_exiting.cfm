@@ -132,5 +132,7 @@
       <p>Error type: #cfcatch.type#</p>
       <p>Error detail: #cfcatch.detail#</p>
     </cfoutput>
+
+      <cfabort>
   </cfcatch>
 </cftry>

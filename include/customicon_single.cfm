@@ -99,7 +99,7 @@
 
             <cfif image_dir EQ image_dir_dev>
 
-         <cffile action="copy" source="#image_dir_dev#\#pngfile#" destination="#image_dir_uat#" nameconflict="overwrite" />
+         <cffile action="copy" source="#image_dir_dev#\\#pngfile#" destination="#image_dir_uat#" nameconflict="overwrite" />
 
             <cfelseif image_dir EQ image_dir_uat>
 

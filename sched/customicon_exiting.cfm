@@ -1,3 +1,5 @@
+
+here <cfabort>
 <cftry>
      <cfset image_dir_app="C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\14" />
 

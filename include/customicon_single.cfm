@@ -95,6 +95,8 @@
 
           <p>filename: <cfoutput>#filename#</cfoutput></p>
 
+          <cfif #isdefined('sdfsdfsfdsfd')#>
+
              <!-- Determine which environment we're in -->
 <cfif image_dir EQ image_dir_dev>
   <cffile action="copy" 
@@ -108,7 +110,7 @@
           nameconflict="overwrite" />
 </cfif>
  
-
+</cfif>
 
 
 
@@ -128,7 +130,3 @@
 </cfif>
 
  
- <cfif  #dbug# is "y">
- 
- <cfabort>
- </cfif>

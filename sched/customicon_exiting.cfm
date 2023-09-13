@@ -1,4 +1,4 @@
-
+<cfsetting requesttimeout="9999" />
 
 <cftry>
      <cfset image_dir_app="C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\14" />
@@ -6,6 +6,19 @@
      <cfset image_dir_dev="C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\14" />
 
      <cfset image_dir_uat="C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\14" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,6 +38,14 @@
                arguments="convert #sourceimage# -resize 28x #destimage#" 
                timeout="60"></cfexecute>
 </cfloop>
+
+
+
+
+
+
+
+
 
 
 

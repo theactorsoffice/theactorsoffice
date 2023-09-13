@@ -97,15 +97,11 @@
 
             <cfif image_dir EQ image_dir_dev>
 
-                <cfset otherDirs=[image_dir_uat, image_dir_app] />
+         <cffile action="copy" source="#image_dir_dev#\#pngfile#" destination="#image_dir_uat#" nameconflict="overwrite" />
 
             <cfelseif image_dir EQ image_dir_uat>
 
-                <cfset otherDirs=[image_dir_dev, image_dir_app] />
-
-            <cfelseif image_dir EQ image_dir_app>
-
-                 <cfset otherDirs=[image_dir_dev, image_dir_uat] />
+    <cffile action="copy" source="#image_dir_uat#\#pngfile#" destination="#image_dir_dev#" nameconflict="overwrite" />
 
             </cfif>
 
@@ -117,25 +113,8 @@
                  where id = #id#
              </cfquery>
 
-             <cfif #dsn# is "abo">
+     
 
-                 <cfquery datasource="abod" name="update">
-                     update sitelinks_user
-                     set siteicon = '#filename#'
-                     where siteurl = '#siteurl#'
-                 </cfquery>
-
-             </cfif>
-
-             <cfif #dsn# is "abod">
-
-                 <cfquery datasource="abo" name="update">
-                     update sitelinks_user
-                     set siteicon = '#filename#'
-                     where siteurl = '#siteurl#'
-                 </cfquery>
-
-             </cfif>
 
 </cfif>
 

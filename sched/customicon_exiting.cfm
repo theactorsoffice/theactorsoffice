@@ -34,9 +34,14 @@
     <cfset destimage = "#dir_dest_uat#\#files.name#">
 
     <!--- Convert the image using ImageMagick --->
+
+    <cfif NOT FileExists(destimage)>
+
     <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
                arguments="convert #sourceimage# -resize 28x #destimage#" 
                timeout="60"></cfexecute>
+
+               </cfif>
 </cfloop>
 
 
@@ -62,9 +67,14 @@
     <cfset destimage = "#dir_dest_dev#\#files.name#">
 
     <!--- Convert the image using ImageMagick --->
+
+    <cfif NOT FileExists(destimage)>
+
     <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
                arguments="convert #sourceimage# -resize 28x #destimage#" 
                timeout="60"></cfexecute>
+
+               </cfif>
 </cfloop>
 
 
@@ -82,25 +92,16 @@
     <cfset destimage = "#dir_dest_app#\#files.name#">
 
     <!--- Convert the image using ImageMagick --->
+
+    <cfif NOT FileExists(destimage)>
     <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
                arguments="convert #sourceimage# -resize 28x #destimage#" 
                timeout="60"></cfexecute>
+
+               </cfif>
 </cfloop>
 
 
-<!--- Read the source directory to get the list of files --->
-<cfdirectory directory="#dir_source_dev#" name="files" filter="*.png" />
-
-<!--- Loop through each file in the directory --->
-<cfloop query="files">
-    <cfset sourceimage = "#dir_source_dev#\#files.name#">
-    <cfset destimage = "#dir_dest_dev#\#files.name#">
-
-    <!--- Convert the image using ImageMagick --->
-    <cfexecute name="C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe" 
-               arguments="convert #sourceimage# -resize 28x #destimage#" 
-               timeout="60"></cfexecute>
-</cfloop>
 
 <cfset dir_dest_dev="C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\14" />
 <cfset dir_dest_uat="C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\14" />
@@ -131,7 +132,7 @@
         <cffile action="copy" 
                 source="#dir_dest_dev#\#filename#" 
                 destination="#dir_dest_uat#\#filename#" 
-                nameconflict="overwrite" />
+                nameconflict="skip" />
     </cfif>
 </cfloop>
 
@@ -141,7 +142,7 @@
         <cffile action="copy" 
                 source="#dir_dest_uat#\#filename#" 
                 destination="#dir_dest_dev#\#filename#" 
-                nameconflict="overwrite" />
+                nameconflict="skip" />
     </cfif>
 </cfloop>
 

@@ -204,7 +204,7 @@ ORDER BY s.sitename
     <div class="col-md-6 col-lg-4">
                                                     <cfoutput>
                                             <h5><a title="Edit" href="updateuserlink.cfm" data-remote="true" data-toggle="modal" data-target="##updatelink_#mylinks_user.id#">
-                                                   <img src="/app/assets/images/retina-circular-icons/32/#mylinks_user.siteicon#" width="14px"  /> #mylinks_user.sitename#
+                                                   <img src="/app/assets/images/retina-circular-icons/14/#mylinks_user.siteicon#" width="14px"  /> #mylinks_user.sitename#
                                          
                                                         
                                                         

@@ -26,7 +26,7 @@ SELECT id,sitename,siteurl,siteicon FROM sitelinks_user WHERE iscustom = 1 AND s
             
             <!-- New image name and directory -->
             <cfset new_siteicon = "custom_#id#.png" />
-            <cfset image_dir = "/app/assets/images/retina-circular-icons/32" />
+            <cfset image_dir = "/app/assets/images/retina-circular-icons/14" />
             
             <!-- Convert to PNG and Save -->
             <cfimage action="read" source="#GetTempDirectory()#/favicon.ico" name="imageObj">

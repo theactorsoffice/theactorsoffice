@@ -296,7 +296,7 @@
                                         <a title="Edit" href="updateuserlink.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##updatelink_#mylinks_user.id#">
 
 
-<img src="/app/assets/images/retina-circular-icons/32/#mylinks_user.siteicon#" width="14px" /> 
+<img src="/app/assets/images/retina-circular-icons/14/#mylinks_user.siteicon#" width="14px" /> 
 
 #mylinks_user.sitename# <cfif #mylinks_user.ver# is not ""> (#ver#)</cfif>
 

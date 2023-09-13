@@ -32,15 +32,15 @@ WHERE id = #new_id#
 
  <Cfif #dsn# is "abo">
         
-        <cfset tempDir ="C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\32\temp" />
+        <cfset tempDir ="C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\14\temp" />
         
 
         <cfelse>
 
 
-        <cfset tempDir ="C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\32\temp" />
+        <cfset tempDir ="C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\14\temp" />
        
-        <cfset tempDir_uat ="C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\32\temp" />
+        <cfset tempDir_uat ="C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\14\temp" />
         </cfif>
 
 
@@ -87,12 +87,12 @@ WHERE id = #new_id#
         <cfset new_siteicon = "custom_#id#.png" />
 
         <Cfif #dsn# is "abo">
-        <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\32" />
+        <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\14" />
         
 
         <cfelse>
 
-        <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\32" />
+        <cfset image_dir = "C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\14" />
        
        
         </cfif>
@@ -130,7 +130,7 @@ WHERE id = #new_id#
         <cfimage action="write" destination="#image_dir#\custom_#id#.png" source="#imageObj#" format="png"></cfimage>
 
 <cfif #dsn# is "abod">
-        <cfset image_dir_uat = "C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\32" />
+        <cfset image_dir_uat = "C:\home\theactorsoffice.com\wwwroot\uat-subdomain\app\assets\images\retina-circular-icons\14" />
 
 
    <cfimage action="write" destination="#image_dir_uat#\custom_#id#.png" source="#imageObj#" format="png"></cfimage>

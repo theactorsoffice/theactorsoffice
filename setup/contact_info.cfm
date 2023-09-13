@@ -659,7 +659,7 @@
 
                                     <a href="#profiles.valuetext#" class="text-reset font-14 py-1 ps-o me-2   d-inline-block" data-bs- data-bs-placement="top" title="" target="#profiles.valuetext#" data-bs-original-title="#profiles.valuetype#">
 
-                                        <img src="/app/assets/images/retina-circular-icons/32/#profiles.typeicon#" width="16px" />
+                                        <img src="/app/assets/images/retina-circular-icons/14/#profiles.typeicon#" width="16px" />
 
                                     </a>
 

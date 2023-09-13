@@ -31,7 +31,7 @@
 
           
           <h5><Cfoutput>
-                <img src="/app/assets/images/retina-circular-icons/32/#linkdetails.siteicon#" width="14px"  /> #linkdetails.sitename#
+                <img src="/app/assets/images/retina-circular-icons/14/#linkdetails.siteicon#" width="14px"  /> #linkdetails.sitename#
           </Cfoutput>
           </h5>
           

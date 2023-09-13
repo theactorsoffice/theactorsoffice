@@ -98,13 +98,13 @@
              <!-- Determine which environment we're in -->
 <cfif image_dir EQ image_dir_dev>
   <cffile action="copy" 
-          source="#image_dir_dev#\#pngfile#" 
-          destination="#image_dir_uat#\#pngfile#" 
+          source="#image_dir_dev#" 
+          destination="#image_dir_uat#" 
           nameconflict="overwrite" />
 <cfelseif image_dir EQ image_dir_uat>
   <cffile action="copy" 
-          source="#image_dir_uat#\#pngfile#" 
-          destination="#image_dir_dev#\#pngfile#" 
+          source="#image_dir_uat#" 
+          destination="#image_dir_dev#" 
           nameconflict="overwrite" />
 </cfif>
 Hope this helps! Let me know if you have more questions.

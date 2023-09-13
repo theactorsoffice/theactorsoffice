@@ -1,4 +1,4 @@
-
+<cftry>
      <cfset image_dir_app="C:\home\theactorsoffice.com\wwwroot\app-subdomain_1.5\app\assets\images\retina-circular-icons\14" />
 
      <cfset image_dir_dev="C:\home\theactorsoffice.com\wwwroot\dev-subdomain\app\assets\images\retina-circular-icons\14" />
@@ -121,3 +121,16 @@
                 nameconflict="overwrite" />
     </cfif>
 </cfloop>
+
+
+
+ <cfcatch type="any">
+    <!-- Custom error message -->
+    <cfdump var="#cfcatch#">
+    <cfoutput>
+      <p>An error occurred: #cfcatch.message#</p>
+      <p>Error type: #cfcatch.type#</p>
+      <p>Error detail: #cfcatch.detail#</p>
+    </cfoutput>
+  </cfcatch>
+</cftry>

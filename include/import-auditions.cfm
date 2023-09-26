@@ -4,7 +4,7 @@ function unlock(){
 }
 </script>
 
-<cfinclude template="/include/qry/auditionsimport.cfm" />
+
 <cfparam name="step" default="1" />
 
 <cfif #isdefined('uploadid')#>

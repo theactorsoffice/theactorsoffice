@@ -3,7 +3,7 @@ function unlock(){
     document.getElementById('buttonSubmit').removeAttribute("disabled");
 }
 </script>
-
+<cfinclude template="/include/qry/auditionimports.cfm" />
 
 <cfparam name="step" default="1" />
 
@@ -15,7 +15,7 @@ function unlock(){
     </cfquery>
     
     <cfset conlist = valuelist(upload_details.audprojectid) />
-    <CFINCLUDE template="/include/remote_load.cfm" />
+  
     
     
     

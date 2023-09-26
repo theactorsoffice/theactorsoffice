@@ -19,7 +19,7 @@ u.userid,
 u.uploadstatus,
 i.status
 
-HAVING i.status = 'Added'
+
 
 
  </cfquery>    

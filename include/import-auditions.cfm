@@ -3,7 +3,7 @@ function unlock(){
     document.getElementById('buttonSubmit').removeAttribute("disabled");
 }
 </script>
-<cfinclude template="/include/qry/auditionimports.cfm" />
+<cfinclude template="/include/qry/auditionsimports.cfm" />
 
 <cfparam name="step" default="1" />
 

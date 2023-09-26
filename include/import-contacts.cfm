@@ -3,6 +3,10 @@ function unlock(){
     document.getElementById('buttonSubmit').removeAttribute("disabled");
 }
 </script>
+<<<<<<< HEAD
+=======
+<cfinclude template="/include/qry/imports.cfm" />
+>>>>>>> dev
 
 <cfinclude template="/include/qry/imports.cfm" />
 <cfparam name="step" default="1" />

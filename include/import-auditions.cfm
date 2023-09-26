@@ -3,8 +3,12 @@ function unlock(){
     document.getElementById('buttonSubmit').removeAttribute("disabled");
 }
 </script>
+<<<<<<< HEAD
 <cfinclude template="/include/qry/auditionsimport.cfm" />
+=======
+>>>>>>> dev
 
+<cfinclude template="/include/qry/auditionsimport.cfm" />
 <cfparam name="step" default="1" />
 
 <cfif #isdefined('uploadid')#>

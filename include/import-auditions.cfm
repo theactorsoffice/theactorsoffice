@@ -18,6 +18,8 @@ function unlock(){
   
     
     <cfinclude template="/include/qry/auditionsimport.cfm" />
+
+    <h2><cfoutput>#imports.recordcount#</h2><cfabort>
     
     <cfquery datasource="#dsn#" name="results"      >
     SELECT ai.id,

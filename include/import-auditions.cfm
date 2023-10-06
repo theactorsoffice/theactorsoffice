@@ -16,10 +16,10 @@ function unlock(){
     
     <cfset conlist = valuelist(upload_details.audprojectid) />
   
-    
 
 
-    <h2><cfoutput>#imports.recordcount#</h2><cfabort>
+
+    <h2><cfoutput>#imports.recordcount#</cfoutput></h2><cfabort>
     
     <cfquery datasource="#dsn#" name="results"      >
     SELECT ai.id,

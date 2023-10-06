@@ -16,8 +16,10 @@ function unlock(){
     
     <cfset conlist = valuelist(upload_details.audprojectid) />
   
-    
-    <cfinclude template="/include/qry/auditionsimport.cfm" />
+
+
+
+    <h2><cfoutput>#imports.recordcount#</cfoutput></h2><cfabort>
     
     <cfquery datasource="#dsn#" name="results"      >
     SELECT ai.id,
@@ -282,7 +284,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
                     <div class="float-left">
 
 
-                        <cfoutput>
+                        <cfoutput>stop!<cfabort>
 
                             <p> You have <strong>#imports.recordcount#</strong> imports.
 

@@ -284,7 +284,7 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
                     <div class="float-left">
 
 
-                        <cfoutput>
+                        <cfoutput>stop!<cfabort>
 
                             <p> You have <strong>#imports.recordcount#</strong> imports.
 

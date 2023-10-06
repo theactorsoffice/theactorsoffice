@@ -17,7 +17,7 @@ function unlock(){
     <cfset conlist = valuelist(upload_details.audprojectid) />
   
     
-    <cfinclude template="/include/qry/auditionsimport.cfm" />
+
 
     <h2><cfoutput>#imports.recordcount#</h2><cfabort>
     

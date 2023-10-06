@@ -17,7 +17,7 @@ function unlock(){
     <cfset conlist = valuelist(upload_details.audprojectid) />
   
     
-    
+    <cfinclude template="/include/qry/auditionsimport.cfm" />
     
     <cfquery datasource="#dsn#" name="results"      >
     SELECT ai.id,

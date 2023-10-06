@@ -282,9 +282,9 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
                 <div class="d-flex justify-content-between">
 
                     <div class="float-left">
+<cfinclude template="/include/qry/auditionsimport.cfm" />
 
-
-                        <cfoutput>stop!<cfabort>
+                        <cfoutput>
 
                             <p> You have <strong>#imports.recordcount#</strong> imports.
 

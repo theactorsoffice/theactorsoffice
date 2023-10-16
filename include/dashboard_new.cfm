@@ -9,7 +9,114 @@ $(document).ready(function(){
 </script>
 
 
+
+
 <cfparam name="batchlist" default="0" />
+
+
+<script>
+function getIndexInParent (el) {
+  return Array.from(el.parentNode.children).indexOf(el)
+}
+</script>
+
+<script>
+// Move item in an array immutably
+function moveItem (array, fromIndex, toIndex) {
+  const arrayCopy = array.slice()
+  const item = arrayCopy[fromIndex]
+  arrayCopy.splice(fromIndex, 1) // remove field that's moving
+  arrayCopy.splice(toIndex, 0, item) // add it back
+  return arrayCopy
+}
+</script>
+
+<cfparam name="pgaction" default="View" />
+<cfparam name="nots_total" default="0" />
+<cfparam name="batchlist" default="0" />
+
+<cfif #pgaction# is "batch">
+<cfif #batchlist# is not "0">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <cfquery datasource="#dsn#" name="cnotsconfirm">
+SELECT
+                n.notID
+          
+                
+                FROM funotifications n
+
+    
+                WHERE n.notid in (#batchlist#)
+ 
+ 
+            </cfquery>
+
+        
+        
+        
+        
+        
+
+    <script type="text/javascript">
+    $(window).on('load', function() {
+        $('#batchconfirm').modal('show');
+    });
+</script>
+    
+    <div id="batchconfirm" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title">
+
+                    <cfoutput>Batch #batchtype# confirmation</cfoutput>
+
+                </h4>
+                
+           
+
+                <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i></button>
+
+            </div>
+
+            <div class="modal-body">
+             
+                <cfoutput>
+                      <form action="/include/batch#batchtype#.cfm">
+                          <input type="hidden" name="batchlist" value="#batchlist#" />
+                    <center>You are about to #batchtype# #numberformat(cnotsconfirm.recordcount)# reminders.</center>
+                          <p>&nbsp;</p>
+                            <center><input type="submit" value="Confirm" class="btn btn-primary btn-sm" /></center> 
+                    </form>
+                </cfoutput>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</cfif>
+    <cfset pgaction = "view" />
+    </cfif>
+
+
+
+
 
 <cfparam name="NEW_SITETYPEID" default="0" /> 
 

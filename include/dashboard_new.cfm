@@ -8,10 +8,17 @@ $(document).ready(function(){
 });
 </script>
 
-
-
+<script>
+    $('[rel="tooltip"]').on('click', function() {
+        $(this).tooltip('hide')
+    })
+</script>
 
 <cfparam name="batchlist" default="0" />
+<cfparam name="NEW_SITETYPEID" default="0" /> 
+<cfparam name="QUOTEOFTHEDAY" default="" />
+<cfparam name="target_id" default="0">
+<cfparam name="ctaction" default="view">
 
 
 <script>
@@ -70,6 +77,54 @@ SELECT
         $('#batchconfirm').modal('show');
     });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+<cfoutput>
+    <div id="paneladd" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: ##f3f7f9;">
+                    <h4 class="modal-title" id="standard-modalLabel">Custom Panel Add</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i></button>
+
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        $(document).ready(function() {
+            $("##paneladd").on("show.bs.modal", function(event) {
+                // Place the returned HTML into the selected element
+                $(this).find(".modal-body").load("/include/remotePanelAdd.cfm?userid=#userid#&pgrtn=Z");
+            });
+        });
+    </script>
+
+
+
+
+</cfoutput>
+
+
+
+
+
     
     <div id="batchconfirm" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -118,7 +173,7 @@ SELECT
 
 
 
-<cfparam name="NEW_SITETYPEID" default="0" /> 
+
 
 <div class="packery-grid" data-packery='{ "itemSelector": ".grid-item", "gutter": 10 }'>
 

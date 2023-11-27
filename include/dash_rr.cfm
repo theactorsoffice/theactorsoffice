@@ -33,6 +33,7 @@
             <a class="text-dark collapsed" data-bs-toggle="collapse"  href="##collapse_system_#dashboards.currentrow#"  >
 
                 #dashboards.pnTitle# 
+                (#numberformat(reminders.reminderstotal)#)
  
             </a>
 

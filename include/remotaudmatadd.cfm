@@ -30,7 +30,7 @@ function unlock(){
 </cfquery>
 
    <cfquery datasource="#dsn#" name="Type"  >             
-SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,7,8)
+SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,7,8,14)
                 </cfquery> 
 
  

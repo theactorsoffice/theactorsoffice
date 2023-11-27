@@ -5,7 +5,7 @@
 <cfinclude template="/include/qry/audmedia_picklist.cfm" />
 
 <cfquery name="types" datasource="#dsn#">
-    SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,7,8)
+    SELECT mediatypeid,mediatype from audmediatypes WHERE mediatypeid in (1,2,3,5,6,7,8,14)
 </cfquery>
 
 <cfquery name="audlinks" datasource="#dsn#">

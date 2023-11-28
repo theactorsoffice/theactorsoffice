@@ -1068,7 +1068,7 @@ T4: #t4#<BR>
     writeOutput("Current: ");
     writeDump(currentLocale);
     writeOutput("<br />");
-    setLocale("French (Belgian)");
+    setLocale("English (UK)");
     writeOutput("New: ");
     writeDump(getLocale());
     writeOutput("<br />");

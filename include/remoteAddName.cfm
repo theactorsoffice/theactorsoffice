@@ -110,9 +110,9 @@
     </div>
 
     <div class="form-group col-sm-6 mb-6">
+</div>
 
-
-
+   <div class="form-group col-sm-6 mb-6">
         <div class="input-group">
             <input class="form-control" type="text" name="custom" id="custom" style="visibility:hidden;" data-parsley-maxlength="50" placeholder="Add a Gender Pronoun in single/plural format.">
 

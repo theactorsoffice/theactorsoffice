@@ -1098,10 +1098,10 @@ T4: #t4#<BR>
                 </p>
 
 
-              
+        
 
                     <cfset meetingdate="#dateformat('#details.contactmeetingdate#','short')#" />
-
+      <cfset meetingdate="#details.contactmeetingdate#" />
                     <p class="mt-1 mb-0 text-muted py-1 font-14">
                         <cfoutput>
 

@@ -1,4 +1,7 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
+
+<cfparam name="refer_contact_id" default="" />
+
 <cfquery datasource="#dsn#" name="add"   result="result">
         INSERT INTO contactdetails (userid
         
@@ -10,6 +13,10 @@
 
         </cfif>
         
+        <cfif #refer_contact_id# is not "">
+,refer_contact_id
+
+        </cfif>
         
               <cfif #contactmeetingdate# is not "">
 ,contactmeetingdate
@@ -31,6 +38,10 @@
 
 
         </cfif>
+
+ <cfif #refer_contact_id# is not "">
+,<cfqueryparam cfsqltype="CF_SQL_INTEGER"  value="#refer_contact_id#" />
+</cfif>
              <cfif #contactmeetingdate# is not "">
 
            ,<cfqueryparam cfsqltype="CF_SQL_DATE"  value="#contactmeetingdate#" />

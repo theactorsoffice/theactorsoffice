@@ -4,7 +4,9 @@
     SELECT genderPronoun FROM genderpronouns_users where userid = #userid#
 </cfquery>
 
-
+<cfquery name="refers" datasource="#dsn#">
+    SELECT * FROM contactdetails where userid = #userid# order by contactfullname
+</cfquery>
 
 <cfquery name="details" datasource="#dsn#">
     SELECT * from contactdetails where contactid = #contactid#
@@ -110,6 +112,27 @@
 
     </div>
 
+      <div class="form-group col-sm-6 mb-6">
+
+
+        <label for="refer_contact_id">Referred By</label>
+
+        <select id="refer_contact_id" name="refer_contact_id" class="form-control" style="width:100%;" >
+
+
+            <option value="">Select a Relationship</option>
+            <cfoutput query="refers">
+                <option value="#refers.contactid#" <cfif "#refers.contactid#" is "#details.refer_contact_id#"> selected</cfif>>#refers.contactfullname#</option>
+
+
+            </cfoutput>
+        
+        </select>
+
+
+
+    </div>
+
     <div class="form-group col-sm-6 mb-6">
         
 
@@ -119,7 +142,7 @@
        
 
  
-
+</div>
 
       
 
@@ -127,6 +150,10 @@
 
 
     </div>
+
+  
+
+
 
 
 <input type="hidden" name="deleteitem" value="0" />

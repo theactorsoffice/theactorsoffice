@@ -262,7 +262,7 @@ SELECT distinct i.valueCompany
 
 FROM audprojects p INNER JOIN contactdetails c ON c.contactid = p.contactid
 INNER JOIN contactitems i ON i.contactid = c.contactid
-WHERE p.userid = 30 AND i.valueCategory = 'Company'
+WHERE p.userid = #userid# AND i.valueCategory = 'Company'
 ORDER BY i.valuecompany
 </cfquery>
 <cfparam name="sel_coname" default="x" />

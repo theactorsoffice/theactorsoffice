@@ -272,7 +272,19 @@ ORDER BY c.contactfullname
                                 </div>
 
 
+  <div class="col-lg-4 pb-1">
 
+                                    <select id="sel_coid" name="sel_coid" class="form-control" onchange="this.form.submit()">
+
+                                        <option value="x">All Companies</option>
+<cfoutput query="cds">
+<option value="#cds.contactid#">#cds.cd#</option>
+</cfoutput>
+                            
+                                    </select>
+
+
+                                </div>
 
 
 

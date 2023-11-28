@@ -11,6 +11,8 @@
 <cfparam name="sel_audtype" default="x" />
 <cfparam name="materials" default="x" />
 <cfparam name="auddate" default="x" />
+
+<cfparam name="sel_contactid" default="x" />
 <cfoutput>
 <cfset cur_date = "#dateformat('#now()#','YYYY-MM-dd')#" />
 
@@ -28,6 +30,7 @@ p.audprojectid AS recid
 ,st.audstep
 ,st.stepcss
 ,r.iscallback
+,c.contactfullname
 ,r.isredirect
 ,ca.audcatname   
 ,r.ispin
@@ -81,7 +84,11 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
 
     </cfif>
  
+   <cfif  #sel_contactid# is not "x">
     
+    and c.contactid = #sel_contactid#
+    
+    </cfif>   
 
 
 

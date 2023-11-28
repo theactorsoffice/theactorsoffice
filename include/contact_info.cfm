@@ -1076,7 +1076,7 @@ T4: #t4#<BR>
     writeOutput("Original: ");
     writeDump(getLocale());
 </cfscript>
-                    <cfoutput>#dateformat(details.contactcreationdate, medium)#
+                    <cfoutput>#dateformat(details.contactcreationdate, 'medium')#
                         <strong>Birthday:</strong>
 
                         <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteUpdateName" data-bs-placement="top" title="Update Contact" data-bs-original-title="Update Contact">

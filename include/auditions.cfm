@@ -231,7 +231,7 @@
 
 
 
-
+<cfif #isdefined('sdfdsfsdf')#>
                                 <div class="col-lg-4 pb-1">
                                     <select id="auddate" name="auddate" class="form-control" onchange="this.form.submit()">
                                         <option value="x" <cfif #auddate# is "x"> selected </cfif>>All Dates</option>
@@ -244,9 +244,11 @@
                                     </select>
                                 </div>
 
+<cfelse>
+<input type="hidden" name="auddate" value="x" />
+</cfif>
 
-
-                                <div class="col-lg-4 pb-1">
+                                <div class="col-lg-8 pb-1">
                                     <div class="app-search-box dropdown">
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="audsearch" value="<cfoutput>#audsearch#</cfoutput>" id="audsearch" placeholder="Search..." autocomplete="off">&nbsp;

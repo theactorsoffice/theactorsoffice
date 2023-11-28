@@ -1113,7 +1113,7 @@ T4: #t4#<BR>
 
                         <p class="mt-1 mb-0 text-muted py-1 font-14">
 
-                            <strong>Referred By:</strong> <cfif #details.refer_contact_id# is not "">  <cfif #refer_details.recordcount# is "1">#refer_details.fullName#  </cfif></cfif>
+                            <strong>Referred By:</strong> <cfif #details.refer_contact_id# is not "">  <cfif #refer_details.recordcount# is "1"><cfoutput>#refer_details.fullName#</cfoutput>  </cfif></cfif>
                         </p>
 
                   

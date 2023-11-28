@@ -112,25 +112,7 @@
 
     </div>
 
-    <div class="form-group col-sm-6 mb-6">
-        
-
-        
- <div class="input-group">
-<input class="form-control" type="text"  name="custom" id="custom" style="visibility:hidden;"   data-parsley-maxlength="50"  placeholder="Add a Gender Pronoun in single/plural format.">
-       
-
- 
-</div>
-
-      
-
- 
-
-
-    </div>
-
-    <div class="form-group col-sm-6 mb-6">
+      <div class="form-group col-sm-6 mb-6">
 
 
         <label for="refer_contact_id">Referred By</label>
@@ -150,6 +132,26 @@
 
 
     </div>
+
+    <div class="form-group col-sm-6 mb-6">
+        
+
+        
+ <div class="input-group">
+<input class="form-control" type="text"  name="custom" id="custom" style="visibility:hidden;"   data-parsley-maxlength="50"  placeholder="Add a Gender Pronoun in single/plural format.">
+       
+
+ 
+</div>
+
+      
+
+ 
+
+
+    </div>
+
+  
 
 
 

@@ -140,11 +140,11 @@
 
             <option value="">Select a Relationship</option>
             <cfoutput query="refers">
-                <option value="#refers.contactid#">#refers.genderPronoun#</option>
+                <option value="#refers.contactid#">#refers.contactfullname#</option>
 
 
             </cfoutput>
-            <option value="custom">Custom</option>
+        
         </select>
 
 

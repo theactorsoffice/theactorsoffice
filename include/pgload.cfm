@@ -639,3 +639,18 @@ and l.linktype <> 'css'
         <cfoutput> No record!#trim(thispage)#</cfoutput>
 
 </cfif>
+
+
+<cfscript>
+    currentLocale = getLocale();
+    writeOutput("Current: ");
+    writeDump(currentLocale);
+    writeOutput("<br />");
+    setLocale("French (Belgian)");
+    writeOutput("New: ");
+    writeDump(getLocale());
+    writeOutput("<br />");
+    setLocale(currentLocale);
+    writeOutput("Original: ");
+    writeDump(getLocale());
+</cfscript>

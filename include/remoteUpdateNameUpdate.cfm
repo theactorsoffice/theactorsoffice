@@ -2,7 +2,7 @@
 
 <cfparam name="deleteitem" default="0" /> 
  <cfparam name="valuetext" default="" /> 
-
+ <cfparam name="refer_contact_id" default="" /> 
  <cfparam name="custompronoun" default="" /> 
 
     
@@ -42,6 +42,12 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
     <cfif #deleteitem# is "1">
     ,isdeleted = 1
     </cfif>
+
+
+        <cfif #refer_contact_id# is not  "">
+,refer_contact_id = #refer_contact_id#
+
+        </cfif>
     
 
 WHERE contactid = #contactid#

@@ -256,6 +256,16 @@ FROM audprojects p INNER JOIN contactdetails c ON c.contactid = p.contactid
 WHERE p.userid = #userid#
 ORDER BY c.contactfullname
 </cfquery>
+<cfquery name="cos" datasource="#dsn#">
+SELECT distinct i.valueCompany
+
+
+FROM audprojects p INNER JOIN contactdetails c ON c.contactid = p.contactid
+INNER JOIN contactitems i ON i.contactid = c.contactid
+WHERE p.userid = 30 AND i.valueCategory = 'Company'
+ORDER BY i.valuecompany
+</cfquery>
+<cfparam name="sel_coname" default="x" />
 
   <div class="col-lg-4 pb-1">
 
@@ -274,11 +284,11 @@ ORDER BY c.contactfullname
 
   <div class="col-lg-4 pb-1">
 
-                                    <select id="sel_coid" name="sel_coid" class="form-control" onchange="this.form.submit()">
+                                    <select id="sel_coname" name="sel_coname" class="form-control" onchange="this.form.submit()">
 
                                         <option value="x">All Companies</option>
-<cfoutput query="cds">
-<option value="#cds.contactid#">#cds.cd#</option>
+<cfoutput query="cos">
+<option value="#cos.valueCompany#">#cos.valueCompany#</option>
 </cfoutput>
                             
                                     </select>

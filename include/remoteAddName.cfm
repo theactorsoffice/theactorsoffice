@@ -4,7 +4,9 @@
     SELECT genderPronoun FROM genderpronouns_users where userid = #session.userid#
 </cfquery>
 
-
+<cfquery name="refers" datasource="#dsn#">
+    SELECT * FROM contactdetails where userid = #userid# order by contactfullname
+</cfquery>
 
 <form action="/include/remoteAddNameAdd.cfm" method="post" class="parsley-examples" id="profile-form" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden" data-parsley-trigger="keyup" data-parsley-validate>
 
@@ -50,6 +52,41 @@
 
         <input class="form-control" id="contactmeetingloc" type="text" name="contactmeetingloc" value="">
     </div>
+
+
+
+
+
+
+      <div class="form-group col-sm-6 mb-6">
+
+
+        <label for="refer_contact_id">Referred By</label>
+
+        <select id="refer_contact_id" name="refer_contact_id" class="form-control" style="width:100%;" >
+
+
+            <option value="">Select a Relationship</option>
+            <cfoutput query="refers">
+                <option value="#refers.contactid#">#refers.contactfullname#</option>
+
+
+            </cfoutput>
+        
+        </select>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
 
     <div class="form-group col-sm-6 mb-6">
 

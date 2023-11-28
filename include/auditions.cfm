@@ -261,7 +261,7 @@ ORDER BY c.contactfullname
 
                                     <select id="sel_contactid" name="sel_contactid" class="form-control" onchange="this.form.submit()">
 
-                                        <option value="x"><cfoutput>#sel_contactid# </cfoutput>All Casting Directors</option>
+                                        <option value="x">All Casting Directors</option>
 <cfoutput query="cds">
 <option value="#cds.contactid#" <cfif "#cds.contactid#" is "#sel_contactid#">selected</cfif>>#cds.cd#</option>
 </cfoutput>

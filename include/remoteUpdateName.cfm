@@ -122,7 +122,7 @@
 
             <option value="">Select a Relationship</option>
             <cfoutput query="refers">
-                <option value="#refers.contactid#">#refers.contactfullname#</option>
+                <option value="#refers.contactid#" <cfif "#refers.contactid#" is "#detais.refer_contact_id#"> selected</cfif>>#refers.contactfullname#</option>
 
 
             </cfoutput>

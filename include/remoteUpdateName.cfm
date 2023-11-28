@@ -135,7 +135,7 @@
 
         <label for="refer_contact_id">Referred By</label>
 
-        <select id="refer_contact_id" name="refer_contact_id" class="form-control" >
+        <select id="refer_contact_id" name="refer_contact_id" class="form-control" style="width:100%;" >
 
 
             <option value="">Select a Relationship</option>

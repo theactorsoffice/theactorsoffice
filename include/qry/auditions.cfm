@@ -11,14 +11,23 @@
 <cfparam name="sel_audtype" default="x" />
 <cfparam name="materials" default="x" />
 <cfparam name="auddate" default="x" />
+
+<cfparam name="sel_contactid" default="x" />
+<cfparam name="sel_coname" default="x" />
 <cfoutput>
 <cfset cur_date = "#dateformat('#now()#','YYYY-MM-dd')#" />
 
 
 </cfoutput>
 
+<cfquery name="coss"  datasource="#dsn#"  >
+    select distinct c.contactid 
+from audprojects p INNER JOIN contactdetails c ON c.contactid = p.contactid
+INNER JOIN contactitems i ON i.contactid = c.contactid
+WHERE p.userid = 30 AND i.valueCompany = '#sel_coname#';
+</cfquery>
 
-    
+<cfset colist = valuelist(coss.contactid) />
  
 <cfquery name="results"  datasource="#dsn#"  >
     SELECT 
@@ -28,6 +37,7 @@ p.audprojectid AS recid
 ,st.audstep
 ,st.stepcss
 ,r.iscallback
+,c.contactfullname
 ,r.isredirect
 ,ca.audcatname   
 ,r.ispin
@@ -81,7 +91,16 @@ LEFT join audsubcategories sc on sc.audsubcatid = p.audsubcatid
 
     </cfif>
  
+   <cfif  #sel_contactid# is not "x">
     
+    and c.contactid = #sel_contactid#
+    
+    </cfif>   
+
+    <cfif #colist# is not "">
+ and c.contactid in (#colist#)
+
+    </cfif>
 
 
 

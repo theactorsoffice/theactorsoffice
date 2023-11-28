@@ -231,7 +231,7 @@
 
 
 
-
+<cfif #isdefined('sdfdsfsdf')#>
                                 <div class="col-lg-4 pb-1">
                                     <select id="auddate" name="auddate" class="form-control" onchange="this.form.submit()">
                                         <option value="x" <cfif #auddate# is "x"> selected </cfif>>All Dates</option>
@@ -244,9 +244,77 @@
                                     </select>
                                 </div>
 
+<cfelse>
+<input type="hidden" name="auddate" value="x" />
+</cfif>
+
+<cfquery name="cds" datasource="#dsn#">
+SELECT distinct c.contactfullname AS cd, c.contactid
 
 
-                                <div class="col-lg-4 pb-1">
+FROM audprojects p INNER JOIN contactdetails c ON c.contactid = p.contactid
+WHERE p.userid = #userid#
+ORDER BY c.contactfullname
+</cfquery>
+<cfquery name="cos" datasource="#dsn#">
+SELECT distinct i.valueCompany
+
+
+FROM audprojects p INNER JOIN contactdetails c ON c.contactid = p.contactid
+INNER JOIN contactitems i ON i.contactid = c.contactid
+WHERE p.userid = #userid# AND i.valueCategory = 'Company'
+ORDER BY i.valuecompany
+</cfquery>
+<cfparam name="sel_coname" default="x" />
+
+  <div class="col-lg-4 pb-1">
+
+                                    <select id="sel_contactid" name="sel_contactid" class="form-control" onchange="this.form.submit()">
+
+                                        <option value="x">All Casting Directors</option>
+<cfoutput query="cds">
+<option value="#cds.contactid#" <cfif "#cds.contactid#" is "#sel_contactid#">selected</cfif>>#cds.cd#</option>
+</cfoutput>
+                            
+                                    </select>
+
+
+                                </div>
+
+
+  <div class="col-lg-4 pb-1">
+
+                                    <select id="sel_coname" name="sel_coname" class="form-control" onchange="this.form.submit()">
+
+                                        <option value="x">All Companies</option>
+<cfoutput query="cos">
+<option value="#cos.valueCompany#" <cfif "#cos.valueCompany#" is "#sel_coname#" >Selected</cfif>>#cos.valueCompany#</option>
+</cfoutput>
+                            
+                                    </select>
+
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="col-lg-4 pb-1"></div>
+
+
+
+                                <div class="col-lg-8 pb-1">
                                     <div class="app-search-box dropdown">
                                         <div class="input-group">
                                             <input type="text" class="form-control" name="audsearch" value="<cfoutput>#audsearch#</cfoutput>" id="audsearch" placeholder="Search..." autocomplete="off">&nbsp;

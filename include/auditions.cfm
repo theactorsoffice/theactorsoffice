@@ -263,7 +263,7 @@ ORDER BY c.contactfullname
 
                                         <option value="x">All Casting Directors</option>
 <cfoutput query="cds">
-<option value="#cds.contactid#">#cds.contactfullname#</option>
+<option value="#cds.contactid#">#cds.cd#</option>
 </cfoutput>
                             
                                     </select>

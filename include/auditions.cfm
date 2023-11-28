@@ -288,7 +288,7 @@ ORDER BY i.valuecompany
 
                                         <option value="x">All Companies</option>
 <cfoutput query="cos">
-<option value="#cos.valueCompany#">#cos.valueCompany#</option>
+<option value="#cos.valueCompany#" <cfif "#cos.valueCompany#" is "#sel_coname#" >Selected</cfif>>#cos.valueCompany#</option>
 </cfoutput>
                             
                                     </select>

@@ -1061,7 +1061,7 @@ T4: #t4#<BR>
 
 
 
-                <p class="mt-1 mb-0 text-muted py-1 font-14">
+                <p class="mt-1 mb-0 text-muted py-1 font-14"> <cfoutput>#dateformat(details.contactcreationdate, 'short')#</cfoutput>
 
                 <cfscript>
     currentLocale = getLocale();

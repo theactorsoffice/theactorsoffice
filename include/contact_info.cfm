@@ -1,5 +1,4 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
-<CFINCLUDE template="/include/remote_load.cfm" />
 
 <cfparam name="recid" default="0" />
 
@@ -1063,6 +1062,20 @@ T4: #t4#<BR>
 
 
                 <p class="mt-1 mb-0 text-muted py-1 font-14">
+
+                <cfscript>
+    currentLocale = getLocale();
+    writeOutput("Current: ");
+    writeDump(currentLocale);
+    writeOutput("<br />");
+    setLocale("French (Belgian)");
+    writeOutput("New: ");
+    writeDump(getLocale());
+    writeOutput("<br />");
+    setLocale(currentLocale);
+    writeOutput("Original: ");
+    writeDump(getLocale());
+</cfscript>
                     <cfoutput>
                         <strong>Birthday:</strong>
 

@@ -248,6 +248,50 @@
 <input type="hidden" name="auddate" value="x" />
 </cfif>
 
+<cfquery name="cds" datasource="#dsn#">
+SELECT distinct c.contactfullname AS cd, c.contactid
+
+
+FROM audprojects p INNER JOIN contactdetails c ON c.contactid = p.contactid
+WHERE p.userid = #userid#
+ORDER BY c.contactfullname
+</cfquery>
+
+  <div class="col-lg-4 pb-1">
+
+                                    <select id="sel_contactid" name="sel_contactid" class="form-control" onchange="this.form.submit()">
+
+                                        <option value="x">All Casting Directors</option>
+<cfoutput query="cds">
+<option value="#cds.contactid#">#cds.contactfullname#</option>
+</cfoutput>
+                            
+                                    </select>
+
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 <div class="col-lg-8 pb-1">
                                     <div class="app-search-box dropdown">
                                         <div class="input-group">

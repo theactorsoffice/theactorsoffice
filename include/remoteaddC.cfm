@@ -364,9 +364,7 @@
                         </div>
         
         
-<script>
-    $("#regionid").chained("#countryid");
-</script>
+
 
                         <div class="form-group col-md-6">
                             <label for="regionid">State/Region<span class="text-danger">*</span></label>

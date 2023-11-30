@@ -480,6 +480,22 @@ T4: #t4#<BR>
         });
     </script>
 
+    <script>
+    $(document).ready(function() {
+        $("#remoteAddC2").on("show.bs.modal", function(event) {
+            // Load the content into the modal body
+            $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
+                // After loading content, initialize the chained selects
+                $("#regionid").chained("#countryid");
+            });
+        });
+    });
+</script>
+
+
+
+
+
     <div id="remoteAdd<cfoutput>C#c.catid#</cfoutput>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
         <div class="modal-dialog">

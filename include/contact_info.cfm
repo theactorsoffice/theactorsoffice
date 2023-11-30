@@ -471,18 +471,11 @@ T4: #t4#<BR>
 
 <cfloop query="c">
 
-    <script>
-        $(document).ready(function() {
-            $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
-                // Place the returned HTML into the selected element
-                $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>");
-            });
-        });
-    </script>
+
 
     <script>
     $(document).ready(function() {
-        $("#remoteAddC2").on("show.bs.modal", function(event) {
+         $("#remoteAdd<cfoutput>C#c.catid#</cfoutput>").on("show.bs.modal", function(event) {
             // Load the content into the modal body
             $(this).find(".modal-body").load("<cfoutput>/include/remoteAddC.cfm?catid=#c.catid#&userid=#session.userid#&contactid=#currentid#</cfoutput>", function() {
                 // After loading content, initialize the chained selects

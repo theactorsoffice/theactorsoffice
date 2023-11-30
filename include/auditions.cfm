@@ -208,14 +208,14 @@
 
                                         </Cfif>
 
-                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=tbl&materials=#materials#" class="btn btn-xs #table_button# waves-effect waves-light</cfoutput>"><i class="mdi mdi-menu fa-2x"></i></a>
+                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&sel_contactid=#sel_contactid#&sel_coname=#sel_coname#&auddate=#auddate#&audsearch=#audsearch#&view=tbl&materials=#materials#" class="btn btn-xs #table_button# waves-effect waves-light</cfoutput>"><i class="mdi mdi-menu fa-2x"></i></a>
                                         &nbsp;
 
-                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=glry&materials=#materials#" class="btn btn-xs #gallery_button# waves-effect waves-light</cfoutput>"> <i class="mdi mdi-drag  fa-2x"></i></a>
+                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&sel_contactid=#sel_contactid#&sel_coname=#sel_coname#&auddate=#auddate#&audsearch=#audsearch#&view=glry&materials=#materials#" class="btn btn-xs #gallery_button# waves-effect waves-light</cfoutput>"> <i class="mdi mdi-drag  fa-2x"></i></a>
 
                                      &nbsp;&nbsp;
 
-                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&auddate=#auddate#&audsearch=#audsearch#&view=#view#&isexport=y&materials=#materials#" class="btn btn-xs btn-outline-secondary waves-effect waves-light</cfoutput>" title="Export Auditions"> <i class="mdi mdi-export  fa-2x"></i></a>
+                                        <a href="<cfoutput>/app/auditions/?sel_audstepid=#sel_audstepid#&sel_audtype=#sel_audtype#&sel_contactid=#sel_contactid#&sel_coname=#sel_coname#&auddate=#auddate#&audsearch=#audsearch#&view=#view#&isexport=y&materials=#materials#" class="btn btn-xs btn-outline-secondary waves-effect waves-light</cfoutput>" title="Export Auditions"> <i class="mdi mdi-export  fa-2x"></i></a>
                                     
                                     
                                     
@@ -729,7 +729,7 @@ ORDER BY i.valuecompany
         ,ca.audcatname as Category
         ,sc.audsubcatname AS SubCategory
         ,s.audsource AS Source
-        ,c.recordname AS `Casting Director`
+        ,c.recordname AS `Casting Director<cfif #sel_contactid# is not "x"> (Selected)</cfif>`
         ,p.projdescription AS `Project Description`
         ,net.network as Network
         ,ton.tone AS `Style/Format`
@@ -801,12 +801,12 @@ ORDER BY i.valuecompany
         ORDER BY p.projdate desc
     </cfquery>
 
-    <cfoutput>
+    <cfoutput>  
 
         <cfset app_direct="C:\home\theactorsoffice.com\media-#host#\users\#session.userid#\" />
         <cfset sub_name_c="#dateformat('#now()#','YYYYMMDD')#" />
         <cfset sub_name_d="#timeformat('#now()#','HHMMSS')#" />
-        <cfset fileName="export_auditions_#sub_name_c##sub_name_d#.xls" />
+        <cfset fileName="xexport_auditions_#sub_name_c##sub_name_d#.xls" />
 
         <cfscript>
             cfspreadsheet( action="write", fileName="#app_direct#\#fileName#", query="export_ac", overwrite=true );

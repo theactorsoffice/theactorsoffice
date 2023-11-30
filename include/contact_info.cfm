@@ -1,5 +1,4 @@
 <CFINCLUDE template="/include/remote_load.cfm" />
-<CFINCLUDE template="/include/remote_load.cfm" />
 
 <cfparam name="recid" default="0" />
 
@@ -1062,8 +1061,22 @@ T4: #t4#<BR>
 
 
 
-                <p class="mt-1 mb-0 text-muted py-1 font-14">
-                    <cfoutput>
+                <p class="mt-1 mb-0 text-muted py-1 font-14"> <cfoutput>#dateformat(details.contactcreationdate, 'short')#</cfoutput>
+
+                <cfscript>
+    currentLocale = getLocale();
+    writeOutput("Current: ");
+    writeDump(currentLocale);
+    writeOutput("<br />");
+    setLocale("English (UK)");
+    writeOutput("New: ");
+    writeDump(getLocale());
+    writeOutput("<br />");
+    setLocale(currentLocale);
+    writeOutput("Original: ");
+    writeDump(getLocale());
+</cfscript>
+                    <cfoutput>#dateformat(details.contactcreationdate, 'short')#
                         <strong>Birthday:</strong>
 
                         <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteUpdateName" data-bs-placement="top" title="Update Contact" data-bs-original-title="Update Contact">
@@ -1085,9 +1098,9 @@ T4: #t4#<BR>
                 </p>
 
 
-              
+        
 
-                    <cfset meetingdate="#dateformat('#details.contactmeetingdate#','medium')#" />
+                    <cfset meetingdate="#dateformat('#details.contactmeetingdate#','short')#" />
 
                     <p class="mt-1 mb-0 text-muted py-1 font-14">
                         <cfoutput>

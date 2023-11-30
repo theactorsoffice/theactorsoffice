@@ -1,3 +1,11 @@
+<style>
+@media (max-width: 768px) {
+  .packery-grid .grid-item {
+    width: 100%;
+  }
+}
+
+</style>
 
 <script>
 $(document).ready(function(){

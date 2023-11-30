@@ -1547,4 +1547,10 @@ T4: #t4#<BR>
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />
 
+<script>
+    $("#regionid").chained("#countryid");
+</script>
+
+
+
 <cfinclude template="/include/bigbrotherinclude.cfm" />

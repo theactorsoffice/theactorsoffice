@@ -537,7 +537,7 @@
 
          </div>
  </form>
-<script>$("#regionid").chained("#countryid");</script>
+
 
 
         <script>

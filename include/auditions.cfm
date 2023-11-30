@@ -729,7 +729,7 @@ ORDER BY i.valuecompany
         ,ca.audcatname as Category
         ,sc.audsubcatname AS SubCategory
         ,s.audsource AS Source
-        ,c.recordname AS `Casting Director`
+        ,c.recordname AS `Casting Director<cfif #sel_contactid# is not "x"> (Selected)</cfif>`
         ,p.projdescription AS `Project Description`
         ,net.network as Network
         ,ton.tone AS `Style/Format`

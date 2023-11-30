@@ -137,35 +137,37 @@ function initializePackery() {
 
   var $grid = $('.packery-grid').packery(packeryOptions);
 
-  // Make all items draggable
-  $grid.find('.grid-item').each(function(i, gridItem) {
-    var draggie = new Draggabilly(gridItem);
-    $grid.packery('bindDraggabillyEvents', draggie);
-  });
-
-  $grid.on('dragItemPositioned', function() {
-    // Create an array to store the new order
-    var newOrder = [];
-
-    // Iterate over each item and push its data-id to the array
-    $grid.packery('getItemElements').forEach(function(itemElem) {
-      var id = $(itemElem).attr('data-id');
-      newOrder.push(id);
+  if (!isMobile) {
+    // Make all items draggable only if not mobile
+    $grid.find('.grid-item').each(function(i, gridItem) {
+      var draggie = new Draggabilly(gridItem);
+      $grid.packery('bindDraggabillyEvents', draggie);
     });
 
-    // Send the new order to the server via AJAX
-    $.ajax({
-      url: '/include/update_order.cfm', // your ColdFusion script
-      type: 'POST',
-      data: { order: newOrder.join(',') }, // send as comma-separated list
-      success: function(response) {
-        console.log('Updated successfully:', response);
-      },
-      error: function() {
-        console.log('Failed to update order');
-      }
+    $grid.on('dragItemPositioned', function() {
+      // Create an array to store the new order
+      var newOrder = [];
+
+      // Iterate over each item and push its data-id to the array
+      $grid.packery('getItemElements').forEach(function(itemElem) {
+        var id = $(itemElem).attr('data-id');
+        newOrder.push(id);
+      });
+
+      // Send the new order to the server via AJAX
+      $.ajax({
+        url: '/include/update_order.cfm', // your ColdFusion script
+        type: 'POST',
+        data: { order: newOrder.join(',') }, // send as comma-separated list
+        success: function(response) {
+          console.log('Updated successfully:', response);
+        },
+        error: function() {
+          console.log('Failed to update order');
+        }
+      });
     });
-  });
+  }
 }
 
 // Initialize Packery on page load

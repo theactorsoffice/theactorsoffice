@@ -137,14 +137,13 @@ function initializePackery() {
 
   var $grid = $('.packery-grid').packery(packeryOptions);
 
-  if (!isMobile) {
-    // Make all items draggable only if not mobile
-    $grid.find('.grid-item').each(function(i, gridItem) {
-      var draggie = new Draggabilly(gridItem);
-      $grid.packery('bindDraggabillyEvents', draggie);
-    });
+  // Make all items draggable
+  $grid.find('.grid-item').each(function(i, gridItem) {
+    var draggie = new Draggabilly(gridItem);
+    $grid.packery('bindDraggabillyEvents', draggie);
+  });
 
-    $grid.on('dragItemPositioned', function() {
+  $grid.on('dragItemPositioned', function() {
     // Create an array to store the new order
     var newOrder = [];
 

@@ -594,7 +594,7 @@
 
 
 
-
+     <script>$("#new_regionid").chained("#countryid");</script>
 
 
                                     <div class="form-group col-md-6">

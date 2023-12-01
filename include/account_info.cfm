@@ -1184,3 +1184,5 @@
 
 
 </cfif>
+
+<script src="/app/assets/js/jquery.chained.js?ver=1.9.7.4"></script>

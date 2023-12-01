@@ -1072,19 +1072,7 @@ T4: #t4#<BR>
 
                 <p class="mt-1 mb-0 text-muted py-1 font-14"> <cfoutput>#dateformat(details.contactcreationdate, 'short')#</cfoutput>
 
-                <cfscript>
-    currentLocale = getLocale();
-    writeOutput("Current: ");
-    writeDump(currentLocale);
-    writeOutput("<br />");
-    setLocale("English (UK)");
-    writeOutput("New: ");
-    writeDump(getLocale());
-    writeOutput("<br />");
-    setLocale(currentLocale);
-    writeOutput("Original: ");
-    writeDump(getLocale());
-</cfscript>
+
                     <cfoutput>#dateformat(details.contactcreationdate, 'short')#
                         <strong>Birthday:</strong>
 

@@ -1070,10 +1070,10 @@ T4: #t4#<BR>
 
 
 
-                <p class="mt-1 mb-0 text-muted py-1 font-14"> <cfoutput>#dateformat(details.contactcreationdate, 'short')#</cfoutput>
+                <p class="mt-1 mb-0 text-muted py-1 font-14">  
 
 
-                    <cfoutput>#dateformat(details.contactcreationdate, 'short')#
+                    <cfoutput> 
                         <strong>Birthday:</strong>
 
                         <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteUpdateName" data-bs-placement="top" title="Update Contact" data-bs-original-title="Update Contact">

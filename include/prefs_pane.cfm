@@ -85,6 +85,27 @@
 
     </div>
 
+
+
+
+    <div class="col-md-2 p-2">
+
+        <strong>Date Format:</strong>
+
+    </div>
+
+    <div class="col-md-10 p-2">
+
+        <cfoutput>
+
+            <a href="" title="Date format" data-bs-toggle="modal" data-bs-target="##updatecal">#details.formatExample#</a>
+
+        </cfoutput>
+
+    </div>
+
+
+
 </div>
 
 <h5>

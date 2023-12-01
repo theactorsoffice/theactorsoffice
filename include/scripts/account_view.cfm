@@ -3,7 +3,12 @@
 <cfset showbuttons="false" />
 
 <CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="details"  >
-    SELECT userfirstname,userlastname,useremail,nletter_yn,nletter_link FROM taousers WHERE userid = #session.userid#
+    SELECT userfirstname,userlastname,useremail,nletter_yn,nletter_link  ,u.dateformatid
+    ,df.formatExample
+    ,df.formatNotes
+    FROM taousers u
+    LEFT JOIN dateformats df on df.id = u.dateFormatid
+     WHERE userid = #session.userid#
 </cfquery>
 
 

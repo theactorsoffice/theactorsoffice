@@ -33,7 +33,11 @@
     ,u.tzid
    ,u.add1,u.add2,u.city,u.regionid,u.zip,u.countryid
 
+ ,u.dateformatid
+    ,df.formatExample
+    ,df.formatNotes
     FROM taousers u
+    LEFT JOIN dateformats df on df.id = u.dateFormatid
  
 
      
@@ -43,7 +47,7 @@
 </cfquery>
 
         
-        
+  <cfinclude template="/include/qry/dateformats.cfm" />      
         
         
         

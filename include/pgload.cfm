@@ -33,6 +33,26 @@
 
 </cfoutput>
 
+<cffunction name="formatUserDate" returntype="string">
+    <cfargument name="date" type="date" required="yes">
+    <cfargument name="userId" type="numeric" required="yes">
+
+    <!--- Check if the session variable for date format is set --->
+    <cfif NOT StructKeyExists(session, "dateFormat") OR session.dateFormat.userId NEQ arguments.userId>
+        <!--- Retrieve the user's date format preference from the database --->
+        <cfquery name="getUserFormat" datasource="yourDataSource">
+            SELECT formatExample FROM dateformats WHERE id = <cfqueryparam value="#arguments.userId#" cfsqltype="CF_SQL_INTEGER">
+        </cfquery>
+
+        <!--- Set the session variable --->
+        <cfset session.dateFormat = {userId = arguments.userId, formatString = getUserFormat.formatExample}>
+    </cfif>
+
+    <!--- Format and return the date using the session variable --->
+    <cfreturn dateFormat(arguments.date, session.dateFormat.formatString)>
+</cffunction>
+
+
 
 <cfif isdefined('dn')>
     
@@ -121,9 +141,13 @@
     ,isauditionmodule
     ,u.access_token
     ,u.refresh_token
+    ,u.dateformatid
+    ,df.formatExample
+    ,df.formatNotes
     FROM taousers u
+    LEFT JOIN dateformats df on df.id = u.dateFormatid
     LEFT join timezones t on t.tzid = u.tzid
-     LEFT JOIN countries c on c.countryid = u.countryid
+    LEFT JOIN countries c on c.countryid = u.countryid
     WHERE u.userid = #userid#
 </cfquery>
     
@@ -202,7 +226,12 @@
           ,u.access_token
     ,u.refresh_token
     ,isauditionmodule
-        FROM taousers u
+    ,u.dateformatid
+    ,df.formatExample
+    ,df.formatNotes
+    FROM taousers u
+    LEFT JOIN dateformats df on df.id = u.dateFormatid
+
         LEFT join timezones t on t.tzid = u.tzid
      LEFT JOIN countries c on c.countryid = u.countryid
         WHERE u.userid = '#userid#'
@@ -255,7 +284,11 @@
             
             
     ,isauditionmodule
-            FROM taousers u
+           ,u.dateformatid
+    ,df.formatExample
+    ,df.formatNotes
+    FROM taousers u
+    LEFT JOIN dateformats df on df.id = u.dateFormatid
             LEFT join timezones t on t.tzid = u.tzid
        LEFT JOIN countries c on c.countryid = u.countryid
             WHERE u.userid = '#userid#'

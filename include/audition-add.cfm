@@ -592,9 +592,9 @@
 
                                     </div>
 
+<script src="/app/assets/js/jquery.chained.js?ver=1.9.7.4"></script>
 
-
-
+     <script>$("#new_regionid").chained("#countryid");</script>
 
 
                                     <div class="form-group col-md-6">

@@ -246,13 +246,7 @@
           <label for="valuetext">#details.recordname#<span class="text-danger">*</span></label>
  
           <input class="form-control" type="text" id="valuetext" name="valuetext"  
-                   data-parsley-minlength="7" 
-                 data-parsley-minlength-message="Min length 7 characters" 
-                 data-parsley-minlength="25" 
-                 data-parsley-minlength-message="Min length 25 characters" 
-                 data-parsley-pattern="^[\d\+\-\.\(\)\/\s]*$" 
-                 data-parsley-pattern-message="Must be a valid phone number (no letters)"
-                 data-parsley-required   
+                   
                  placeholder="Enter #details.recordname#">
  
         

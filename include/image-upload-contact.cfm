@@ -26,29 +26,49 @@
 </cfif>
 
 <!--- HTML content --->
-<h4><cfoutput>#subtitle#</cfoutput></h4>
-<div class="row">
-    <div id="cont">
-        <h5 class="col-md-12" style="padding-bottom:20px;">Avatar has been updated!</h5>
-    </div>
-    <div id="selectfile">
-        <h5 class="col-md-12" style="padding-bottom:20px;">Select an image on your computer and upload image. Then click Continue.</h5>		
-        <div class="col-md-12" style="padding-bottom:20px;">
-            <div style="padding-bottom:10px;">
-                <strong>Select a file:</strong>
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h4 id="pageTitle">Upload Avatar</h4>
+            <div id="instructions" class="alert alert-info">Select an image from your computer, resize and crop it, then click Update.</div>
+            
+            <div id="selectfile" class="mb-3">
+                <input type="file" id="upload" class="form-control">
             </div>
-            <input type="file" id="upload">
+
+            <div id="upload-input" class="croppie-container mb-3"></div>
+
+            <button id="uploadbutton" class="btn btn-primary">Update</button>
         </div>
     </div>
-    <input type="hidden" name="picturebase" id="picturebase" value="">                     
-    <div class="col-md-12">
-        <div id="upload-input" style="width:<cfoutput>#inputsize#</cfoutput>px; height: <cfoutput>#inputsize#</cfoutput>px;"></div>
-    </div>  
-    <div class="col-md-12">			 
-        <br>
-        <button id="uploadbutton" class="btn upload-result btn-primary">Update</button>
-    </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--- JavaScript for handling UI interactions --->
 <script>

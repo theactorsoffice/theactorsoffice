@@ -77,8 +77,9 @@
     <cfset picsize = 200 />
     <cfset inputsize = 300 />
     </cfif>
+    <cfif #isdefined('this_is_duplicate')#>
 <link rel="stylesheet" href="/app/assets/css/croppie.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js"></script></cfif>
 <h4><cfoutput>#subtitle#</cfoutput></h4>
 			  	<div class="row">
                         <div id="cont">

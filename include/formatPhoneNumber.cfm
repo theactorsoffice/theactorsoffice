@@ -16,5 +16,6 @@
     </cfif>
     
     <!--  [^0-9]|^\+1(?=\d{10})$ -->
-
+<cfset formatphonenumber = cleanphonenumber />
+<cfset anchorPhoneNumber = cleanphonenumber />
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 

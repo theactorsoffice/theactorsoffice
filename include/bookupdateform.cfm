@@ -77,7 +77,8 @@ SELECT c.audcatname,c.audcatid,r.audroleid,r.incometypeid,r.payrate,r.netincome,
              
         <cfoutput>
 <label for="new_netincome">Net Income ($)</label>
-        <input class="form-control"  id="new_netincome" name="new_netincome"  value="#book_det.netincome#" placeholder="netincome"  type="number" data-parsley-type="integer">
+    <input class="form-control" id="new_netincome" name="new_netincome" value="#book_det.netincome#" placeholder="net income" type="number" step="0.01" data-parsley-type="number">
+
 
         <div class="invalid-feedback">
             Please enter a Net Income.
@@ -93,7 +94,8 @@ SELECT c.audcatname,c.audcatid,r.audroleid,r.incometypeid,r.payrate,r.netincome,
         
 <div class="form-group col-md-6 col-sm-12">
 <label for="new_payrate">Payrate ($)</label>
-        <input class="form-control"  id="new_payrate" name="new_payrate"  value="#book_det.payrate#" placeholder="Payrate"   type="number" data-parsley-type="integer">
+        <input class="form-control" id="new_payrate" name="new_payrate" value="#book_det.payrate#" placeholder="Payrate" type="number" step="0.01" data-parsley-type="number">
+
 
         <div class="invalid-feedback">
             Please enter a Payrate.

@@ -45,31 +45,6 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--- JavaScript for handling UI interactions --->
 <script>
 $(document).ready(function() {

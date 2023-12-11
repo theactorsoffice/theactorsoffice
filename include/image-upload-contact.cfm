@@ -46,6 +46,7 @@
 </div>
 
 <!--- JavaScript for handling UI interactions --->
+
 <script>
 $(document).ready(function() {
     $('#cont').hide(); 
@@ -56,61 +57,46 @@ $(document).ready(function() {
             $('#uploadbutton').show();
         } 
     });
-});
 
-// Initialize Croppie
-$uploadCrop = $('#upload-input').croppie({
-    enableExif: true,
-    url: '<cfoutput>#image_url#</cfoutput>?ver=<cfoutput>#rand()#</cfoutput>',
-    viewport: {
-        width: <cfoutput>#picsize#</cfoutput>,
-        height: <cfoutput>#picsize#</cfoutput>,
-        type: 'circle'
-    },
-    boundary: {
-        width: <cfoutput>#picsize#</cfoutput>,
-        height: <cfoutput>#picsize#</cfoutput>
-    }
-});
+    // Function to initialize or reinitialize Croppie
+    function initCroppie() {
+        // If Croppie is already initialized, destroy it
+        if ($uploadCrop && $uploadCrop.croppie('get')) {
+            $uploadCrop.croppie('destroy');
+        }
 
-// Handle file change
-$('#upload').on('change', function() { 
-    var reader = new FileReader();
-    reader.onload = function(e) {
-        $uploadCrop.croppie('bind', {
-            url: e.target.result
-        }).then(function() {
-            console.log('jQuery bind complete');
-        });
-    }
-    reader.readAsDataURL(this.files[0]);
-});
-
-// Function to convert result to base64
-function resultToField() {
-    uploadCrop.croppie('result', 'base64').then(function(baseImage) {
-        $('#picturebase').val(baseImage);
-    });
-};
-
-// Handle the upload result
-$('.upload-result').on('click', function(ev) {
-    $uploadCrop.croppie('result', {
-        type: 'canvas',
-        size: 'viewport'
-    }).then(function(resp) {
-        $.ajax({
-            url: "/include/image_upload-contact2.cfm",
-            type: "POST",
-            data: {"picturebase": resp},
-            success: function(data) {
-                var html = '<img style="margin: 20px;" src="' + resp + '" /><br><a href="<cfoutput>#cookie.return_url#</cfoutput>"><button type="button" class="btn btn-primary waves-effect mb-2 waves-light">Continue</button></a>';
-                $("#upload-input").html(html);
-                $('#uploadbutton').hide();
-                $('#selectfile').hide();
-                $('#cont').show();
+        // Initialize Croppie
+        $uploadCrop = $('#upload-input').croppie({
+            enableExif: true,
+            url: '<cfoutput>#image_url#</cfoutput>?ver=<cfoutput>#rand()#</cfoutput>',
+            viewport: {
+                width: <cfoutput>#picsize#</cfoutput>,
+                height: <cfoutput>#picsize#</cfoutput>,
+                type: 'circle'
+            },
+            boundary: {
+                width: <cfoutput>#picsize#</cfoutput>,
+                height: <cfoutput>#picsize#</cfoutput>
             }
         });
+    }
+
+    // Initial call to initialize Croppie
+    initCroppie();
+
+    // Handle file change
+    $('#upload').on('change', function() { 
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            $uploadCrop.croppie('bind', {
+                url: e.target.result
+            }).then(function() {
+                console.log('jQuery bind complete');
+            });
+        }
+        reader.readAsDataURL(this.files[0]);
     });
+
+    // Rest of your script...
 });
 </script>

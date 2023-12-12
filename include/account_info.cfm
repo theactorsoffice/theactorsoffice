@@ -45,7 +45,12 @@
  
     
 </cfquery>
- 
+
+        
+  <cfinclude template="/include/qry/dateformats.cfm" />      
+        
+        
+        
         
         
         

@@ -1,5 +1,5 @@
-<cfset dbugz = 1 />
-
+<cfset dbugz = "N" />
+<cfset dbug = "N" />
  
 <cfparam name="t0" default="0" />
 

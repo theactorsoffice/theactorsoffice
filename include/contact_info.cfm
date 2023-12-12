@@ -4,7 +4,7 @@
 
 <cfparam name="t2" default="0" />
 
-<cfset dbugz = 'n' />
+<cfset dbugz = "N" />
 
 <cfparam name="t1" default="1" />
 

@@ -1,4 +1,4 @@
-<cfset dbugz = 'n' />
+<cfset dbugz = "N" />
 
 <cfparam name="t1" default="1" />
 

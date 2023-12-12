@@ -98,7 +98,7 @@
 
         <cfoutput>
 
-            <a href="" title="Date format" data-bs-toggle="modal" data-bs-target="##updatecal">#formatExample#</a>
+            <a href="" title="Date format" data-bs-toggle="modal" data-bs-target="##updatecal">#details.formatExample#</a>
 
         </cfoutput>
 

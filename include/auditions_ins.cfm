@@ -29,6 +29,11 @@
 <cfparam name="new_trackmileage" default="0" />
 
 
+<cfset cleanData = REReplace(new_eventdescription, "[^a-zA-Z0-9,.!? ]", "", "ALL")>
+<cfset new_eventdescription = Left(cleanData, 5000)>
+
+
+
 <cfquery name="auditions_ins" datasource="#dsn#" result="result">
 
 

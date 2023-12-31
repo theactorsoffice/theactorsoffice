@@ -39,6 +39,13 @@
     </cfoutput>
 </cfif>
 
+ 
+<cfset cleanData = REReplace(eventDescription, "[^a-zA-Z0-9,.!? ]", "", "ALL")>
+<cfset eventDescription = Left(cleanData, 5000)>
+<!--- Now insert 'cleanData' into your database --->
+
+
+
 <cfquery datasource="#dsn#" name="add" result="result">
     INSERT INTO events_tbl (
     eventTitle

@@ -1,5 +1,5 @@
-<cfset dbugz = 1 />
-
+<cfset dbugz = "N" />
+<cfset dbug = "N" />
  
 <cfparam name="t0" default="0" />
 
@@ -143,7 +143,7 @@ T4: #t4#<BR>
 
 
     
-  <Cfif #isdefined('dbug')#>  <cfoutput>#varcheck#<BR>#varif#<BR>var after: #varafter# #tab1_expand#</cfoutput><cfabort></Cfif>
+  <Cfif #isdefined('dbufg')#>  <cfoutput>#varcheck#<BR>#varif#<BR>var after: #varafter# #tab1_expand#</cfoutput><cfabort></Cfif>
    
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 

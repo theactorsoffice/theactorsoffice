@@ -248,3 +248,9 @@ background: #ccc;
 .cr-rotate-r i:before {
 	content: '↻';
 }
+
+.btn-success:disabled {
+	color: #fff;
+	background-color: #D3D3D3;
+	border-color: #D3D3D3
+}

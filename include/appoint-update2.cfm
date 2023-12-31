@@ -51,7 +51,8 @@
 
 
 
-
+<cfset cleanData = REReplace(eventDescription, "[^a-zA-Z0-9,.!? ]", "", "ALL")>
+<cfset eventDescription = Left(cleanData, 5000)>
 
 
 <cfquery datasource="#dsn#" name="update"     >
@@ -59,7 +60,7 @@ UPDATE events
 set eventTitle = <cfqueryparam cfsqltype="cf_sql_varchar" value="#eventTitle#" />
  
 ,eventTypeName = <cfqueryparam cfsqltype="cf_sql_varchar" value="#eventTypeName#" />
-,eventDescription = <cfqueryparam cfsqltype="cf_sql_longvarchar" value="#eventDescription#" />
+,eventDescription = <cfqueryparam cfsqltype="cf_sql_varchar" value="#eventDescription#" />
 ,eventLocation = <cfqueryparam cfsqltype="cf_sql_varchar" value="#eventLocation#" />
     <cfif #eventStart# is not "">
 ,eventStart = <cfqueryparam cfsqltype="cf_sql_date" value="#eventStart#" />

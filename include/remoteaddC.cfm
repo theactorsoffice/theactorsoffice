@@ -460,15 +460,12 @@
 
 
                 <option value=""></option>
-                 <option value="custom">***ADD NEW***</option>
-                     <option value="custom">***ADD NEW***</option>
                 <cfoutput query="companies">
                     <option value="#companies.new_valuecompany#">#companies.new_valuecompany# </option>
 
 
         </cfoutput>
-       
-   
+        <option value="custom">***ADD NEW***</option>
 
         </select>
 

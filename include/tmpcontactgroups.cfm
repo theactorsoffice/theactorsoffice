@@ -1,6 +1,6 @@
 <cfset dbug="n" />
  
-
+<cfparam name="idlist" default="0" />
 
  
 

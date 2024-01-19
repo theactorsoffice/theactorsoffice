@@ -15,7 +15,7 @@ UPDATE events_tbl e
 INNER JOIN audroles r ON r.audroleid = e.audroleid
 INNER JOIN audprojects p ON p.audprojectid = r.audprojectid
 SET e.eventtitle = p.projname,
-    e.eventdescription = p.projDescription
+    e.eventdescription = LEFT(REPLACE(REPLACE(p.projDescription, CHAR(13), ''), CHAR(10), ''), 5000)
 WHERE e.eventtitle != p.projname;
 </cfquery>
 

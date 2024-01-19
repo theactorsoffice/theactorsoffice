@@ -1150,6 +1150,9 @@
                 } else if (selectedValue === '2') {
                     hiddenDiv1.style.display = 'none';
                     hiddenDiv2.style.display = 'block';
+                             } else if (selectedValue === '22') {
+                    hiddenDiv1.style.display = 'none';
+                    hiddenDiv2.style.display = 'block';
                 } else if (selectedValue === '3') {
                     hiddenDiv1.style.display = 'none';
                     hiddenDiv2.style.display = 'none';

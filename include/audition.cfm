@@ -893,7 +893,9 @@
                                 <input class="form-check-input form-check-input-Booked" type="checkbox" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked
                             </cfif>
 
-                            <cfif #Booked_check.recordcount# is not "0"> onclick="return false;"
+                            <cfif #Booked_check.recordcount# is not "0"> 
+                            
+                             data-bs-toggle="modal" data-bs-target="##RemoveBook" 
                                 <cfelse>
 
                      data-bs-toggle="modal" data-bs-target="##StatusCancel5" 
@@ -1736,3 +1738,22 @@
 
 </cfif>
 
+<!-- Modal -->
+<div class="modal fade" id="RemoveBook" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLabel">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You have to remove any booked appointments you have before you can change the booked status of this audition.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

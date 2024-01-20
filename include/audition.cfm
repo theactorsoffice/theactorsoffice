@@ -894,24 +894,21 @@
 
                             <cfif #rolecheck.isBooked# is "1">
 
-                                <input class="form-check-input form-check-input-Booked"  id="new_isBooked" name="new_isBooked" value="1" 
-                                <cfif #rolecheck.isBooked# is "1"> checked
+                                <input class="form-check-input form-check-input-Booked" type="checkbox" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked
                             </cfif>
 
                             <cfif #Booked_check.recordcount# is not "0"> 
-                             type="hidden" 
+                            
                              disabled="disabled"  
                                 <cfelse>
-type="checkbox" 
+
                      data-bs-toggle="modal" data-bs-target="##StatusCancel5" 
 
                             </cfif> />
 
                             <cfelse>
 
-                                <input class="form-check-input form-check-input-Booked" 
-                                <cfif #Booked_check.recordcount# is not "0"> type="hidden" <cfelse>
-                                type="checkbox" data-bs-toggle="modal" data-bs-target="##StatusConfirm5" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked </cfif>
+                                <input class="form-check-input form-check-input-Booked" type="checkbox" data-bs-toggle="modal" data-bs-target="##StatusConfirm5" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked </cfif>
 
                                 <cfif #Booked_check.recordcount# is not "0"> onclick="return false;"</cfif> />
 

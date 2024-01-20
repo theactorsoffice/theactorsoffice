@@ -888,12 +888,18 @@
                                 SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
                             </cfquery>
 
+<cfif #Booked_check.recordcount# is not "0"> 
+ <a href="" data-bs-target="##RemoveBook" data-bs-toggle="modal"></cfif>
+
+
                             <cfif #rolecheck.isBooked# is "1">
 
                                 <input class="form-check-input form-check-input-Booked" type="checkbox" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked
                             </cfif>
 
-                            <cfif #Booked_check.recordcount# is not "0"> onclick="return false;"
+                            <cfif #Booked_check.recordcount# is not "0"> 
+                            
+                             disabled="disabled"  
                                 <cfelse>
 
                      data-bs-toggle="modal" data-bs-target="##StatusCancel5" 
@@ -912,10 +918,10 @@
 
                                 <cfif #rolecheck.isBooked# is "1">
 
-                                    <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionadd_Booking" data-bs-placement="top" title="Add Booked appointment" data-bs-original-title="Add Booked"><i class="fe-plus-circle"></i></a>
+                                    <a href="javascript:;"  data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionadd_Booking" data-bs-placement="top" title="Add Booked appointment" data-bs-original-title="Add Booked"><i class="fe-plus-circle"></i></a>
 
                                 </cfif>
-
+<cfif #Booked_check.recordcount# is not "0"> </a></cfif>
                         </div><!-- end form-check -->
 
 
@@ -1735,4 +1741,50 @@
 
 
 </cfif>
+ <div id="RemoveBook" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
 
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: ##f3f7f9;">
+
+                        <h4 class="modal-title" id="standard-modalLabel">Warning</h4>
+
+                   
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+     <p>You have to remove any booked appointments you have before you can change the booked status of this audition</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var bookedCheckbox = document.getElementById('new_isBooked');
+
+    bookedCheckbox.addEventListener('click', function(event) {
+        var isBooked = <cfoutput>#rolecheck.isBooked#</cfoutput>;
+        var bookedCheckRecordCount = <cfoutput>#Booked_check.recordcount#</cfoutput>;
+
+        if (isBooked === "1" && bookedCheckRecordCount !== 0 && !this.checked) {
+            event.preventDefault(); // Prevent unchecking
+            $('#RemoveBook').modal('show'); // Show the modal
+        }
+    });
+});
+</script>

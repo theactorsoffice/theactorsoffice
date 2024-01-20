@@ -882,21 +882,25 @@
                         </div><!-- end form-check -->
 
 
-      <div class="form-switch col-md-3 col-sm-6 col-xs-6">
-    <cfquery name="Booked_check" datasource="#dsn#">
-        SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
-    </cfquery>
+                        <div class="form-switch col-md-3 col-sm-6 col-xs-6">
 
-    <input class="form-check-input form-check-input-Booked" type="checkbox" id="new_isBooked" name="new_isBooked" value="1" 
-        <cfif rolecheck.isBooked is "1">checked</cfif>
-        <cfif Booked_check.recordcount is not "0">
-            data-bs-toggle="modal" data-bs-target="##RemoveBook"
-        <cfelse>
-            data-bs-toggle="modal" data-bs-target="##StatusCancel5"
-        </cfif>
-    />
-</div>
+                            <cfquery name="Booked_check" datasource="#dsn#">
+                                SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
+                            </cfquery>
 
+                            <cfif #rolecheck.isBooked# is "1">
+
+                                <input class="form-check-input form-check-input-Booked" type="checkbox" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked
+                            </cfif>
+
+                            <cfif #Booked_check.recordcount# is not "0"> 
+                            
+                             data-bs-toggle="modal" data-bs-target="##RemoveBook" 
+                                <cfelse>
+
+                     data-bs-toggle="modal" data-bs-target="##StatusCancel5" 
+
+                            </cfif> />
 
                             <cfelse>
 

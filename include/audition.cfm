@@ -895,7 +895,7 @@
 
                             <cfif #Booked_check.recordcount# is not "0"> 
                             
-                             data-bs-toggle="modal" data-bs-target="##RemoveBook" 
+                             data-bs-toggle="modal" disabled="disabled" data-bs-target="##RemoveBook" 
                                 <cfelse>
 
                      data-bs-toggle="modal" data-bs-target="##StatusCancel5" 
@@ -914,7 +914,7 @@
 
                                 <cfif #rolecheck.isBooked# is "1">
 
-                                    <a href="javascript:;" disabled="disabled" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionadd_Booking" data-bs-placement="top" title="Add Booked appointment" data-bs-original-title="Add Booked"><i class="fe-plus-circle"></i></a>
+                                    <a href="javascript:;"  data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionadd_Booking" data-bs-placement="top" title="Add Booked appointment" data-bs-original-title="Add Booked"><i class="fe-plus-circle"></i></a>
 
                                 </cfif>
 

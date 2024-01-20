@@ -19,8 +19,10 @@ function unlock(){
 
 
 
-    <h2><cfoutput>#imports.recordcount#</cfoutput></h2><cfabort>
+
     
+
+
     <cfquery datasource="#dsn#" name="results"      >
     SELECT ai.id,
 p.audprojectid AS recid

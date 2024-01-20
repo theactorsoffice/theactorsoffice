@@ -1757,3 +1757,21 @@
     </div>
   </div>
 </div>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var bookedCheckbox = document.getElementById('new_isBooked');
+
+    bookedCheckbox.addEventListener('click', function(event) {
+        var isBooked = <cfoutput>#rolecheck.isBooked#</cfoutput>;
+        var bookedCheckRecordCount = <cfoutput>#Booked_check.recordcount#</cfoutput>;
+
+        if (isBooked === "1" && bookedCheckRecordCount !== 0 && !this.checked) {
+            event.preventDefault(); // Prevent unchecking
+            $('#RemoveBook').modal('show'); // Show the modal
+        }
+    });
+});
+</script>

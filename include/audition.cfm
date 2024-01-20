@@ -882,51 +882,21 @@
                         </div><!-- end form-check -->
 
 
-                        <div class="form-switch col-md-3 col-sm-6 col-xs-6">
+          <div class="form-switch col-md-3 col-sm-6 col-xs-6">
+    <cfquery name="Booked_check" datasource="#dsn#">
+        SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
+    </cfquery>
 
-                            <cfquery name="Booked_check" datasource="#dsn#">
-                                SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
-                            </cfquery>
+    <input class="form-check-input form-check-input-Booked" type="checkbox" id="new_isBooked" name="new_isBooked" value="1" 
+        <cfif rolecheck.isBooked is "1">checked</cfif>
+        <cfif Booked_check.recordcount is not "0">
+            data-bs-toggle="modal" data-bs-target="#RemoveBook"
+        <cfelse>
+            data-bs-toggle="modal" data-bs-target="#StatusCancel5"
+        </cfif>
+    />
+</div>
 
-                            <cfif #rolecheck.isBooked# is "1">
-
-                                <input class="form-check-input form-check-input-Booked" type="checkbox" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked
-                            </cfif>
-
-                            <cfif #Booked_check.recordcount# is not "0"> 
-                            
-                             data-bs-toggle="modal" data-bs-target="##RemoveBook" 
-                                <cfelse>
-
-                     data-bs-toggle="modal" data-bs-target="##StatusCancel5" 
-
-                            </cfif> />
-
-                            <cfelse>
-
-                                <input class="form-check-input form-check-input-Booked" type="checkbox" data-bs-toggle="modal" data-bs-target="##StatusConfirm5" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked </cfif>
-
-                                <cfif #Booked_check.recordcount# is not "0"> onclick="return false;"</cfif> />
-
-                                </cfif>
-
-                                <label class="form-check-label" for="new_isBooked">Booked </label>
-
-                                <cfif #rolecheck.isBooked# is "1">
-
-                                    <a href="javascript:;" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionadd_Booking" data-bs-placement="top" title="Add Booked appointment" data-bs-original-title="Add Booked"><i class="fe-plus-circle"></i></a>
-
-                                </cfif>
-
-                        </div><!-- end form-check -->
-
-
-
-
-                    </cfoutput>
-
-                </div>
-            </div>
 
         </center>
     </div>

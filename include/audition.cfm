@@ -1749,7 +1749,9 @@
 
                     <div class="modal-header" style="background-color: ##f3f7f9;">
 
-                        <h4 class="modal-title" id="standard-modalLabel">You have to remove any booked appointments you have before you can change the booked status of this audition</h4>
+                        <h4 class="modal-title" id="standard-modalLabel">Warning</h4>
+
+                        <p>You have to remove any booked appointments you have before you can change the booked status of this audition</p>
 
                         <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i>
 

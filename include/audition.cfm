@@ -888,6 +888,10 @@
                                 SELECT * FROM events WHERE audroleid = #audroleid# AND isdeleted = 0 AND audstepid = 5
                             </cfquery>
 
+<cfif #Booked_check.recordcount# is not "0"> 
+ <a href="" data-bs-target="##RemoveBook" data-bs-toggle="modal"></cfif>
+
+
                             <cfif #rolecheck.isBooked# is "1">
 
                                 <input class="form-check-input form-check-input-Booked" type="checkbox" id="new_isBooked" name="new_isBooked" value="1" <cfif #rolecheck.isBooked# is "1"> checked
@@ -895,7 +899,7 @@
 
                             <cfif #Booked_check.recordcount# is not "0"> 
                             
-                             data-bs-toggle="modal" disabled="disabled" data-bs-target="##RemoveBook" 
+                             disabled="disabled"  
                                 <cfelse>
 
                      data-bs-toggle="modal" data-bs-target="##StatusCancel5" 
@@ -917,7 +921,7 @@
                                     <a href="javascript:;"  data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##auditionadd_Booking" data-bs-placement="top" title="Add Booked appointment" data-bs-original-title="Add Booked"><i class="fe-plus-circle"></i></a>
 
                                 </cfif>
-
+<cfif #Booked_check.recordcount# is not "0"> </a></cfif>
                         </div><!-- end form-check -->
 
 

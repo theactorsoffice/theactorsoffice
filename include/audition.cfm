@@ -1737,26 +1737,33 @@
 
 
 </cfif>
+ <div id="RemoveBook" class="modal fade" tabindex="-1" aria-labelledby="standard-modalLabel" aria-hidden="true">
 
-<!-- Modal -->
-<div class="modal fade" id="RemoveBook" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalLabel">Warning</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        You have to remove any booked appointments you have before you can change the booked status of this audition.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: ##f3f7f9;">
+
+                        <h4 class="modal-title" id="standard-modalLabel">You have to remove any booked appointments you have before you can change the booked status of this audition</h4>
+
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true"><i class="mdi mdi-close-thick"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
 
 
 <script>

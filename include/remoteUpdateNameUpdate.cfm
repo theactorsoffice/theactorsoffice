@@ -30,6 +30,8 @@ SET contactfullname = <cfqueryparam cfsqltype="cf_sql_varchar" value="#trim(cont
      
            <cfif #contactbirthday# is not "">
     ,contactbirthday = <cfqueryparam cfsqltype="cf_sql_date" value="#contactbirthday#" /> 
+    <cfelse>
+     ,contactbirthday = NULL
     </cfif>
             
  

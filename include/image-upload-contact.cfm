@@ -1,7 +1,7 @@
 <!--- Include remote load template --->
 <CFINCLUDE template="/include/remote_load.cfm" />
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
 
 <!--- Queries to fetch data --->
 <cfquery datasource="#dsn#" name="FindRefContacts">
@@ -120,7 +120,7 @@ $(document).ready(function() {
     });
 });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+
 
 
 <cfinclude template="/include/bigbrotherinclude.cfm" />

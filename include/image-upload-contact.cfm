@@ -87,4 +87,32 @@ $(document).ready(function() {
             $uploadCrop.croppie('bind', {
                 url: e.target.result
             }).then(function() {
-                console.log
+                console.log('jQuery bind complete');
+            });
+        }
+        reader.readAsDataURL(this.files[0]);
+        $('#uploadbutton').show();
+    });
+
+    $('.upload-result').on('click', function(ev) {
+        $uploadCrop.croppie('result', {
+            type: 'canvas',
+            size: 'viewport'
+        }).then(function(resp) {
+            $.ajax({
+                url: "/include/image_upload-contact2.cfm",
+                type: "POST",
+                data: {"picturebase": resp},
+                success: function(data) {
+                    $("#upload-input").html('<img src="' + resp + '" style="margin: 20px;" /><br>');
+                    $('#uploadbutton').hide();
+                    $('#selectfile').hide();
+                    $('#cont').show();
+                }
+            });
+        });
+    });
+});
+</script>
+
+<cfinclude template="/include/bigbrotherinclude.cfm" />

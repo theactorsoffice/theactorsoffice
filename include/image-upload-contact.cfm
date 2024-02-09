@@ -120,6 +120,7 @@ $(document).ready(function() {
     });
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
 
 
 <cfinclude template="/include/bigbrotherinclude.cfm" />

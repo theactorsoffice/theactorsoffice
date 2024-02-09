@@ -54,16 +54,19 @@
 
 <!--- JavaScript for handling UI interactions --->
 
-
+<!-- Your Custom Script -->
 <script>
 $(document).ready(function() {
     var $uploadCrop;
 
+    // Function to initialize Croppie
     function initCroppie() {
-        if ($uploadCrop && $uploadCrop.croppie('get')) {
+        // If Croppie is already initialized, destroy it before reinitializing
+        if ($uploadCrop) {
             $uploadCrop.croppie('destroy');
         }
 
+        // Initialize Croppie
         $uploadCrop = $('#upload-input').croppie({
             enableExif: true,
             url: '<cfoutput>#image_url#</cfoutput>?ver=<cfoutput>#rand()#</cfoutput>',
@@ -79,11 +82,14 @@ $(document).ready(function() {
         });
     }
 
+    // Initialize Croppie for the first time
     initCroppie();
 
     $('#upload').on('change', function() { 
         var reader = new FileReader();
         reader.onload = function(e) {
+            // Reinitialize Croppie with the new image
+            initCroppie();
             $uploadCrop.croppie('bind', {
                 url: e.target.result
             }).then(function() {

@@ -66,15 +66,15 @@ $(document).ready(function() {
 
         $uploadCrop = $('#upload-input').croppie({
             enableExif: true,
-            url: '#image_url#?ver=#rand()#',
+            url: '<cfoutput>#image_url#</cfoutput>?ver=<cfoutput>#rand()#</cfoutput>',
             viewport: {
-                width: #picsize#,
-                height: #picsize#,
+                width: <cfoutput>#picsize#</cfoutput>,
+                height: <cfoutput>#picsize#</cfoutput>,
                 type: 'circle'
             },
             boundary: {
-                width: #picsize#,
-                height: #picsize#
+                width: <cfoutput>#picsize#</cfoutput>,
+                height: <cfoutput>#picsize#</cfoutput>
             }
         });
     }
@@ -114,5 +114,6 @@ $(document).ready(function() {
     });
 });
 </script>
+
 
 <cfinclude template="/include/bigbrotherinclude.cfm" />

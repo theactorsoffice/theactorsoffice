@@ -1,8 +1,7 @@
 <!--- Include remote load template --->
 <CFINCLUDE template="/include/remote_load.cfm" />
 
-<link rel="stylesheet" href="/app/assets/css/croppie.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js"></script>
+
 
 <!--- Queries to fetch data --->
 <cfquery datasource="#dsn#" name="FindRefContacts">

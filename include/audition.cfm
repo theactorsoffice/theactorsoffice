@@ -123,7 +123,7 @@
                             <input type="hidden" value="cancel" name="pgaction" />
                             <input type="hidden" name="NEW_AUDROLEID" value="#audroleid#" />
                             <input type="hidden" name="new_audstepid" value="#steps.audstepid#" />
-                            <input type="submit" class="btn btn-xs waves-effect waves-light" style="background-color:red;color:white;" value="Cancel" />
+                            <input type="submit" class="btn btn-xs waves-effect waves-light" style="background-color:red;color:white;" value="Yes" />
                             <input type="hidden" name="statusfield" value="#statusfield#" />
                         </form>
 

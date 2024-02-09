@@ -53,9 +53,7 @@
 </div>
 
 <!--- JavaScript for handling UI interactions --->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
-<link rel="stylesheet" href="/app/assets/css/croppie.css">
+
 
 <script>
 $(document).ready(function() {

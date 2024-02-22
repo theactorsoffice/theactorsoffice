@@ -623,7 +623,7 @@ and l.linktype <> 'css'
     <cfset userCalendtime=FindUser.calendtime />
     <cfset useravatarname=FindUser.avatarname />
     <cfset userIsBetaTester=FindUser.IsBetaTester />
-    <cfset userdefRows=FindUser.defRows />
+    <cfset userdefRows=FindUser.defRows + 1 />
     <cfset userdefCountry=FindUser.countryid />
     <cfset userdefState=FindUser.regionid />
         <cfset usercountryname=FindUser.countryname />

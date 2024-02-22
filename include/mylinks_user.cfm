@@ -164,6 +164,11 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
         <a title="Edit" href="" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##updatelink_#mylinks_user.id#">
  <i class="mdi mdi-square-edit-outline"></i>
  </a>
+
+   <a title="Remove #mylinks_user.sitename#" class="pl-1" style="color:red;" href="/include/excludelink.cfm?dd=1&new_id=#mylinks_user.id#&target_id=#new_sitetypeid#"><i class="mdi mdi-trash-can-outline"></i>
+
+                                        </a>
+
  </span>
 
 

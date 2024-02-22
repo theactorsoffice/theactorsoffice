@@ -120,8 +120,7 @@ $(document).ready(function() {
     });
 });
 </script>
-<script src="/app/assets/js/fileuploader_plugin.js?ver=0.962684872036"></script>
-<script src="/app/assets/js/remotesupportform.js?ver=0.98688451604"></script>
+
 
 
 

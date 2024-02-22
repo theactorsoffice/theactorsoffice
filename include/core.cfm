@@ -115,6 +115,11 @@ body.authentication-bg {
     
     
 </style>
+
+
+  <link href="/app/assets/css/croppie.css" rel="stylesheet" type="text/css" /> <!-- Croppie CSS -->
+
+
    </head>
 
     <!-- body start -->

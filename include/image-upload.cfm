@@ -101,7 +101,7 @@
                             
                     </div>
                     <div id="selectfile">
-          <h5 class="col-md-12" style="padding-bottom:20px;">           Select an image on your computer and upload image. Then click Continue.</h5>
+          <h5 class="col-md-12" style="padding-bottom:20px;">           YO!Select an image on your computer and upload image. Then click Continue.</h5>
                     
 			  		
 			  		<div class="col-md-12" style="padding-bottom:20px;">

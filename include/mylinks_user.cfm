@@ -165,7 +165,7 @@ WHERE s.userid = #userid# AND t.pntitle = '#pntitle#';
  <i class="mdi mdi-square-edit-outline"></i>
  </a>
 
-   <a title="Remove #mylinks_user.sitename#" class="pl-1" style="color:red;" href="/include/excludelink.cfm?new_id=#mylinks_user.id#&target_id=#new_sitetypeid#"><i class="mdi mdi-trash-can-outline"></i>
+   <a title="Remove #mylinks_user.sitename#" class="pl-1" style="color:red;" href="/include/excludelink.cfm?dd=1&new_id=#mylinks_user.id#&target_id=#new_sitetypeid#"><i class="mdi mdi-trash-can-outline"></i>
 
                                         </a>
 

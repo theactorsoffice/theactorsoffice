@@ -361,7 +361,7 @@ and l.pluginname <> 'global'
     <cfset userCalendtime = FindUser.calendtime />    
     <cfset useravatarname = FindUser.avatarname />  
     <cfset userIsBetaTester = FindUser.IsBetaTester />  
-    <cfset userdefRows = FindUser.defRows />  
+    <cfset userdefRows = FindUser.defRows + 1 />  
     <cfset userdefCountry = FindUser.defCountry />  
     <cfset userdefState = FindUser.defState />  
     <cfset usertzid = FindUser.tzid />

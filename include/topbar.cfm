@@ -195,7 +195,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a class="dropdown-icon-item" href="http://www.theactorsoffice.com/faq/" target="FAQ">
+                        <a class="dropdown-icon-item" href="https://theactorsoffice.helpwise.help/" target="FAQ">
                             <img src="/assets/images/faq.png?ver=3" alt="FAQ">
                             <span>FAQ</span>
                         </a>

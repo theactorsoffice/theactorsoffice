@@ -117,8 +117,14 @@ body.authentication-bg {
 </style>
 
 
-  <link href="/app/assets/css/croppie.css" rel="stylesheet" type="text/css" /> <!-- Croppie CSS -->
 
+
+<script type="text/javascript">
+  var helpwiseSettings = {
+    widget_id: '65958ef4eb602',
+    align: 'right'
+  };
+</script>
 
    </head>
 

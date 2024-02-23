@@ -199,17 +199,17 @@
                             <span>FAQ</span>
                         </a>
                     </div>
+
                     <div class="col">
                         <a class="dropdown-icon-item" href="https://www.facebook.com/groups/taousercommunity" target="usercommunity">
                             <img src="/assets/images/usercom.png?ver=3" alt="User Community">
                             <span>User Community</span>
                         </a>
                     </div>
-                </div>
+            
 
 
-                <div class="row no-gutters">
-                
+      
                  
                     <div class="col">
                         <a class="dropdown-icon-item" href="mailto:support@theactorsoffice.com?subject=I%20Need%20Some%20Support%20with%20TAO">
@@ -217,6 +217,9 @@
                             <span>Contact Support</span>
                         </a>
                     </div>
+
+
+                    
                 </div>
             </div>
                     

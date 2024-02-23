@@ -908,4 +908,30 @@
   updateFormInputs();
 </script>
 
-   
+   <!-- Other HTML content above -->
+
+<!-- Place your custom script just before the closing body tag -->
+<script>
+  // Get references to the select element and the div to show/hide
+  const castingDirectorSelect = document.getElementById('new_contactid');
+  const hiddenDiv = document.getElementById('hidden_divssss');
+
+  // Function to toggle the visibility of the hidden div based on the select value
+  function toggleHiddenDiv() {
+      if (castingDirectorSelect.value === "") {
+          // If the "--" option is selected, hide the div and clear any inputs within it
+          hiddenDiv.style.display = 'none';
+          Array.from(hiddenDiv.querySelectorAll('input, select')).forEach(input => input.value = "");
+      } else {
+          // If any other option is selected, show the div
+          hiddenDiv.style.display = 'block';
+      }
+  }
+
+  // Add the event listener to the select element
+  castingDirectorSelect.addEventListener('change', toggleHiddenDiv);
+
+  // Call the function on page load to ensure correct initial state
+  toggleHiddenDiv();
+</script>
+

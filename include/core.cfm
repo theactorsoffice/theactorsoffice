@@ -115,6 +115,17 @@ body.authentication-bg {
     
     
 </style>
+
+
+
+
+<script type="text/javascript">
+  var helpwiseSettings = {
+    widget_id: '65958ef4eb602',
+    align: 'right'
+  };
+</script>
+
    </head>
 
     <!-- body start -->

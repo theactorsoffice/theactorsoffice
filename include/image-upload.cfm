@@ -43,6 +43,9 @@
     WHERE contactid = #contactid#
 </cfquery>
 
+<script src="/app/assets/js/fileuploader_plugin.js?ver=0.962684872036"></script>
+<script src="/app/assets/js/remotesupportform.js?ver=0.98688451604"></script>
+
 <style>
 .btn-success:disabled {
 	color: #fff;
@@ -50,6 +53,7 @@
 	border-color: #D3D3D3
 }
 </style>
+
 <cfoutput>
 <cfif #ref_pgid# is "3">    
     
@@ -97,7 +101,7 @@
                             
                     </div>
                     <div id="selectfile">
-          <h5 class="col-md-12" style="padding-bottom:20px;">           Select an image on your computer and upload image. Then click Continue.</h5>
+          <h5 class="col-md-12" style="padding-bottom:20px;">           YO!Select an image on your computer and upload image. Then click Continue.</h5>
                     
 			  		
 			  		<div class="col-md-12" style="padding-bottom:20px;">

@@ -189,15 +189,7 @@
                          <div class="p-lg-1">
                 <div class="row no-gutters">
 
-<cfif #isdefined('sdfdfsds')#>
 
-                    <div class="col">
-                        <a class="dropdown-icon-item" href="http://www.theactorsoffice.com/tao-training-videos/" target="video">
-                            <img src="/assets/images/videotraining.png?ver=3" alt="Video Training">
-                            <span>Video Training</span>
-                        </a>
-                    </div>
-</cfif>
 
 
 
@@ -218,12 +210,7 @@
 
                 <div class="row no-gutters">
                 
-                    <div class="col">
-                        <a href="remoteSupportForm.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#remoteSupportForm" class="dropdown-icon-item">
-                            <img src="/assets/images/feedback.png?ver=3" alt="Feedback">
-                            <span>Feedback/Requests</span>
-                        </a>
-                    </div>
+                 
                     <div class="col">
                         <a class="dropdown-icon-item" href="mailto:support@theactorsoffice.com?subject=I%20Need%20Some%20Support%20with%20TAO">
                             <img src="/assets/images/contact.png?ver=3" alt="Contact Support">

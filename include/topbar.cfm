@@ -188,12 +188,19 @@
                     
                          <div class="p-lg-1">
                 <div class="row no-gutters">
+
+<cfif #isdefined('sdfdfsds')#>
+
                     <div class="col">
                         <a class="dropdown-icon-item" href="http://www.theactorsoffice.com/tao-training-videos/" target="video">
                             <img src="/assets/images/videotraining.png?ver=3" alt="Video Training">
                             <span>Video Training</span>
                         </a>
                     </div>
+</cfif>
+
+
+
                     <div class="col">
                         <a class="dropdown-icon-item" href="https://theactorsoffice.helpwise.help/" target="FAQ">
                             <img src="/assets/images/faq.png?ver=3" alt="FAQ">
@@ -207,7 +214,11 @@
                         </a>
                     </div>
                 </div>
+
+
                 <div class="row no-gutters">
+
+                <cfif #isdefined('sdfdfsds')#>
                     <div class="col">
                         <a href="remoteSupportForm.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#remoteSupportForm" class="dropdown-icon-item">
                             <img src="/assets/images/feedback.png?ver=3" alt="Feedback">

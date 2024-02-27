@@ -103,7 +103,7 @@
 </cfoutput>
 <div class="row pt-3 pb-3">
 
-    <cfloop query="audmedia">
+    <cfloop query="headshots">
 
 
 
@@ -120,12 +120,12 @@
                 $(document).ready(function() {
                     $("##remoteDelete#audmedia.mediaid#").on("show.bs.modal", function(event) {
                         // Place the returned HTML into the selected element
-                        $(this).find(".modal-body").load("/include/remoteDeleteaudmedia_auditions_xref.cfm?mediaid=#audmedia.mediaid#&secid=196&audprojectid=#audprojectid#");
+                        $(this).find(".modal-body").load("/include/remoteDeleteheadshots_auditions_xref.cfm?mediaid=#headshots.mediaid#&secid=196&audprojectid=#audprojectid#");
                     });
                 });
             </script>
 
-            <div id="remoteDelete#audmedia.mediaid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div id="remoteDelete#headshots.mediaid#" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
                 <div class="modal-dialog">
 
@@ -168,9 +168,9 @@
         
                   
                       
-    <a href="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#audmedia.mediaFileName#?ver=#rand()#" data-toggle="lightbox" data-gallery="example-gallery">
+    <a href="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#headshots.mediaFileName#?ver=#rand()#" data-toggle="lightbox" data-gallery="example-gallery">
             
-<img src="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#audmedia.mediaFileName#?ver=#rand()#" class="mr-2 rounded-square gambar  img-thumbnail img-fluid p-0 m-0" title="User ID: 30" style="max-width:120px; height:120px; height:100%" alt="profile-image" id="item-img-output">
+<img src="https://#host#.theactorsoffice.com/media-#host#/users/#session.userid#/#headshots.mediaFileName#?ver=#rand()#" class="mr-2 rounded-square gambar  img-thumbnail img-fluid p-0 m-0" title="User ID: 30" style="max-width:120px; height:120px; height:100%" alt="profile-image" id="item-img-output">
 
 
 
@@ -182,17 +182,17 @@
                         
                     </center>
                 </div>
-               <A class="pt-0" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteDelete#audmedia.mediaid#" data-bs-placement="top" title="Delete media" data-bs-original-title="Delete media">
+               <A class="pt-0" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="##remoteDelete#headshots.mediaid#" data-bs-placement="top" title="Delete media" data-bs-original-title="Delete media">
 
                     <p class="p-0" style="padding:10px;">
                         <center>
 
-                            #audmedia.medianame# <i class="mdi mdi-trash-can-outline"></i>
+                            #headshots.medianame# <i class="mdi mdi-trash-can-outline"></i>
                         </center>
                 </A>
 
                 <BR>
-                <center> <a class="btn-lg" href="/include/download_media.cfm?mediaid=#audmedia.mediaid#"> <i class="mdi mdi-cloud-download-outline"></i></a></center>
+                <center> <a class="btn-lg" href="/include/download_media.cfm?mediaid=#headshots.mediaid#"> <i class="mdi mdi-cloud-download-outline"></i></a></center>
                 </p>
 
 

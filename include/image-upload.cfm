@@ -30,13 +30,7 @@
 
 </cfoutput>
  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Cropper Example</title>
-    <script src="https://jsuites.net/v5/jsuites.js"></script>
-    <link rel="stylesheet" href="https://jsuites.net/v5/jsuites.css" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.css" type="text/css" />
+
  
 
 <p class="small">Click on the big square to upload an image</p>

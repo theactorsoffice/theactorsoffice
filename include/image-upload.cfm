@@ -1,5 +1,4 @@
-<script src="https://jsuites.net/v4/jsuites.js"></script>
-<link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+
 <cfoutput>
 <cfif #ref_pgid# is "3">    
     
@@ -31,14 +30,25 @@
 
 </cfoutput>
 
-<div id="imageCropper"></div>
 
+ 
+ 
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+ 
+
+<div id="imageCropper"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var cropper = new jSuites.imageCropper(document.getElementById('imageCropper'), {
-            src: '<cfoutput>#image_url#</cfoutput>',
+            src: 'path_to_existing_image.jpg',
+            width: 300,
+            height: 200,
             // Additional options can be specified here
         });
     });
 </script>
+
+</body>
+</html>

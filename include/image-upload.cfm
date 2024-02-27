@@ -31,9 +31,7 @@
 </cfoutput>
  
 
- 
-
-<p class="small">Click on the big square to upload an image</p>
+ <p class="small">Click on the big square to upload an image</p>
 
 <div style="display: flex;">
     <div id="image-cropper" style="border:1px solid #ccc; margin: 5px;"></div>
@@ -43,18 +41,13 @@
 <p><input type="button" value="Get cropped image" id="image-getter" class="jbutton dark"></p>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    var cropper = new Cropper(document.getElementById('image-cropper'), {
-        aspectRatio: 1, // Optionally set aspect ratio
-        viewMode: 1, 
-        src: '<cfoutput>#image_url#</cfoutput>',   // Optionally set view mode
-        // Other options...
-    });
+cropper(document.getElementById('image-cropper'), {
+    area: [ 280, 280 ],
+    crop: [ 150, 150 ],
+})
 
-    document.getElementById('image-getter').onclick = function() {
-        document.getElementById('image-cropper-result').children[0].src = cropper.getCroppedCanvas().toDataURL();
-    }
-});
+document.getElementById('image-getter').onclick = function() {
+    document.getElementById('image-cropper-result').children[0].src =
+        document.getElementById('image-cropper').crop.getCroppedImage().src;
+}
 </script>
-
- 

@@ -1,60 +1,5 @@
-<CFINCLUDE template="/include/remote_load.cfm" />
-
-<cfquery datasource="#dsn#" name="FindRefPage"  >
-    SELECT
-    a.appname
-    ,a.appAuthor
-    ,c.compname
-    ,p.pgname
-    ,a.appId
-    ,a.appDescription
-    ,a.appLogoName
-    ,a.colorTopBar
-    ,a.colorLeftSideBar
-    ,a.mocktoday
-    ,a.mock_yn
-    ,c.compid
-    ,c.compDir
-    ,c.compTable
-    ,c.compowner
-    ,c.compIcon
-    ,c.menuYN
-    ,c.menuOrder
-    ,c.compInner
-    ,c.compRecordName
-    ,c.compActive
-    ,p.pgid
-    ,p.pgDir
-    ,p.pgTitle
-    ,p.pgHeading
-    ,p.pgFilename
-    ,p.datatables_YN
-    ,p.fullcalendar_YN
-    ,p.editable_YN
-    ,p.newdatatables_YN
-    ,p.pk
-    FROM pgpages p
-    INNER JOIN pgcomps c ON c.compID = p.compID
-    INNER JOIN pgapps a ON a.appID = c.appid
-    WHERE p.pgid = #ref_pgid#
-</cfquery>
-
-<CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="FindRefcontacts"  >
-    SELECT recordname
-    from contactdetails
-    WHERE contactid = #contactid#
-</cfquery>
-
- 
-
-<style>
-.btn-success:disabled {
-	color: #fff;
-	background-color: #D3D3D3;
-	border-color: #D3D3D3
-}
-</style>
-
+<script src="https://jsuites.net/v4/jsuites.js"></script>
+<link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
 <cfoutput>
 <cfif #ref_pgid# is "3">    
     
@@ -86,37 +31,14 @@
 
 </cfoutput>
 
-<html>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites/dist/jsuites.min.css" type="text/css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/css/dist/style.min.css" type="text/css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.css" type="text/css" />
+<div id="imageCropper"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/jsuites/dist/jsuites.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lemonadejs/dist/lemonade.min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/@lemonadejs/cropper/dist/cropper.min.js'></script>
-
-<div id='root'></div>
 
 <script>
-function App() {
-    const self = this;
-    self.save = function() {
-        console.log(self.cropper.getValue());
-    }
-    return `<>
-        <div style="background: white">
-            <Cropper :ref="self.cropper" />
-        </div>
-        <input type="button" value="console.log()" onclick="self.save()" />
-    </>`
-}
-// Register component
-lemonade.setComponents({ Cropper });
-// Render app
-lemonade.render(App, document.getElementById('root'));
+    document.addEventListener("DOMContentLoaded", function() {
+        var cropper = new jSuites.imageCropper(document.getElementById('imageCropper'), {
+            src: '<cfoutput>#image_url#</cfoutput>',
+            // Additional options can be specified here
+        });
+    });
 </script>
-</html>
-
-<cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 

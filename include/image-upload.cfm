@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var cropper = new Cropper(document.getElementById('image-cropper'), {
         aspectRatio: 1, // Optionally set aspect ratio
         viewMode: 1, 
-        src: '<cfoutput>image_url</cfoutput>',   // Optionally set view mode
+        src: '<cfoutput>#image_url#</cfoutput>',   // Optionally set view mode
         // Other options...
     });
 

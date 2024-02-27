@@ -29,26 +29,37 @@
 
 
 </cfoutput>
-
-
  
- 
-    <script src="https://jsuites.net/v4/jsuites.js"></script>
-    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cropper Example</title>
+    <script src="https://jsuites.net/v5/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v5/jsuites.css" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.css" type="text/css" />
  
 
-<div id="imageCropper"></div>
+<p class="small">Click on the big square to upload an image</p>
+
+<div style="display: flex;">
+    <div id="image-cropper" style="border:1px solid #ccc; margin: 5px;"></div>
+    <div id="image-cropper-result"><img style="width:120px; height:120px; margin: 5px;"></div>
+</div>
+
+<p><input type="button" value="Get cropped image" id="image-getter" class="jbutton dark"></p>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var cropper = new jSuites.imageCropper(document.getElementById('imageCropper'), {
-            src: 'path_to_existing_image.jpg',
-            width: 300,
-            height: 200,
-            // Additional options can be specified here
-        });
+document.addEventListener("DOMContentLoaded", function() {
+    var cropper = new Cropper(document.getElementById('image-cropper'), {
+        aspectRatio: 1, // Optionally set aspect ratio
+        viewMode: 1,    // Optionally set view mode
+        // Other options...
     });
+
+    document.getElementById('image-getter').onclick = function() {
+        document.getElementById('image-cropper-result').children[0].src = cropper.getCroppedCanvas().toDataURL();
+    }
+});
 </script>
 
-</body>
-</html>
+ 

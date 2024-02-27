@@ -42,8 +42,7 @@
 
 <script>
 cropper(document.getElementById('image-cropper'), {
-    area: [ 280, 280 ],
-    crop: [ 150, 150 ],
+    url: '<cfoutput>#image_url#</cfoutput>'
 })
 
 document.getElementById('image-getter').onclick = function() {

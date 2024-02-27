@@ -1,4 +1,6 @@
-<CFINCLUDE template="/include/remote_load.cfm" /><cfquery datasource="#dsn#" name="FindRefPage"  >
+<CFINCLUDE template="/include/remote_load.cfm" />
+
+<cfquery datasource="#dsn#" name="FindRefPage"  >
     SELECT
     a.appname
     ,a.appAuthor
@@ -43,8 +45,7 @@
     WHERE contactid = #contactid#
 </cfquery>
 
-<script src="/app/assets/js/fileuploader_plugin.js?ver=0.962684872036"></script>
-<script src="/app/assets/js/remotesupportform.js?ver=0.98688451604"></script>
+ 
 
 <style>
 .btn-success:disabled {
@@ -85,136 +86,37 @@
 
 </cfoutput>
 
-<cfif #ref_pgid# is "9">			
-<cfset picsize = 200 />
-    <cfset inputsize = 200 />
-<cfelse>
-    <cfset picsize = 200 />
-    <cfset inputsize = 300 />
-    </cfif>
-<link rel="stylesheet" href="/app/assets/css/croppie.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js"></script>
-<h4><cfoutput>#subtitle#</cfoutput></h4>
-			  	<div class="row">
-                        <div id="cont">
-                                      <h5 class="col-md-12" style="padding-bottom:20px;">           Avatar has been updated!</h5>
-                            
-                    </div>
-                    <div id="selectfile">
-          <h5 class="col-md-12" style="padding-bottom:20px;">           YO!Select an image on your computer and upload image. Then click Continue.</h5>
-                    
-			  		
-			  		<div class="col-md-12" style="padding-bottom:20px;">
-                        
-                        
-                        
-                        	<div  style="padding-bottom:10px;">
-                                <strong>Select a file:</strong></div>
-                        
-                        	<input type="file" id="upload" >
-                    </div>
+<html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites/dist/jsuites.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/css/dist/style.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.css" type="text/css" />
+
+<script src="https://cdn.jsdelivr.net/npm/jsuites/dist/jsuites.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jsuites/cropper/cropper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lemonadejs/dist/lemonade.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/@lemonadejs/cropper/dist/cropper.min.js'></script>
+
+<div id='root'></div>
+
+<script>
+function App() {
+    const self = this;
+    self.save = function() {
+        console.log(self.cropper.getValue());
+    }
+    return `<>
+        <div style="background: white">
+            <Cropper :ref="self.cropper" />
         </div>
-					<input type="hidden" name="picturebase" id="picturebase" value="">
-                        
-           
-                        
-                     <div class="col-md-12" >
-                        <div id="upload-input" style="width:<Cfoutput>#inputsize#</cfoutput>px; height: <Cfoutput>#inputsize#</cfoutput>px;"></div>
-			  		</div>  
-                            <div class="col-md-12" >
-					
-					 
-						<BR>
-                        <button id="uploadbutton" class="btn  upload-result btn-primary" >Update</button>
-             
-                        
-                        
-                        
-			  		</div>
-                </div>
-<cfif #ref_pgid# is "9">			
-<cfset picsize = 200 /> 
-<cfelse>
-    <cfset picsize = 200 />
-    </cfif>
-
-    <script>
-    $(document).ready(
-    function(){
-        $('#cont').hide();
-    
-        $('#uploadbutton').hide();
-        $('input:file').change(
-            function(){
-                if ($(this).val()) {
-                    $('#uploadbutton').attr('disabled',false);  
-              
-                    $('#uploadbutton').show();
-                } 
-            }
-            );
-    });
-    </script>
- 
-<script type="text/javascript">
-$uploadCrop = $('#upload-input').croppie({
-    enableExif: true,
-    url: <Cfoutput>'#image_url#</cfoutput>?ver=<Cfoutput>#rand()#</cfoutput>',
-    viewport: {
-        width: <cfoutput>#picsize#</cfoutput>,
-        height: <cfoutput>#picsize#</cfoutput>,
-        type: 'circle'
-    },
-    boundary: {
-        width: <cfoutput>#picsize#</cfoutput>,
-        height: <cfoutput>#picsize#</cfoutput>
-    }
-});
-
-
-$('#upload').on('change', function () { 
-	var reader = new FileReader();
-    reader.onload = function (e) {
-    	$uploadCrop.croppie('bind', {
-    		url: e.target.result
-    	}).then(function(){
-    		console.log('jQuery bind complete');
-    	});
-    	
-    }
-    reader.readAsDataURL(this.files[0]);
-});
-
-    
-    
-    function resultToField() {
-        uploadCrop.croppie('result','base64').then(function(baseImage) {
-            $('#picturebase').val(baseImage);
-        });
-    };
-    
-    
-    
-
-$('.upload-result').on('click', function (ev) {
-	$uploadCrop.croppie('result', {
-		type: 'canvas',
-		size: 'viewport'
-	}).then(function (resp) {
-		$.ajax({
-			url: "/include/image_upload2.cfm",
-			type: "POST",
-			data: {"picturebase":resp},
-			success: function (data) {
-                html = '<img style="margin: 20px;" src="' + resp + '" /><BR><A HREF="<Cfoutput>#cookie.return_url#</cfoutput>"><button type="button" class="btn  btn-primary waves-effect mb-2 waves-light" >Continue</button></a>';
-				$("#upload-input").html(html);
-                $('#uploadbutton').hide();
-        $('#selectfile').hide();
-                $('#cont').show();
-			}
-		});
-	});
-});
+        <input type="button" value="console.log()" onclick="self.save()" />
+    </>`
+}
+// Register component
+lemonade.setComponents({ Cropper });
+// Render app
+lemonade.render(App, document.getElementById('root'));
 </script>
+</html>
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), "\")#" /><cfinclude template="/include/bigbrotherinclude.cfm" /> 

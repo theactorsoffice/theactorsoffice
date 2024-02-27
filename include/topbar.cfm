@@ -207,6 +207,7 @@
                             <span>FAQ</span>
                         </a>
                     </div>
+
                     <div class="col">
                         <a class="dropdown-icon-item" href="https://www.facebook.com/groups/taousercommunity" target="usercommunity">
                             <img src="/assets/images/usercom.png?ver=3" alt="User Community">
@@ -214,11 +215,7 @@
                         </a>
                     </div>
                 </div>
-
-
                 <div class="row no-gutters">
-
-                <cfif #isdefined('sdfdfsds')#>
                     <div class="col">
                         <a href="remoteSupportForm.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#remoteSupportForm" class="dropdown-icon-item">
                             <img src="/assets/images/feedback.png?ver=3" alt="Feedback">
@@ -231,6 +228,9 @@
                             <span>Contact Support</span>
                         </a>
                     </div>
+
+
+                    
                 </div>
             </div>
                     

@@ -330,7 +330,7 @@ WHERE d.contactid IN (#idlist#)
     <p>no_skipped: #no_skipped#<BR>no_deleted: #no_deleted#<BR>no_added: #no_added#</p>
     
     
-    
+    <cfabort>
     </cfoutput>
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />

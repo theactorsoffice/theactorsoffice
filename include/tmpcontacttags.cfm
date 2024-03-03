@@ -6,6 +6,13 @@
 
 <cfparam name="idlist" default="0" />
 
+ <cfif #idlist# is "0" and #session.idlist# is not "0">
+ <cfset idlist = session.idlist />
+
+ </cfif>
+
+ 
+
 <CFIF #dbug# is "N" >
 
 <cfif #idlist# is "0">
@@ -53,8 +60,7 @@ SELECT contactid,recordname FROM contactdetails  d
 WHERE d.contactid IN (#idlist#)
 </cfquery>
 
-<cfoutput>idlist:#idlist#</cfoutput>
-<cfaborT>
+ 
 
 
 

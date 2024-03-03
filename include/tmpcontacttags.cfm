@@ -53,6 +53,8 @@ SELECT contactid,recordname FROM contactdetails  d
 WHERE d.contactid IN (#idlist#)
 </cfquery>
 
+<cfoutput>idlist:#idlist#</cfoutput>
+<cfaborT>
 
 
 

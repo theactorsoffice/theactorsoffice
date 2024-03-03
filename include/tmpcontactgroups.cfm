@@ -19,7 +19,7 @@ SELECT contactid,recordname FROM contactdetails  d
 WHERE d.contactid IN (#idlist#)
 </cfquery>
             
-<cfoutput>idlist:#idlist#</cfoutput>
+<cfoutput>idlist:#idlist#<BR>session idlist: #session.idlist#<BR></cfoutput>
 <cfaborT>
 
 

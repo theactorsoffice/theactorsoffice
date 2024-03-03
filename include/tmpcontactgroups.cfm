@@ -2,7 +2,8 @@
  
 <cfparam name="idlist" default="0" />
 
- 
+ <cfif #idlist# is "0" and #session.idlist# is not "0">
+ <cfset idlist = session.idlist />
 
  <CFINCLUDE template="/include/remote_load.cfm" />
 

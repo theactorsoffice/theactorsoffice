@@ -68,7 +68,7 @@
 
 
 <cfif #new_contactid# is "0" and #cdfullname# is not "">
-    
+    <cfoutput>#new_contactid# is "0" and #cdfullname# is not ""</cfoutput><cfabort>
     <cfquery datasource="#dsn#" name="add" result="result">
     INSERT INTO contactdetails (userid,contactfullname) 
     VALUES (#userid#,'#cdfullname#');

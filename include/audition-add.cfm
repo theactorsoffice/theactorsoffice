@@ -189,9 +189,11 @@
                             </script>
 
                             <script>
-                                function showDivssss(divId, element) {
-                                    document.getElementById(divId).style.display = element.value == 0 ? 'block' : 'none';
-                                }
+                              function showDivssss(divId, element) {
+    console.log("Selected value:", element.value); // Debugging line
+    document.getElementById(divId).style.display = element.value == '0' ? 'block' : 'none';
+}
+
 
                             </script>
 
@@ -238,9 +240,8 @@
                         <div class="form-group col-md-12">
 
                             <label for="new_contactid">Casting Director </label>
-
-                     <select id="new_contactid" class="form-control" name="new_contactid" onChange="if(this.value === '0') showDivssss('hidden_divssss', this);">
-    <option value="">--</option>
+<select id="new_contactid" class="form-control" name="new_contactid" onChange="showDivssss('hidden_divssss', this);">
+  <option value="">--</option>
     <option value="0">***ADD NEW***</option>
     <cfoutput query="castingdirectors_sel">
         <option value="#castingdirectors_sel.id#">#castingdirectors_sel.name#</option>

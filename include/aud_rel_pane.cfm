@@ -63,6 +63,27 @@
 </form>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var validSelectionMade = false; // Flag to indicate valid selection
+    var submitButton = document.getElementById('mybtns'); // Submit button
+    submitButton.disabled = true; // Disable submit button by default
+
+    // Setup your autocomplete here and ensure it updates `validSelectionMade` and `submitButton.disabled` appropriately
+    // Example: on selection of a valid autocomplete option, set `validSelectionMade = true;` and `submitButton.disabled = false;`
+
+    document.querySelector('.app-search').addEventListener('submit', function(event) {
+        if (!validSelectionMade) {
+            event.preventDefault(); // Prevent form submission
+            alert('Please select a valid contact from the autocomplete list.');
+            submitButton.disabled = true; // Keep or disable the button based on your preference
+        }
+    });
+});
+</script>
+
+
+
 <div class="container-fluid">
     <div class="row box-row mb-3">
         <cfloop query="audcontacts">

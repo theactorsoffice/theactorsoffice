@@ -174,7 +174,24 @@
 
 <cfinclude template="/include/qry/cities.cfm" />
 
+<cfif #ctaction# is "addmember">
 
+    <cfquery datasource="#dsn#" name="FINDK" maxrows="1">
+        SELECT CONTACTID from contacts_ss WHERE userid = #userid# and col1 = '#topsearch_myteam#'
+    </cfquery>
+
+    <cfif #findK.recordcount# is "1">
+
+        <cfset new_contactid=findk.contactid />
+<Cfif #new_contactid# is not "">
+        <cfquery datasource="#dsn#" name="insert">
+            INSERT INTO contactitems (contactid,valuetype,valuecategory,valuetext,itemstatus, primary_yn)
+            VALUES (#new_contactid#,'Tags','Tag','My Team','Active', 'Y')
+        </cfquery>
+
+        </cfif>
+
+    </cfif>
 
 <cfif #new_regionid# is "" and #def_regionid# is not "">
 
@@ -928,24 +945,7 @@
 
 
 
-<cfif #ctaction# is "addmember">
 
-    <cfquery datasource="#dsn#" name="FINDK" maxrows="1">
-        SELECT CONTACTID from contacts_ss WHERE userid = #userid# and col1 = '#topsearch_myteam#'
-    </cfquery>
-
-    <cfif #findK.recordcount# is "1">
-
-        <cfset new_contactid=findk.contactid />
-<Cfif #new_contactid# is not "">
-        <cfquery datasource="#dsn#" name="insert">
-            INSERT INTO contactitems (contactid,valuetype,valuecategory,valuetext,itemstatus, primary_yn)
-            VALUES (#new_contactid#,'Tags','Tag','My Team','Active', 'Y')
-        </cfquery>
-
-        </cfif>
-
-    </cfif>
 
     <cfset ctaction="view" />
 

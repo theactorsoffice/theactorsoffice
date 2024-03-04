@@ -239,13 +239,14 @@
 
                             <label for="new_contactid">Casting Director </label>
 
-                            <select id="new_contactid" class="form-control" name="new_contactid" onChange="showDivssss('hidden_divssss', this)"  >
-                                <option value="">--</option>
-                                <option value="0">***ADD NEW***</option>
-                                <cfoutput query="castingdirectors_sel">
-                                    <option value="#castingdirectors_sel.id#">#castingdirectors_sel.name#</option>
-                                </cfoutput>
-                            </select>
+                     <select id="new_contactid" class="form-control" name="new_contactid" onChange="if(this.value === '0') showDivssss('hidden_divssss', this);">
+    <option value="">--</option>
+    <option value="0">***ADD NEW***</option>
+    <cfoutput query="castingdirectors_sel">
+        <option value="#castingdirectors_sel.id#">#castingdirectors_sel.name#</option>
+    </cfoutput>
+</select>
+
 
                         </div>
 

@@ -65,7 +65,7 @@
 </cfif>    
 
 
-
+ <cfoutput>#new_contactid# is "0" and #cdfullname# is not ""</cfoutput><cfabort>
 
 <cfif #new_contactid# is "0" and #cdfullname# is not "">
     <cfoutput>#new_contactid# is "0" and #cdfullname# is not ""</cfoutput><cfabort>

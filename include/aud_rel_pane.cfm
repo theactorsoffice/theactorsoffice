@@ -63,24 +63,31 @@
 </form>
 
 
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var validSelectionMade = false; // Flag to indicate valid selection
-    var submitButton = document.getElementById('mybtns'); // Submit button
-    submitButton.disabled = true; // Disable submit button by default
+$(document).ready(function() {
+    var submitButton = $('#mybtns'); // Cache submit button
+    submitButton.prop('disabled', true); // Initially disable submit button
 
-    // Setup your autocomplete here and ensure it updates `validSelectionMade` and `submitButton.disabled` appropriately
-    // Example: on selection of a valid autocomplete option, set `validSelectionMade = true;` and `submitButton.disabled = false;`
+    // Assuming you're using jQuery UI Autocomplete
+    $('#autocomplete_aud').autocomplete({
+        source: /* your source here, e.g., ["Option 1", "Option 2"] or a function */,
+        select: function(event, ui) {
+            // This function runs when a user selects an option from the autocomplete suggestions
+            submitButton.prop('disabled', false); // Enable submit button
+        }
+    });
 
-    document.querySelector('.app-search').addEventListener('submit', function(event) {
-        if (!validSelectionMade) {
+    $('.app-search').on('submit', function(event) {
+        if (submitButton.prop('disabled')) {
+            // If the submit button is still disabled, it means no valid selection has been made
             event.preventDefault(); // Prevent form submission
             alert('Please select a valid contact from the autocomplete list.');
-            submitButton.disabled = true; // Keep or disable the button based on your preference
         }
     });
 });
 </script>
+
 
 
 

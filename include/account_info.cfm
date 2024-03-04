@@ -937,11 +937,13 @@
     <cfif #findK.recordcount# is "1">
 
         <cfset new_contactid=findk.contactid />
-
+<Cfif #new_contactid# is not "">
         <cfquery datasource="#dsn#" name="insert">
             INSERT INTO contactitems (contactid,valuetype,valuecategory,valuetext,itemstatus, primary_yn)
             VALUES (#new_contactid#,'Tags','Tag','My Team','Active', 'Y')
         </cfquery>
+
+        </cfif>
 
     </cfif>
 

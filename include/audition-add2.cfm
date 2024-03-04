@@ -10,6 +10,8 @@
 
 
 <cfoutput>
+
+#cdco#<BR>
 <cfset new_userid = #cookie.userid# />
 </cfoutput>
 <cfparam name="isdirect" default="0" />
@@ -23,7 +25,7 @@
 
 
 <cfif #new_contactid# is "0" and #cdfullname# is not "">
-    
+
     <cfquery datasource="#dsn#" name="add" result="result">
     INSERT INTO contactdetails (userid,contactFullName) 
     VALUES (#userid#,'#cdfullname#');
@@ -43,6 +45,15 @@
         INSERT INTO CONTACTITEMS (CONTACTID,VALUETYPE,VALUECATEGORY,VALUETEXT,ITEMSTATUS)
         VALUES (#new_contactid#,'Tags','Tag','#cdtype#','Active')
     </cfquery>
+
+        <cfif #cdco# is not "">
+       <cfquery datasource="#dsn#" name="insert"  >
+        INSERT INTO CONTACTITEMS (CONTACTID,VALUETYPE,VALUECATEGORY,ValueCompany,ITEMSTATUS)
+        VALUES (#new_contactid#,'Company','Company','#cdco#','Active')
+    </cfquery>
+
+
+    </cfif>
 
 </cfif>
     
@@ -66,7 +77,7 @@
 
 
 <cfif #new_contactid# is "0" and #cdfullname# is not "">
-    
+    <cfoutput>#new_contactid# is "0" and #cdfullname# is not ""</cfoutput><cfabort>
     <cfquery datasource="#dsn#" name="add" result="result">
     INSERT INTO contactdetails (userid,contactfullname) 
     VALUES (#userid#,'#cdfullname#');

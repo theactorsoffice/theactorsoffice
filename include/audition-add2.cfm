@@ -11,7 +11,7 @@
 
 <cfoutput>
 
-#cdco#<Cfabort>
+#cdco#<BR>
 <cfset new_userid = #cookie.userid# />
 </cfoutput>
 <cfparam name="isdirect" default="0" />

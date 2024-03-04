@@ -191,7 +191,7 @@
                             <script>
      function showDivssss(divId, element) {
     console.log("Value: ", element.value, "Type: ", typeof element.value);  // Debugging line
-    document.getElementById(divId).style.display = element.value == '0' ? 'block' : 'none';
+    document.getElementById(divId).style.display = element.value == '0' ? 'none' : 'block';
 }
 
 

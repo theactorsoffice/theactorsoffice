@@ -45,9 +45,9 @@
                     <select class="form-control" name="autocomplete_aud" id="autocomplete_aud">
                         <option value="">Select Contact...</option>
                         <!-- Loop through the audcontacts query to populate the select list -->
-                        <cfloop query="audcontacts">
+                        <cfloop query="audcontacts"><cfoutput>
                             <option value="#contactid#">#contactname#</option>
-                        </cfloop>
+                        </cfloop></cfoutput>
                     </select>
                     <div class="input-group-append">
                         <button id="mybtns" type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="height: 37.3889px">

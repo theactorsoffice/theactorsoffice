@@ -189,9 +189,12 @@
                             </script>
 
                             <script>
-                                function showDivssss(divId, element) {
-                                    document.getElementById(divId).style.display = element.value == 0 ? 'block' : 'none';
-                                }
+     function showDivssss(divId, element) {
+    console.log("Value: ", element.value, "Type: ", typeof element.value);  // Debugging line
+    document.getElementById(divId).style.display = element.value == '0' ? 'none' : 'block';
+}
+
+
 
                             </script>
 
@@ -238,14 +241,14 @@
                         <div class="form-group col-md-12">
 
                             <label for="new_contactid">Casting Director </label>
+<select id="new_contactid" class="form-control" name="new_contactid" onChange="showDivssss('hidden_divssss', this);">
+  <option value="">--</option>
+    <option value="0">***ADD NEW***</option>
+    <cfoutput query="castingdirectors_sel">
+        <option value="#castingdirectors_sel.id#">#castingdirectors_sel.name#</option>
+    </cfoutput>
+</select>
 
-                            <select id="new_contactid" class="form-control" name="new_contactid" onChange="showDivssss('hidden_divssss', this)"  >
-                                <option value="">--</option>
-                                <option value="0">***ADD NEW***</option>
-                                <cfoutput query="castingdirectors_sel">
-                                    <option value="#castingdirectors_sel.id#">#castingdirectors_sel.name#</option>
-                                </cfoutput>
-                            </select>
 
                         </div>
 
@@ -592,9 +595,9 @@
 
                                     </div>
 
+<script src="/app/assets/js/jquery.chained.js?ver=1.9.7.4"></script>
 
-
-
+     <script>$("#new_regionid").chained("#countryid");</script>
 
 
                                     <div class="form-group col-md-6">
@@ -908,4 +911,30 @@
   updateFormInputs();
 </script>
 
-   
+   <!-- Other HTML content above -->
+
+<!-- Place your custom script just before the closing body tag -->
+<script>
+  // Get references to the select element and the div to show/hide
+  const castingDirectorSelect = document.getElementById('new_contactid');
+  const hiddenDiv = document.getElementById('hidden_divssss');
+
+  // Function to toggle the visibility of the hidden div based on the select value
+  function toggleHiddenDiv() {
+      if (castingDirectorSelect.value === "") {
+          // If the "--" option is selected, hide the div and clear any inputs within it
+          hiddenDiv.style.display = 'none';
+          Array.from(hiddenDiv.querySelectorAll('input, select')).forEach(input => input.value = "");
+      } else {
+          // If any other option is selected, show the div
+          hiddenDiv.style.display = 'block';
+      }
+  }
+
+  // Add the event listener to the select element
+  castingDirectorSelect.addEventListener('change', toggleHiddenDiv);
+
+  // Call the function on page load to ensure correct initial state
+  toggleHiddenDiv();
+</script>
+

@@ -189,10 +189,11 @@
                             </script>
 
                             <script>
-                              function showDivssss(divId, element) {
-    console.log("Selected value:", element.value); // Debugging line
+     function showDivssss(divId, element) {
+    console.log("Value: ", element.value, "Type: ", typeof element.value);  // Debugging line
     document.getElementById(divId).style.display = element.value == '0' ? 'block' : 'none';
 }
+
 
 
                             </script>

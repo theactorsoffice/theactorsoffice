@@ -42,11 +42,11 @@
             <div class="col-md-2 py-2">Add relationship:</div>
             <div class="col-md-3 py-2">
                 <div class="input-group">
-                    <select class="form-control" name="autocomplete_aud" id="autocomplete_aud">
+                    <select class="form-control" name="autocomplete_aud" id="autocomplete_audx">
                         <option value="">Select Contact...</option>
                         <!-- Loop through the audcontacts query to populate the select list -->
                         <cfloop query="audcontacts"><cfoutput>
-                            <option value="#contactid#">#contactname#</option></cfoutput>
+                            <option value="#contactname#">#contactname#</option></cfoutput>
                         </cfloop>
                     </select>
                     <div class="input-group-append">

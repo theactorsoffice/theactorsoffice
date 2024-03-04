@@ -38,19 +38,29 @@
         <input type="hidden" name="audprojectid" value="#audprojectid#">
     </cfoutput>
 
-    <div class="row">
-        <div class="col-md-2 py-2">Add relationship:</div>
-        <div class="col-md-3 py-2">
-            <div class="input-group">
-                <input type="text" class="form-control" name="autocomplete_aud" id="autocomplete_aud" placeholder="Search..." autocomplete="off">
-                <div class="input-group-append">
-                    <button id="mybtns" type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="height: 37.3889px">
-                        <i class="fe-plus"></i> Add 
-                    </button>
+        <div class="row">
+            <div class="col-md-2 py-2">Add relationship:</div>
+            <div class="col-md-3 py-2">
+                <div class="input-group">
+                    <select class="form-control" name="autocomplete_aud" id="autocomplete_aud">
+                        <option value="">Select Contact...</option>
+                        <!-- Loop through the audcontacts query to populate the select list -->
+                        <cfloop query="audcontacts">
+                            <option value="#contactid#">#contactname#</option>
+                        </cfloop>
+                    </select>
+                    <div class="input-group-append">
+                        <button id="mybtns" type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="height: 37.3889px">
+                            <i class="fe-plus"></i> Add 
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
+
+
 <cfif events_nobooking.recordcount gt 0>
 <cfset events_list_nobooking = valuelist(events_nobooking.eventid) />
 <cfelse>
@@ -64,29 +74,7 @@
 
 
 
-<script>
-$(document).ready(function() {
-    var submitButton = $('#mybtns'); // Cache submit button
-    submitButton.prop('disabled', true); // Initially disable submit button
 
-    // Assuming you're using jQuery UI Autocomplete
-    $('#autocomplete_aud').autocomplete({
-        source: /* your source here, e.g., ["Option 1", "Option 2"] or a function */,
-        select: function(event, ui) {
-            // This function runs when a user selects an option from the autocomplete suggestions
-            submitButton.prop('disabled', false); // Enable submit button
-        }
-    });
-
-    $('.app-search').on('submit', function(event) {
-        if (submitButton.prop('disabled')) {
-            // If the submit button is still disabled, it means no valid selection has been made
-            event.preventDefault(); // Prevent form submission
-            alert('Please select a valid contact from the autocomplete list.');
-        }
-    });
-});
-</script>
 
 
 

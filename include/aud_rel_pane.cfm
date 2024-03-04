@@ -46,8 +46,8 @@
                         <option value="">Select Contact...</option>
                         <!-- Loop through the audcontacts query to populate the select list -->
                         <cfloop query="audcontacts"><cfoutput>
-                            <option value="#contactid#">#contactname#</option>
-                        </cfloop></cfoutput>
+                            <option value="#contactid#">#contactname#</option></cfoutput>
+                        </cfloop>
                     </select>
                     <div class="input-group-append">
                         <button id="mybtns" type="submit" class="btn btn-xs btn-primary waves-effect mb-2 waves-light" style="height: 37.3889px">

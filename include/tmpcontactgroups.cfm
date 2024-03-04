@@ -2,7 +2,10 @@
  
 <cfparam name="idlist" default="0" />
 
- 
+ <cfif #idlist# is "0" and #session.idlist# is not "0">
+ <cfset idlist = session.idlist />
+
+ </cfif>
 
  <CFINCLUDE template="/include/remote_load.cfm" />
 
@@ -23,13 +26,11 @@ WHERE d.contactid IN (#idlist#)
 
 
 
-
    <Cfset currentStartDate=dateFormat(Now(),'yyyy-mm-dd') />
 
 
 <cfparam name="contact_expand" default="true" />
 
-<cfparam name="idlist" default="0" />
 
 <cfif #idlist# is "0">
     <Cfoutput>
@@ -330,7 +331,7 @@ WHERE d.contactid IN (#idlist#)
     <p>no_skipped: #no_skipped#<BR>no_deleted: #no_deleted#<BR>no_added: #no_added#</p>
     
     
-    
+ 
     </cfoutput>
 
 <cfset script_name_include="/include/#ListLast(GetCurrentTemplatePath(), " \")#" />

@@ -140,7 +140,7 @@
            action: function (e, node, config){
                 $('#exampleModal3').modal('show')
                 },
-                enabled: false
+                enabled: true
             },
                 
                     {

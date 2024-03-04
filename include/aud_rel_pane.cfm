@@ -55,16 +55,6 @@
 
 </form>
 
-<script>
- document.getElementById('mybtns').addEventListener('click', function(event) {
-        if (!validSelectionMade) {
-            event.preventDefault(); // Prevent form submission
-            alert('Please select a valid contact from the list.');
-        }
-    });
-</script>
-
-
 
 <div class="container-fluid">
     <div class="row box-row mb-3">

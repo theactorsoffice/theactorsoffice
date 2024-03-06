@@ -188,12 +188,9 @@
 
                             </script>
 
-                            <script>
-                                function showDivssss(divId, element) {
-                                    document.getElementById(divId).style.display = element.value == 0 ? 'block' : 'none';
-                                }
+                            
 
-                            </script>
+
 
                             <script>
                                 function showdirectbooking(divId, element) {
@@ -248,6 +245,25 @@
                             </select>
 
                         </div>
+
+                        <script>
+                       function showDivssss(divId, element) {
+    if (element.value === "0") {
+        // Show the div when the value is "0"
+        document.getElementById(divId).style.display = 'block';
+    } else {
+        // Hide the div for any other value, including the empty option
+        document.getElementById(divId).style.display = 'none';
+    }
+}
+
+                            </script>
+
+                            
+
+
+
+
 
                         <div id="hidden_divssss">
 

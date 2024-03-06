@@ -115,7 +115,6 @@
                         <h4>Do you need to cancel your #steps.audstep# status?</h4><BR>
                
 
-                        <p>Click the Cancel button below to cancel this status.</p>
 
                         <form action="/include/changestatus.cfm">
                             <input type="hidden" value="#audprojectid#" name="audprojectid" />

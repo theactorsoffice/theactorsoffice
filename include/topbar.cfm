@@ -218,18 +218,23 @@
 
 
 
-<cfquery datasource="#dsn#" name="FindFields">
+<cfquery datasource="#dsn#" name="FindPage">
     SELECT
     a.appname
+    ,p.allowdelete_yn
+    ,p.allowupdate_yn
+    ,p.allowadd_yn
+    ,p.allowdetails_yn
+    ,a.appAuthor
     ,c.compname
     ,p.pgname
-    ,f.fname
     ,a.appId
-    ,a.appName
     ,a.appDescription
     ,a.appLogoName
     ,a.colorTopBar
     ,a.colorLeftSideBar
+    ,a.mocktoday
+    ,a.mock_yn
     ,c.compid
     ,c.compDir
     ,c.compTable
@@ -250,21 +255,12 @@
     ,p.editable_YN
     ,p.newdatatables_YN
     ,p.pk
-    ,f.fieldid
-    ,f.pgid
-    ,f.ftype
-    ,f.ftypefull
-    ,f.update_yn
-    ,f.updatename
-    ,f.updatetype
-    ,f.fkey
-    ,f.num_min
-    ,f.num_max
+    ,p.update_type
     FROM pgpages p
     INNER JOIN pgcomps c ON c.compID = p.compID
     INNER JOIN pgapps a ON a.appID = c.appid
-    INNER join pgfields f on f.pgid = p.pgid
-    WHERE p.pgDir = '#trim(thispage)#'
+        WHERE p.pgDir = '#trim(thispage)#'
+        and p.isdef = 1
 </cfquery>
 
 <cfif #FindPage.RecordCount# is "1">

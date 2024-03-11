@@ -267,7 +267,7 @@
 
 
             
-<cfif #FindPage.comp_owner# is "A">
+<cfif #FindPage.compowner# is "A">
 
 
 <div class="col">

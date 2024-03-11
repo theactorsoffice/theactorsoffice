@@ -206,8 +206,61 @@
                             <span>User Community</span>
                         </a>
                     </div>
+
+                    <cfquery datasource="#dsn#" name="FindFields">
+    SELECT
+    a.appname
+    ,c.compname
+    ,p.pgname
+    ,f.fname
+    ,a.appId
+    ,a.appName
+    ,a.appDescription
+    ,a.appLogoName
+    ,a.colorTopBar
+    ,a.colorLeftSideBar
+    ,c.compid
+    ,c.compDir
+    ,c.compTable
+    ,c.compowner
+    ,c.compIcon
+    ,c.menuYN
+    ,c.menuOrder
+    ,c.compInner
+    ,c.compRecordName
+    ,c.compActive
+    ,p.pgid
+    ,p.pgDir
+    ,p.pgTitle
+    ,p.pgHeading
+    ,p.pgFilename
+    ,p.datatables_YN
+    ,p.fullcalendar_YN
+    ,p.editable_YN
+    ,p.newdatatables_YN
+    ,p.pk
+    ,f.fieldid
+    ,f.pgid
+    ,f.ftype
+    ,f.ftypefull
+    ,f.update_yn
+    ,f.updatename
+    ,f.updatetype
+    ,f.fkey
+    ,f.num_min
+    ,f.num_max
+    FROM pgpages p
+    INNER JOIN pgcomps c ON c.compID = p.compID
+    INNER JOIN pgapps a ON a.appID = c.appid
+    INNER join pgfields f on f.pgid = p.pgid
+    WHERE p.pgDir = '#trim(thispage)#'
+</cfquery>
+
+<cfif #FindPage.RecordCount# is "1">
+
+
             
-<cfif #comp_owner# is "A">
+<cfif #FindPage.comp_owner# is "A">
 
 
 <div class="col">
@@ -220,7 +273,7 @@
 
 </cfif>
 
-
+</cfif>
       
                  
                     <div class="col">

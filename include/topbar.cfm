@@ -207,7 +207,18 @@
                         </a>
                     </div>
 
-                    <cfquery datasource="#dsn#" name="FindFields">
+                        <cfset thisPath=ExpandPath("*.*") />
+
+    <cfset thisDirectory="#GetDirectoryFromPath(thisPath)#" />
+
+    <cfset thispage="#replace('#thisDirectory#','C:\home\theactorsoffice.com\wwwroot\#host#-subdomain#suffix#\app\','')#" />
+
+    <cfset thispage="#replace('#thispage#','\','')#" />
+
+
+
+
+<cfquery datasource="#dsn#" name="FindFields">
     SELECT
     a.appname
     ,c.compname

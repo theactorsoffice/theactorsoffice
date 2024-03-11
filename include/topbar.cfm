@@ -207,6 +207,18 @@
                         </a>
                     </div>
             
+<cfif #comp_owner# is "A">
+
+
+<div class="col">
+                        <a href="remoteSupportForm.cfm" data-bs-remote="true" data-bs-toggle="modal" data-bs-target="#remoteSupportForm" class="dropdown-icon-item">
+                            <img src="/assets/images/feedback.png?ver=3" alt="Feedback">
+                            <span>Feedback/Requests</span>
+                        </a>
+                    </div>
+
+
+</cfif>
 
 
       

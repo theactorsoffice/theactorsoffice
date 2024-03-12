@@ -11,7 +11,7 @@
     WHERE u.userid = #userid#
 </cfquery>
 
-<script src="/app/assets/js/jquery.chained.js?ver=1.4"></script>
+
 
 <cfquery name="FindUser" datasource="#dsn#">
     SELECT

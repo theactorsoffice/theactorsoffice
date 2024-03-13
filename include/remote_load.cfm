@@ -8,7 +8,7 @@
     <cfset suffix = "_1.5" />
     <cfset information_schema = "actorsbusinessoffice" />
     <cfelse>
-  <cfset dsn = "abod" />
+  <cfset dsn = "abo" />
 <cfset rev = rand() />
         <cfset suffix = "" />
         

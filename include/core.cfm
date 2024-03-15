@@ -118,7 +118,7 @@ body.authentication-bg {
 
 
 
-<cfif #isdefined('asddfdfs')#>
+<cfif NOT #isdefined('asddfdfs')#>
 <script type="text/javascript">
   var helpwiseSettings = {
     widget_id: '65958ef4eb602',
